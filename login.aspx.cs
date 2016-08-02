@@ -18,7 +18,8 @@ public partial class login : System.Web.UI.Page
 
         if (true == loginUser.userAuthentication(name, password))
         {
-            Response.Write("logedin");
+         //   Response.Write("logedin");
+            Response.Redirect("dashboard.aspx");
         }
         else
         {
