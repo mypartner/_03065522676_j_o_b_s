@@ -47,26 +47,33 @@ public class loginUser
 
 
     }
-    public static bool userAuthentication(string uname, string password)
+    public static int userAuthentication(string uname, string password)
     {
-        bool returnbool = false;
+
+        int returnid =0;
         try
         {
             DataClassesDataContext Database = new DataClassesDataContext();
 
             var q = (from a in Database.GetTable<user>()
-                    where a.username == uname && a.password==password
-                    select a.username).Count();
-           if (q.Equals(1)==true)
+                     where a.username == uname && a.password == password
+                     select new
+                     {
+                         a.username,
+                         a.id
+                     }).First();
+            int x = q.id;
+           if (x>0)
             {
-                returnbool = true;
+                returnid =q.id;
             }
+           
 
         }
         catch (Exception e)
         {
 
         }
-        return returnbool;
+        return returnid;
     }
 }

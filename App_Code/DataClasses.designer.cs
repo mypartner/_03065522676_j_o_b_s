@@ -32,6 +32,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void Insertuser(user instance);
   partial void Updateuser(user instance);
   partial void Deleteuser(user instance);
+  partial void Insertjob(job instance);
+  partial void Updatejob(job instance);
+  partial void Deletejob(job instance);
   #endregion
 	
 	public DataClassesDataContext() : 
@@ -69,6 +72,14 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<user>();
+		}
+	}
+	
+	public System.Data.Linq.Table<job> jobs
+	{
+		get
+		{
+			return this.GetTable<job>();
 		}
 	}
 }
@@ -446,6 +457,308 @@ public partial class user : INotifyPropertyChanging, INotifyPropertyChanged
 				this._password = value;
 				this.SendPropertyChanged("password");
 				this.OnpasswordChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.jobs")]
+public partial class job : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _id;
+	
+	private int _userId;
+	
+	private string _jobTitle;
+	
+	private string _description;
+	
+	private string _experience;
+	
+	private string _expectedSalary;
+	
+	private System.DateTime _date;
+	
+	private string _address;
+	
+	private string _type;
+	
+	private string _jobType;
+	
+	private string _salaryPeriod;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnuserIdChanging(int value);
+    partial void OnuserIdChanged();
+    partial void OnjobTitleChanging(string value);
+    partial void OnjobTitleChanged();
+    partial void OndescriptionChanging(string value);
+    partial void OndescriptionChanged();
+    partial void OnexperienceChanging(string value);
+    partial void OnexperienceChanged();
+    partial void OnexpectedSalaryChanging(string value);
+    partial void OnexpectedSalaryChanged();
+    partial void OndateChanging(System.DateTime value);
+    partial void OndateChanged();
+    partial void OnaddressChanging(string value);
+    partial void OnaddressChanged();
+    partial void OntypeChanging(string value);
+    partial void OntypeChanged();
+    partial void OnjobTypeChanging(string value);
+    partial void OnjobTypeChanged();
+    partial void OnsalaryPeriodChanging(string value);
+    partial void OnsalaryPeriodChanged();
+    #endregion
+	
+	public job()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int id
+	{
+		get
+		{
+			return this._id;
+		}
+		set
+		{
+			if ((this._id != value))
+			{
+				this.OnidChanging(value);
+				this.SendPropertyChanging();
+				this._id = value;
+				this.SendPropertyChanged("id");
+				this.OnidChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userId", DbType="Int NOT NULL")]
+	public int userId
+	{
+		get
+		{
+			return this._userId;
+		}
+		set
+		{
+			if ((this._userId != value))
+			{
+				this.OnuserIdChanging(value);
+				this.SendPropertyChanging();
+				this._userId = value;
+				this.SendPropertyChanged("userId");
+				this.OnuserIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobTitle", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string jobTitle
+	{
+		get
+		{
+			return this._jobTitle;
+		}
+		set
+		{
+			if ((this._jobTitle != value))
+			{
+				this.OnjobTitleChanging(value);
+				this.SendPropertyChanging();
+				this._jobTitle = value;
+				this.SendPropertyChanged("jobTitle");
+				this.OnjobTitleChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_description", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string description
+	{
+		get
+		{
+			return this._description;
+		}
+		set
+		{
+			if ((this._description != value))
+			{
+				this.OndescriptionChanging(value);
+				this.SendPropertyChanging();
+				this._description = value;
+				this.SendPropertyChanged("description");
+				this.OndescriptionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experience", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string experience
+	{
+		get
+		{
+			return this._experience;
+		}
+		set
+		{
+			if ((this._experience != value))
+			{
+				this.OnexperienceChanging(value);
+				this.SendPropertyChanging();
+				this._experience = value;
+				this.SendPropertyChanged("experience");
+				this.OnexperienceChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_expectedSalary", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string expectedSalary
+	{
+		get
+		{
+			return this._expectedSalary;
+		}
+		set
+		{
+			if ((this._expectedSalary != value))
+			{
+				this.OnexpectedSalaryChanging(value);
+				this.SendPropertyChanging();
+				this._expectedSalary = value;
+				this.SendPropertyChanged("expectedSalary");
+				this.OnexpectedSalaryChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date", DbType="DateTime NOT NULL")]
+	public System.DateTime date
+	{
+		get
+		{
+			return this._date;
+		}
+		set
+		{
+			if ((this._date != value))
+			{
+				this.OndateChanging(value);
+				this.SendPropertyChanging();
+				this._date = value;
+				this.SendPropertyChanged("date");
+				this.OndateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_address", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string address
+	{
+		get
+		{
+			return this._address;
+		}
+		set
+		{
+			if ((this._address != value))
+			{
+				this.OnaddressChanging(value);
+				this.SendPropertyChanging();
+				this._address = value;
+				this.SendPropertyChanged("address");
+				this.OnaddressChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_type", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string type
+	{
+		get
+		{
+			return this._type;
+		}
+		set
+		{
+			if ((this._type != value))
+			{
+				this.OntypeChanging(value);
+				this.SendPropertyChanging();
+				this._type = value;
+				this.SendPropertyChanged("type");
+				this.OntypeChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobType", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string jobType
+	{
+		get
+		{
+			return this._jobType;
+		}
+		set
+		{
+			if ((this._jobType != value))
+			{
+				this.OnjobTypeChanging(value);
+				this.SendPropertyChanging();
+				this._jobType = value;
+				this.SendPropertyChanged("jobType");
+				this.OnjobTypeChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_salaryPeriod", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string salaryPeriod
+	{
+		get
+		{
+			return this._salaryPeriod;
+		}
+		set
+		{
+			if ((this._salaryPeriod != value))
+			{
+				this.OnsalaryPeriodChanging(value);
+				this.SendPropertyChanging();
+				this._salaryPeriod = value;
+				this.SendPropertyChanged("salaryPeriod");
+				this.OnsalaryPeriodChanged();
 			}
 		}
 	}

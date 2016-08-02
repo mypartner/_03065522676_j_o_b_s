@@ -15,10 +15,11 @@ public partial class login : System.Web.UI.Page
     {
         string name = Request.Form["username"];
         string password = Request.Form["password"].ToString();
-
-        if (true == loginUser.userAuthentication(name, password))
+        int id = loginUser.userAuthentication(name, password);
+        if (0 != id)
         {
-            Response.Write("logedin");
+            HttpContext.Current.Session["loginId"] = id;
+            Response.Redirect("/postAd.aspx");
         }
         else
         {

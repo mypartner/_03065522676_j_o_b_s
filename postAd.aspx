@@ -5,7 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="banner_1"></div>
     <div class="container">
-    <div class="single">  
+    <div class="single">
+   
 	   <div class="form-container">
         <h2>Publish your Job !</h2>
            <div class="row">
@@ -62,6 +63,14 @@
                 <label class="col-md-3 control-lable" for="description">Description</label>
                 <div class="col-md-9 sm_1">
                    <textarea cols="77" rows="6" value="" name="description" onfocus="this.value='';" onblur="if (this.value == '') {this.value = '';}"> </textarea>
+                </div>
+            </div>
+        </div>
+            <div class="row">
+            <div class="form-group col-md-12">
+                <label class="col-md-3 control-lable" for="description"></label>
+                <div class="col-md-9 sm_1">
+                  <input type="submit"  value="Save" />
                 </div>
             </div>
         </div>
