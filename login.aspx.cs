@@ -19,7 +19,8 @@ public partial class login : System.Web.UI.Page
         if (0 != id)
         {
             HttpContext.Current.Session["loginId"] = id;
-            Response.Redirect("/postAd.aspx");
+           // Response.Redirect("/postAd.aspx");
+            Response.Redirect("dashboard.aspx");
         }
         else
         {
