@@ -51,7 +51,8 @@
                      <div class="forgot">
 						
 				 		  <div class="login-para">
-				 			<p><a href="#"> Forgot Password? </a></p>
+                               <p><a href="#"> <u>Sign up</u> </a>  
+				 			<a href="#"> <u>Forgot Password?</u> </a></p>
 				 		 </div>
 					     <div class="clearfix"> </div>
 			        </div>

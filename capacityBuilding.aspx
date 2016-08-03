@@ -1,15 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/siteMasterPage.master" AutoEventWireup="true" CodeFile="services.aspx.cs" Inherits="services" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="capacityBuilding.aspx.cs" Inherits="capacityBuilding" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-        <div class="banner_1"></div>	
+         <div class="banner_1"></div>	
 <div class="container">
     <div class="single">  
        <div class="box_1">
-       	<h3>Services</h3>
+       	<h3>Capacity Building</h3>
         <div class="col-md-5">
-        	<img src="images/services.jpg" class="img-responsive" alt=""/>
+        	<img src="images/capacity.jpg" class="img-responsive" alt=""/>
         </div>
         <div class="col-md-7 service_box1">
             <h5>Description</h5>
@@ -20,7 +20,5 @@
         </div>
     </div>
         <div class="clearfix"> </div>
-       
-  
 </asp:Content>
 

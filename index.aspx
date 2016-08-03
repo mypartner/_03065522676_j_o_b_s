@@ -32,13 +32,13 @@
                     </div>
                         <div class="col-md-6 capacity">
                         <div class="div_transparncy">
-                            <button type="button" class="btn btn-success btn_transparent" onclick="location.href='services.aspx';">Capacity Building</button>
+                            <button type="button" class="btn btn-success btn_transparent" onclick="location.href='services.aspx';">Procurement</button>
                         </div>
                     </div>
 
                     <div class="col-md-6 procurment" >
                         <div class="div_transparncy">
-                            <button type="button" class="btn btn-success btn_transparent" onclick="location.href='services.aspx';">Procurment</button>
+                            <button type="button" class="btn btn-success btn_transparent" onclick="location.href='services.aspx';">Capacity Building</button>
                         </div>
                     </div>
                      
