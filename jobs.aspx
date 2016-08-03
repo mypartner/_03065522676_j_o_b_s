@@ -1,117 +1,501 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/siteMasterPage.master" AutoEventWireup="true" CodeFile="jobs.aspx.cs" Inherits="jobs" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- 
-    <div class="banner_1">
-        </div>
-      <div class="container">
+ <div class="banner_1"></div>
+   <div class="container">
     <div class="single">  
-	   <div class="col-md-4">
-	   	  <div class="col_3">
-	   	  	<h3>Todays Jobs</h3>
-	   	  	<ul class="list_1">
-	   	  		<li><a href="#">Department of Health - Western Australia</a></li>
-	   	  		<li><a href="#">Australian Nursing Agency currently require experiences</a></li>		
-	   	  		<li><a href="#">Russia Nursing Agency currently require experiences</a></li>
-	   						
-	   	  	</ul>
-	   	  </div>
-	   	  <div class="col_3">
-	   	  	<h3>Jobs by Category</h3>
-	   	  	<ul class="list_2">
-	   	  		<li><a href="#">Railway Recruitment</a></li>
-	   	  		<li><a href="#">Air Force Jobs</a></li>		
-	   	  		<li><a href="#">Police Jobs</a></li>
-	   	  							
-	   	  	</ul>
-	   	  </div>
-           </div>
-  <div class="col-md-8 single_right">
+	   <div class="col-md-9 single_right">
 	      <div class="but_list">
 	       <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 			<ul id="myTab" class="nav nav-tabs" role="tablist">
-			  <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Available Jobs</a></li>
+			  <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Available jobs</a></li>
 			  <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Show Descriptions</a></li>
-			</ul>
+		   </ul>
 		<div id="myTabContent" class="tab-content">
 		  <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
 		    <div class="tab_grid">
-			    <div class="col-sm-3 loc_1">
-			    	<a href="location_single.html"><img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTRlZmNkYWRhYjQgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNGVmY2RhZGFiNCI+PHJlY3Qgd2lkdGg9IjE3MSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI2MSIgeT0iOTQuNSI+MTcxeDE4MDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="height: 140px; width: 100%; display: block;"></a>
-			    </div>
-			    <div class="col-sm-9">
-			       <div class="location_box1">
-			    	 <h6><a href="location_single.html">IT Recruiter </a><span class="m_1">Posted 5 hours ago</span></h6>
-			    	 <p><span class="m_2">Description : </span>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure</p>
-			    	 <ul class="links_bottom">
-			  			<li><a href="viewDescription.aspx"><i class="fa fa-eye icon_1"> </i><span class="icon_text">View full Job Description</span></a></li>
-					 </ul>
-				   </div>
-			    </div>
-		 	    <div class="clearfix"> </div>
+			    <div class="jobs-item with-thumb">
+				    <div class="thumb"><a href="jobs_single.html"><img src="images/a2.jpg" class="img-responsive" alt=""/></a></div>
+				    <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
 			 </div>
 			 <div class="tab_grid">
-			    <div class="col-sm-3 loc_1">
-			    	<a href="viewDescription.aspx"><img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTRlZmNkYWRhYjQgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNGVmY2RhZGFiNCI+PHJlY3Qgd2lkdGg9IjE3MSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI2MSIgeT0iOTQuNSI+MTcxeDE4MDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="height: 140px; width: 100%; display: block;"></a>
-			    </div>
-			    <div class="col-sm-9">
-			       <div class="location_box1">
-			    	 <h6><a href="location_single.html">who are so </a><span class="m_1">Posted 5 hours ago</span></h6>
-			    	 <p><span class="m_2">Description : </span>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure</p>
-			    	 <ul class="links_bottom">
-			  			<li><a href="viewDescription.aspx"><i class="fa fa-eye icon_1"> </i><span class="icon_text">View full Job Description</span></a></li>
-					 </ul>
-				   </div>
-			    </div>
-			    <div class="clearfix"> </div>
+			    <div class="jobs-item with-thumb">
+				    <div class="thumb"><a href="jobs_single.html"><img src="images/a1.jpg" class="img-responsive" alt=""/></a></div>
+				    <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
 			 </div>
-			 
-			   
+			 <div class="tab_grid">
+			    <div class="jobs-item with-thumb">
+				    <div class="thumb"><a href="jobs_single.html"><img src="images/a3.jpg" class="img-responsive" alt=""/></a></div>
+				    <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
+			 </div>
+			 <div class="tab_grid">
+			    <div class="jobs-item with-thumb">
+				    <div class="thumb"><a href="jobs_single.html"><img src="images/a4.jpg" class="img-responsive" alt=""/></a></div>
+				    <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
+			 </div>
+			 <div class="tab_grid">
+			    <div class="jobs-item with-thumb">
+				    <div class="thumb"><a href="jobs_single.html"><img src="images/a5.jpg" class="img-responsive" alt=""/></a></div>
+				    <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
+			 </div>
+			 <div class="tab_grid">
+			    <div class="jobs-item with-thumb">
+				    <div class="thumb"><a href="jobs_single.html"><img src="images/a6.jpg" class="img-responsive" alt=""/></a></div>
+				    <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
+			 </div>
+			 <div class="tab_grid">
+			    <div class="jobs-item with-thumb">
+				    <div class="thumb"><a href="jobs_single.html"><img src="images/a1.jpg" class="img-responsive" alt=""/></a></div>
+				    <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
+			 </div>
+			 <div class="tab_grid">
+			    <div class="jobs-item with-thumb">
+				    <div class="thumb"><a href="jobs_single.html"><img src="images/a3.jpg" class="img-responsive" alt=""/></a></div>
+				    <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
+			 </div>
 		  </div>
 		  <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
 		    <div class="tab_grid">
-			    <div class="col-sm-3 loc_1">
-			    	<a href="location_single.html"><img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTRlZmNkYWRhYjQgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNGVmY2RhZGFiNCI+PHJlY3Qgd2lkdGg9IjE3MSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI2MSIgeT0iOTQuNSI+MTcxeDE4MDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="height: 140px; width: 100%; display: block;"></a>
-			    </div>
-			    <div class="col-sm-9">
-			       <div class="location_box1">
-			    	 <h6><a href="location_single.html">dolor repellendus </a><span class="m_1">Posted 5 hours ago</span></h6>
-			    	 <p><span class="m_2">Description : </span>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure</p>
-			    	 <ul class="links_bottom">
-			  			<li><a href="location_single.html"><i class="fa fa-eye icon_1"> </i><span class="icon_text">View full Job Description</span></a></li>
-					 </ul>
-				   </div>
-			    </div>
-			    <div class="clearfix"> </div>
+			    <div class="jobs-item with-thumb">
+				   <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
 			 </div>
 			 <div class="tab_grid">
-			    <div class="col-sm-3 loc_1">
-			    	<a href="location_single.html"><img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTcxIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE3MSAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTRlZmNkYWRhYjQgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNGVmY2RhZGFiNCI+PHJlY3Qgd2lkdGg9IjE3MSIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI2MSIgeT0iOTQuNSI+MTcxeDE4MDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="height: 140px; width: 100%; display: block;"></a>
-			    </div>
-			    <div class="col-sm-9">
-			       <div class="location_box1">
-			    	 <h6><a href="location_single.html"> These cases </a><span class="m_1">Posted 5 hours ago</span></h6>
-			    	 <p><span class="m_2">Description : </span>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure</p>
-			    	 <ul class="links_bottom">
-			  			<li><a href="location_single.html"><i class="fa fa-eye icon_1"> </i><span class="icon_text">View full Job Description</span></a></li>
-					 </ul>
-                       <asp:Button ID="Button1" runat="server" Text="Button" />
-				   </div>
-			    </div>
-			    <div class="clearfix"> </div>
+			    <div class="jobs-item with-thumb">
+				   <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
 			 </div>
-			 
-		
+			 <div class="tab_grid">
+			    <div class="jobs-item with-thumb">
+				   <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
 			 </div>
-		  
+			 <div class="tab_grid">
+			    <div class="jobs-item with-thumb">
+				   <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
+			 </div>
+			 <div class="tab_grid">
+			    <div class="jobs-item with-thumb">
+				   <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
+			 </div>
+			 <div class="tab_grid">
+			    <div class="jobs-item with-thumb">
+				   <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
+			 </div>
+			 <div class="tab_grid">
+			    <div class="jobs-item with-thumb">
+				   <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
+			 </div>
+			 <div class="tab_grid">
+			    <div class="jobs-item with-thumb">
+				   <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
+			 </div>
+			 <div class="tab_grid">
+			    <div class="jobs-item with-thumb">
+				   <div class="jobs_right">
+						<div class="date">30 <span>Jul</span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
+						  <span class="meta">Envato, Sydney, AU</span>
+						</div>
+						<div class="clearfix"> </div>
+                        <ul class="top-btns">
+							<li><a href="#" class="fa fa-plus toggle"></a></li>
+							<li><a href="#" class="fa fa-star"></a></li>
+							<li><a href="#" class="fa fa-link"></a></li>
+						</ul>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+                    </div>
+					<div class="clearfix"> </div>
+				</div>
+			 </div>
+		  </div>
 	  </div>
      </div>
     </div>
+    <ul class="pagination jobs_pagination">
+		<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+		<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+		<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+	</ul>
    </div>
+   <div class="col-md-3">
+	   	  <div class="widget_search">
+			<h5 class="widget-title">Search</h5>
+			<div class="widget-content">
+				<span>I'm looking for a ...</span>
+                <select class="form-control jb_1">
+					<option value="0">Job</option>
+					<option value="">Category</option>
+					<option value="">Category</option>
+					<option value="">Category</option>
+					<option value="">Category</option>
+				</select>
+                <span>in</span>
+                <input type="text" class="form-control jb_2" placeholder="Location">
+                <input type="text" class="form-control jb_2" placeholder="Industry / Role">
+                <input type="submit" class="btn btn-default" value="Search">
+			</div>
+		  </div>
+	   	  <div class="col_3">
+	   	  	<h3>Work Experiance</h3>
+	   	  	  <table class="table">
+                    <tbody>
+                        <tr class="unread checked">
+                            <td class="hidden-xs">
+                                <input type="checkbox" class="checkbox">
+                            </td>
+                            <td class="hidden-xs">
+                                Junior
+                            </td>
+                            <td>
+                                (56)
+                            </td>
+                        </tr>
+                        <tr class="unread checked">
+                            <td class="hidden-xs">
+                                <input type="checkbox" class="checkbox">
+                            </td>
+                            <td class="hidden-xs">
+                                Senior
+                            </td>
+                            <td>
+                                (56)
+                            </td>
+                        </tr>
+                        <tr class="unread checked">
+                            <td class="hidden-xs">
+                                <input type="checkbox" class="checkbox">
+                            </td>
+                            <td class="hidden-xs">
+                                Middle
+                            </td>
+                            <td>
+                                (56)
+                            </td>
+                        </tr>
+                        <tr class="unread checked">
+                            <td class="hidden-xs">
+                                <input type="checkbox" class="checkbox">
+                            </td>
+                            <td class="hidden-xs">
+                                Junior
+                            </td>
+                            <td>
+                                (56)
+                            </td>
+                        </tr>
+                        <tr class="unread checked">
+                            <td class="hidden-xs">
+                                <input type="checkbox" class="checkbox">
+                            </td>
+                            <td class="hidden-xs">
+                                Junior
+                            </td>
+                            <td>
+                                (56)
+                            </td>
+                        </tr>
+                        <tr class="unread checked">
+                            <td class="hidden-xs">
+                                <input type="checkbox" class="checkbox">
+                            </td>
+                            <td class="hidden-xs">
+                                Junior
+                            </td>
+                            <td>
+                                (56)
+                            </td>
+                        </tr>
+                        <tr class="unread checked">
+                            <td class="hidden-xs">
+                                <input type="checkbox" class="checkbox">
+                            </td>
+                            <td class="hidden-xs">
+                                Junior
+                            </td>
+                            <td>
+                                (56)
+                            </td>
+                        </tr>
+                        <tr class="unread checked">
+                            <td class="hidden-xs">
+                                <input type="checkbox" class="checkbox">
+                            </td>
+                            <td class="hidden-xs">
+                                Junior
+                            </td>
+                            <td>
+                                (56)
+                            </td>
+                        </tr>
+                        <tr class="unread checked">
+                            <td class="hidden-xs">
+                                <input type="checkbox" class="checkbox">
+                            </td>
+                            <td class="hidden-xs">
+                                Junior
+                            </td>
+                            <td>
+                                (56)
+                            </td>
+                        </tr>
+                </tbody>
+             </table>
+	   	  </div>
+	   	  <div class="col_3">
+	   	  	<h3>Work Permit</h3>
+	   	  	<table class="table">
+                    <tbody>
+                        <tr class="unread checked">
+                            <td class="hidden-xs">
+                                <input type="checkbox" class="checkbox">
+                            </td>
+                            <td class="hidden-xs">
+                                Full time
+                            </td>
+                        </tr>
+                        <tr class="unread checked">
+                            <td class="hidden-xs">
+                                <input type="checkbox" class="checkbox">
+                            </td>
+                            <td class="hidden-xs">
+                                Parttime
+                            </td>
+                        </tr>
+                    </tbody>
+             </table>
+	   	  </div>
+	   </div>
   <div class="clearfix"> </div>
-        </div></div>
+ </div>
+</div>
+        
  
 </asp:Content>
 

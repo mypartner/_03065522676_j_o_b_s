@@ -39,6 +39,9 @@
 	        <ul class="nav navbar-nav">
 		        <li><a href="index.aspx">Home</a></li>
 		        <li><a href="jobs.aspx">Jobs</a></li>
+                <li><a href="resume.html">Contact us</a></li>
+  		        
+
 		          <li class="dropdown">
 		        	<a href="services.aspx"  class="dropdown-toggle" data-toggle="dropdown">Service<b class="caret"></b></a>
 		            <ul class="dropdown-menu">
@@ -49,8 +52,8 @@
 
 		            </ul>
 		        </li>
-		        <li><a href="resume.html">Contact us</a></li>
-  		        <li><a href="login.aspx">Log in</a></li>
+		        <li><a href="login.aspx">Log in</a></li>
+                <li><a href="register.aspx">Sign up</a></li>
 
 	        </ul>
 	    </div>
@@ -60,18 +63,20 @@
 	  </div>
 	    <!--/.navbar-collapse-->
 	</nav>    
+     <form runat="server" >
     <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
+         </form>
     <div class="footer">
 	<div class="container">
 		<div class="col-md-8 grid_3">
 					              <h4>GET YOUR UPDATES STRAIGHT IN YOUR INBOX !</h4>	
 
-            <form >
+           
                     <input type="text" class="textbox_email" placeholder="Email Address"/>
                  <button type="button" class="btn btn-2">Submit</button>
-</form>
+
 		</div>
 		<div class="clearfix"> </div>
 	</div>
