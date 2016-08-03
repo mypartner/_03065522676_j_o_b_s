@@ -28,7 +28,7 @@
 							<li><a href="#" class="fa fa-star"></a></li>
 							<li><a href="#" class="fa fa-link"></a></li>
 						</ul>
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="jobs_single.html" class="read-more">Read More</a></p>
+						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="viewDescription.aspx" class="read-more">Read More</a></p>
                     </div>
 					<div class="clearfix"> </div>
 				</div>
