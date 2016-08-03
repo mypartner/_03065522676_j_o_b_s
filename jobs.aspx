@@ -25,8 +25,7 @@
 						<div class="clearfix"> </div>
                         <ul class="top-btns">
 							<li><a href="#" class="fa fa-plus toggle"></a></li>
-							<li><a href="#" class="fa fa-star"></a></li>
-							<li><a href="#" class="fa fa-link"></a></li>
+							
 						</ul>
 						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="viewDescription.aspx" class="read-more">Read More</a></p>
                     </div>
