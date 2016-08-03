@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Linq;
 using System.Linq;
 using System.Web;
@@ -15,11 +16,11 @@ public class clientJob
         // TODO: Add constructor logic here
         //
     }
-    static public dynamic gettodayjobs()
+    static public IQueryable<job> gettodayjobs()
     {
         DataClassesDataContext database = new DataClassesDataContext();
-        var jobs = (from x in database.GetTable<job>()
-                    where x.date.Date == DateTime.Now.Date
+        IQueryable<job> jobs = (from x in database.jobs
+                   // where x.date.Date == DateTime.Now.Date
                     select x);
         return jobs;
     }
