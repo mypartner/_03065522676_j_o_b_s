@@ -66,6 +66,28 @@
         <div class="col-md-12 paddzero">
             <div class="col_3">
                 <h3>
+                    Featured Jobs
+                </h3>
+
+
+                <div class="col_1">
+                    <div class="col-sm-4 row_2">
+                        <img src="images/a1.jpg" class="img-responsive" alt="" />
+                    </div>
+                    <div class="col-sm-4 row_2">
+                        <img src="images/a1.jpg" class="img-responsive" alt="" />
+                    </div>
+                    <div class="col-sm-4 row_2">
+                        <img src="images/a1.jpg" class="img-responsive" alt="" />
+                    </div>
+
+                    <div class="clearfix"> </div>
+                </div>
+               
+            <div class="clearfix"> </div>
+        </div>
+            <div class="col_3">
+                <h3>
                     Featured Projects
                 </h3>
 
@@ -83,19 +105,7 @@
 
                     <div class="clearfix"> </div>
                 </div>
-                <div class="col_1">
-                    <div class="col-sm-4 row_2">
-                        <img src="images/a1.jpg" class="img-responsive" alt="" />
-                    </div>
-                    <div class="col-sm-4 row_2">
-                        <img src="images/a1.jpg" class="img-responsive" alt="" />
-                    </div>
-                    <div class="col-sm-4 row_2">
-                        <img src="images/a1.jpg" class="img-responsive" alt="" />
-                    </div>
-
-                    <div class="clearfix"> </div>
-                </div>
+               
             <div class="clearfix"> </div>
         </div>
 	   </div>

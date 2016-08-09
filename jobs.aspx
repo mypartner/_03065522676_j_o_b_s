@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/siteMasterPage.master" AutoEventWireup="true" CodeFile="jobs.aspx.cs" Inherits="jobs" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/jobseekermaster.master" AutoEventWireup="true" CodeFile="jobs.aspx.cs" Inherits="jobs" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -14,24 +14,28 @@
 		   </ul>
 		<div id="myTabContent" class="tab-content">
 		  <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+              <% 
+                  IQueryable<job> jobss= clientJob.gettodayjobs();
+                  foreach (job j in jobss)
+                  {%>
 		    <div class="tab_grid">''
 			    <div class="jobs-item with-thumb">
 				    <div class="thumb"><a href="jobs_single.html"><img src="images/a2.jpg" class="img-responsive" alt=""/></a></div>
 				    <div class="jobs_right">
-						<div class="date">1 <span>April</span></div>
-						<div class="date_desc"><h6 class="title"><a href="jobs_single.html">Front-end Developer</a></h6>
-						  <span class="meta">Envato, Sydney, AU</span>
+						<div class="date"><%=j.date.Day.ToString()%><span><%=j.date.ToString("MMMM") %></span></div>
+						<div class="date_desc"><h6 class="title"><a href="jobs_single.html"><%=j.jobTitle %></a></h6>
+						  <span class="meta"><%=j.address %></span>
 						</div>
 						<div class="clearfix"> </div>
                         <ul class="top-btns">
 							<li><a href="#" class="fa fa-plus toggle"></a></li>
 							
 						</ul>
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, maxime, excepturi, mollitia, voluptatibus similique aliquid a dolores autem laudantium sapiente ad enim ipsa modi laborum accusantium deleniti neque architecto vitae. <a href="viewDescription.aspx" class="read-more">Read More</a></p>
+						<p class="description">Description:<%=j.description %> <a href="viewDescription.aspx?id=<%=j.id%>" class="read-more">Read More</a></p>
                     </div>
 					<div class="clearfix"> </div>
 				</div>
-			'' </div>
+		      </div><%} %>
 		  </div>
 	  </div>
      </div>

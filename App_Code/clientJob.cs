@@ -24,6 +24,14 @@ public class clientJob
                     select x);
         return jobs;
     }
+    static public IQueryable<job> getJobByid(int id)
+    {
+        DataClassesDataContext database = new DataClassesDataContext();
+        IQueryable<job> jobs = (from x in database.jobs
+                                    where x.id == id
+                                select x);
+        return jobs;
+    }
     static public void addJob()
     {
         DataClassesDataContext Database = new DataClassesDataContext();

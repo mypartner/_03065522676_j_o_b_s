@@ -9,6 +9,6 @@ public partial class viewDescription : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        string v = Request.QueryString["id"];
     }
 }

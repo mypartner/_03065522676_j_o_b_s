@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/siteMasterPage.master" AutoEventWireup="true" CodeFile="viewDescription.aspx.cs" Inherits="viewDescription" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/jobseekermaster.master" AutoEventWireup="true" CodeFile="viewDescription.aspx.cs" Inherits="viewDescription" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -20,10 +20,16 @@
 <div class="container">
     <div class="single">  
 	   <div class="col-md-9 single_right">
+           <%
+               IQueryable<job> jobss= clientJob.getJobByid(int.Parse(Request.QueryString["id"]));
+               foreach (job j in jobss)
+               { %>
+             
            <h3>Job Description</h3>
-	       <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-	       <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-	       
+	       <p><%=j.description %></p>
+	       <br />
+                <asp:Button ID="Button1" runat="server" Text="Apply job" class="btn btn-warning "/>
+           
 	      
 	      
        
@@ -44,13 +50,13 @@
 				</tr>
 
 				<tr>
-					<td>Location</td>
-					<td>Australia</td>
+					<td>Resident </td>
+					<td><%=j.address %></td>
 				</tr>
 
 				<tr>
-					<td>Experiance</td>
-					<td>10 Years</td>
+					<td>Min experiance</td>
+					<td><%=j.experience %></td>
 				</tr>
 
 				<tr>
@@ -64,8 +70,8 @@
 				</tr>
 
 				<tr>
-					<td>Phone</td>
-					<td>(800) 2547-879</td>
+					<td>Minium degree level</td>
+					<td>Bechlors</td>
 				</tr>
 
 				<tr>
@@ -75,7 +81,7 @@
 
 				<tr>
 					<td>E-mail</td>
-					<td><a href="mailto:example@example.com">example@example.com</a></td>
+					<td></td>
 				</tr>
 
 				<tr>
@@ -84,7 +90,7 @@
 				</tr>
 			</tbody>
 		 </table>
-       </div>
+       </div><%} %>
        <div class="clearfix"> </div>
     </div>
 </div>    

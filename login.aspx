@@ -17,16 +17,6 @@
 	   						
 	   	  	</ul>
 	   	  </div>
-	   	  <div class="col_3">
-	   	  	<h3>Jobs by Category</h3>
-	   	  	<ul class="list_2">
-	   	  		<li><a href="#">Railway Recruitment</a></li>
-	   	  		<li><a href="#">Air Force Jobs</a></li>		
-	   	  		<li><a href="#">Police Jobs</a></li>
-	   	  							
-	   	  	</ul>
-	   	  </div>
-
 	 </div>
 	 <div class="col-md-8 single_right">
 	 	   <div class="login-form-section">
@@ -45,6 +35,22 @@
                             <div class="input-group">
                                 <span class="input-group-addon "><i class="fa fa-key"></i></span>
                                 <input type="password" required="required" name="password" class="form-control " placeholder="Password"/>
+                            </div>
+                        </div>
+                     <div class="textbox-wrap">
+                            <div class="input-group">
+                                 <label class="btn btn-warning active">
+                                             Please select Login Type
+                                          </label>
+                               <div class="btn-group" data-toggle="buttons">
+                                         
+                                          <label class="btn btn-default">
+                                            <input type="radio" name="logintype" id="JobFinder" autocomplete="off">Job Seeker
+                                          </label>
+                                          <label class="btn btn-default">
+                                            <input type="radio" name="logintype" id="recruiter" autocomplete="off"> Recruiter
+                                          </label>
+                            </div>
                             </div>
                         </div>
                     
