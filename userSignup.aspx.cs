@@ -43,19 +43,4 @@ public partial class userSignup : System.Web.UI.Page
         return imgbytes;
     }
 
-    public static byte[] fileToByteArray(HttpPostedFile file)
-    {
-        byte[] data;
-        using (Stream inputStream = file.InputStream)
-        {
-            MemoryStream memoryStream = inputStream as MemoryStream;
-            if (memoryStream == null)
-            {
-                memoryStream = new MemoryStream();
-                inputStream.CopyTo(memoryStream);
-            }
-            data = memoryStream.ToArray();
-        }
-        return data;
-    }
 }

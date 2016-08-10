@@ -32,6 +32,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertjobSeeker(jobSeeker instance);
   partial void UpdatejobSeeker(jobSeeker instance);
   partial void DeletejobSeeker(jobSeeker instance);
+  partial void Insertrecruiter(recruiter instance);
+  partial void Updaterecruiter(recruiter instance);
+  partial void Deleterecruiter(recruiter instance);
   #endregion
 	
 	public DataClassesDataContext() : 
@@ -69,6 +72,14 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<jobSeeker>();
+		}
+	}
+	
+	public System.Data.Linq.Table<recruiter> recruiters
+	{
+		get
+		{
+			return this.GetTable<recruiter>();
 		}
 	}
 }
@@ -202,7 +213,7 @@ public partial class jobSeeker : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cv", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cv", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary cv
 	{
 		get
@@ -382,7 +393,7 @@ public partial class jobSeeker : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary image
 	{
 		get
@@ -398,6 +409,356 @@ public partial class jobSeeker : INotifyPropertyChanging, INotifyPropertyChanged
 				this._image = value;
 				this.SendPropertyChanged("image");
 				this.OnimageChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.recruiter")]
+public partial class recruiter : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _Id;
+	
+	private string _companyName;
+	
+	private System.DateTime _yearOfEstablishment;
+	
+	private string _briefProfile;
+	
+	private string _contactPerson;
+	
+	private string _phone;
+	
+	private string _fax;
+	
+	private string _email;
+	
+	private string _website;
+	
+	private string _emailVerification;
+	
+	private string _userName;
+	
+	private string _password;
+	
+	private System.Data.Linq.Binary _logo;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OncompanyNameChanging(string value);
+    partial void OncompanyNameChanged();
+    partial void OnyearOfEstablishmentChanging(System.DateTime value);
+    partial void OnyearOfEstablishmentChanged();
+    partial void OnbriefProfileChanging(string value);
+    partial void OnbriefProfileChanged();
+    partial void OncontactPersonChanging(string value);
+    partial void OncontactPersonChanged();
+    partial void OnphoneChanging(string value);
+    partial void OnphoneChanged();
+    partial void OnfaxChanging(string value);
+    partial void OnfaxChanged();
+    partial void OnemailChanging(string value);
+    partial void OnemailChanged();
+    partial void OnwebsiteChanging(string value);
+    partial void OnwebsiteChanged();
+    partial void OnemailVerificationChanging(string value);
+    partial void OnemailVerificationChanged();
+    partial void OnuserNameChanging(string value);
+    partial void OnuserNameChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    partial void OnlogoChanging(System.Data.Linq.Binary value);
+    partial void OnlogoChanged();
+    #endregion
+	
+	public recruiter()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int Id
+	{
+		get
+		{
+			return this._Id;
+		}
+		set
+		{
+			if ((this._Id != value))
+			{
+				this.OnIdChanging(value);
+				this.SendPropertyChanging();
+				this._Id = value;
+				this.SendPropertyChanged("Id");
+				this.OnIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_companyName", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+	public string companyName
+	{
+		get
+		{
+			return this._companyName;
+		}
+		set
+		{
+			if ((this._companyName != value))
+			{
+				this.OncompanyNameChanging(value);
+				this.SendPropertyChanging();
+				this._companyName = value;
+				this.SendPropertyChanged("companyName");
+				this.OncompanyNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_yearOfEstablishment", DbType="DateTime NOT NULL")]
+	public System.DateTime yearOfEstablishment
+	{
+		get
+		{
+			return this._yearOfEstablishment;
+		}
+		set
+		{
+			if ((this._yearOfEstablishment != value))
+			{
+				this.OnyearOfEstablishmentChanging(value);
+				this.SendPropertyChanging();
+				this._yearOfEstablishment = value;
+				this.SendPropertyChanged("yearOfEstablishment");
+				this.OnyearOfEstablishmentChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_briefProfile", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string briefProfile
+	{
+		get
+		{
+			return this._briefProfile;
+		}
+		set
+		{
+			if ((this._briefProfile != value))
+			{
+				this.OnbriefProfileChanging(value);
+				this.SendPropertyChanging();
+				this._briefProfile = value;
+				this.SendPropertyChanged("briefProfile");
+				this.OnbriefProfileChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contactPerson", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+	public string contactPerson
+	{
+		get
+		{
+			return this._contactPerson;
+		}
+		set
+		{
+			if ((this._contactPerson != value))
+			{
+				this.OncontactPersonChanging(value);
+				this.SendPropertyChanging();
+				this._contactPerson = value;
+				this.SendPropertyChanged("contactPerson");
+				this.OncontactPersonChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+	public string phone
+	{
+		get
+		{
+			return this._phone;
+		}
+		set
+		{
+			if ((this._phone != value))
+			{
+				this.OnphoneChanging(value);
+				this.SendPropertyChanging();
+				this._phone = value;
+				this.SendPropertyChanged("phone");
+				this.OnphoneChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fax", DbType="NVarChar(20)")]
+	public string fax
+	{
+		get
+		{
+			return this._fax;
+		}
+		set
+		{
+			if ((this._fax != value))
+			{
+				this.OnfaxChanging(value);
+				this.SendPropertyChanging();
+				this._fax = value;
+				this.SendPropertyChanged("fax");
+				this.OnfaxChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+	public string email
+	{
+		get
+		{
+			return this._email;
+		}
+		set
+		{
+			if ((this._email != value))
+			{
+				this.OnemailChanging(value);
+				this.SendPropertyChanging();
+				this._email = value;
+				this.SendPropertyChanged("email");
+				this.OnemailChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_website", DbType="NVarChar(20)")]
+	public string website
+	{
+		get
+		{
+			return this._website;
+		}
+		set
+		{
+			if ((this._website != value))
+			{
+				this.OnwebsiteChanging(value);
+				this.SendPropertyChanging();
+				this._website = value;
+				this.SendPropertyChanged("website");
+				this.OnwebsiteChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_emailVerification", DbType="NVarChar(50)")]
+	public string emailVerification
+	{
+		get
+		{
+			return this._emailVerification;
+		}
+		set
+		{
+			if ((this._emailVerification != value))
+			{
+				this.OnemailVerificationChanging(value);
+				this.SendPropertyChanging();
+				this._emailVerification = value;
+				this.SendPropertyChanged("emailVerification");
+				this.OnemailVerificationChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userName", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+	public string userName
+	{
+		get
+		{
+			return this._userName;
+		}
+		set
+		{
+			if ((this._userName != value))
+			{
+				this.OnuserNameChanging(value);
+				this.SendPropertyChanging();
+				this._userName = value;
+				this.SendPropertyChanged("userName");
+				this.OnuserNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+	public string password
+	{
+		get
+		{
+			return this._password;
+		}
+		set
+		{
+			if ((this._password != value))
+			{
+				this.OnpasswordChanging(value);
+				this.SendPropertyChanging();
+				this._password = value;
+				this.SendPropertyChanged("password");
+				this.OnpasswordChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_logo", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	public System.Data.Linq.Binary logo
+	{
+		get
+		{
+			return this._logo;
+		}
+		set
+		{
+			if ((this._logo != value))
+			{
+				this.OnlogoChanging(value);
+				this.SendPropertyChanging();
+				this._logo = value;
+				this.SendPropertyChanged("logo");
+				this.OnlogoChanged();
 			}
 		}
 	}
