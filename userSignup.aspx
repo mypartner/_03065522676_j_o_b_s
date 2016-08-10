@@ -99,7 +99,7 @@
                     </div>
                 </div>
                
-                			          <input type="submit" value="Post your CV">
+                			          <input type="submit" value="Post your Profile">
 
 	        </form>
 	    </div>
