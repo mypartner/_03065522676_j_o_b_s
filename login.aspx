@@ -57,8 +57,8 @@
                      <div class="forgot">
 						
 				 		  <div class="login-para">
-                               <p><a href="#"> <u>Sign up as recruiter</u> </a>  
-                               <a href="#"> <u>Sign up as job seeker</u> </a>  
+                               <p><a href="recruiterSignup.aspx"> <u>Sign up as recruiter</u> </a>  
+                               <a href="userSignup.aspx"> <u>Sign up as job seeker</u> </a>  
 
 				 			<a href="#"> <u>Forgot Password?</u> </a></p>
 				 		 </div>
