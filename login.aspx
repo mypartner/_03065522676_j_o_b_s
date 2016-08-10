@@ -57,8 +57,17 @@
                      <div class="forgot">
 						
 				 		  <div class="login-para">
-                               <p><a href="#"> <u>Sign up as recruiter</u> </a>  
-                               <a href="#"> <u>Sign up as job seeker</u> </a>  
+                               <ul class="nav pull-right">
+                                  <li class="dropdown" id="menuLogin">
+                                    <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Sign Up</a>
+                                    <div class="dropdown-menu" style="padding:17px;">
+                                      <p>  <a href="recruiterSignup.aspx"> <u>Sign up as recruiter</u> </a></p>  
+                               <p>  <a href="userSignup.aspx"> <u>Sign up as job seeker</u> </a> </p>
+                                      
+                                    </div>
+                                  </li>
+                                </ul>
+                               <p> 
 
 				 			<a href="#"> <u>Forgot Password?</u> </a></p>
 				 		 </div>
