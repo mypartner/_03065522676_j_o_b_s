@@ -16,26 +16,10 @@ public class loginUser
         // TODO: Add constructor logic here
         //
     }
-    public static void addUser(string fname,string lname,string mobileno,string username,string password,string sex,string dob,string email,string country,string workexperiance,string education,string subject)
+    public static void signUpJobSeeker(jobSeeker u)
     {
         DataClassesDataContext Database = new DataClassesDataContext();
-        user u = new user();
-        u.firstName = fname;
-        u.lastName = lname;
-        u.subject = subject;
-        u.type = "jobfinder";
-        u.experience = workexperiance;
-        u.cv = "";
-        u.mobile = mobileno;
-        u.email = email;
-        u.dob = dob;
-        u.education = education;
-        u.country = country;
-        u.sex = sex;
-        u.username = username;
-        u.password = password;
-
-        Database.users.InsertOnSubmit(u);
+        Database.jobSeekers.InsertOnSubmit(u);
         try
         {
             Database.SubmitChanges();
@@ -55,7 +39,7 @@ public class loginUser
         {
             DataClassesDataContext Database = new DataClassesDataContext();
 
-            var q = (from a in Database.GetTable<user>()
+            var q = (from a in Database.GetTable<jobSeeker>()
                      where a.username == uname && a.password == password
                      select new
                      {

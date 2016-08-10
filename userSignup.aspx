@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="userSignup.aspx.cs" Inherits="userSignup" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="usersignup.aspx.cs" Inherits="userSignup" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -12,8 +12,6 @@
 
         <h2>Update Your Profile</h2>
         <div class="search_form1">
-
-		    <form action="">
                 <div class="row">
                      <div class="form-group col-md-12">
                         <label class="col-md-3 control-lable" for="firstname">Firstname</label>
@@ -51,9 +49,9 @@
                         <label class="col-md-3 control-lable" for="lastname">Sex</label>
                      <div class="col-md-9">
                         
-                              <label><input type="radio" name="male" class="radio-inline">Male</label>
+                              <label><input type="radio" name="sex" class="radio-inline" value="Male" />Male</label>
                             
-                              <label><input type="radio" name="female" class="radio-inline">Female</label>
+                              <label><input type="radio" name="sex" class="radio-inline" value="Female"/>Female</label>
                             
                      </div>
                     </div>
@@ -78,30 +76,37 @@
                      <div class="form-group col-md-12">
                         <label class="col-md-3 control-lable" for="dob">Date of birth</label>
                      <div class="col-md-9">
-                        <input type="text" id="dob" name="dob" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                 <div class="row">
-                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="imagefile">Upload your image</label>
-                     <div class="col-md-9">
-                         <input type="file" name="imagefile">
+                        <input type="date" id="dob" name="dob" class="form-control input-sm"/>
                      </div>
                     </div>
                 </div>
                 <div class="row">
                      <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="file">Upload your CV</label>
+                        <label class="col-md-3 control-lable" for="dob">Username</label>
                      <div class="col-md-9">
-                         <input type="file" name="myfile">
+                        <input type="text" id="username" name="username" class="form-control input-sm"/>
+                     </div>
+                    </div>
+                </div>
+             <div class="row">
+                     <div class="form-group col-md-12">
+                        <label class="col-md-3 control-lable" for="dob">Password</label>
+                     <div class="col-md-9">
+                        <input type="password" id="password" name="password" class="form-control input-sm"/>
+                     </div>
+                    </div>
+                </div>
+
+                 <div class="row">
+                     <div class="form-group col-md-12">
+                        <label class="col-md-3 control-lable" for="Imageupload">Upload your image</label>
+                     <div class="col-md-9">
+                         <asp:FileUpload ID="imageupload" runat="server" />
                      </div>
                     </div>
                 </div>
                
-                			          <input type="submit" value="Post your Profile">
-
-	        </form>
+                			          <input type="submit" value="Sign Up" />
 	    </div>
     </div>
  </div>

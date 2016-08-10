@@ -10,7 +10,7 @@ using System.Web;
 /// </summary>
 public class clientJob
 {
-    public clientJob()
+ /*   public clientJob()
     {
         //
         // TODO: Add constructor logic here
@@ -56,5 +56,5 @@ public class clientJob
             //report error, log error whatever...
         }
 
-    }
+    }*/
 }

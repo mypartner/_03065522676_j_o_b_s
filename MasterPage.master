@@ -63,7 +63,7 @@
 	  </div>
 	    <!--/.navbar-collapse-->
 	</nav>    
-     <form runat="server" >
+     <form runat="server" method="post">
     <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>

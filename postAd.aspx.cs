@@ -9,7 +9,7 @@ public partial class postAd : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        clientJob.addJob();
+       // clientJob.addJob();
     }
     
 }
