@@ -10,7 +10,7 @@
     <div class="single">  
 	   <div class="form-container">
 
-        <h2>Upload Your Resume</h2>
+        <h2>Update Your Profile</h2>
         <div class="search_form1">
 
 		    <form action="">
