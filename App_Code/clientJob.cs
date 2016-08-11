@@ -10,7 +10,7 @@ using System.Web;
 /// </summary>
 public class clientJob
 {
- /*   public clientJob()
+    public clientJob()
     {
         //
         // TODO: Add constructor logic here
@@ -28,24 +28,13 @@ public class clientJob
     {
         DataClassesDataContext database = new DataClassesDataContext();
         IQueryable<job> jobs = (from x in database.jobs
-                                    where x.id == id
+                                    where x.Id == id
                                 select x);
         return jobs;
     }
-    static public void addJob()
+    static public void addJob(job k)
     {
         DataClassesDataContext Database = new DataClassesDataContext();
-        job k = new job();
-        k.userId = 8;//int.Parse(HttpContext.Current.Session["loginId"].ToString());
-        k.jobTitle = "xyz";
-        k.description= "this is first job";
-        k.expectedSalary="2000";
-        k.date=System.DateTime.Now;
-        k.address="pakistan    ";
-        k.type="monthly";
-        k.jobType="computer science";
-        k.salaryPeriod= "monthly";
-        k.experience = "2 years";
         Database.jobs.InsertOnSubmit(k);
         try
         {
@@ -56,5 +45,5 @@ public class clientJob
             //report error, log error whatever...
         }
 
-    }*/
+    }
 }

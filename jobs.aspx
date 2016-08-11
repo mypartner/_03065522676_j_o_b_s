@@ -22,16 +22,34 @@
 			    <div class="jobs-item with-thumb">
 				    <div class="thumb"><a href="jobs_single.html"><img src="images/a2.jpg" class="img-responsive" alt=""/></a></div>
 				    <div class="jobs_right">
-						<div class="date"><%=j.date.Day.ToString()%><span><%=j.date.ToString("MMMM") %></span></div>
+						<div class="date"><%=j.postedDate.Day.ToString()%><span><%=j.postedDate.ToString("MMMM") %></span></div>
 						<div class="date_desc"><h6 class="title"><a href="jobs_single.html"><%=j.jobTitle %></a></h6>
-						  <span class="meta"><%=j.address %></span>
+						  <span class="meta"><%=j.country %></span>
 						</div>
 						<div class="clearfix"> </div>
                         <ul class="top-btns">
 							<li><a href="#" class="fa fa-plus toggle"></a></li>
 							
 						</ul>
-						<p class="description">Description:<%=j.description %> <a href="viewDescription.aspx?id=<%=j.id%>" class="read-more">Read More</a></p>
+                        <% int len = j.description.Length;
+                            int Start = 0;
+
+                            Start = j.description.IndexOf(".");
+                            string dec = "";
+                            if (Start > 0) {
+                                dec = j.description.Remove(Start, len - Start);
+                            }
+                            else if (Start > 195)
+                            {
+                                 dec= j.description.Remove(195, len - 195);
+                            }
+                            else
+                            {
+                                dec= j.description.Remove(195, len - 195);
+                            }
+                            %>
+                        length :<%=len %>
+						<p class="description">Description:<%=dec+".....<br>"  %> <a href="viewDescription.aspx?id=<%=j.Id%>" class="read-more">Read More</a></p>
                     </div>
 					<div class="clearfix"> </div>
 				</div>

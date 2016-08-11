@@ -15,7 +15,38 @@ public partial class login : System.Web.UI.Page
     {
         string name = Request.Form["username"];
         string password = Request.Form["password"].ToString();
-        int id = loginUser.userAuthentication(name, password);
+        string type = Request.Form["logintype"];
+        if(type=="jobseeker")
+        {
+            int id = jobseekerclass.userAuthentication(name, password);
+                  if (0 != id)
+                  {
+                       Session["LoginSession"] = name;
+                       Response.Redirect("/jobseekerdashboard.aspx");
+                  }
+                  else
+                  {
+                      Response.Write("notlogedin");
+                  }
+        }
+        else if(type== "recruiter")
+        {
+            int id = recruiterclass.recruiterAuthentication(name, password);
+            if (0 != id)
+            {
+                Session["RloginSession"] = name;
+                Response.Redirect("/recruiterdashboard.aspx");
+            }
+            else
+            {
+                Response.Write("notlogedin");
+            }
+        }
+        else
+        {
+
+        }
+        /*int id = jobseekerclass.userAuthentication(name, password);
         if (0 != id)
         {
             Response.Write("logedin");
@@ -23,6 +54,6 @@ public partial class login : System.Web.UI.Page
         else
         {
             Response.Write("notlogedin");
-        }
+        }*/
     }
 }

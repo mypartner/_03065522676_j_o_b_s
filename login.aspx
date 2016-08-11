@@ -45,10 +45,10 @@
                                <div class="btn-group" data-toggle="buttons">
                                          
                                           <label class="btn btn-default">
-                                            <input type="radio" name="logintype" id="JobFinder" autocomplete="off">Job Seeker
+                                            <input type="radio" name="logintype" id="JobFinder" autocomplete="off" value="jobseeker">Job Seeker
                                           </label>
                                           <label class="btn btn-default">
-                                            <input type="radio" name="logintype" id="recruiter" autocomplete="off"> Recruiter
+                                            <input type="radio" name="logintype" id="recruiter" autocomplete="off" value="recruiter"> Recruiter
                                           </label>
                             </div>
                             </div>

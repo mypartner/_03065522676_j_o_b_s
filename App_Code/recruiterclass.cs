@@ -30,4 +30,62 @@ public class recruiterclass
 
 
     }
+    public static int recruiterAuthentication(string uname, string password)
+    {
+
+        int returnid = 0;
+        try
+        {
+            DataClassesDataContext Database = new DataClassesDataContext();
+
+            var q = (from a in Database.GetTable<recruiter>()
+                     where a.userName == uname && a.password == password
+                     select new
+                     {
+                         a.userName,
+                         a.Id
+                     }).First();
+            int x = q.Id;
+            if (x > 0)
+            {
+                returnid = q.Id;
+            }
+
+
+        }
+        catch (Exception e)
+        {
+
+        }
+        return returnid;
+    }
+    public static int getRecruiterID(string uname)
+    {
+
+        int returnid = 0;
+        try
+        {
+            DataClassesDataContext Database = new DataClassesDataContext();
+
+            var q = (from a in Database.GetTable<recruiter>()
+                     where a.userName == uname
+                     select new
+                     {
+                         a.userName,
+                         a.Id
+                     }).First();
+            int x = q.Id;
+            if (x > 0)
+            {
+                returnid = q.Id;
+            }
+
+
+        }
+        catch (Exception e)
+        {
+
+        }
+        return returnid;
+    }
 }

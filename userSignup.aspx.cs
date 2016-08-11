@@ -25,7 +25,7 @@ public partial class userSignup : System.Web.UI.Page
             //if(imageuploaded.hasfile)then do this
             HttpPostedFile postedfile = imageupload.PostedFile;
             u.image=imageToByteArray(postedfile);
-            loginUser.signUpJobSeeker(u);
+            jobseekerclass.signUpJobSeeker(u);
         }
     }
     public static byte[] imageToByteArray(HttpPostedFile postedfile)

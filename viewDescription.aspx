@@ -40,53 +40,54 @@
           	<h4>Candidate Details</h4>
 			<tbody>
 				<tr>
-					<td>Name</td>
-					<td>Lorem Ipsum</td>
+					<td>Job Title</td>
+					<td><%=j.jobTitle%></td>
 				</tr>
 
 				<tr>
-					<td>Age</td>
-					<td>35 Years Old</td>
+					<td>Expected Salary</td>
+					<td><%=j.expectedSalary %></td>
 				</tr>
 
 				<tr>
-					<td>Resident </td>
-					<td><%=j.address %></td>
+					<td>Posted Date </td>
+					<td><%=j.postedDate %></td>
 				</tr>
 
 				<tr>
-					<td>Min experiance</td>
-					<td><%=j.experience %></td>
+					<td>Country</td>
+					<td><%=j.country%></td>
 				</tr>
 
 				<tr>
-					<td>Dgree</td>
-					<td>MCA</td>
+					<td>City</td>
+					<td><%=j.city %></td>
 				</tr>
 
 				<tr>
-					<td>Career Lavel</td>
-					<td>Mid-Level</td>
+					<td>Salary Period</td>
+					<td><%=j.salaryPeriod %></td>
 				</tr>
 
 				<tr>
-					<td>Minium degree level</td>
-					<td>Bechlors</td>
+					<td>Last Date To Apply</td>
+					<td><%=j.lastDateToApply %></td>
 				</tr>
 
 				<tr>
-					<td>Fax</td>
-					<td>(800) 1247-256</td>
+					<td>Minimum Education</td>
+					<td><%=j.minimumEducation %></td>
 				</tr>
 
 				<tr>
-					<td>E-mail</td>
-					<td></td>
+					<td>Minimum Experiance</td>
+					<td><%=j.minimumLevelOfExperience %></td>
 				</tr>
 
 				<tr>
-					<td>Website</td>
-					<td><a href="#">example.com</a></td>
+					<td>Specific Requirments
+					</td>
+					<td><%=j.specificRequirement%></td>
 				</tr>
 			</tbody>
 		 </table>
