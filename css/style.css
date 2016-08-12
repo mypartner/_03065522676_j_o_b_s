@@ -2,7 +2,13 @@ h4, h5, h6,
 h1, h2, h3 {margin-top: 0;}
 ul, ol {margin: 0;}
 p {margin: 0;}
-
+newinputformcontrol {
+     box-shadow: none;
+    background-color:#999;
+  
+    width:100%;
+    border-radius:0px;
+}
 html, body{
 	font-family: 'Roboto', sans-serif;
 	font-size: 100%;
@@ -14,6 +20,10 @@ body a{
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
+}
+.newmargin{
+    margin-left:10%;
+    margin-right:10%;
 }
 .rowmarign{
 margin:0px;
