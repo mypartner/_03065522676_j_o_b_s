@@ -52,4 +52,25 @@
       <Column Name="specificRequirement" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.appliedJob" Member="appliedJobs">
+    <Type Name="appliedJob">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="jobSeekerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="jobid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.jobSeekerProfessionalInfo" Member="jobSeekerProfessionalInfos">
+    <Type Name="jobSeekerProfessionalInfo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="jobSeekerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="experience" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="cv" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="jobStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="jobEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="company" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="jobDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="workExperience" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
 </Database>

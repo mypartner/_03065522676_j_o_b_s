@@ -46,4 +46,18 @@ public class clientJob
         }
 
     }
+    static public void applyJob(appliedJob k)
+    {
+        DataClassesDataContext Database = new DataClassesDataContext();
+        Database.appliedJobs.InsertOnSubmit(k);
+        try
+        {
+            Database.SubmitChanges();
+        }
+        catch (ChangeConflictException e)
+        {
+            //report error, log error whatever...
+        }
+
+    }
 }

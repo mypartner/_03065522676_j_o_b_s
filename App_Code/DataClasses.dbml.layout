@@ -14,10 +14,22 @@
         <elementListCompartment Id="974c1da6-a7b8-4238-9d8d-a03627f1da26" absoluteBounds="3.89, 1.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f31fea33-fbd1-4e0e-a8b2-94f96522f894" absoluteBounds="3.25, 1.625, 2, 3.5016097005208326">
+    <classShape Id="f31fea33-fbd1-4e0e-a8b2-94f96522f894" absoluteBounds="2.375, 1.125, 2, 3.5016097005208326">
       <DataClassMoniker Name="/DataClassesDataContext/job" />
       <nestedChildShapes>
-        <elementListCompartment Id="9522af17-d67a-4b80-950b-2969bfd0a7c4" absoluteBounds="3.265, 2.085, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9522af17-d67a-4b80-950b-2969bfd0a7c4" absoluteBounds="2.39, 1.585, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ed0e8a66-e750-486c-ad74-00b4e777959c" absoluteBounds="3.5, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataClassesDataContext/appliedJob" />
+      <nestedChildShapes>
+        <elementListCompartment Id="559ba5d2-bbf3-4215-b2e8-b08e713edf0b" absoluteBounds="3.515, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="97dc668d-526d-4c53-beff-fdc3ea96d7d2" absoluteBounds="2.5, 0.5, 2, 2.5401025390625">
+      <DataClassMoniker Name="/DataClassesDataContext/jobSeekerProfessionalInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6c104539-b433-4470-81c1-44f301b5175e" absoluteBounds="2.515, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

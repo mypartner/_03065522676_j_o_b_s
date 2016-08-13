@@ -11,7 +11,7 @@
 		    <p>
 			 <input type="text" class="text" placeholder=" " value="Enter Keyword(s)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Keyword(s)';}">
 			 <input type="text" class="text" placeholder=" " value="Location" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Location';}">
-			 <label class="btn2 btn-2 btn2-1b"><input type="submit" value="Find Jobs"></label>
+			 <label class="btn2 btn-2 btn2-1b"><input type="submit" value="Find Jobs"/></label>
 			</p>
            </div>
 		</div>

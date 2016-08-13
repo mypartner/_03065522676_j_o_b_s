@@ -60,4 +60,33 @@ public class jobseekerclass
         }
         return returnid;
     }
+    public static int getSeekerID(string uname)
+    {
+
+        int returnid = 0;
+        try
+        {
+            DataClassesDataContext Database = new DataClassesDataContext();
+
+            var q = (from a in Database.GetTable<jobSeeker>()
+                     where a.username == uname
+                     select new
+                     {
+                         a.username,
+                         a.id
+                     }).First();
+            int x = q.id;
+            if (x > 0)
+            {
+                returnid = q.id;
+            }
+
+
+        }
+        catch (Exception e)
+        {
+
+        }
+        return returnid;
+    }
 }

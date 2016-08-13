@@ -9,6 +9,22 @@ public partial class viewDescription : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        string v = Request.QueryString["id"];
+       // Session["LoginSession"] = null;
+        if (IsPostBack)
+        {
+            int jobid = int.Parse(Request.QueryString["id"].ToString());
+            if (Session["LoginSession"] != null)
+            {
+                appliedJob j = new appliedJob();
+                j.jobid = jobid;
+                j.jobSeekerId = jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
+                j.date = DateTime.Now;
+                clientJob.applyJob(j);
+            }
+            else
+            {
+                Response.Redirect("login.aspx?id="+jobid);
+            }
+        }
     }
 }

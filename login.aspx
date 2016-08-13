@@ -43,8 +43,9 @@
                                              Please select Login Type
                                           </label>
                                <div class="btn-group" data-toggle="buttons">
-                                         
-                                          <label class="btn btn-default">
+                                           <input type="hidden" name="jobpageid" id="jobpageid" runat="server" value=""/>
+                                           <input type="hidden" name="jobpage" id="jobpage" runat="server" value=""/>       
+                                   <label class="btn btn-default">
                                             <input type="radio" name="logintype" id="JobFinder" autocomplete="off" value="jobseeker">Job Seeker
                                           </label>
                                           <label class="btn btn-default">
