@@ -10,12 +10,10 @@ public partial class jobseekerdetail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+      
     }
 
-
-
-    protected void savejobpersonalinformation_Click(object sender, EventArgs e)
+    protected void savePersonalInformation_Click(object sender, EventArgs e)
     {
         jobSeekerProfessionalInfo j = new jobSeekerProfessionalInfo();
         j.jobSeekerId = jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
@@ -26,8 +24,11 @@ public partial class jobseekerdetail : System.Web.UI.Page
         j.jobDescription = Request.Form["description"].ToString();
         j.workExperience = Request.Form["workexperience"].ToString();
         HttpPostedFile postedfile = cvfile.PostedFile;
-        j.cv= imageToByteArray(postedfile);
+        j.cv = imageToByteArray(postedfile);
+        userprofile.addJobSeekerProfessionalInfo(j);
     }
+
+   
     public static byte[] imageToByteArray(HttpPostedFile postedfile)
     {
         string filename = Path.GetFileName(postedfile.FileName);
@@ -42,4 +43,6 @@ public partial class jobseekerdetail : System.Web.UI.Page
         }
         return imgbytes;
     }
+
+   
 }

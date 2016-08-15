@@ -12,7 +12,7 @@
         <h2>Client Details</h2>
         <div class="search_form1">
 
-		    <form action="">
+		   
                         <h2>Professional Information</h2>
 
                 <div class="row">
@@ -74,10 +74,9 @@
                      </div>
                     </div>
                 </div>
-                <input type="submit" value="Save">
+            <asp:Button ID="savePersonalInformation" runat="server" Text="Save" OnClick="savePersonalInformation_Click" />
+               
 
-	        </form>
-             <form >
                                          <h2>Educational Information</h2>
 
                 <div class="row">
@@ -126,15 +125,14 @@
                 
                 <input type="submit" value="Save">
 
-	        </form>
-             <form >
+	        
                                          <h2>Skills Information</h2>
 
              <div class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" href="#collapse3">Skills Information</a>
+          <a data-toggle="collapse" href="#collapse3" style="width:100%;">Skills Information  </a>
         </h4>
       </div>
       <div id="collapse3" class="panel-collapse collapse">
@@ -180,9 +178,10 @@
                     </div>
                 </div>
              
-                <input type="submit" value="Save"  class="btn btn-danger ">
+                <input type="submit" value="Save"  class="btn btn-danger "/>
         </div>
       </div>
+      
     </div>
   </div>
 
@@ -193,7 +192,6 @@
 
 
 
-	        </form>
 	    </div>
     </div>
  </div>
