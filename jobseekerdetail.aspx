@@ -1,6 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/jobseekermaster.master" AutoEventWireup="true" CodeFile="jobseekerdetail.aspx.cs" Inherits="jobseekerdetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<script>
+    $(document).ready(function () {
+        var select = '';
+        for (i = 1990; i <= 2017; i++) {
+            select += '<option val=' + i + '>' + i + '</option>';
+        }
+        $('#year_selector').html(select);
+    });
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
   
@@ -107,7 +116,10 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="passingyear">Passing Year</label>
                      <div class="col-md-9">
-                        <input type="text" id="passingyear" name="passingyear" class="form-control input-sm"/>
+                     
+<select id='year_selector'></select>​
+                         
+                    
                      </div>
                     </div>
                 </div>
