@@ -4,20 +4,27 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
   
-<div class="container">
+<div class="newcontainer">
     <div class="single">  
 	   <div class="form-container">
            <div class="well">
             
         <h2>Client Details</h2>
-        <div class="search_form1">
+        
 
 		   
-                        <h2>Professional Information</h2>
-
+     <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse1" style="width:100%;">Skills Information  </a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+        <div class="panel-body">
                 <div class="row">
-                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="companyname">Experience</label>
+                     <div class="form-group col-sm-10">
+                        <label class="col-md-3 control-lable" for="experiance">Experience</label>
                      <div class="col-md-9">
                         <input type="text" id="experiance" name="experiance" class="form-control input-sm"/>
                      </div>
@@ -25,7 +32,7 @@
                 </div>
                  <div class="row">
                      <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="establishyear">Job Start Date</label>
+                        <label class="col-md-3 control-lable" for="jobstartdate">Job Start Date</label>
                      <div class="col-md-9">
                         <input type="date" id="jobstartdate" name="jobstartdate" class="form-control input-sm"/>
                      </div>
@@ -34,7 +41,7 @@
                 
                 <div class="row">
                      <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="contact">Job End Date</label>
+                        <label class="col-md-3 control-lable" for="jobenddate">Job End Date</label>
                      <div class="col-md-9">
                         <input type="date" id="jobenddate" name="jobenddate" class="form-control input-sm"/>
                      </div>
@@ -43,7 +50,7 @@
 
                 <div class="row">
                      <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="company">Company Name</label>
+                        <label class="col-md-3 control-lable" for="companyname">Company Name</label>
                      <div class="col-md-9">
                         <input type="text" id="companyname" name="companyname" class="form-control input-sm"/>
                      </div>
@@ -74,13 +81,22 @@
                      </div>
                     </div>
                 </div>
-            <asp:Button ID="savePersonalInformation" runat="server" Text="Save" OnClick="savePersonalInformation_Click" />
-               
+            <asp:Button ID="savePersonalInformation" runat="server" Text="Save" class="btn btn-danger " OnClick="savePersonalInformation_Click" />
+               </div>
+          </div>
+        </div></div>
 
-                                         <h2>Educational Information</h2>
-
+             <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse2" style="width:100%;">Educational Information  </a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">
                 <div class="row">
-                     <div class="form-group col-md-12">
+                     <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="institute">Institute Name</label>
                      <div class="col-md-9">
                         <input type="text" id="institute" name="institute" class="form-control input-sm"/>
@@ -104,7 +120,8 @@
                      </div>
                     </div>
                 </div>
-                  
+     
+                      
                 <div class="row">
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="degree2">Degree 2 (Optional)</label>
@@ -113,7 +130,7 @@
                      </div>
                     </div>
                 </div>
-
+            
                 <div class="row">
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="specialization">Specialization</label>
@@ -122,11 +139,13 @@
                      </div>
                     </div>
                 </div>
-                
-                <input type="submit" value="Save">
-
+             
+                        <input type="submit" value="Save" class="btn btn-danger ">
+            </div>
+          </div>
+        </div>
+                 </div>
 	        
-                                         <h2>Skills Information</h2>
 
              <div class="panel-group">
     <div class="panel panel-default">
@@ -192,9 +211,9 @@
 
 
 
-	    </div>
+	    </>
     </div>
  </div>
-</div>
+</div></div>
 </asp:Content>
 
