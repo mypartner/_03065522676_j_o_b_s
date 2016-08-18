@@ -9,6 +9,24 @@
         }
         $('#year_selector').html(select);
     });
+    function onlyAlphabets(e, t) {
+        try {
+            if (window.event) {
+                var charCode = window.event.keyCode;
+            }
+            else if (e) {
+                var charCode = e.which;
+            }
+            else { return true; }
+            if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+                return true;
+            else
+                return false;
+        }
+        catch (err) {
+            alert(err.Description);
+        }
+    }
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -61,7 +79,8 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="companyname">Company Name</label>
                      <div class="col-md-9">
-                        <input type="text" id="companyname" name="companyname" class="form-control input-sm"/>
+                         
+                        <input type="text" id="companyname" name="companyname" class="form-control input-sm" onkeypress="return onlyAlphabets(event,this);"/>
                      </div>
                     </div>
                 </div>
@@ -117,7 +136,9 @@
                         <label class="col-md-3 control-lable" for="passingyear">Passing Year</label>
                      <div class="col-md-9">
                      
-<select id='year_selector'></select>​
+<select id='year_selector'>
+
+</select>​
                          
                     
                      </div>
