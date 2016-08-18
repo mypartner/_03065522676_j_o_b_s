@@ -4,6 +4,8 @@ using System.Data.Linq;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 /// <summary>
 /// Summary description for userprofile
@@ -27,9 +29,9 @@ public class userprofile
             //report error, log error whatever...
         }
     }
-    public static void getSeekerCv(jobSeekerProfessionalInfo k)
+    public static string getSeekerCv()
     {
-        int returnid = 0;
+        string str= "";
         try
         {
             DataClassesDataContext Database = new DataClassesDataContext();
@@ -43,15 +45,19 @@ public class userprofile
                      }).First();
             Binary binary = q.cv; //your linq object
             byte[] array = binary.ToArray();
-            File.WriteAllBytes("/cv/myfile.docx", array);
+            File.WriteAllBytes(HttpContext.Current.Server.MapPath("/cvs/myfile2.pdf"), array);
 
 
+            return str;
 
 
         }
         catch (Exception e)
         {
-
+            Console.WriteLine(e.Message);
+            str = e.Message;
+            return str;
+            
         }
        
     }

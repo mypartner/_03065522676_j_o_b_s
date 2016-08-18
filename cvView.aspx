@@ -9,13 +9,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
   
-        
-            
-                 $url = $_GET['url'];
-           
-        <!--<title><?php echo $url; ?></title>-->
- 
-        <iframe src="http://docs.google.com/viewer?url=<?=urlencode($url)?>&embedded=true"  style="position: absolute;width:100%; height: 100%;border: none;"></iframe>
-    
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+       
+
+
 </asp:Content>
 
