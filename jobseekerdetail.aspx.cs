@@ -24,23 +24,27 @@ public partial class jobseekerdetail : System.Web.UI.Page
         j.jobDescription = Request.Form["description"].ToString();
         j.workExperience = Request.Form["workexperience"].ToString();
         HttpPostedFile postedfile = cvfile.PostedFile;
-        j.cv = imageToByteArray(postedfile);
+        string filename = Path.GetFileName(postedfile.FileName);
+        string fileextention = Path.GetExtension(filename);
+        if (fileextention.ToLower() == ".doc" || fileextention.ToLower() == ".pdf" || fileextention.ToLower() == ".docx")
+        {
+            j.cv = docToByteArray(postedfile);
+        }
         userprofile.addJobSeekerProfessionalInfo(j);
     }
 
    
-    public static byte[] imageToByteArray(HttpPostedFile postedfile)
+    public static byte[] docToByteArray(HttpPostedFile postedfile)
     {
-        string filename = Path.GetFileName(postedfile.FileName);
-        string fileextention = Path.GetExtension(filename);
+       // string filename = Path.GetFileName(postedfile.FileName);
+        //string fileextention = Path.GetExtension(filename);
         int size = postedfile.ContentLength;
         byte[] imgbytes = null;
-        if (fileextention.ToLower() == ".doc" || fileextention.ToLower() == ".pdf" || fileextention.ToLower() == ".docx")
-        {
+       
             Stream stream = postedfile.InputStream;
             BinaryReader binaryreader = new BinaryReader(stream);
             imgbytes = binaryreader.ReadBytes((int)stream.Length);
-        }
+        
         return imgbytes;
     }
 
