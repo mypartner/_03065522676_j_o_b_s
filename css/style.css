@@ -1,5 +1,7 @@
 .newcontainer{
-    margin-right:auto;margin-left:auto;padding-left:300px;padding-right:250px;margin-top:50px;}
+    margin-right:auto;margin-left:auto;padding-left:300px;padding-right:250px;margin-top:50px;
+    min-width:100%;
+}
 h4, h5, h6,
 h1, h2, h3 {margin-top: 0;}
 ul, ol {margin: 0;}
