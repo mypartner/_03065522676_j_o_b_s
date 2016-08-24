@@ -14,7 +14,8 @@
 		   </ul>
 		<div id="myTabContent" class="tab-content">
 		  <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-              <%  %>
+             <% 
+                 %>
 		    <div class="tab_grid">''
 			    <div class="jobs-item with-thumb">
 				    <div class="thumb"><a href="jobs_single.html"><img src="images/a2.jpg" class="img-responsive" alt=""/></a></div>
