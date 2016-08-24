@@ -9,7 +9,7 @@
        <div class="box_1">
        	<h3>Procurement</h3>
         <div class="col-md-5">
-        	<img src="images/procurement.png" class="img-responsive" alt=""/>
+        	<img src="images/procurement/procurement_.jpeg" class="img-responsive" alt=""/>
         </div>
         <div class="col-md-7 service_box1">
             <h5>Description</h5>

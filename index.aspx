@@ -11,7 +11,7 @@
                 <div class="col-md-12 jobhire">
                        
                             <div class="div_transparncy">
-                                <button type="button" class="btn btn-success btn_transparent" onclick="location.href='services.aspx';" >Apply Now</button>
+                                <button type="button" class="btn btn-success btn_transparent" onclick="location.href='#';" >Apply Now</button>
 
                           
                             </div>
@@ -25,20 +25,20 @@
                     <div class="col-md-6 tdevelopment">
                        
                             <div class="div_transparncy">
-                                <button type="button" class="btn btn-success btn_transparent" onclick="location.href='services.aspx';">Training & Development</button>
+                                <button type="button" class="btn btn-success btn_transparent" onclick="location.href='trainingAndDevelopment.aspx';">Training & Development</button>
 
                           
                             </div>
                     </div>
                         <div class="col-md-6 capacity">
                         <div class="div_transparncy">
-                            <button type="button" class="btn btn-success btn_transparent" onclick="location.href='services.aspx';">Procurement</button>
+                            <button type="button" class="btn btn-success btn_transparent" onclick="location.href='procurement.aspx';">Procurement</button>
                         </div>
                     </div>
 
                     <div class="col-md-6 procurment" >
                         <div class="div_transparncy">
-                            <button type="button" class="btn btn-success btn_transparent" onclick="location.href='services.aspx';">Capacity Building</button>
+                            <button type="button" class="btn btn-success btn_transparent" onclick="location.href='capacityBuilding.aspx';">Capacity Building</button>
                         </div>
                     </div>
                      

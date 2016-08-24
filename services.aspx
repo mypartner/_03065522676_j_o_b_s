@@ -9,7 +9,7 @@
        <div class="box_1">
        	<h3>Services</h3>
         <div class="col-md-5">
-        	<img src="images/services.jpg" class="img-responsive" alt=""/>
+        	<img src="images/services/file%20(1).jpeg"  class="img-responsive" alt=""/>
         </div>
         <div class="col-md-7 service_box1">
             <h5>Description</h5>
