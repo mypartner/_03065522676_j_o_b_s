@@ -59,6 +59,20 @@ public class recruiterclass
         }
         return returnid;
     }
+    static public void addJob(job k)
+    {
+        DataClassesDataContext Database = new DataClassesDataContext();
+        Database.jobs.InsertOnSubmit(k);
+        try
+        {
+            Database.SubmitChanges();
+        }
+        catch (ChangeConflictException e)
+        {
+            //report error, log error whatever...
+        }
+
+    }
     public static int getRecruiterID(string uname)
     {
 

@@ -29,7 +29,7 @@ public partial class postAd : System.Web.UI.Page
                 k.minimumEducation = Request.Form["meducation"].ToString();
                 k.minimumLevelOfExperience = Request.Form["mlexperiance"].ToString();
                 k.specificRequirement = "spacificRequirements";
-                clientJob.addJob(k);
+                recruiterclass.addJob(k);
             }
           
             else

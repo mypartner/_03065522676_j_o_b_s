@@ -9,7 +9,14 @@ public partial class viewDescription : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       // Session["LoginSession"] = null;
+        // Session["LoginSession"] = null;
+        if (!IsPostBack)
+        {
+            if (Request.QueryString["id"] == null)
+            {
+                Response.Redirect("jobs.aspx");
+            }
+        }
         if (IsPostBack)
         {
             int jobid = int.Parse(Request.QueryString["id"].ToString());
@@ -19,7 +26,7 @@ public partial class viewDescription : System.Web.UI.Page
                 j.jobid = jobid;
                 j.jobSeekerId = jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
                 j.date = DateTime.Now;
-                clientJob.applyJob(j);
+                string msg=clientJob.applyJob(j);
             }
             else
             {

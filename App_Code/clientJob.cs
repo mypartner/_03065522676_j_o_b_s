@@ -32,30 +32,49 @@ public class clientJob
                                 select x);
         return jobs;
     }
-    static public void addJob(job k)
+   
+    static public string applyJob(appliedJob k)
     {
-        DataClassesDataContext Database = new DataClassesDataContext();
-        Database.jobs.InsertOnSubmit(k);
-        try
-        {
-            Database.SubmitChanges();
+        if (checkappliedjob(k.jobSeekerId, k.jobid) == true) {
+            DataClassesDataContext Database = new DataClassesDataContext();
+            Database.appliedJobs.InsertOnSubmit(k);
+            try
+            {
+                Database.SubmitChanges();
+            }
+            catch (ChangeConflictException e)
+            {
+                //report error, log error whatever...
+            }
+           return "";
         }
-        catch (ChangeConflictException e)
+        else
         {
-            //report error, log error whatever...
+            return "You have Already applied job";
         }
 
     }
-    static public void applyJob(appliedJob k)
+    static public bool checkappliedjob(int seekerid,int jobid)
     {
-        DataClassesDataContext Database = new DataClassesDataContext();
-        Database.appliedJobs.InsertOnSubmit(k);
+       
         try
         {
-            Database.SubmitChanges();
+            DataClassesDataContext db = new DataClassesDataContext();
+            int result = (from x in db.appliedJobs
+                          where x.jobSeekerId == seekerid && x.jobid == jobid
+                          select x).Count();
+            if (result >= 1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         catch (ChangeConflictException e)
         {
+           return  false;
             //report error, log error whatever...
         }
 

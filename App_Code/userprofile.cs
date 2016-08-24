@@ -19,14 +19,20 @@ public class userprofile
     public static void addJobSeekerProfessionalInfo(jobSeekerProfessionalInfo k)
     {
         DataClassesDataContext Database = new DataClassesDataContext();
-        Database.jobSeekerProfessionalInfos.InsertOnSubmit(k);
-        try
+        int count = (from x in Database.jobSeekerProfessionalInfos
+                                where x.jobSeekerId == k.jobSeekerId     //for checking already existance of client
+                                select x).Count();
+        if (count == 0)
         {
-            Database.SubmitChanges();
-        }
-        catch (ChangeConflictException e)
-        {
-            //report error, log error whatever...
+            Database.jobSeekerProfessionalInfos.InsertOnSubmit(k);
+            try
+            {
+                Database.SubmitChanges();
+            }
+            catch (ChangeConflictException e)
+            {
+                //report error, log error whatever...
+            }
         }
     }
     public static string getSeekerCv()
