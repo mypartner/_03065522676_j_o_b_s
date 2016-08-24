@@ -57,7 +57,7 @@ public class userprofile
         int count = (from x in Database.jobseekereducationalInfos
                      where x.jobSeekerId ==jobseekerid     //for checking already existance of client educational information
                      select x).Count();
-       return count
+        return count;
     }
 
     public static string getSeekerCv()
