@@ -35,6 +35,31 @@ public class userprofile
             }
         }
     }
+    //adding jobseeker educational info
+    public static void addJobSeekereducationalinfo(jobseekereducationalInfo k)
+    {
+
+        DataClassesDataContext Database = new DataClassesDataContext();
+        Database.jobseekereducationalInfos.InsertOnSubmit(k);
+            try
+            {
+                Database.SubmitChanges();
+            }
+            catch (ChangeConflictException e)
+            {
+                //report error, log error whatever...
+            }
+        
+    }
+    public static int checkJobSeekerEducationindfo(int jobseekerid)
+    {
+        DataClassesDataContext Database = new DataClassesDataContext();
+        int count = (from x in Database.jobseekereducationalInfos
+                     where x.jobSeekerId ==jobseekerid     //for checking already existance of client educational information
+                     select x).Count();
+       return count
+    }
+
     public static string getSeekerCv()
     {
         string str= "";
