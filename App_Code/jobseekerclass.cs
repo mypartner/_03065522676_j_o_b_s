@@ -56,7 +56,7 @@ public class jobseekerclass
         }
         catch (Exception e)
         {
-
+            string str = e.Message.ToString();
         }
         return returnid;
     }
