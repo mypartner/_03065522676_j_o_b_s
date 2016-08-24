@@ -214,7 +214,7 @@
       </div>
             <br />
                 
-            <asp:Button ID="saveeducationalinfo" runat="server" Text="Save" class="btn btn-danger" />
+            <asp:Button ID="saveeducationalinfo" runat="server" Text="Save" class="btn btn-danger" OnClick="saveeducationalinfo_Click"/>
                         
             </div>
           </div>

@@ -40,18 +40,20 @@ public partial class jobseekerdetail : System.Web.UI.Page
             jobseekereducationalInfo j = new jobseekereducationalInfo();
             j.jobSeekerId = 8;//jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
             j.instituteName = Request.Form["institute"].ToString();
-            j.passingOutYear = DateTime.Parse(Request.Form["passing_year"].ToString());
+            j.passingOutYear = new  DateTime(int.Parse(Request.Form["passing_year"].ToString()),1, 1);
             j.degreeName = Request.Form["degree1"].ToString();
             j.specialization = Request.Form["specialization"].ToString();
             userprofile.addJobSeekereducationalinfo(j);
-
-            jobseekereducationalInfo j1 = new jobseekereducationalInfo();
-            j1.jobSeekerId = 8;//jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
-            j1.instituteName = Request.Form["secondinstitute"].ToString();
-            j1.passingOutYear = DateTime.Parse(Request.Form["passing_year2"].ToString());
-            j1.degreeName = Request.Form["degree2"].ToString();
-            j1.specialization = Request.Form["secondspecialization"].ToString();
-            userprofile.addJobSeekereducationalinfo(j1);
+            if (Request.Form["secondinstitute"].ToString() != "")
+            {
+                jobseekereducationalInfo j1 = new jobseekereducationalInfo();
+                j1.jobSeekerId = 8;//jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
+                j1.instituteName = Request.Form["secondinstitute"].ToString();
+                j1.passingOutYear = new DateTime(int.Parse(Request.Form["passing_year2"].ToString()), 1, 1);
+                j1.degreeName = Request.Form["degree2"].ToString();
+                j1.specialization = Request.Form["secondspecialization"].ToString();
+                userprofile.addJobSeekereducationalinfo(j1);
+            }
         }
 
 
