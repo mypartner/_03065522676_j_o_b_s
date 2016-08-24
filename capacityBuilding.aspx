@@ -9,7 +9,7 @@
        <div class="box_1">
        	<h3>Capacity Building</h3>
         <div class="col-md-5">
-        	<img src="images/capacity.jpg" class="img-responsive" alt=""/>
+            <img src="images/capacity/capacity.png" class="img-responsive" alt=""/>
         </div>
         <div class="col-md-7 service_box1">
             <h5>Description</h5>
