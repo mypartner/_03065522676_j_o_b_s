@@ -79,4 +79,12 @@ public class clientJob
         }
 
     }
+    static public IQueryable<appliedJob> getAppliedJobs(int id)
+    {
+        DataClassesDataContext database = new DataClassesDataContext();
+        IQueryable<appliedJob> appliedjob = (from x in database.appliedJobs
+                                                where x.jobSeekerId == id
+                                             select x );
+        return appliedjob;
+    }
 }
