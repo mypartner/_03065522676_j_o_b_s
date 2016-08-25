@@ -59,8 +59,40 @@ public class userprofile
                      select x).Count();
         return count;
     }
+    public static bool addJobSeekerSkills(skill s)
+    {
+        try
+        {
+            DataClassesDataContext Database = new DataClassesDataContext();
 
-    public static string getSeekerCv()
+            int count = (from a in Database.GetTable<skill>()
+                     where a.jobSeekerid == s.jobSeekerid
+                     select new
+                     {
+                         a.Id
+
+                     }).Count();
+            if (count == 0)
+            {
+                Database.skills.InsertOnSubmit(s);
+                Database.SubmitChanges();
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+        catch (Exception e)
+        {
+            return false;
+
+        }
+
+    }
+
+    public static string getSeekerCv(int jobseekerid)
     {
         string str= "";
         try
@@ -68,7 +100,7 @@ public class userprofile
             DataClassesDataContext Database = new DataClassesDataContext();
 
             var q = (from a in Database.GetTable<jobSeekerProfessionalInfo>()
-                     where a.jobSeekerId== 8 
+                     where a.jobSeekerId== jobseekerid
                      select new
                      {
                          a.cv,

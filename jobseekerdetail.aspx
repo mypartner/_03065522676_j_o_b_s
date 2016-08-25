@@ -272,7 +272,7 @@
                     </div>
                 </div>
              
-                <input type="submit" value="Save"  class="btn btn-danger "/>
+                 <asp:Button ID="saveskills" runat="server" Text="Save" class="btn btn-danger" OnClick="saveskill_Click"/>
         </div>
       </div>
       

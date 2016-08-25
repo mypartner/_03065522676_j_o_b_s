@@ -4,7 +4,8 @@ using System.Linq;
 using System.Web;
 
 /// <summary>
-/// Summary description for appliedjobdata
+/// by waqas khan 
+/// get applied job and job detail 
 /// </summary>
 public class appliedjobdataclass
 {
