@@ -32,9 +32,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void Insertjob(job instance);
   partial void Updatejob(job instance);
   partial void Deletejob(job instance);
-  partial void InsertjobSeeker(jobSeeker instance);
-  partial void UpdatejobSeeker(jobSeeker instance);
-  partial void DeletejobSeeker(jobSeeker instance);
   partial void Insertrecruiter(recruiter instance);
   partial void Updaterecruiter(recruiter instance);
   partial void Deleterecruiter(recruiter instance);
@@ -44,10 +41,16 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertjobSeekerProfessionalInfo(jobSeekerProfessionalInfo instance);
   partial void UpdatejobSeekerProfessionalInfo(jobSeekerProfessionalInfo instance);
   partial void DeletejobSeekerProfessionalInfo(jobSeekerProfessionalInfo instance);
+  partial void InsertjobSeeker(jobSeeker instance);
+  partial void UpdatejobSeeker(jobSeeker instance);
+  partial void DeletejobSeeker(jobSeeker instance);
+  partial void InsertjobseekereducationalInfo(jobseekereducationalInfo instance);
+  partial void UpdatejobseekereducationalInfo(jobseekereducationalInfo instance);
+  partial void DeletejobseekereducationalInfo(jobseekereducationalInfo instance);
   #endregion
 	
 	public DataClassesDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString1"].ConnectionString, mappingSource)
+			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}
@@ -84,14 +87,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
-	public System.Data.Linq.Table<jobSeeker> jobSeekers
-	{
-		get
-		{
-			return this.GetTable<jobSeeker>();
-		}
-	}
-	
 	public System.Data.Linq.Table<recruiter> recruiters
 	{
 		get
@@ -113,6 +108,22 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<jobSeekerProfessionalInfo>();
+		}
+	}
+	
+	public System.Data.Linq.Table<jobSeeker> jobSeekers
+	{
+		get
+		{
+			return this.GetTable<jobSeeker>();
+		}
+	}
+	
+	public System.Data.Linq.Table<jobseekereducationalInfo> jobseekereducationalInfos
+	{
+		get
+		{
+			return this.GetTable<jobseekereducationalInfo>();
 		}
 	}
 }
@@ -466,356 +477,6 @@ public partial class job : INotifyPropertyChanging, INotifyPropertyChanged
 				this._specificRequirement = value;
 				this.SendPropertyChanged("specificRequirement");
 				this.OnspecificRequirementChanged();
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.jobSeeker")]
-public partial class jobSeeker : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _id;
-	
-	private string _firstName;
-	
-	private string _lastName;
-	
-	private System.Data.Linq.Binary _cv;
-	
-	private string _mobile;
-	
-	private string _email;
-	
-	private string _sex;
-	
-	private string _education;
-	
-	private string _country;
-	
-	private string _dob;
-	
-	private string _username;
-	
-	private string _password;
-	
-	private System.Data.Linq.Binary _image;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnfirstNameChanging(string value);
-    partial void OnfirstNameChanged();
-    partial void OnlastNameChanging(string value);
-    partial void OnlastNameChanged();
-    partial void OncvChanging(System.Data.Linq.Binary value);
-    partial void OncvChanged();
-    partial void OnmobileChanging(string value);
-    partial void OnmobileChanged();
-    partial void OnemailChanging(string value);
-    partial void OnemailChanged();
-    partial void OnsexChanging(string value);
-    partial void OnsexChanged();
-    partial void OneducationChanging(string value);
-    partial void OneducationChanged();
-    partial void OncountryChanging(string value);
-    partial void OncountryChanged();
-    partial void OndobChanging(string value);
-    partial void OndobChanged();
-    partial void OnusernameChanging(string value);
-    partial void OnusernameChanged();
-    partial void OnpasswordChanging(string value);
-    partial void OnpasswordChanged();
-    partial void OnimageChanging(System.Data.Linq.Binary value);
-    partial void OnimageChanged();
-    #endregion
-	
-	public jobSeeker()
-	{
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int id
-	{
-		get
-		{
-			return this._id;
-		}
-		set
-		{
-			if ((this._id != value))
-			{
-				this.OnidChanging(value);
-				this.SendPropertyChanging();
-				this._id = value;
-				this.SendPropertyChanged("id");
-				this.OnidChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-	public string firstName
-	{
-		get
-		{
-			return this._firstName;
-		}
-		set
-		{
-			if ((this._firstName != value))
-			{
-				this.OnfirstNameChanging(value);
-				this.SendPropertyChanging();
-				this._firstName = value;
-				this.SendPropertyChanged("firstName");
-				this.OnfirstNameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-	public string lastName
-	{
-		get
-		{
-			return this._lastName;
-		}
-		set
-		{
-			if ((this._lastName != value))
-			{
-				this.OnlastNameChanging(value);
-				this.SendPropertyChanging();
-				this._lastName = value;
-				this.SendPropertyChanged("lastName");
-				this.OnlastNameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cv", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
-	public System.Data.Linq.Binary cv
-	{
-		get
-		{
-			return this._cv;
-		}
-		set
-		{
-			if ((this._cv != value))
-			{
-				this.OncvChanging(value);
-				this.SendPropertyChanging();
-				this._cv = value;
-				this.SendPropertyChanged("cv");
-				this.OncvChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mobile", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-	public string mobile
-	{
-		get
-		{
-			return this._mobile;
-		}
-		set
-		{
-			if ((this._mobile != value))
-			{
-				this.OnmobileChanging(value);
-				this.SendPropertyChanging();
-				this._mobile = value;
-				this.SendPropertyChanged("mobile");
-				this.OnmobileChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-	public string email
-	{
-		get
-		{
-			return this._email;
-		}
-		set
-		{
-			if ((this._email != value))
-			{
-				this.OnemailChanging(value);
-				this.SendPropertyChanging();
-				this._email = value;
-				this.SendPropertyChanged("email");
-				this.OnemailChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sex", DbType="VarChar(7) NOT NULL", CanBeNull=false)]
-	public string sex
-	{
-		get
-		{
-			return this._sex;
-		}
-		set
-		{
-			if ((this._sex != value))
-			{
-				this.OnsexChanging(value);
-				this.SendPropertyChanging();
-				this._sex = value;
-				this.SendPropertyChanged("sex");
-				this.OnsexChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_education", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-	public string education
-	{
-		get
-		{
-			return this._education;
-		}
-		set
-		{
-			if ((this._education != value))
-			{
-				this.OneducationChanging(value);
-				this.SendPropertyChanging();
-				this._education = value;
-				this.SendPropertyChanged("education");
-				this.OneducationChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_country", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-	public string country
-	{
-		get
-		{
-			return this._country;
-		}
-		set
-		{
-			if ((this._country != value))
-			{
-				this.OncountryChanging(value);
-				this.SendPropertyChanging();
-				this._country = value;
-				this.SendPropertyChanged("country");
-				this.OncountryChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dob", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
-	public string dob
-	{
-		get
-		{
-			return this._dob;
-		}
-		set
-		{
-			if ((this._dob != value))
-			{
-				this.OndobChanging(value);
-				this.SendPropertyChanging();
-				this._dob = value;
-				this.SendPropertyChanged("dob");
-				this.OndobChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-	public string username
-	{
-		get
-		{
-			return this._username;
-		}
-		set
-		{
-			if ((this._username != value))
-			{
-				this.OnusernameChanging(value);
-				this.SendPropertyChanging();
-				this._username = value;
-				this.SendPropertyChanged("username");
-				this.OnusernameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
-	public string password
-	{
-		get
-		{
-			return this._password;
-		}
-		set
-		{
-			if ((this._password != value))
-			{
-				this.OnpasswordChanging(value);
-				this.SendPropertyChanging();
-				this._password = value;
-				this.SendPropertyChanged("password");
-				this.OnpasswordChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
-	public System.Data.Linq.Binary image
-	{
-		get
-		{
-			return this._image;
-		}
-		set
-		{
-			if ((this._image != value))
-			{
-				this.OnimageChanging(value);
-				this.SendPropertyChanging();
-				this._image = value;
-				this.SendPropertyChanged("image");
-				this.OnimageChanged();
 			}
 		}
 	}
@@ -1554,6 +1215,538 @@ public partial class jobSeekerProfessionalInfo : INotifyPropertyChanging, INotif
 				this._workExperience = value;
 				this.SendPropertyChanged("workExperience");
 				this.OnworkExperienceChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.jobSeeker")]
+public partial class jobSeeker : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _id;
+	
+	private string _firstName;
+	
+	private string _lastName;
+	
+	private System.Data.Linq.Binary _cv;
+	
+	private string _mobile;
+	
+	private string _email;
+	
+	private string _sex;
+	
+	private string _education;
+	
+	private string _country;
+	
+	private string _dob;
+	
+	private string _username;
+	
+	private string _password;
+	
+	private System.Data.Linq.Binary _image;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnfirstNameChanging(string value);
+    partial void OnfirstNameChanged();
+    partial void OnlastNameChanging(string value);
+    partial void OnlastNameChanged();
+    partial void OncvChanging(System.Data.Linq.Binary value);
+    partial void OncvChanged();
+    partial void OnmobileChanging(string value);
+    partial void OnmobileChanged();
+    partial void OnemailChanging(string value);
+    partial void OnemailChanged();
+    partial void OnsexChanging(string value);
+    partial void OnsexChanged();
+    partial void OneducationChanging(string value);
+    partial void OneducationChanged();
+    partial void OncountryChanging(string value);
+    partial void OncountryChanged();
+    partial void OndobChanging(string value);
+    partial void OndobChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    partial void OnimageChanging(System.Data.Linq.Binary value);
+    partial void OnimageChanged();
+    #endregion
+	
+	public jobSeeker()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int id
+	{
+		get
+		{
+			return this._id;
+		}
+		set
+		{
+			if ((this._id != value))
+			{
+				this.OnidChanging(value);
+				this.SendPropertyChanging();
+				this._id = value;
+				this.SendPropertyChanged("id");
+				this.OnidChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_firstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string firstName
+	{
+		get
+		{
+			return this._firstName;
+		}
+		set
+		{
+			if ((this._firstName != value))
+			{
+				this.OnfirstNameChanging(value);
+				this.SendPropertyChanging();
+				this._firstName = value;
+				this.SendPropertyChanged("firstName");
+				this.OnfirstNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_lastName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string lastName
+	{
+		get
+		{
+			return this._lastName;
+		}
+		set
+		{
+			if ((this._lastName != value))
+			{
+				this.OnlastNameChanging(value);
+				this.SendPropertyChanging();
+				this._lastName = value;
+				this.SendPropertyChanged("lastName");
+				this.OnlastNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cv", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	public System.Data.Linq.Binary cv
+	{
+		get
+		{
+			return this._cv;
+		}
+		set
+		{
+			if ((this._cv != value))
+			{
+				this.OncvChanging(value);
+				this.SendPropertyChanging();
+				this._cv = value;
+				this.SendPropertyChanged("cv");
+				this.OncvChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mobile", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+	public string mobile
+	{
+		get
+		{
+			return this._mobile;
+		}
+		set
+		{
+			if ((this._mobile != value))
+			{
+				this.OnmobileChanging(value);
+				this.SendPropertyChanging();
+				this._mobile = value;
+				this.SendPropertyChanged("mobile");
+				this.OnmobileChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string email
+	{
+		get
+		{
+			return this._email;
+		}
+		set
+		{
+			if ((this._email != value))
+			{
+				this.OnemailChanging(value);
+				this.SendPropertyChanging();
+				this._email = value;
+				this.SendPropertyChanged("email");
+				this.OnemailChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sex", DbType="VarChar(7) NOT NULL", CanBeNull=false)]
+	public string sex
+	{
+		get
+		{
+			return this._sex;
+		}
+		set
+		{
+			if ((this._sex != value))
+			{
+				this.OnsexChanging(value);
+				this.SendPropertyChanging();
+				this._sex = value;
+				this.SendPropertyChanged("sex");
+				this.OnsexChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_education", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+	public string education
+	{
+		get
+		{
+			return this._education;
+		}
+		set
+		{
+			if ((this._education != value))
+			{
+				this.OneducationChanging(value);
+				this.SendPropertyChanging();
+				this._education = value;
+				this.SendPropertyChanged("education");
+				this.OneducationChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_country", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+	public string country
+	{
+		get
+		{
+			return this._country;
+		}
+		set
+		{
+			if ((this._country != value))
+			{
+				this.OncountryChanging(value);
+				this.SendPropertyChanging();
+				this._country = value;
+				this.SendPropertyChanged("country");
+				this.OncountryChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dob", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+	public string dob
+	{
+		get
+		{
+			return this._dob;
+		}
+		set
+		{
+			if ((this._dob != value))
+			{
+				this.OndobChanging(value);
+				this.SendPropertyChanging();
+				this._dob = value;
+				this.SendPropertyChanged("dob");
+				this.OndobChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string username
+	{
+		get
+		{
+			return this._username;
+		}
+		set
+		{
+			if ((this._username != value))
+			{
+				this.OnusernameChanging(value);
+				this.SendPropertyChanging();
+				this._username = value;
+				this.SendPropertyChanged("username");
+				this.OnusernameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+	public string password
+	{
+		get
+		{
+			return this._password;
+		}
+		set
+		{
+			if ((this._password != value))
+			{
+				this.OnpasswordChanging(value);
+				this.SendPropertyChanging();
+				this._password = value;
+				this.SendPropertyChanged("password");
+				this.OnpasswordChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	public System.Data.Linq.Binary image
+	{
+		get
+		{
+			return this._image;
+		}
+		set
+		{
+			if ((this._image != value))
+			{
+				this.OnimageChanging(value);
+				this.SendPropertyChanging();
+				this._image = value;
+				this.SendPropertyChanged("image");
+				this.OnimageChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.jobseekereducationalInfo")]
+public partial class jobseekereducationalInfo : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _Id;
+	
+	private int _jobSeekerId;
+	
+	private string _instituteName;
+	
+	private System.DateTime _passingOutYear;
+	
+	private string _degreeName;
+	
+	private string _specialization;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnjobSeekerIdChanging(int value);
+    partial void OnjobSeekerIdChanged();
+    partial void OninstituteNameChanging(string value);
+    partial void OninstituteNameChanged();
+    partial void OnpassingOutYearChanging(System.DateTime value);
+    partial void OnpassingOutYearChanged();
+    partial void OndegreeNameChanging(string value);
+    partial void OndegreeNameChanged();
+    partial void OnspecializationChanging(string value);
+    partial void OnspecializationChanged();
+    #endregion
+	
+	public jobseekereducationalInfo()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int Id
+	{
+		get
+		{
+			return this._Id;
+		}
+		set
+		{
+			if ((this._Id != value))
+			{
+				this.OnIdChanging(value);
+				this.SendPropertyChanging();
+				this._Id = value;
+				this.SendPropertyChanged("Id");
+				this.OnIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobSeekerId", DbType="Int NOT NULL")]
+	public int jobSeekerId
+	{
+		get
+		{
+			return this._jobSeekerId;
+		}
+		set
+		{
+			if ((this._jobSeekerId != value))
+			{
+				this.OnjobSeekerIdChanging(value);
+				this.SendPropertyChanging();
+				this._jobSeekerId = value;
+				this.SendPropertyChanged("jobSeekerId");
+				this.OnjobSeekerIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_instituteName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string instituteName
+	{
+		get
+		{
+			return this._instituteName;
+		}
+		set
+		{
+			if ((this._instituteName != value))
+			{
+				this.OninstituteNameChanging(value);
+				this.SendPropertyChanging();
+				this._instituteName = value;
+				this.SendPropertyChanged("instituteName");
+				this.OninstituteNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_passingOutYear", DbType="Date NOT NULL")]
+	public System.DateTime passingOutYear
+	{
+		get
+		{
+			return this._passingOutYear;
+		}
+		set
+		{
+			if ((this._passingOutYear != value))
+			{
+				this.OnpassingOutYearChanging(value);
+				this.SendPropertyChanging();
+				this._passingOutYear = value;
+				this.SendPropertyChanged("passingOutYear");
+				this.OnpassingOutYearChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_degreeName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string degreeName
+	{
+		get
+		{
+			return this._degreeName;
+		}
+		set
+		{
+			if ((this._degreeName != value))
+			{
+				this.OndegreeNameChanging(value);
+				this.SendPropertyChanging();
+				this._degreeName = value;
+				this.SendPropertyChanged("degreeName");
+				this.OndegreeNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_specialization", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string specialization
+	{
+		get
+		{
+			return this._specialization;
+		}
+		set
+		{
+			if ((this._specialization != value))
+			{
+				this.OnspecializationChanging(value);
+				this.SendPropertyChanging();
+				this._specialization = value;
+				this.SendPropertyChanged("specialization");
+				this.OnspecializationChanged();
 			}
 		}
 	}

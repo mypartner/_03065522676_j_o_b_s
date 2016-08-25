@@ -48,7 +48,7 @@
                                 dec= j.description.Remove(195, len - 195);
                             }
                             %>
-                        length :<%=len %>
+                        
 						<p class="description">Description:<%=dec+".....<br>"  %> <a href="viewDescription.aspx?id=<%=j.Id%>" class="read-more">Read More</a></p>
                     </div>
 					<div class="clearfix"> </div>

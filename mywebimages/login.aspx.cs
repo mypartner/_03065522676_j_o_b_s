@@ -12,7 +12,7 @@ public partial class login : System.Web.UI.Page
         try
         {
 
-            if (IsPostBack && jobpageid.Value != "" && jobpage.Value != "")
+            if (IsPostBack && jobpageid.Value != "" && jobpage.Value != "")    // ! is change with =
             {
                 string name = Request.Form["username"];
                 string password = Request.Form["password"].ToString();

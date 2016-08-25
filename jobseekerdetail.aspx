@@ -10,7 +10,7 @@
         for (i = 1990; i <= 2017; i++) {
             select += '<option val=' + i + '>' + i + '</option>';
         }
-        $('#year_selector').html(select);
+        $('#passing_year').html(select);
     });
     $(document).ready(function () {
         var select = '';
@@ -41,9 +41,7 @@
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-   <!-- page content -->
-       
-         
+   <!-- page content -->        
 <div class="newcontainer">
     <div class="single">  
 	   <div class="form-container">
@@ -146,10 +144,10 @@
                 </div>
                  <div class="row">
                      <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="passingyear">Passing Year</label>
+                        <label class="col-md-3 control-lable" for="passin_gyear">Passing Year</label>
                      <div class="col-md-9">
                      
-                        <select id='year_selector' ></select>
+                        <select id='passing_year' name="passing_year"></select>
                          
                          
                     
@@ -189,7 +187,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="institute">Institute Name</label>
                      <div class="col-md-9">
-                        <input type="text" id="secondinstitute" name="institute" class="form-control input-sm"/>
+                        <input type="text" id="secondinstitute" name="secondinstitute" class="form-control input-sm"/>
                      </div>
                     </div>
                 </div>
@@ -198,7 +196,7 @@
                         <label class="col-md-3 control-lable" for="passingyear">Passing Year</label>
                      <div class="col-md-9">
                      
-                        <select id='second_year_selector'></select>​
+                        <select id='passing_year2' name="passing_year2"></select>​
                          
                     
                      </div>
@@ -208,7 +206,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="specialization">Specialization</label>
                      <div class="col-md-9">
-                        <input type="text" id="secondspecialization" name="specialization" class="form-control input-sm"/>
+                        <input type="text" id="secondspecialization" name="secondspecialization" class="form-control input-sm"/>
                      </div>
                     </div>
                 </div>
@@ -216,8 +214,8 @@
       </div>
             <br />
                 
-             
-                        <input type="submit" value="Save" class="btn btn-danger ">
+            <asp:Button ID="saveeducationalinfo" runat="server" Text="Save" class="btn btn-danger" OnClick="saveeducationalinfo_Click"/>
+                        
             </div>
           </div>
         </div>
