@@ -58,7 +58,18 @@ public partial class jobseekerdetail : System.Web.UI.Page
 
 
    }
+       public void saveskill_Click( object sender ,EventArgs e)
+    {
+        skill s = new skill();
+        s.jobSeekerid = 8;//jobseekerclass.getSeekerID(Session["LoginSession"].ToString());)
+        s.skill1 = Request.Form["skill1"].ToString();
+        s.skill2 = Request.Form["skill2"].ToString();
+        s.skill3 = Request.Form["skill3"].ToString();
+        s.skill4 = Request.Form["skill4"].ToString();
+        s.skill5 = Request.Form["skill5"].ToString();
+        userprofile.addJobSeekerSkills(s);
 
+    }
 
     public static byte[] docToByteArray(HttpPostedFile postedfile)
     {

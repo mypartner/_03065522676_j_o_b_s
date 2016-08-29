@@ -47,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        	<a href="jobs.aspx"  class="dropdown-toggle" data-toggle="dropdown">Jobs<b class="caret"></b></a>
 		            <ul class="dropdown-menu">
 			            <li><a href="#">Find a Job</a></li>
-			            <li><a href="#">Apply Job</a></li>
+			            <li><a href="jobseekerappliedjobs.aspx">View Apply Job</a></li>
 
 		            </ul>
 		        </li>

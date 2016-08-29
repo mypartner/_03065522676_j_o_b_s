@@ -10,8 +10,8 @@ public partial class cvView : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       Response.Write(userprofile.getSeekerCv());
-        FileInfo file = new FileInfo(HttpContext.Current.Server.MapPath("/cvs/myfile2.doc"));
+       Response.Write(userprofile.getSeekerCv(8));
+        FileInfo file = new FileInfo(HttpContext.Current.Server.MapPath("/cvs/myfile2.pdf"));
 
         Response.ClearContent();
 

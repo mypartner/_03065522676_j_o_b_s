@@ -47,6 +47,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertjobseekereducationalInfo(jobseekereducationalInfo instance);
   partial void UpdatejobseekereducationalInfo(jobseekereducationalInfo instance);
   partial void DeletejobseekereducationalInfo(jobseekereducationalInfo instance);
+  partial void Insertskill(skill instance);
+  partial void Updateskill(skill instance);
+  partial void Deleteskill(skill instance);
   #endregion
 	
 	public DataClassesDataContext() : 
@@ -124,6 +127,14 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<jobseekereducationalInfo>();
+		}
+	}
+	
+	public System.Data.Linq.Table<skill> skills
+	{
+		get
+		{
+			return this.GetTable<skill>();
 		}
 	}
 }
@@ -1747,6 +1758,212 @@ public partial class jobseekereducationalInfo : INotifyPropertyChanging, INotify
 				this._specialization = value;
 				this.SendPropertyChanged("specialization");
 				this.OnspecializationChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.skills")]
+public partial class skill : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _Id;
+	
+	private int _jobSeekerid;
+	
+	private string _skill1;
+	
+	private string _skill2;
+	
+	private string _skill3;
+	
+	private string _skill4;
+	
+	private string _skill5;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnjobSeekeridChanging(int value);
+    partial void OnjobSeekeridChanged();
+    partial void Onskill1Changing(string value);
+    partial void Onskill1Changed();
+    partial void Onskill2Changing(string value);
+    partial void Onskill2Changed();
+    partial void Onskill3Changing(string value);
+    partial void Onskill3Changed();
+    partial void Onskill4Changing(string value);
+    partial void Onskill4Changed();
+    partial void Onskill5Changing(string value);
+    partial void Onskill5Changed();
+    #endregion
+	
+	public skill()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int Id
+	{
+		get
+		{
+			return this._Id;
+		}
+		set
+		{
+			if ((this._Id != value))
+			{
+				this.OnIdChanging(value);
+				this.SendPropertyChanging();
+				this._Id = value;
+				this.SendPropertyChanged("Id");
+				this.OnIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobSeekerid", DbType="Int NOT NULL")]
+	public int jobSeekerid
+	{
+		get
+		{
+			return this._jobSeekerid;
+		}
+		set
+		{
+			if ((this._jobSeekerid != value))
+			{
+				this.OnjobSeekeridChanging(value);
+				this.SendPropertyChanging();
+				this._jobSeekerid = value;
+				this.SendPropertyChanged("jobSeekerid");
+				this.OnjobSeekeridChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill1", DbType="VarChar(50)")]
+	public string skill1
+	{
+		get
+		{
+			return this._skill1;
+		}
+		set
+		{
+			if ((this._skill1 != value))
+			{
+				this.Onskill1Changing(value);
+				this.SendPropertyChanging();
+				this._skill1 = value;
+				this.SendPropertyChanged("skill1");
+				this.Onskill1Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill2", DbType="VarChar(50)")]
+	public string skill2
+	{
+		get
+		{
+			return this._skill2;
+		}
+		set
+		{
+			if ((this._skill2 != value))
+			{
+				this.Onskill2Changing(value);
+				this.SendPropertyChanging();
+				this._skill2 = value;
+				this.SendPropertyChanged("skill2");
+				this.Onskill2Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill3", DbType="VarChar(50)")]
+	public string skill3
+	{
+		get
+		{
+			return this._skill3;
+		}
+		set
+		{
+			if ((this._skill3 != value))
+			{
+				this.Onskill3Changing(value);
+				this.SendPropertyChanging();
+				this._skill3 = value;
+				this.SendPropertyChanged("skill3");
+				this.Onskill3Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill4", DbType="VarChar(50)")]
+	public string skill4
+	{
+		get
+		{
+			return this._skill4;
+		}
+		set
+		{
+			if ((this._skill4 != value))
+			{
+				this.Onskill4Changing(value);
+				this.SendPropertyChanging();
+				this._skill4 = value;
+				this.SendPropertyChanged("skill4");
+				this.Onskill4Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill5", DbType="VarChar(50)")]
+	public string skill5
+	{
+		get
+		{
+			return this._skill5;
+		}
+		set
+		{
+			if ((this._skill5 != value))
+			{
+				this.Onskill5Changing(value);
+				this.SendPropertyChanging();
+				this._skill5 = value;
+				this.SendPropertyChanged("skill5");
+				this.Onskill5Changed();
 			}
 		}
 	}

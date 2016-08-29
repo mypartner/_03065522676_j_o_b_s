@@ -87,4 +87,17 @@ public class clientJob
                                              select x );
         return appliedjob;
     }
+    public static void getjobappler(int jobid)
+    {
+        DataClassesDataContext db = new DataClassesDataContext();
+        var data = from apjob in db.GetTable<appliedJob>()
+                   join jseeker in db.jobSeekers on apjob.jobSeekerId equals jseeker.id
+                   where apjob.jobid == 1
+                   select new { appliedJob = apjob, jobSeeker = jseeker };
+
+        foreach(var x in data)
+        {
+            //to be continued :D 2:30am
+        }
+    }
 }
