@@ -166,6 +166,8 @@
                      </div>
                     </div>
                 </div>
+             <asp:Button ID="savePersonalInformation" runat="server" Text="Save" class="btn btn-danger " OnClick="savePersonalInformation_Click" />
+
                              </div>
                         </div>
                           
