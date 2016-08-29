@@ -53,7 +53,7 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   #endregion
 	
 	public DataClassesDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString1"].ConnectionString, mappingSource)
+			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}

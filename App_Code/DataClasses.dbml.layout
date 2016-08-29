@@ -38,10 +38,10 @@
         <elementListCompartment Id="62c94121-ee63-4d79-94f7-3b09049e652d" absoluteBounds="3.14, 5.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="25e17379-da34-4c02-8ae5-14306c584445" absoluteBounds="1.375, 0.5, 2, 2.1554996744791666">
+    <classShape Id="ef2af65c-ed90-49f3-9b3a-f05f73502011" absoluteBounds="1.875, 0.5, 2, 2.1554996744791666">
       <DataClassMoniker Name="/DataClassesDataContext/skill" />
       <nestedChildShapes>
-        <elementListCompartment Id="52add503-a3bb-4413-b8fe-780e05c8738b" absoluteBounds="1.3900000000000001, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="aa5a5705-ac90-4490-a81b-56c2417da46a" absoluteBounds="1.8900000000000001, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

@@ -104,11 +104,12 @@ public class userprofile
                      select new
                      {
                          a.cv,
+                         a.Id,
                         
                      }).First();
             Binary binary = q.cv; //your linq object
             byte[] array = binary.ToArray();
-            File.WriteAllBytes(HttpContext.Current.Server.MapPath("/cvs/myfile2.pdf"), array);
+            File.WriteAllBytes(HttpContext.Current.Server.MapPath("/cvs/Seeker"+jobseekerid+".pdf"), array);
 
 
             return str;

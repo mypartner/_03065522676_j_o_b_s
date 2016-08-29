@@ -90,7 +90,7 @@ public class jobseekerclass
         }
         return returnid;
     }
-    public static appliedjobdataclass[] getappliedjob(int  seekerid)
+    public static appliedjobdataclass[] getappliedjob(int  jobid)
     {
        
        
@@ -100,7 +100,7 @@ public class jobseekerclass
 
             var result = from apjob in db.appliedJobs
                          join jdetail in db.jobs on apjob.jobid equals jdetail.Id
-                         where apjob.jobSeekerId == seekerid
+                         where apjob.jobid == jobid
                          select new { appliedjob = apjob, jobdetail = jdetail};
 
             int count = result.Count();

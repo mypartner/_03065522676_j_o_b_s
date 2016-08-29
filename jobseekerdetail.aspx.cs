@@ -16,7 +16,7 @@ public partial class jobseekerdetail : System.Web.UI.Page
     protected void savePersonalInformation_Click(object sender, EventArgs e)
     {
         jobSeekerProfessionalInfo j = new jobSeekerProfessionalInfo();
-        j.jobSeekerId = 8;//jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
+        j.jobSeekerId = jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
         j.experience = Request.Form["experiance"].ToString();
         j.jobStartDate = DateTime.Parse(Request.Form["jobstartdate"].ToString());
         j.jobEndDate = DateTime.Parse(Request.Form["jobenddate"].ToString());
@@ -26,7 +26,7 @@ public partial class jobseekerdetail : System.Web.UI.Page
         HttpPostedFile postedfile = cvfile.PostedFile;
         string filename = Path.GetFileName(postedfile.FileName);
         string fileextention = Path.GetExtension(filename);
-        if (fileextention.ToLower() == ".doc" || fileextention.ToLower() == ".pdf" || fileextention.ToLower() == ".docx")
+        if ( fileextention.ToLower() == ".pdf")
         {
             j.cv = docToByteArray(postedfile);
         }
