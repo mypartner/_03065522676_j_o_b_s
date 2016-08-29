@@ -16,14 +16,14 @@
         for (i = 1990; i <= 2017; i++) {
             select += '<option val=' + i + '>' + i + '</option>';
         }
-        $('#year_selector').html(select);
+        $('#passing_year').html(select);
     });
     $(document).ready(function () {
         var select = '';
         for (i = 1990; i <= 2017; i++) {
             select += '<option val=' + i + '>' + i + '</option>';
         }
-        $('#second_year_selector').html(select);
+        $('#passing_year2').html(select);
     });
     //  secont_year_selector
     function onlyAlphabets(e, t) {
@@ -166,8 +166,9 @@
                      </div>
                     </div>
                 </div>
+                            <div  align="center">
              <asp:Button ID="savePersonalInformation" runat="server" Text="Save" class="btn btn-danger " OnClick="savePersonalInformation_Click" />
-
+                                </div>
                              </div>
                         </div>
                           
@@ -187,10 +188,10 @@
                 </div>
                  <div class="row">
                      <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="year_selector">Passing Year</label>
+                        <label class="col-md-3 control-lable" for="passing_year">Passing Year</label>
                      <div class="col-md-9">
                      
-                        <select id='year_selector' required="required"></select>
+                        <select id='passing_year' name="passing_year" required="required"></select>
                          
                          
                     
@@ -236,10 +237,10 @@
                 </div>
                  <div class="row">
                      <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="second_year_selector">Passing Year</label>
+                        <label class="col-md-3 control-lable" for="passing_year2">Passing Year</label>
                      <div class="col-md-9">
                      
-                        <select id='second_year_selector'></select>​
+                        <select id='passing_year2' name="passing_year2"></select>​
                          
                     
                      </div>
@@ -253,7 +254,13 @@
                      </div>
                     </div>
 </div>
-          </div></div></div></div>
+         
+          </div>
+                               <div align="center">
+                          <asp:Button ID="saveeducationalinfo" runat="server" Text="Save" class="btn btn-danger" OnClick="saveeducationalinfo_Click"/>
+
+          </div>
+                          </div></div></div>
 
                      
 
@@ -303,6 +310,10 @@
                     </div>
                 </div>
                           </div>
+                              <div align="center">
+                                                   <asp:Button ID="saveskills" runat="server" Text="Save" class="btn btn-danger" OnClick="saveskill_Click"/>
+
+                              </div>
 
                               </div>
                               </div>
