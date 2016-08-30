@@ -11,7 +11,7 @@
     <!-- Custom Theme Style -->
 
 <script>
-    $(document).ready(function () {
+    /*$(document).ready(function () {
         var select = '';
         for (i = 1990; i <= 2017; i++) {
             select += '<option val=' + i + '>' + i + '</option>';
@@ -24,7 +24,7 @@
             select += '<option val=' + i + '>' + i + '</option>';
         }
         $('#second_year_selector').html(select);
-    });
+    });*/
     //  secont_year_selector
     function onlyAlphabets(e, t) {
         try {
@@ -137,7 +137,7 @@
                         <label class="col-md-3 control-lable" for="companyname">Company Name</label>
                      <div class="col-md-9">
                          
-                        <input type="text" id="companyname" name="companyname" class="form-control input-sm" data-validate-length-range="6" data-validate-words="2" required onkeypress="return onlyAlphabets(event,this);"/>
+                        <input type="text" id="companyname" name="companyname" class="form-control input-sm"/>
                      </div>
                     </div>
                 </div>
@@ -145,7 +145,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="description">Job Description</label>
                      <div class="col-md-9">
-                        <input type="text" id="description" name="description" class="form-control input-sm" data-validate-length-range="6" data-validate-words="2"/>
+                        <input type="text" id="description" name="description" class="form-control input-sm" />
                      </div>
                     </div>
                 </div>
@@ -153,7 +153,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="workexperience">Work Experience</label>
                      <div class="col-md-9">
-                        <input type="text" id="workexperience" name="workexperience" class="form-control" data-validate-length-range="6" data-validate-words="2"/>
+                        <input type="text" id="workexperience" name="workexperience" class="form-control" />
                      </div>
                     </div>
                 </div>
@@ -181,7 +181,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="institute">Institute Name</label>
                      <div class="col-md-9">
-                        <input type="text" id="institute" name="institute" class="form-control input-sm" data-validate-length-range="6" data-validate-words="2"/>
+                        <input type="text" id="institute" name="institute" class="form-control input-sm"/>
                      </div>
                     </div>
                 </div>
@@ -190,9 +190,9 @@
                         <label class="col-md-3 control-lable" for="year_selector">Passing Year</label>
                      <div class="col-md-9">
                      
-                        <select id='year_selector' required="required"></select>
+                      <!--  <select id='year_selector' required="required"></select>-->
                          
-                         
+                         <input type="date" name="year_selector" id="year_selector" />
                     
                      </div>
                     </div>
@@ -202,7 +202,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="degree1">Degree 1</label>
                      <div class="col-md-9">
-                        <input type="text" id="degree1" name="degree1" class="form-control input-sm" data-validate-length-range="6" data-validate-words="2"/>
+                        <input type="text" id="degree1" name="degree1" class="form-control input-sm" />
                      </div>
                     </div>
                 </div>
@@ -210,7 +210,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="specialization">Specialization</label>
                      <div class="col-md-9">
-                        <input type="text" id="specialization" name="specialization" class="form-control input-sm" data-validate-length-range="6" data-validate-words="2"/>
+                        <input type="text" id="specialization" name="specialization" class="form-control input-sm" />
                      </div>
                     </div>
                 </div>
@@ -239,8 +239,8 @@
                         <label class="col-md-3 control-lable" for="second_year_selector">Passing Year</label>
                      <div class="col-md-9">
                      
-                        <select id='second_year_selector'></select>​
-                         
+                        
+                         <input type="date" name="second_year_selector" id="second_year_selector" />
                     
                      </div>
                     </div>
@@ -253,7 +253,12 @@
                      </div>
                     </div>
 </div>
-          </div></div></div></div>
+          </div>
+                           
+                        
+                          </div>  <asp:Button ID="saveeducationalinfoo" runat="server" Text="Save" class="btn btn-danger" OnClick="saveeducationalinfoo_Click"/>   </div>
+                         
+                      </div>
 
                      
 
@@ -302,6 +307,7 @@
                      </div>
                     </div>
                 </div>
+                               <asp:Button ID="saveskills" runat="server" Text="Save" class="btn btn-danger" OnClick="saveskill_Click"/>
                           </div>
 
                               </div>
@@ -324,7 +330,7 @@
                     </div>
                     <!-- End SmartWizard Content -->
                       </div></div></div></div>
-                  </div> </div></div></div>
+                  </div> </div>
 
                          <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
