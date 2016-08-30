@@ -46,10 +46,10 @@
                                            <input type="hidden" name="jobpageid" id="jobpageid" runat="server" value=""/>
                                            <input type="hidden" name="jobpage" id="jobpage" runat="server" value=""/>       
                                    <label class="btn btn-default">
-                                            <input type="radio" name="logintype" id="JobFinder" autocomplete="off" value="jobseeker"/>Job Seeker
+                                            <input type="radio" name="logintype" id="JobFinder" autocomplete="off" value="jobseeker">Job Seeker
                                           </label>
                                           <label class="btn btn-default">
-                                            <input type="radio" name="logintype" id="recruiter" autocomplete="off" value="recruiter"/> Recruiter
+                                            <input type="radio" name="logintype" id="recruiter" autocomplete="off" value="recruiter"> Recruiter
                                           </label>
                             </div>
                             </div>

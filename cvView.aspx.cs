@@ -10,20 +10,36 @@ public partial class cvView : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       Response.Write(userprofile.getSeekerCv(8));
-        FileInfo file = new FileInfo(HttpContext.Current.Server.MapPath("/cvs/myfile2.pdf"));
+        try
+        {
+            if (Request.QueryString["id"].ToString() == null)
+            {
 
-        Response.ClearContent();
+            }
+            else
+            {
+                int id = int.Parse(Request.QueryString["id"].ToString());
+                Response.Write(userprofile.getSeekerCv(id));
+                FileInfo file = new FileInfo(HttpContext.Current.Server.MapPath("/cvs/Seeker" + id + ".pdf"));
 
-        Response.AddHeader("Content-Disposition", "inline;filename=" + file.Name);
+                Response.ClearContent();
 
-        Response.AddHeader("Content-Length", file.Length.ToString());
+                Response.AddHeader("Content-Disposition", "inline;filename=" + file.Name);
 
-        Response.ContentType = "application/pdf";
+                Response.AddHeader("Content-Length", file.Length.ToString());
 
-        Response.TransmitFile(file.FullName);
+                Response.ContentType = "application/pdf";
 
-        Response.End();
+                Response.TransmitFile(file.FullName);
+
+                Response.End();
+
+            }
+        }catch(Exception ex)
+        {
+
+        }
+      
 
     }
 

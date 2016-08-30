@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/jobseekermaster.master" AutoEventWireup="true" CodeFile="jobseekerviewdescription.aspx.cs" Inherits="viewDescription" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/jobseekermaster.master" AutoEventWireup="true" CodeFile="recruiterviewdescription.aspx.cs" Inherits="viewDescription" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -27,8 +27,9 @@
              
            <h3>Job Description</h3>
 	       <p><%=j.description %></p>
+         <a  href="recruiteremployeeinfo.aspx?id=<%=j.Id%>" class="read-more">ViewAppliedSeeker</a>
 	       <br />
-                <asp:Button ID="Button1" runat="server" Text="Apply job" class="btn btn-warning "/>
+               
 	      
 	      
        

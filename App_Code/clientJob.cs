@@ -89,12 +89,12 @@ public class clientJob
                                              select x );
         return appliedjob;
     }
-    public static void getjobappler(int jobid)
+    public static jobsapplierclass[] getjobappler(int jobid)
     {
         DataClassesDataContext db = new DataClassesDataContext();
         var data = from apjob in db.GetTable<appliedJob>()
                    join jseeker in db.jobSeekers on apjob.jobSeekerId equals jseeker.id
-                   where apjob.jobid == 1
+                   where apjob.jobid == jobid
                    select new { appliedJob = apjob, jobSeeker = jseeker };
 
         jobsapplierclass[] jobsapplied = new jobsapplierclass[data.Count()];
@@ -108,17 +108,23 @@ public class clientJob
             jobsapplied[i].ap_id = x.appliedJob.Id;
             jobsapplied[i].js_firstname = x.jobSeeker.firstName;
             jobsapplied[i].js_lastname = x.jobSeeker.lastName;
-           
-            jobsapplied[i].js_cv = x.jobSeeker.cv.ToArray();
+            if (x.jobSeeker.cv != null)
+            {
+                jobsapplied[i].js_cv = x.jobSeeker.cv.ToArray();
+            }
             jobsapplied[i].js_mobile = x.jobSeeker.mobile;
             jobsapplied[i].js_email = x.jobSeeker.email;
             jobsapplied[i].js_sex = x.jobSeeker.sex;
             jobsapplied[i].js_education = x.jobSeeker.education;
             jobsapplied[i].js_country = x.jobSeeker.country;
             jobsapplied[i].js_dob = x.jobSeeker.dob;
-            jobsapplied[i].js_image = x.jobSeeker.image.ToArray();
+            if (x.jobSeeker.image != null)
+            {
+                jobsapplied[i].js_image = x.jobSeeker.image.ToArray();
+            }
             i++;
         }
+        return jobsapplied;
        
     }
   

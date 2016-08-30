@@ -2,12 +2,19 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
         <link href="css/StyleSheet.css" rel="stylesheet" />
-
+    <script>
+        function generateCvpage(x) {
+            var output = "waqas khan";
+            var OpenWindow = window.open("cvView.aspx?id="+x, "mywin", "width=1000,height=1000");
+            OpenWindow.dataFromParent = output; // dataFromParent is a variable in child.html
+            OpenWindow.init();
+        };
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
       <!-- page content -->
     
-            
+  
 
         
       
@@ -23,21 +30,33 @@
                       </div>
 
                       <div class="clearfix"></div>
-
+                       
+                      <%
+                          int jid=int.Parse(Request.QueryString["id"].ToString());
+                          jobsapplierclass[] appliers= clientJob.getjobappler(jid);
+                          for (int i = 0; i < appliers.Length; i++)
+                          {
+                      %>
                       <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
                         <div class="well profile_view">
                           <div class="col-sm-12">
-                            <h4 class="brief"><i>Digital Strategist</i></h4>
+                            <h4 class="brief"><i><%=appliers[i].js_firstname + "&nbsp" + appliers[i].js_lastname%></i></h4>
                             <div class="left col-xs-7">
-                              <h2>Nicole Pearson</h2>
-                              <p><strong>About: </strong> Web Designer / UI. </p>
+                              <h2></h2>
+                              <p><strong>Applied Date: </strong><%=appliers[i].ap_date %></p>
                               <ul class="list-unstyled">
-                                <li><i class="fa fa-building"></i> Address: </li>
-                                <li><i class="fa fa-phone"></i> Phone #: </li>
+                                <li><i class="fa fa-building">Country</i> <%=appliers[i].js_country %> </li>
+                                <li><i class="fa fa-phone">Mobile</i> <%=appliers[i].js_mobile%></li>
                               </ul>
                             </div>
                             <div class="right col-xs-5 text-center">
-                                     <img src="images/a4.jpg" alt="" class="img-circle img-responsive" />
+                                      <%
+                                          byte[] img = null;
+                                          if (appliers[i].js_image != null)
+                                          {
+                                               img = appliers[i].js_image.ToArray();
+                                          } %>
+                                     <img src='data:image/jpg;base64,<%= Convert.ToBase64String(img) %>' alt="" class="img-circle img-responsive" />
                             </div>
                           </div>
                           <div class="col-xs-12 bottom text-center">
@@ -53,14 +72,17 @@
                             </div>
                             <div class="col-xs-12 col-sm-6 emphasis">
                               <button type="button" class="btn btn-success btn-xs"> <i class="fa fa-user">
-                                </i> <i class="fa fa-comments-o"></i> </button>
-                              <button type="button" class="btn btn-primary btn-xs">
+                                </i> <i class="fa fa-comments-o"></i>
+
+                              </button>
+                              <button type="button" onclick="generateCvpage(<%=appliers[i].ap_jobseekerid%>)" >
                                 <i class="fa fa-user"> </i> View Profile
                               </button>
+                              
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div><%} %>
 
 
                     </div>

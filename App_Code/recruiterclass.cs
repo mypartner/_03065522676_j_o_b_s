@@ -13,7 +13,7 @@ public class recruiterclass
     {
         //
         // TODO: Add constructor logic here
-        //
+        
     }
     public static void recruiterSignUp(recruiter u)
     {
@@ -101,5 +101,26 @@ public class recruiterclass
 
         }
         return returnid;
+    }
+    public static IQueryable<job> getAllPostedJobbyRec(int rid)
+    {
+
+        IQueryable<job> jobs=null;
+        try
+        {
+            DataClassesDataContext Database = new DataClassesDataContext();
+
+            jobs = (from a in Database.GetTable<job>()
+                     where a.rId == rid
+                     select a);
+           
+          
+
+        }
+        catch (Exception e)
+        {
+
+        }
+        return jobs; 
     }
 }

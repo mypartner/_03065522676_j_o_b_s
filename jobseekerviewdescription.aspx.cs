@@ -14,7 +14,7 @@ public partial class viewDescription : System.Web.UI.Page
         {
             if (Request.QueryString["id"] == null)
             {
-                Response.Redirect("jobs.aspx");
+                Response.Redirect("jobseekerjobs.aspx");
             }
         }
         if (IsPostBack)

@@ -35,15 +35,14 @@ public partial class login : System.Web.UI.Page
                     //msg for cnt login as recruiter
                 }
 
-            }
-            else if (Page.Request.UrlReferrer.AbsolutePath.ToString() == "/viewDescription.aspx")
+            }else if(Page.Request.UrlReferrer.AbsolutePath.ToString() == "/viewDescription.aspx")
             {
                 jobpageid.Value = Request.QueryString["id"].ToString();
-                jobpage.Value = Page.Request.UrlReferrer.AbsolutePath.ToString();
+                jobpage.Value = "jobseekerviewdescription.aspx";
 
             }
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
             Console.WriteLine(ex.Message);
         }
@@ -54,20 +53,20 @@ public partial class login : System.Web.UI.Page
         string name = Request.Form["username"];
         string password = Request.Form["password"].ToString();
         string type = Request.Form["logintype"];
-        if (type == "jobseeker")
+        if(type=="jobseeker")
         {
             int id = jobseekerclass.userAuthentication(name, password);
-            if (0 != id)
-            {
-                Session["LoginSession"] = name;
-                Response.Redirect("/jobseekerdashboard.aspx");
-            }
-            else
-            {
-                Response.Write("notlogedin");
-            }
+                  if (0 != id)
+                  {
+                       Session["LoginSession"] = name;
+                       Response.Redirect("/jobseekerdashboard.aspx");
+                  }
+                  else
+                  {
+                      Response.Write("notlogedin");
+                  }
         }
-        else if (type == "recruiter")
+        else if(type== "recruiter")
         {
             int id = recruiterclass.recruiterAuthentication(name, password);
             if (0 != id)
