@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="login.aspx.cs" Inherits="login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script src="js/Validations.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="banner_1">
@@ -27,14 +28,14 @@
                         </div>
                         <div class="textbox-wrap">
                             <div class="input-group">
-                                <span class="input-group-addon "><i class="fa fa-user"></i></span>
-                                <input type="text" required="required" name="username" class="form-control" placeholder="Username"/>
+                                <span class="input-group-addon " required><i class="fa fa-user"></i></span>
+                                <input type="text" required="required" name="username" class="form-control" placeholder="Username" data-validate-length-range="6" data-validate-words="2" />
                             </div>
                         </div>
                         <div class="textbox-wrap">
                             <div class="input-group">
-                                <span class="input-group-addon "><i class="fa fa-key"></i></span>
-                                <input type="password" required="required" name="password" class="form-control " placeholder="Password"/>
+                                <span class="input-group-addon " required><i class="fa fa-key"></i></span>
+                                <input type="password" required="required" name="password" class="form-control " placeholder="Password" data-validate-length-range="6" data-validate-words="2"/>
                             </div>
                         </div>
                      <div class="textbox-wrap">
@@ -46,10 +47,10 @@
                                            <input type="hidden" name="jobpageid" id="jobpageid" runat="server" value=""/>
                                            <input type="hidden" name="jobpage" id="jobpage" runat="server" value=""/>       
                                    <label class="btn btn-default">
-                                            <input type="radio" name="logintype" id="JobFinder" autocomplete="off" value="jobseeker">Job Seeker
+                                            <input type="radio" name="logintype" id="JobFinder" autocomplete="off" value="jobseeker" >Job Seeker
                                           </label>
                                           <label class="btn btn-default">
-                                            <input type="radio" name="logintype" id="recruiter" autocomplete="off" value="recruiter"> Recruiter
+                                            <input type="radio" name="logintype" id="recruiter" autocomplete="off" value="recruiter" > Recruiter
                                           </label>
                             </div>
                             </div>
