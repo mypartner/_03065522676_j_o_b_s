@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="recruiterSignup.aspx.cs" Inherits="recruiterSignup" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script src="js/Validations.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
   
@@ -13,9 +14,9 @@
       
                 <div class="row">
                      <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="companyname">Company Name</label>
+                        <label class="col-md-3 control-lable" for="companyname">Company Name<span class="required">*</span></label>
                      <div class="col-md-9 ">
-                        <input type="text" id="companyname" name="companyname" class="form-control input-sm"/>
+                        <input type="text" id="companyname" data-validate-length-range="6" data-validate-words="2" name="companyname" class="form-control input-sm"/>
                      </div>
                     </div>
                 </div>

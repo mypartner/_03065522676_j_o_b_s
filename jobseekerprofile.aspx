@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
   
-    
+    <script src="js/Validations.js"></script>
     
   
 
@@ -76,7 +76,7 @@
                             <span class="step_no">1</span>
                             <span class="step_descr">
                                               Step 1<br />
-                                              <small>Personal Information</small>
+                                              <small>Professional Information</small>
                                           </span>
                           </a>
                         </li>
@@ -179,7 +179,7 @@
 
                            <div class="row">
                      <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="institute">Institute Name</label>
+                        <label class="col-md-3 control-lable" for="institute">Institute Name<span class="required"></span></label>
                      <div class="col-md-9">
                         <input type="text" id="institute" name="institute" class="form-control input-sm"/>
                      </div>
