@@ -100,7 +100,7 @@ public class jobseekerclass
 
             var result = from apjob in db.appliedJobs
                          join jdetail in db.jobs on apjob.jobid equals jdetail.Id
-                         where apjob.jobid == jobid
+                         where apjob.jobSeekerId == jobid
                          select new { appliedjob = apjob, jobdetail = jdetail};
 
             int count = result.Count();

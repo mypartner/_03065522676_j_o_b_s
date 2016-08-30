@@ -38,7 +38,7 @@ public partial class login : System.Web.UI.Page
             }else if(Page.Request.UrlReferrer.AbsolutePath.ToString() == "/viewDescription.aspx")
             {
                 jobpageid.Value = Request.QueryString["id"].ToString();
-                jobpage.Value = Page.Request.UrlReferrer.AbsolutePath.ToString();
+                jobpage.Value = "jobseekerviewdescription.aspx";
 
             }
         }

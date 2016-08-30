@@ -15,9 +15,12 @@
 		   </ul>
 		<div id="myTabContent" class="tab-content">
 		  <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-             <%   appliedjobdataclass[] appliedjob=jobseekerclass.getappliedjob(8);
-         foreach (appliedjobdataclass j in appliedjob)
-         {
+             <%
+                 if (!string.IsNullOrEmpty(Session["LoginSession"] as string))
+                 {
+                     appliedjobdataclass[] appliedjob = jobseekerclass.getappliedjob(jobseekerclass.getSeekerID(Session["LoginSession"].ToString()));
+                     foreach (appliedjobdataclass j in appliedjob)
+                     {
                  %>
 		    <div class="tab_grid">''
 			    <div class="jobs-item with-thumb">
@@ -55,7 +58,10 @@
                     </div>
 					<div class="clearfix"> </div>
 				</div>
-		      </div><% }%>
+		      </div><% }
+                        } else {
+                            Response.Redirect("login.aspx");
+                        }%>
 		  </div>
 	  </div>
      </div>
