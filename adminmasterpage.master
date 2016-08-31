@@ -344,8 +344,8 @@
       $(document).ready(function() {
         //random data
         var d1 = [
-          [0, 1],
-          [1, 9],
+          ['Jan', 1],
+          ['Feb', 9],
           [2, 6],
           [3, 10],
           [4, 5],
@@ -357,7 +357,7 @@
           [10, 35],
           [11, 9],
           [12, 12],
-          [13, 5],
+          [13, 70],
           [14, 3],
           [15, 4],
           [16, 9]
@@ -387,7 +387,7 @@
           }
         };
         var plot = $.plot($("#placeholder3xx3"), [{
-          label: "Registrations",
+          label: "New Graphhh ",
           data: d1,
           lines: {
             fillColor: "rgba(150, 202, 89, 0.12)"
