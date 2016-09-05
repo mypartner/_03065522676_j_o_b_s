@@ -7,6 +7,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 public partial class jobseekerprofile : System.Web.UI.Page
 {
+    public enum MessageType { Success, Error, Info, Warning };
+    protected void ShowMessage(string Message, MessageType type)
+    {
+        ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "ShowMessage('" + Message + "','" + type + "');", true);
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -29,6 +34,7 @@ public partial class jobseekerprofile : System.Web.UI.Page
             j.cv = docToByteArray(postedfile);
         }
         userprofile.addJobSeekerProfessionalInfo(j);
+        ShowMessage("Job seeker Professional Information has been saved successfully ! ", MessageType.Success);
     }
     
     public void saveskill_Click(object sender, EventArgs e)
@@ -41,6 +47,8 @@ public partial class jobseekerprofile : System.Web.UI.Page
         s.skill4 = Request.Form["skill4"].ToString();
         s.skill5 = Request.Form["skill5"].ToString();
         userprofile.addJobSeekerSkills(s);
+        ShowMessage("Job seeker skill Information has been saved successfully ! ", MessageType.Success);
+
 
     }
 
@@ -80,6 +88,8 @@ public partial class jobseekerprofile : System.Web.UI.Page
                 j1.specialization = Request.Form["secondspecialization"].ToString();
                 userprofile.addJobSeekereducationalinfo(j1);
             }
+            ShowMessage("Job seeker Educational Information has been saved successfully ! ", MessageType.Success);
+
         }
     }
 }

@@ -1,3 +1,28 @@
+.x_content {
+    padding: 0 5px 6px;
+    position: relative;
+    width: 100%;
+    float: left;
+    clear: both;
+    margin-top: 5px;
+} 
+.shorttb{
+		  border:2px solid #c19f45;
+            width:100%;
+			  margin-right:3%;
+        }
+        .shortgroupdiv{
+            width:50%;
+            float:left;
+        }
+        .midgroupdiv{
+            width:33.33%;
+            float:left;
+        }
+        .longgrouptb{
+            width:100%;
+            clear:both;
+        }
 .newcontainer{
     margin-right:auto;margin-left:auto;padding-left:300px;padding-right:250px;margin-top:50px;
     min-width:100%;

@@ -5,8 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class postAd : System.Web.UI.Page
+public partial class recruiteraddjob : System.Web.UI.Page
 {
+    public enum MessageType { Success, Error, Info, Warning };
+    protected void ShowMessage(string Message, MessageType type)
+    {
+        ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "ShowMessage('" + Message + "','" + type + "');", true);
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
       if (IsPostBack)
@@ -30,6 +35,7 @@ public partial class postAd : System.Web.UI.Page
                 k.minimumLevelOfExperience = Request.Form["mlexperiance"].ToString();
                 k.specificRequirement = "spacificRequirements";
                 recruiterclass.addJob(k);
+                ShowMessage("Information has been saved ", MessageType.Success);
             }
           
             else
