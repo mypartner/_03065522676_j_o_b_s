@@ -283,11 +283,12 @@
           </div>
         </div>
         <!-- /top navigation -->
-
+          <div class="clearfix"></div>
         <!-- page content -->
 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
+          <div class="clearfix"></div>
         <!-- footer content -->
         <footer>
           <div class="pull-right">

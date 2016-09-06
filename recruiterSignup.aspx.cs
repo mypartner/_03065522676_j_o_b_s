@@ -9,6 +9,11 @@ using System.Web.UI.WebControls;
 
 public partial class recruiterSignup : System.Web.UI.Page
 {
+    public enum MessageType { Success, Error, Info, Warning };
+    protected void ShowMessage(string Message, MessageType type)
+    {
+        ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "ShowMessage('" + Message + "','" + type + "');", true);
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
       
@@ -31,6 +36,7 @@ public partial class recruiterSignup : System.Web.UI.Page
             r.logo = imageToByteArray(postedfile);
             r.signupdate = DateTime.Now;
             recruiterclass.recruiterSignUp(r);
+            ShowMessage("Information has been saved successfully ! ", MessageType.Success);
         }
 
     }

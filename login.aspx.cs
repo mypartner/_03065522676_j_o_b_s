@@ -7,6 +7,11 @@ using System.Web.UI.WebControls;
 
 public partial class login : System.Web.UI.Page
 {
+    public enum MessageType { Success, Error, Info, Warning };
+    protected void ShowMessage(string Message, MessageType type)
+    {
+        ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "ShowMessage('" + Message + "','" + type + "');", true);
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -27,7 +32,8 @@ public partial class login : System.Web.UI.Page
                     }
                     else
                     {
-                        Response.Write("notlogedin");
+                     //   ShowMessage("Username and password is incorrect ! ", MessageType.Error);
+                     //   Response.Write("notlogedin");
                     }
                 }
                 else
@@ -63,7 +69,8 @@ public partial class login : System.Web.UI.Page
                   }
                   else
                   {
-                      Response.Write("notlogedin");
+                ShowMessage("Username and password is incorrect ! ", MessageType.Error);
+              //  Response.Write("notlogedin");
                   }
         }
         else if(type== "recruiter")
@@ -76,7 +83,7 @@ public partial class login : System.Web.UI.Page
             }
             else
             {
-                Response.Write("notlogedin");
+                ShowMessage("Username and password is incorrect ! ", MessageType.Error);
             }
         }
         else

@@ -2,15 +2,43 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
   
-    <script src="js/Validations.js"></script>
+    
+    <link href="css/StyleSheet.css" rel="stylesheet" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+<script>
+
+  $.validate({
+    modules : 'location, date, security, file',
+    onModulesLoaded : function() {
+      $('#country').suggestCountry();
+    }
+  });
+
+  // Restrict presentation length
+  $('#description').restrictLength($('#pres-max-length'));
+        //
+  function ShowMessage(message, messagetype) {
+      var cssclass;
+      switch (messagetype) {
+          case 'Success':
+              cssclass = 'alert-success'
+              break;
+          case 'Error':
+              cssclass = 'alert-danger'
+              break;
+          case 'Warning':
+              cssclass = 'alert-warning'
+              break;
+          default:
+              cssclass = 'alert-info'
+      }
+      $('#alert_container').append('<div id="alert_div" style="margin-top:40px;margin-left:10px;width:90%; -webkit-box-shadow: 3px 4px 6px #999;" class="alert fade in ' + cssclass + '"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>' + messagetype + '!</strong> <span>' + message + '</span></div>');
+  };
+
     
   
 
-    
-    <link href="css/StyleSheet.css" rel="stylesheet" />
-    <!-- Custom Theme Style -->
-
-<script>
     /*$(document).ready(function () {
         var select = '';
         for (i = 1990; i <= 2017; i++) {
@@ -52,7 +80,8 @@
     <div class="banner_1"></div>
     <div class="single">  
 	   <div class="form-container">
-            
+                           <div class="messagealert" id="alert_container" >  </div>                	  
+
      
           <div class="">
            

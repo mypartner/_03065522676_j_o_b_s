@@ -13,6 +13,8 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+    <link href="css/defaulttheme.css" rel="stylesheet" />
+    <script src="js/formvalidator.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <!--<link href='//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
@@ -63,7 +65,7 @@
 	  </div>
 	    <!--/.navbar-collapse-->
 	</nav>    
-     <form runat="server" method="post">
+     <form runat="server" method="post" action="" id="formControl" >
     <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
@@ -120,5 +122,22 @@
       </div>
       </div>
 </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/formvalidator.js"></script>
+
+<script>
+
+  $.validate({
+    modules : 'location, date, security, file',
+    onModulesLoaded : function() {
+      $('#country').suggestCountry();
+    }
+  });
+
+  // Restrict presentation length
+  $('#presentation').restrictLength( $('#pres-max-length') );
+    //form validation phone number
+   
+</script>
 </body>
 </html>
