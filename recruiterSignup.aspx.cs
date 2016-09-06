@@ -34,6 +34,7 @@ public partial class recruiterSignup : System.Web.UI.Page
             r.password = Request.Form["password"].ToString();
             HttpPostedFile postedfile = logo.PostedFile;
             r.logo = imageToByteArray(postedfile);
+            r.signupdate = DateTime.Now;
             recruiterclass.recruiterSignUp(r);
             ShowMessage("Information has been saved successfully ! ", MessageType.Success);
         }

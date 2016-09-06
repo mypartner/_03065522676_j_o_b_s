@@ -100,8 +100,8 @@
                                     <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Sign Up</a>
                                     <div class="dropdown-menu" style="padding:17px;">
                                       <p>  <a href="recruiterSignup.aspx"> <u>Sign up as recruiter</u> </a></p>  
-                               <p>  <a href="userSignup.aspx"> <u>Sign up as job seeker</u> </a> </p>
-                                      
+                               <p>  <a href="jobseekersignup.aspx"> <u>Sign up as job seeker</u> </a> </p>
+                                    
                                     </div>
                                   </li>
                                 </ul>
