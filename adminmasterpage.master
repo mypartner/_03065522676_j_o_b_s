@@ -344,7 +344,7 @@
       $(document).ready(function() {
         //random data
         var d1 = [
-          ['Jan', 1],
+          ['J an', 1],
           ['Feb', 9],
           [2, 6],
           [3, 10],
@@ -545,11 +545,15 @@
     </script>
     <!-- /bootstrap-daterangepicker -->
 
+
+
+            
+
     <!-- morris.js -->
     <script>
       $(document).ready(function() {
         Morris.Bar({
-          element: 'graph_bar',
+            element: 'area-example',
           data: [
             { "period": "Jan", "Hours worked": 80 }, 
             { "period": "Feb", "Hours worked": 125 }, 

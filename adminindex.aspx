@@ -4,176 +4,110 @@
     <script src="js/chart.min.js"></script>
     <script src="js/canvasjs.js"></script>
     <script>
-    <%--    <%
-      DataTable dt = installment.getPropertiesSoldpermonty();
-            double[] monthlyvalue = new double[12];
-            foreach (DataRow dr in dt.Rows)
-            {
-                DateTime date = (DateTime)dr["date"];
-                string month = date.ToString("MMMM");
-                if (month == "January")
-                {
-                    monthlyvalue[4] += double.Parse(dr["payment_amount_in_Rs"].ToString());
-                }else if (month =="February")
-                {
-                    monthlyvalue[5] += double.Parse(dr["payment_amount_in_Rs"].ToString());
-                }else if (month =="March")
-                {
-                    monthlyvalue[5] += double.Parse(dr["payment_amount_in_Rs"].ToString());
-                }else if (month =="April")
-                {
-                    monthlyvalue[5] += double.Parse(dr["payment_amount_in_Rs"].ToString());
-                }else if (month =="May")
-                {
-                    monthlyvalue[5] += double.Parse(dr["payment_amount_in_Rs"].ToString());
-                }else if (month =="June")
-                {
-                    monthlyvalue[5] += double.Parse(dr["payment_amount_in_Rs"].ToString());
-                }else if (month =="July")
-                {
-                    monthlyvalue[5] += double.Parse(dr["payment_amount_in_Rs"].ToString());
-                }else if (month =="August")
-                {
-                    monthlyvalue[5] += double.Parse(dr["payment_amount_in_Rs"].ToString());
-                }else if (month =="September")
-                {
-                    monthlyvalue[5] += double.Parse(dr["payment_amount_in_Rs"].ToString());
-                }else if (month =="October")
-                {
-                    monthlyvalue[5] += double.Parse(dr["payment_amount_in_Rs"].ToString());
-                }else if (month =="November")
-                {
-                    monthlyvalue[5] += double.Parse(dr["payment_amount_in_Rs"].ToString());
-                }else if (month =="December")
-                {
-                    monthlyvalue[5] += double.Parse(dr["payment_amount_in_Rs"].ToString());
-                }
-            }
+   <%
+
+        int[] monthlyvalue = adminClass.getTotalRecruterSignup();
+        int[] jbseeker = adminClass.getTotalJobSeekerSignup();
+
           %>
 	
-//**********************************************
- 	window.onload=function myfucntion(){
-	 var jan= <%=monthlyvalue[0]%>;
-	var feb= <%=monthlyvalue[1] %>;
-    var march= <%=monthlyvalue[2]%>;
-	var april=<%=monthlyvalue[3]%>;
-	var may=<%=monthlyvalue[4]%>;
-	var june= <%=monthlyvalue[5]%>;
-	var july=  <%=monthlyvalue[6]%>;
-	var augest= <%=monthlyvalue[7]%>;
-	var september= <%=monthlyvalue[8]%>;
-	var october= <%=monthlyvalue[9]%>;
-	var november= <%=monthlyvalue[10]%>;
- 	    var december=<%=monthlyvalue[11]%>;
+//*******************RecruiterDataBinding***************************
+        window.onload=function myfucntion(){
 
-      var chart = new CanvasJS.Chart("chartContainer");
-    chart.options.animationEnabled= true;
-    chart.options.theme= "theme4";
-    chart.options.axisX = { title: "Months",titleFontSize: 30,interval:1};
-    chart.options.axisY = { title: "Amount", includeZero: false,interval: 200000,titleFontSize: 20};
+             var jan=[2];
+ 	    var feb=[2];
+ 	    var march=[2];
+ 	    var april=[2];
+ 	    var may=[2];
+ 	    var june=[2];
+ 	    var july=[2];
+ 	    var augest=[2];
+ 	    var september=[2];
+ 	    var october=[2];
+ 	    var november=[2];
+ 	    var december=[2];
+            //*********************************RecruiterBindin
+	  jan[0]= <%=monthlyvalue[0]%>;
+ 	  feb[0]= <%=monthlyvalue[1] %>;
+ 	  march[0]= <%=monthlyvalue[2]%>;
+ 	  april[0]=<%=monthlyvalue[3]%>;
+ 	  may[0]=<%=monthlyvalue[4]%>;
+ 	  june[0]= <%=monthlyvalue[5]%>;
+ 	  july[0]=  <%=monthlyvalue[6]%>;
+ 	  augest[0]= <%=monthlyvalue[7]%>;
+ 	  september[0]= <%=monthlyvalue[8]%>;
+ 	  october[0]= <%=monthlyvalue[9]%>;
+ 	  november[0]= <%=monthlyvalue[10]%>;
+ 	  december[0]=<%=monthlyvalue[11]%>;
+ 	    //***************************************JobSeekerdata binding
+
+ 	     jan[1]= <%=jbseeker[0]%>;
+ 	     feb[1]= <%=jbseeker[1] %>;
+ 	     march[1]= <%=jbseeker[2]%>;
+ 	     april[1]=<%=jbseeker[3]%>;
+ 	     may[1]=<%=jbseeker[4]%>;
+ 	     june[1]= <%=jbseeker[5]%>;
+ 	     july[1]=  <%=jbseeker[6]%>;
+ 	     augest[1]= <%=jbseeker[7]%>;
+ 	     september[1]= <%=jbseeker[8]%>;
+ 	     october[1]= <%=jbseeker[9]%>;
+ 	     november[1]= <%=jbseeker[10]%>;
+            december[1]=<%=jbseeker[11]%>;
+
+            var chart = new CanvasJS.Chart("chartContainer");
+  chart.options.animationEnabled= true;
+    
+    chart.options.toolTip={
+    		
+    		content: function(e){
+    	          var body ;
+    	          var head ;
+    	          head = "<span style = 'color:DodgerBlue; '><strong>Resource:"+ (e.entries[0].dataPoint.x+1)  + "</strong></span><br/>";
+
+    	          body = "<span style= 'color:"+e.entries[0].dataSeries.color + "'> " + e.entries[0].dataSeries.name + "</span><br/> <strong>Resource Count :"+  e.entries[0].dataPoint.y + "</strong><br/>";
+
+    	          return (head.concat(body));
+    	        }
+          };
+     chart.options.theme= "theme4";
+    chart.options.axisX = { title: "Resources",titleFontSize: 30,interval: 1};
+    chart.options.axisY = { title: "Resource Count", includeZero: false,interval: 3,titleFontSize: 20};
     /* chart.options.axisY2 = { prefix: "$", suffix: "K",title: "Price"}; */
-    chart.options.title = { text: "Amount Received Per Month" };
+    chart.options.title = { text: "Negotiation Iteration Graph" };
     var series=[];
   
-    series[0]={ //dataSeries - first quarter
+    for(var w=0;w<2;w++){
+    series[w]={ //dataSeries - first quarter
             type: "spline",
-            name: "Jan"+"   Income :"+jan+" PKR",
+            name: "Recruiters",
             showInLegend: true,
            
     };
-    series[1]={ //dataSeries - first quarter
-        type: "spline",
-        name: "Feb"+"   Price:"+feb+" PKR",
-        showInLegend: true,
-           
-    };
-    series[2]={ //dataSeries - first quarter
-        type: "spline",
-        name: "March"+"   Income :"+march+" PKR",
-        showInLegend: true,
-           
-    };
-    series[3]={ //dataSeries - first quarter
-        type: "spline",
-        name: "April"+"   Income :"+april+" PKR",
-        showInLegend: true,
-           
-    };
-    series[4]={ //dataSeries - first quarter
-        type: "spline",
-        name: "May"+"   Income :"+may+" PKR",
-        showInLegend: true,
-           
-    };
-    series[5]={ //dataSeries - first quarter
-        type: "spline",
-        name: "June"+"   Income :"+june+" PKR",
-        showInLegend: true,
-           
-    };
-    series[6]={ //dataSeries - first quarter
-        type: "spline",
-        name: "July"+"   Income :"+july+" PKR",
-        showInLegend: true,
-           
-    };
-    series[7]={ //dataSeries - first quarter
-        type: "spline",
-        name: "Augest"+"   Income :"+augest+" PKR",
-        showInLegend: true,
-           
-    };
-    series[8]={ //dataSeries - first quarter
-        type: "spline",
-        name: "September" +" Income :"+september+" PKR",
-        showInLegend: true,
-           
-    };
-    series[9]={ //dataSeries - first quarter
-        type: "spline",
-        name: "October"+"   Income :"+october+" PKR",
-        showInLegend: true,
-           
-    };
-    series[10]={ //dataSeries - first quarter
-        type: "spline",
-        name: "November"+"   Income :"+november+" PKR",
-        showInLegend: true,
-           
-    };
-    series[11]={ //dataSeries - first quarter
-        type: "spline",
-        name: "December"+"   Income : "+december+" PKR",
-        showInLegend: true,
-           
-    };
+    }
     chart.options.data = [];
-    for(var z=0;z<"<%=11%>";z++){ 
+    for(var z=0;z<2;z++){ 
         chart.options.data.push(series[z]);
-      /*   chart.options.data.push(series2[z]); */
       }
-        series[0].dataPoints = [
-                { label:"Jan", y: jan },
-                { label:"Feb", y: feb },
-                { label:"March", y: march },
-                { label:"April", y: april },
-                { label:"May", y: may },
-                { label:"June", y: june },
-                { label:"July", y: july },
-                { label:"Aug", y: augest },
-                 { label:"Sep", y: september },
-                  { label:"Oct", y: october },
-                   { label:"Nov", y: november },
-                   { label:"Dec", y: december },
-
+    for(var y=0;y<2;y++){
+        series[y].dataPoints = [
+                { label:"Jan", y: jan[y] },
+               { label:"Feb", y: feb[y] },
+               { label:"March", y: march[y] },
+               { label:"April", y: april[y] },
+               { label:"May", y: may[y] },
+               { label:"June", y: june[y]},
+               { label:"July", y: july[y] },
+               { label:"Aug", y: augest[y] },
+                { label:"Sep", y: september[y] },
+                 { label:"Oct", y: october[y] },
+                  { label:"Nov", y: november[y] },
+                  { label:"Dec", y: december[y] },        
         ];
+
+        }
         chart.render();
-        }--%>
-
-
-      
-       
-        
+        }
+        //////////////////////////////////////////////////////////////////        
   </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
