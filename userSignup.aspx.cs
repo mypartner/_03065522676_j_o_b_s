@@ -8,6 +8,11 @@ using System.Web.UI.WebControls;
 
 public partial class userSignup : System.Web.UI.Page
 {
+    public enum MessageType { Success, Error, Info, Warning };
+    protected void ShowMessage(string Message, MessageType type)
+    {
+        ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "ShowMessage('" + Message + "','" + type + "');", true);
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         if(IsPostBack){
@@ -26,6 +31,8 @@ public partial class userSignup : System.Web.UI.Page
             HttpPostedFile postedfile = imageupload.PostedFile;
             u.image=imageToByteArray(postedfile);
             jobseekerclass.signUpJobSeeker(u);
+            ShowMessage("Your has been saved successfully ! ", MessageType.Success);
+
         }
     }
     public static byte[] imageToByteArray(HttpPostedFile postedfile)

@@ -2,7 +2,20 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
- <div class="banner_1"></div>
+ <div class="banner_1">
+	<div class="container">
+		<div id="search_wrapper1">
+		   <div id="search_form" class="clearfix">
+		    <h1>Start your job search</h1>
+		    <p>
+			 <input type="text" class="text" placeholder=" " value="Enter Keyword(s)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Keyword(s)';}">
+			 <input type="text" class="text" placeholder=" " value="Location" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Location';}">
+			 <label class="btn2 btn-2 btn2-1b"><input type="submit" value="Find Jobs"/></label>
+			</p>
+           </div>
+		</div>
+   </div> 
+</div>	
    <div class="container">
     <div class="single">  
 	   <div class="col-md-9 single_right">
@@ -67,7 +80,7 @@
 		<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
 	</ul>
    </div>
-   <div class="col-md-3">
+  <!-- <div class="col-md-3">
 	   	  <div class="widget_search">
 			<h5 class="widget-title">Search</h5>
 			<div class="widget-content">
@@ -214,7 +227,7 @@
                     </tbody>
              </table>
 	   	  </div>
-	   </div>
+	   </div>-->
   <div class="clearfix"> </div>
  </div>
 </div>

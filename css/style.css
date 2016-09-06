@@ -7,9 +7,9 @@
     margin-top: 5px;
 } 
 .shorttb{
-		  border:2px solid #c19f45;
+		  border:1px solid #333;
             width:100%;
-			  margin-right:3%;
+              border-radius: 5px;
         }
         .shortgroupdiv{
             width:50%;

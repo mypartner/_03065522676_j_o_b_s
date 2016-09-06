@@ -44,7 +44,7 @@
     <div class="single">   
 	   
         <div class="col-md-3"></div>
-	 <div class="col-md-7 single_right">
+	 <div class="col-md-9 single_right">
                              <div class="messagealert" id="alert_container" >  </div>                	  
 
 	 	   <div class="login-form-section">

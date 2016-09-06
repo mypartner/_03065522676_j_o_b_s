@@ -32,7 +32,7 @@
           });
 
           // Restrict presentation length
-          $('#description').restrictLength($('#pres-max-length'));
+          $('#presentation').restrictLength($('#pres-max-length'));
 
         
 
@@ -47,12 +47,13 @@
           <br />
 <div class="container" >
      <div class="single">   
-         <div class="col-md-2"></div>
+ <div class="col-md-2"></div>
 	 <div class="col-md-9 single_right">
          <div class="messagealert" id="alert_container" >  </div> 
 	   <div class="form-container" >
        
         <h2>Recruiter SignUp</h2>
+           <div class="newmargin">
                <!--Company name-->
            <div class="row">
            <div class="col-md-12">
@@ -60,9 +61,9 @@
             <div class="form-group col-md-12 ">
                 
                     <label  for="companyname">Company Name</label>
-                    <input type="text" id="companyname" name="companyname" class="form-control input-sm shorttb"  data-validation="length alphabet" 
-		 data-validation-length="3-12" 
-		 data-validation-error-msg="Enter correct format (a-z) !" required/>
+                    <input type="text" id="companyname" name="companyname" class="form-control input-sm shorttb"  data-validation="length alphanumeric" 
+		 data-validation-length="3-15" 
+		 data-validation-error-msg="Enter company name again !" required/>
 
             </div>
          </div>
@@ -73,8 +74,9 @@
             <div class="form-group col-md-12">
                 <label  for="establishyear">Year of Establishment</label>
                     <input type="date" id="establishyear" name="establishyear" class="form-control input-sm shorttb" 
-                        required
-		 data-validation-error-msg="Enter correct format (0-9)!"/>
+                        required data-validation="required" 
+		 data-validation-error-msg="Select year of establishment !"
+		 />
                 </div>
             </div>
 
@@ -88,7 +90,9 @@
             <div class="form-group col-md-12 ">
                 
                     <label  for="contactoerson">Mobile</label>
-                    <input type="text" id="contact" name="contactoerson" required class="form-control input-sm shorttb" pattern="^\d{4}-\d{3}-\d{4}$" title="no.only"  />
+                    <input type="text" id="contact" name="contactoerson" required class="form-control input-sm shorttb" data-validation="length alphanumeric" 
+		 data-validation-length="3-15" 
+		 data-validation-error-msg="Enter Your Mobile again !" />
 
             </div>
          </div>
@@ -101,8 +105,8 @@
                     <input type="text" id="phone" name="phone" class="form-control input-sm shorttb" 
                         required
 		 data-validation="length alphanumeric" 
-		 data-validation-length="3" 
-		 data-validation-error-msg="Enter correct format (0-9) !"/>
+		 data-validation-length="3-15" 
+		 data-validation-error-msg="Enter phone no. again !"/>
                 </div>
             </div>
 
@@ -115,8 +119,10 @@
            
             <div class="form-group col-md-12 ">
                 
-                    <label  for="contactoerson">Fax</label>
-                    <input type="text" id="fax" name="fax" required class="form-control input-sm shorttb" pattern="^\d{4}-\d{3}-\d{4}$" title="no.only"  />
+                    <label  for="fax">Fax</label>
+                    <input type="text" id="fax" name="fax"  class="form-control input-sm shorttb" data-validation="length alphanumeric" 
+		 data-validation-length="3-15" 
+		 data-validation-error-msg="Enter fax again !"  />
 
             </div>
          </div>
@@ -125,12 +131,10 @@
            <div class="col-md-12">
           
             <div class="form-group col-md-12">
-                <label  for="phone">Email</label>
+                <label  for="email">Email</label>
                     <input type="text" id="email" name="email" class="form-control input-sm shorttb" 
                         required
-		 data-validation="length alphanumeric" 
-		 data-validation-length="3" 
-		 data-validation-error-msg="Enter correct format (0-9) !"/>
+		 data-validation="email"/>
                 </div>
             </div>
 
@@ -143,8 +147,9 @@
            
             <div class="form-group col-md-12 ">
                 
-                    <label  for="contactoerson">Website</label>
-                    <input type="text"  id="website" name="website" required class="form-control input-sm shorttb" pattern="^\d{4}-\d{3}-\d{4}$" title="no.only"  />
+                    <label  for="website">Website</label>
+                    <input type="text"  id="website" name="website" required class="form-control input-sm shorttb" data-validation="required" 
+		 data-validation-error-msg="Enter your company website !"/>
 
             </div>
          </div>
@@ -156,9 +161,10 @@
                 <div class="row">
            <div class="col-md-12">
                <div class="form-group col-md-12 ">
-                         <label  for="contactoerson">Brief Description</label>
+                         <label  for="description">Brief Description</label>
+                    (<span id="pres-max-length">100</span> characters left)
           
-                    <textarea class="form-control input-sm shorttb" rows="4" name="description" id="description"></textarea>
+                    <textarea rows="4" name="description" id="description" class="form-control input-sm shorttb" ></textarea>
                      </div>
                          
                     </div>
@@ -167,9 +173,11 @@
             <div class="row">
                       <div class="col-md-12">
                <div class="form-group col-md-12 ">
-                        <label  for="description">Username</label>
+                        <label  for="username">Username</label>
 
-                  <input type="text" id="username" name="username" class="form-control input-sm shorttb"/>
+                  <input type="text" id="username" name="username" class="form-control input-sm shorttb" required data-validation="length alphanumeric" 
+		 data-validation-length="3-15" 
+		 data-validation-error-msg="Enter correct username !"/>
                      </div>
                          
                     </div>
@@ -177,9 +185,10 @@
             <div class="row">
                       <div class="col-md-12">
                <div class="form-group col-md-12 ">
-                        <label  for="description">Password</label>
+                        <label  for="password">Password</label>
 
-                   <input type="password" id="password" name="password" class="form-control input-sm shorttb"/>
+                   <input type="password" id="password" name="password" class="form-control input-sm shorttb" data-validation="strength" 
+		 data-validation-strength="2" required/>
                      </div>
                          
                     </div>
@@ -187,9 +196,10 @@
                  <div class="row">
                       <div class="col-md-12">
                <div class="form-group col-md-12 ">
-                        <label  for="imagefile">Upload Company image</label>
+                        <label  for="logo">Upload Company image</label>
             
-                         <asp:FileUpload ID="logo" runat="server" />
+                         <asp:FileUpload ID="logo" runat="server" data-validation="required" 
+		 data-validation-error-msg="Choose company logo !" />
                      </div>
                     </div>
                 </div>
@@ -201,6 +211,7 @@
 	    </div>
     </div>
 </div>
+    </div>
     </div>
 </asp:Content>
 
