@@ -75,8 +75,8 @@
                       <br />
 
                       <!-- start skills -->
-                      <h4>Skills</h4>
-                      <ul class="list-unstyled user_data">
+             <!--             <h4>Skills</h4>
+                  <ul class="list-unstyled user_data">
                         <li>
                           <p>Web Applications</p>
                           <div class="progress progress_sm">
@@ -101,33 +101,21 @@
                             <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
                           </div>
                         </li>
-                      </ul>
+                      </ul>-->
                       <!-- end of skills -->
 
                     </div>
                     <div class="col-md-9 col-sm-9 col-xs-12">
 
-                      <div class="profile_title">
-                        <div class="col-md-6">
-                          <h2>User Activity Report</h2>
-                        </div>
-                        <div class="col-md-6">
-                          <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
-                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                            <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
-                          </div>
-                        </div>
-                      </div>
                       <!-- start of user-activity-graph -->
-                      <div id="graph_bar" style="width:100%; height:280px;"></div>
+                   <!--   <div id="graph_bar" style="width:100%; height:280px;"></div>-->
                       <!-- end of user-activity-graph -->
 
                       <div class="" role="tabpanel" data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Recent Activity</a>
+                          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Applied Jobs</a>
                           </li>
-                          <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Projects Worked on</a>
-                          </li>
+                       
                           <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
                           </li>
                         </ul>
@@ -205,7 +193,7 @@
                             <!-- end recent activity -->
 
                           </div>
-                          <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                         skill <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
 
                             <!-- start user projects -->
                             <table class="data table table-striped no-margin">

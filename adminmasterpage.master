@@ -63,12 +63,8 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="index.html">Dashboard</a></li>
-                      <li><a href="index2.html">Dashboard2</a></li>
-                      <li><a href="index3.html">Dashboard3</a></li>
-                    </ul>
+                  <li><a  href="adminindex.aspx"><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                   
                   </li>
                   <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -345,7 +341,7 @@
       $(document).ready(function() {
         //random data
         var d1 = [
-          ['Jan', 1],
+          ['J an', 1],
           ['Feb', 9],
           [2, 6],
           [3, 10],
@@ -546,11 +542,15 @@
     </script>
     <!-- /bootstrap-daterangepicker -->
 
+
+
+            
+
     <!-- morris.js -->
     <script>
       $(document).ready(function() {
         Morris.Bar({
-          element: 'graph_bar',
+            element: 'area-example',
           data: [
             { "period": "Jan", "Hours worked": 80 }, 
             { "period": "Feb", "Hours worked": 125 }, 

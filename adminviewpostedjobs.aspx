@@ -64,32 +64,38 @@
                         </tr>
                       </thead>
                       <tbody>
+                          <%IQueryable<job> j = adminjobseekerjobs.getAlljobs();
+                              foreach (var x in j) { %>
                         <tr>
                           <td>#</td>
                           <td>
-                            <a>Pesamakini Backend UI</a>
+                            <a><%=x.jobTitle %></a>
                             <br />
-                            <small>Created 01.01.2015</small>
+                            <small><%=x.postedDate %></small>
                           </td>
                           <td>
-                              <img src="images/user.png" class="avatar" alt="Avatar">
+                              <%
+                                  byte[] img = adminrecruiterjobs.getlogo(x.Id); %>
+                              <img src='data:image/jpg;base64,<%= Convert.ToBase64String(img) %>' class="avatar" alt="Avatar">
                            
                           </td>
                           <td class="project_progress">
                             <div class="progress progress_sm">
-                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="57"></div>
+                                <% int count = adminjobseekerjobs.getjobapplieronjob(x.Id); %>
+                              <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="<%=count%>"></div>
                             </div>
-                            <small>57% </small>
+                            <small>JobApplied:<%=count%></small>
                           </td>
                           <td>
                             <button type="button" class="btn btn-success btn-xs">Success</button>
                           </td>
                           <td>
-                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                            <a href="viewDescription.aspx?id=<%=x.Id %>" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
                             <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
                             <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
                           </td>
                         </tr>
+                          <%} %>
                       
                      
                         
