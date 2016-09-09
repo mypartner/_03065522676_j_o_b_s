@@ -81,8 +81,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     
 		            </ul>
 		        </li>
+            
 		        <li><a href="jobseekerprofile.aspx">Complete Profile</a></li>
-               
+                 <li><a href="jobseekerupdateinfo.aspx">Update info</a></li>
+
                 <li><a href="#">Logout</a></li>
 	        </ul>
 	    </div>
@@ -95,6 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
+       
  <div class="footer">
 	<div class="container">
 		<div class="col-md-8 grid_3">

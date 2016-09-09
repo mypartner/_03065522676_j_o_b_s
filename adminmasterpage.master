@@ -5,14 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -20,21 +18,21 @@
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
     <!-- bootstrap-progressbar -->
     <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    
+    <!-- JQVMap -->
+    <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
-  
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="nav-md">
     <form id="form1" runat="server">
-    <div>
-         <!--starting tag-->
-         <body class="nav-md">
-    <div class="container body">
+     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
@@ -51,7 +49,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>Admin</h2>
+                <h2>John Doe</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -63,41 +61,11 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a  href="adminindex.aspx"><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                   
+                  <li><a href="adminindex.aspx"><i class="fa fa-home"></i> Home <span ></span></a>
+                    
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="form.html">General Form</a></li>
-                      <li><a href="form_advanced.html">Advanced Components</a></li>
-                      <li><a href="form_validation.html">Form Validation</a></li>
-                      <li><a href="form_wizards.html">Form Wizard</a></li>
-                      <li><a href="form_upload.html">Form Upload</a></li>
-                      <li><a href="form_buttons.html">Form Buttons</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="general_elements.html">General Elements</a></li>
-                      <li><a href="media_gallery.html">Media Gallery</a></li>
-                      <li><a href="typography.html">Typography</a></li>
-                      <li><a href="icons.html">Icons</a></li>
-                      <li><a href="glyphicons.html">Glyphicons</a></li>
-                      <li><a href="widgets.html">Widgets</a></li>
-                      <li><a href="invoice.html">Invoice</a></li>
-                      <li><a href="inbox.html">Inbox</a></li>
-                      <li><a href="calendar.html">Calendar</a></li>
-                    </ul>
-                  </li>
-                  <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="form.html">General Form</a></li>
-                      <li><a href="form_advanced.html">Advanced Components</a></li>
-                      <li><a href="form_validation.html">Form Validation</a></li>
-                      <li><a href="form_wizards.html">Form Wizard</a></li>
-                      <li><a href="form_upload.html">Form Upload</a></li>
-                      <li><a href="form_buttons.html">Form Buttons</a></li>
-                    </ul>
+                  <li><a href="adminviewjobseeker.aspx"><i class="fa fa-edit"></i> View Job Seekers <span ></span></a>
+                    
                   </li>
                   <li><a><i class="fa fa-desktop"></i> UI Elements <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -157,7 +125,24 @@
                       <li><a href="pricing_tables.html">Pricing Tables</a></li>
                     </ul>
                   </li>
-                
+                  <li><a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="#level1_1">Level One</a>
+                        <li><a>Level One<span class="fa fa-chevron-down"></span></a>
+                          <ul class="nav child_menu">
+                            <li class="sub_menu"><a href="level2.html">Level Two</a>
+                            </li>
+                            <li><a href="#level2_1">Level Two</a>
+                            </li>
+                            <li><a href="#level2_2">Level Two</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a href="#level1_2">Level One</a>
+                        </li>
+                    </ul>
+                  </li>                  
+                  <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
               </div>
 
@@ -194,7 +179,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">Admin
+                    <img src="images/img.jpg" alt="">John Doe
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -279,13 +264,11 @@
           </div>
         </div>
         <!-- /top navigation -->
-          <div class="clearfix"></div>
-        <!-- page content -->
-<asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
-          <div class="clearfix"></div>
-        <!-- footer content -->
+    </div>
+          <!-- footer content -->
         <footer>
           <div class="pull-right">
             Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
@@ -306,15 +289,12 @@
     <script src="../vendors/nprogress/nprogress.js"></script>
     <!-- Chart.js -->
     <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- jQuery Sparklines -->
-    <script src="../vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-    <!-- morris.js -->
-    <script src="../vendors/raphael/raphael.min.js"></script>
-    <script src="../vendors/morris.js/morris.min.js"></script>
     <!-- gauge.js -->
     <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
     <!-- bootstrap-progressbar -->
     <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
     <!-- Skycons -->
     <script src="../vendors/skycons/skycons.js"></script>
     <!-- Flot -->
@@ -329,6 +309,10 @@
     <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
     <!-- DateJS -->
     <script src="../vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <!-- bootstrap-daterangepicker -->
     <script src="js/moment/moment.min.js"></script>
     <script src="js/datepicker/daterangepicker.js"></script>
@@ -339,95 +323,122 @@
     <!-- Flot -->
     <script>
       $(document).ready(function() {
-        //random data
-        var d1 = [
-          ['J an', 1],
-          ['Feb', 9],
-          [2, 6],
-          [3, 10],
-          [4, 5],
-          [5, 17],
-          [6, 6],
-          [7, 10],
-          [8, 7],
-          [9, 11],
-          [10, 35],
-          [11, 9],
-          [12, 12],
-          [13, 70],
-          [14, 3],
-          [15, 4],
-          [16, 9]
+        var data1 = [
+          [gd(2012, 1, 1), 17],
+          [gd(2012, 1, 2), 74],
+          [gd(2012, 1, 3), 6],
+          [gd(2012, 1, 4), 39],
+          [gd(2012, 1, 5), 20],
+          [gd(2012, 1, 6), 85],
+          [gd(2012, 1, 7), 7]
         ];
 
-        //flot options
-        var options = {
+        var data2 = [
+          [gd(2012, 1, 1), 82],
+          [gd(2012, 1, 2), 23],
+          [gd(2012, 1, 3), 66],
+          [gd(2012, 1, 4), 9],
+          [gd(2012, 1, 5), 119],
+          [gd(2012, 1, 6), 6],
+          [gd(2012, 1, 7), 9]
+        ];
+        $("#canvas_dahs").length && $.plot($("#canvas_dahs"), [
+          data1, data2
+        ], {
           series: {
-            curvedLines: {
-              apply: true,
-              active: true,
-              monotonicFit: true
-            }
-          },
-          colors: ["#26B99A"],
-          grid: {
-            borderWidth: {
-              top: 0,
-              right: 0,
-              bottom: 1,
-              left: 1
+            lines: {
+              show: false,
+              fill: true
             },
-            borderColor: {
-              bottom: "#7F8790",
-              left: "#7F8790"
-            }
-          }
-        };
-        var plot = $.plot($("#placeholder3xx3"), [{
-          label: "New Graphhh ",
-          data: d1,
-          lines: {
-            fillColor: "rgba(150, 202, 89, 0.12)"
-          }, //#96CA59 rgba(150, 202, 89, 0.42)
-          points: {
-            fillColor: "#fff"
-          }
-        }], options);
+            splines: {
+              show: true,
+              tension: 0.4,
+              lineWidth: 1,
+              fill: 0.4
+            },
+            points: {
+              radius: 0,
+              show: true
+            },
+            shadowSize: 2
+          },
+          grid: {
+            verticalLines: true,
+            hoverable: true,
+            clickable: true,
+            tickColor: "#d5d5d5",
+            borderWidth: 1,
+            color: '#fff'
+          },
+          colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
+          xaxis: {
+            tickColor: "rgba(51, 51, 51, 0.06)",
+            mode: "time",
+            tickSize: [1, "day"],
+            //tickLength: 10,
+            axisLabel: "Date",
+            axisLabelUseCanvas: true,
+            axisLabelFontSizePixels: 12,
+            axisLabelFontFamily: 'Verdana, Arial',
+            axisLabelPadding: 10
+          },
+          yaxis: {
+            ticks: 8,
+            tickColor: "rgba(51, 51, 51, 0.06)",
+          },
+          tooltip: false
+        });
+
+        function gd(year, month, day) {
+          return new Date(year, month - 1, day).getTime();
+        }
       });
     </script>
     <!-- /Flot -->
 
-    <!-- jQuery Sparklines -->
+    <!-- JQVMap -->
     <script>
-      $(document).ready(function() {
-        $(".sparkline_one").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 7, 5, 4, 3, 5, 6], {
-          type: 'bar',
-          height: '40',
-          barWidth: 9,
-          colorMap: {
-            '7': '#a1a1a1'
-          },
-          barSpacing: 2,
-          barColor: '#26B99A'
-        });
-
-        $(".sparkline_two").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 7, 5, 4, 3, 5, 6], {
-          type: 'line',
-          width: '200',
-          height: '40',
-          lineColor: '#26B99A',
-          fillColor: 'rgba(223, 223, 223, 0.57)',
-          lineWidth: 2,
-          spotColor: '#26B99A',
-          minSpotColor: '#26B99A'
+      $(document).ready(function(){
+        $('#world-map-gdp').vectorMap({
+            map: 'world_en',
+            backgroundColor: null,
+            color: '#ffffff',
+            hoverOpacity: 0.7,
+            selectedColor: '#666666',
+            enableZoom: true,
+            showTooltip: true,
+            values: sample_data,
+            scaleColors: ['#E6F2F0', '#149B7E'],
+            normalizeFunction: 'polynomial'
         });
       });
     </script>
-    <!-- /jQuery Sparklines -->
+    <!-- /JQVMap -->
+
+    <!-- Skycons -->
+    <script>
+      $(document).ready(function() {
+        var icons = new Skycons({
+            "color": "#73879C"
+          }),
+          list = [
+            "clear-day", "clear-night", "partly-cloudy-day",
+            "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+            "fog"
+          ],
+          i;
+
+        for (i = list.length; i--;)
+          icons.set(list[i], list[i]);
+
+        icons.play();
+      });
+    </script>
+    <!-- /Skycons -->
 
     <!-- Doughnut Chart -->
     <script>
-      $(document).ready(function() {
+      $(document).ready(function(){
         var options = {
           legend: false,
           responsive: false
@@ -467,9 +478,9 @@
       });
     </script>
     <!-- /Doughnut Chart -->
-
+    
     <!-- bootstrap-daterangepicker -->
-    <script type="text/javascript">
+    <script>
       $(document).ready(function() {
 
         var cb = function(start, end, label) {
@@ -542,121 +553,32 @@
     </script>
     <!-- /bootstrap-daterangepicker -->
 
-
-
-            
-
-    <!-- morris.js -->
-    <script>
-      $(document).ready(function() {
-        Morris.Bar({
-            element: 'area-example',
-          data: [
-            { "period": "Jan", "Hours worked": 80 }, 
-            { "period": "Feb", "Hours worked": 125 }, 
-            { "period": "Mar", "Hours worked": 176 }, 
-            { "period": "Apr", "Hours worked": 224 }, 
-            { "period": "May", "Hours worked": 265 }, 
-            { "period": "Jun", "Hours worked": 314 }, 
-            { "period": "Jul", "Hours worked": 347 }, 
-            { "period": "Aug", "Hours worked": 287 }, 
-            { "period": "Sep", "Hours worked": 240 }, 
-            { "period": "Oct", "Hours worked": 211 }
-          ],
-          xkey: 'period',
-          hideHover: 'auto',
-          barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-          ykeys: ['Hours worked', 'sorned'],
-          labels: ['Hours worked', 'SORN'],
-          xLabelAngle: 60,
-          resize: true
-        });
-
-        $MENU_TOGGLE.on('click', function() {
-          $(window).resize();
-        });
-      });
-    </script>
-    <!-- /morris.js -->
-
-    <!-- Skycons -->
-    <script>
-      var icons = new Skycons({
-          "color": "#73879C"
-        }),
-        list = [
-          "clear-day", "clear-night", "partly-cloudy-day",
-          "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
-          "fog"
-        ],
-        i;
-
-      for (i = list.length; i--;)
-        icons.set(list[i], list[i]);
-
-      icons.play();
-    </script>
-    <!-- /Skycons -->
-
     <!-- gauge.js -->
     <script>
       var opts = {
-        lines: 12,
-        angle: 0,
-        lineWidth: 0.4,
-        pointer: {
-          length: 0.75,
-          strokeWidth: 0.042,
-          color: '#1D212A'
-        },
-        limitMax: 'false',
-        colorStart: '#1ABC9C',
-        colorStop: '#1ABC9C',
-        strokeColor: '#F0F3F3',
-        generateGradient: true
+          lines: 12,
+          angle: 0,
+          lineWidth: 0.4,
+          pointer: {
+              length: 0.75,
+              strokeWidth: 0.042,
+              color: '#1D212A'
+          },
+          limitMax: 'false',
+          colorStart: '#1ABC9C',
+          colorStop: '#1ABC9C',
+          strokeColor: '#F0F3F3',
+          generateGradient: true
       };
       var target = document.getElementById('foo'),
           gauge = new Gauge(target).setOptions(opts);
 
-      gauge.maxValue = 100;
+      gauge.maxValue = 6000;
       gauge.animationSpeed = 32;
-      gauge.set(80);
+      gauge.set(3200);
       gauge.setTextField(document.getElementById("gauge-text"));
-
-      var target = document.getElementById('foo2'),
-          gauge = new Gauge(target).setOptions(opts);
-
-      gauge.maxValue = 5000;
-      gauge.animationSpeed = 32;
-      gauge.set(4200);
-      gauge.setTextField(document.getElementById("gauge-text2"));
     </script>
     <!-- /gauge.js -->
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!--closing tag-->
-        
-    </div>
     </form>
 </body>
 </html>
