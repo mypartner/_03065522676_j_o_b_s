@@ -27,6 +27,7 @@ public class appliedjobdataclass
     public string job_mineducation;
     public string job_minexperiance;
     public string job_specificrequirment;
+    public byte[] logo;//should be change if not worknig with admin
     public appliedjobdataclass()
     {
                   app_id=0;
@@ -47,6 +48,7 @@ public class appliedjobdataclass
                   job_mineducation = "";
                   job_minexperiance = "";
                   job_specificrequirment = "";
+                  logo = null; 
 
      }
 }

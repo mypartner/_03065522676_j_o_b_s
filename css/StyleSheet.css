@@ -1,4 +1,10 @@
 ﻿
+.adimjobseekerprofile{
+    text-align:center;
+    font-size:medium;
+    background-color:#2a3f54;
+    color:white;
+}
 .form_wizard .stepContainer {
     display: block;
     position: relative;

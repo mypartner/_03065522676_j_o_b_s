@@ -90,6 +90,14 @@ public class jobseekerclass
         }
         return returnid;
     }
+    public static jobSeeker getjobseekerdata(int seekerid)
+    {
+        DataClassesDataContext db = new DataClassesDataContext();
+        jobSeeker js = (from x in db.jobSeekers
+                        where x.id == seekerid
+                        select x).First();
+        return js;
+    }
     public static appliedjobdataclass[] getappliedjob(int  jobid)
     {
        
@@ -127,6 +135,8 @@ public class jobseekerclass
                 appliedjobdetail[i].job_mineducation = x.jobdetail.minimumEducation;
                 appliedjobdetail[i].job_minexperiance = x.jobdetail.minimumLevelOfExperience;
                 appliedjobdetail[i].job_specificrequirment = x.jobdetail.specificRequirement;
+                
+
 
                 i++;
 

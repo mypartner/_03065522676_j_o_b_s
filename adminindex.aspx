@@ -62,9 +62,9 @@
     		content: function(e){
     	          var body ;
     	          var head ;
-    	          head = "<span style = 'color:DodgerBlue; '><strong>Resource:"+ (e.entries[0].dataPoint.x+1)  + "</strong></span><br/>";
+    	          head = "<span style= 'color:"+e.entries[0].dataSeries.color + "'> <strong>"+e.entries[0].dataSeries.name +"</strong></span><br/>";
 
-    	          body = "<span style= 'color:"+e.entries[0].dataSeries.color + "'> " + e.entries[0].dataSeries.name + "</span><br/> <strong>Resource Count :"+  e.entries[0].dataPoint.y + "</strong><br/>";
+    	          body = " <strong>New <strong>"+e.entries[0].dataSeries.name +":</strong>"+  e.entries[0].dataPoint.y + "</strong><br/>";
 
     	          return (head.concat(body));
     	        }
@@ -73,17 +73,23 @@
     chart.options.axisX = { title: "Resources",titleFontSize: 30,interval: 1};
     chart.options.axisY = { title: "Resource Count", includeZero: false,interval: 3,titleFontSize: 20};
     /* chart.options.axisY2 = { prefix: "$", suffix: "K",title: "Price"}; */
-    chart.options.title = { text: "Negotiation Iteration Graph" };
+    chart.options.title = { text: "Recruiter And JobSeekers" };
     var series=[];
   
-    for(var w=0;w<2;w++){
-    series[w]={ //dataSeries - first quarter
+    
+    series[0]={ //dataSeries - first quarter
             type: "spline",
             name: "Recruiters",
             showInLegend: true,
            
     };
-    }
+    series[1]={ //dataSeries - first quarter
+        type: "spline",
+        name: "JobSeeker",
+        showInLegend: true,
+           
+    };
+   
     chart.options.data = [];
     for(var z=0;z<2;z++){ 
         chart.options.data.push(series[z]);
