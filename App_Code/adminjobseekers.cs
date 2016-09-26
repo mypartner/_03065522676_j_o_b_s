@@ -21,4 +21,52 @@ public class adminjobseekers
                                      select x;
         return data;
     }
+    //updating jobs
+    public static void adminUpdateJobSeekerProfessionalInfo(jobSeekerProfessionalInfo r, int id)
+    {
+        DataClassesDataContext db = new DataClassesDataContext();
+        var ra = (from x in db.jobSeekerProfessionalInfos
+                  where x.jobSeekerId == id
+                  select x).First();
+        ra.experience = r.experience;
+        ra.company = r.company;
+        ra.jobDescription = r.jobDescription;
+        ra.workExperience = r.workExperience;
+        ra.jobStartDate = r.jobStartDate;
+        ra.jobEndDate = r.jobEndDate;
+        ra.cv = r.cv;
+
+
+        db.SubmitChanges();
+
+    }
+    public static void adminUpdateJobSeekerEducationalInfo(jobseekereducationalInfo r, int id)
+    {
+        DataClassesDataContext db = new DataClassesDataContext();
+        var ra = (from x in db.jobseekereducationalInfos
+                  where x.jobSeekerId == id
+                  select x).First();
+        ra.degreeName = r.degreeName;
+        ra.instituteName = r.instituteName;
+        ra.passingOutYear = r.passingOutYear;
+        ra.specialization = r.specialization;
+        db.SubmitChanges();
+
+    }
+    
+         public static void adminUpdateJobSeekerSkillInfo(skill r, int id)
+    {
+        DataClassesDataContext db = new DataClassesDataContext();
+        var ra = (from x in db.skills
+                  where x.jobSeekerid == id
+                  select x).First();
+        ra.skill1 = r.skill1;
+        ra.skill2 = r.skill2;
+        ra.skill3 = r.skill3;
+        ra.skill4 = r.skill4;
+        ra.skill5 = r.skill5;
+
+        db.SubmitChanges();
+
+    }
 }

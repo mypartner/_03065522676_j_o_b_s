@@ -49,6 +49,7 @@
                     <div class="clearfix"></div>
                   </div>
                     <% int jobseekrid = int.Parse(Request.QueryString["id"].ToString());
+                        Session["jobseekerid"] = jobseekrid.ToString();
                         jobSeeker js = adminJobseekerProfile.getJobseekerDetail(jobseekrid);
                          byte[] img1 = null;
                                           if (js.image != null)
@@ -80,7 +81,7 @@
                            <%-- </li>--%>
                       </ul>
 
-                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                      <a class="btn btn-success" href="adminupdatejobseekerprofile.aspx"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
                       <br />
 
                       <!-- start skills -->
