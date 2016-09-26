@@ -68,8 +68,8 @@
                         <div class="textbox-wrap">
                             <div class="input-group">
                                 <span class="input-group-addon " id="pass_confirmation" required><i class="fa fa-key"></i></span>
-                                <input type="password" id="password" required="required" name="password" class="form-control " placeholder="Password" data-validation="length alphanumeric" 
-		 data-validation-length="3" data-validation-error-msg="Password is not strong ! "/>
+                                <input type="password" id="password" required="required" name="password" class="form-control " placeholder="Password" data-validation="length alphanumeric"
+                                     data-validation-error-msg="Password is not strong ! " />
                             </div>
                         </div>
                     <div class="col-sm-9">

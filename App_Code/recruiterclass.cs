@@ -73,6 +73,27 @@ public class recruiterclass
         }
 
     }
+    //updating jobs
+    public static void updateJobs(job r, int id)
+    {
+        DataClassesDataContext db = new DataClassesDataContext();
+        var ra = (from x in db.jobs
+                  where x.Id == id
+                  select x).First();
+        ra.jobTitle = r.jobTitle;
+        ra.expectedSalary = r.expectedSalary;
+        ra.country = r.country;
+        ra.city = r.city;
+        ra.salaryPeriod = r.salaryPeriod;
+        ra.minimumEducation = r.minimumEducation;
+        ra.minimumLevelOfExperience = r.minimumLevelOfExperience;
+        ra.specificRequirement = r.specificRequirement;
+        ra.description = r.description;
+         
+      
+              db.SubmitChanges();
+          
+    }
     public static int getRecruiterID(string uname)
     {
 

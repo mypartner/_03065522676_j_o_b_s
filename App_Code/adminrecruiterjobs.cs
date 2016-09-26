@@ -26,4 +26,14 @@ public class adminrecruiterjobs
             img = x.logo.ToArray();
         return img;
     }
+    //getting job id
+   
+    public static job getJobDetail(int jobId)
+    {
+        DataClassesDataContext db = db = new DataClassesDataContext();
+        job ra = (from x in db.jobs
+                                    where x.Id == jobId
+                                    select x).First();
+        return ra;
+    }
 }
