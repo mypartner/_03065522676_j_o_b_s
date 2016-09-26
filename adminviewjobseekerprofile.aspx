@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/adminmasterpage.master" AutoEventWireup="true" CodeFile="adminviewjobseekerprofile.aspx.cs" Inherits="adminviewjobseekerprofile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <link href="css/StyleSheet.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
      <!-- page content -->
@@ -47,28 +48,36 @@
                     </ul>
                     <div class="clearfix"></div>
                   </div>
+                    <% int jobseekrid = int.Parse(Request.QueryString["id"].ToString());
+                        jobSeeker js = adminJobseekerProfile.getJobseekerDetail(jobseekrid);
+                         byte[] img1 = null;
+                                          if (js.image != null)
+                                          {
+                                               img1 = js.image.ToArray();
+                                          }
+                         %>
                   <div class="x_content">
                     <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
                       <div class="profile_img">
                         <div id="crop-avatar">
                           <!-- Current avatar -->
-                        <img class="img-responsive avatar-view" src="images/a2.jpg" alt="Avatar" title="Change the avatar"/>
+                        <img class="img-responsive avatar-view" src='data:image/jpg;base64,<%= Convert.ToBase64String(img1) %>' alt="Avatar" title="Change the avatar"/>
                         </div>
                       </div>
-                      <h3>Samuel Doe</h3>
+                      <h3><%=js.firstName+"  "+js.lastName %></h3>
 
                       <ul class="list-unstyled user_data">
-                        <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
+                        <li><i class="fa fa-map-marker user-profile-icon"></i> <%=js.country %>
                         </li>
 
                         <li>
-                          <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
+                          <i class="fa fa-briefcase user-profile-icon"></i>UserSince: <%=js.signupdate %>
                         </li>
 
-                        <li class="m-top-xs">
-                          <i class="fa fa-external-link user-profile-icon"></i>
-                          <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
-                        </li>
+                       <%-- <li class="m-top-xs">--%>
+                          <li class="fa fa-external-link user-profile-icon">Email:<%=js.email%></li>
+                           <li class="fa fa-external-link user-profile-icon">Phone:<%=js.mobile%></li>
+                           <%-- </li>--%>
                       </ul>
 
                       <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
@@ -115,150 +124,146 @@
                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                           <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Applied Jobs</a>
                           </li>
-                       
-                          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
+                        <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
                           </li>
+                         
                         </ul>
                         <div id="myTabContent" class="tab-content">
                           <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
 
                             <!-- start recent activity -->
                             <ul class="messages">
+                                <%
+                                   
+                                    appliedjobdataclass[] jobs = adminjobseekerjobs.getappliedjob(jobseekrid);
+                                    foreach (appliedjobdataclass j in jobs)
+                                    {
+                                       
+                                         byte[] img = null;
+                                          if (j.logo != null)
+                                          {
+                                               img = j.logo.ToArray();
+                                          }
+                                %>
+                                     
+                              
                               <li>
-                                <img src="images/img.jpg" class="avatar" alt="Avatar">
+                                  
+                                <img src='data:image/jpg;base64,<%= Convert.ToBase64String(img) %>' class="avatar" alt="Avatar"/>
                                 <div class="message_date">
-                                  <h3 class="date text-info">24</h3>
-                                  <p class="month">May</p>
+                                  <h3 class="date text-info"><%=j.app_applydate.Day %></h3>
+                                  <p class="month"><%=j.app_applydate.ToString("MMMM") %></p>
+                                    <p class="month"><%=j.app_applydate.Year %></p>
                                 </div>
                                 <div class="message_wrapper">
-                                  <h4 class="heading">Desmond Davison</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                    <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                                  </p>
-                                </div>
-                              </li>
-                              <li>
-                                <img src="images/img.jpg" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-error">21</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading">Brian Michaels</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1" aria-hidden="true" data-icon=""></span>
-                                    <a href="#" data-original-title="">Download</a>
-                                  </p>
-                                </div>
-                              </li>
-                              <li>
-                                <img src="images/img.jpg" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-info">24</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading">Desmond Davison</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                    <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
-                                  </p>
-                                </div>
-                              </li>
-                              <li>
-                                <img src="images/img.jpg" class="avatar" alt="Avatar">
-                                <div class="message_date">
-                                  <h3 class="date text-error">21</h3>
-                                  <p class="month">May</p>
-                                </div>
-                                <div class="message_wrapper">
-                                  <h4 class="heading">Brian Michaels</h4>
-                                  <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
-                                  <br />
-                                  <p class="url">
-                                    <span class="fs1" aria-hidden="true" data-icon=""></span>
-                                    <a href="#" data-original-title="">Download</a>
-                                  </p>
-                                </div>
-                              </li>
+                                  <h4 class="heading"><%=j.job_jobtitle %></h4>
+                                     <% int len = j.job_decription.Length;
+                           int Start = 0;
 
+                           Start = j.job_decription.IndexOf(".");
+                           string dec = "";
+                           if (Start > 0)
+                           {
+                               dec = j.job_decription.Remove(Start, len - Start);
+                           }
+                           else if (Start > 195)
+                           {
+                               dec = j.job_decription.Remove(195, len - 195);
+                           }
+                           else
+                           {
+                               dec = j.job_decription.Remove(195, len - 195);
+                           }
+                            %>
+                                  <p class="description">Description:<%=dec + ".....<br>"  %>  <a href="adminviewdescription.aspx?id=<%=j.job_id%>" >Read More</a></p>
+                                  <br />
+                                  
+                                </div>
+                              </li>
+                                <%} %>
                             </ul>
                             <!-- end recent activity -->
 
                           </div>
-                         skill <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
 
                             <!-- start user projects -->
                             <table class="data table table-striped no-margin">
-                              <thead>
-                                <tr>
-                                  <th>#</th>
-                                  <th>Project Name</th>
-                                  <th>Client Company</th>
-                                  <th class="hidden-phone">Hours Spent</th>
-                                  <th>Contribution</th>
-                                </tr>
-                              </thead>
+                             
                               <tbody>
+                                  <tr><td colspan="5" class="adimjobseekerprofile">Personal Information</td></tr>
                                 <tr>
-                                  <td>1</td>
-                                  <td>New Company Takeover Review</td>
-                                  <td>Deveint Inc</td>
-                                  <td class="hidden-phone">18</td>
-                                  <td class="vertical-align-mid">
-                                    <div class="progress">
-                                      <div class="progress-bar progress-bar-success" data-transitiongoal="35"></div>
-                                    </div>
-                                  </td>
+                                  
+                                  <td>Name :<%=js.firstName +" "+js.lastName %></td>
+                                  <td>Education:<%=js.education %></td>
+                                  <td>Gender:<%=js.sex %></td>
+                                    <td>Country:<%=js.country%></td>
+                                    
+                                
                                 </tr>
+                                   <tr>
+                                    <td>Dob:<%= js.dob%></td>
+                                    <td>Mobile:<%= js.mobile%></td>
+                                    <td>Email:<%= js.email%></td>
+                                    <td>SignupDate:<%=js.signupdate.Value.ToShortDateString()%></td>
+                                
+                                </tr>
+                                <tr><td colspan="5" class="adimjobseekerprofile">Educational Information</td></tr>
+                                  <%IQueryable<jobseekereducationalInfo> jeinfo = adminJobseekerProfile.getJobseekerEdu_info(jobseekrid);
+                                      foreach (jobseekereducationalInfo x in jeinfo)
+                                      { %>
                                 <tr>
-                                  <td>2</td>
-                                  <td>New Partner Contracts Consultanci</td>
-                                  <td>Deveint Inc</td>
-                                  <td class="hidden-phone">13</td>
-                                  <td class="vertical-align-mid">
-                                    <div class="progress">
-                                      <div class="progress-bar progress-bar-danger" data-transitiongoal="15"></div>
-                                    </div>
-                                  </td>
+                                  
+                                  <td>Institute :<%=x.instituteName %></td>
+                                  <td>Passing year:<%=x.passingOutYear.ToShortDateString()%></td>
+                                  <td>Degree:<%=x.degreeName %></td>
+                                  <td>Specialization:<%=x.specialization%></td>
+                                    
+                                
                                 </tr>
+                                  <%} %>
+                                  <tr><td colspan="5" class="adimjobseekerprofile">Profesional Information</td></tr>
+                                  <%IQueryable<jobSeekerProfessionalInfo> eduinfo = adminJobseekerProfile.getJobseekerPro_info(jobseekrid);
+                                      foreach (jobSeekerProfessionalInfo x in eduinfo)
+                                      { %>
                                 <tr>
-                                  <td>3</td>
-                                  <td>Partners and Inverstors report</td>
-                                  <td>Deveint Inc</td>
-                                  <td class="hidden-phone">30</td>
-                                  <td class="vertical-align-mid">
-                                    <div class="progress">
-                                      <div class="progress-bar progress-bar-success" data-transitiongoal="45"></div>
-                                    </div>
-                                  </td>
+                                  
+                                  <td>Company:<%=x.company%></td>
+                                  <td>Start Date:<%=x.jobStartDate.Value.ToShortDateString()%></td>
+                                  <td>End Date:<%=x.jobEndDate.Value.ToShortDateString()%></td>
+                                  
+                                    <td>Experiance:<%=x.workExperience%></td>
+                                    
+                                    
+                                
                                 </tr>
+                                  <tr>
+                                      <td>WorkExperiance:<%=x.jobDescription%></td>
+                                  </tr>
+                                  <%} %>
+                                  <tr><td colspan="5" class="adimjobseekerprofile">Skills</></tr>
+                                  <%  skill skill = adminJobseekerProfile.getjobseekerSkills(jobseekrid);%>
+                                     
                                 <tr>
-                                  <td>4</td>
-                                  <td>New Company Takeover Review</td>
-                                  <td>Deveint Inc</td>
-                                  <td class="hidden-phone">28</td>
-                                  <td class="vertical-align-mid">
-                                    <div class="progress">
-                                      <div class="progress-bar progress-bar-success" data-transitiongoal="75"></div>
-                                    </div>
-                                  </td>
+                                  <%if (skill != null)
+                                      { %>
+                                    <td><%=skill.skill1%></td>
+                                    <td><%=skill.skill2%></td>
+                                    <td><%=skill.skill3%></td>
+                                    <td><%=skill.skill4%></td>
+                                    <td><%=skill.skill5%></td> 
+                                    <%} %>
                                 </tr>
+                                  
+                                
+                                 
                               </tbody>
                             </table>
                             <!-- end user projects -->
 
                           </div>
                           <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                            <p>xxFood truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui
-                              photo booth letterpress, commodo enim craft beer mlkshk </p>
+                          
                           </div>
                         </div>
                       </div>
