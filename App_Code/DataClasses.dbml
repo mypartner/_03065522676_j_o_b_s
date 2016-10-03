@@ -26,19 +26,6 @@
       <Column Name="date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.jobSeekerProfessionalInfo" Member="jobSeekerProfessionalInfos">
-    <Type Name="jobSeekerProfessionalInfo">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="jobSeekerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="experience" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="cv" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="jobStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="jobEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="company" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="jobDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="workExperience" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.jobseekereducationalInfo" Member="jobseekereducationalInfos">
     <Type Name="jobseekereducationalInfo">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -47,17 +34,6 @@
       <Column Name="passingOutYear" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="degreeName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="specialization" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.skills" Member="skills">
-    <Type Name="skill">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="jobSeekerid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="skill1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="skill2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="skill3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="skill4" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="skill5" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.recruiter" Member="recruiters">
@@ -93,6 +69,26 @@
       <Column Name="password" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="signupdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.jobSeekerProfessionalInfo" Member="jobSeekerProfessionalInfos">
+    <Type Name="jobSeekerProfessionalInfo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="jobSeekerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="experience" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="jobStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="jobEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="company" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="jobDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="workExperience" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.skillsandcv" Member="skillsandcvs">
+    <Type Name="skillsandcv">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="jobSeekerid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="skills" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="[cv`]" Member="cv_" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
 </Database>

@@ -34,7 +34,6 @@ public class adminjobseekers
         ra.workExperience = r.workExperience;
         ra.jobStartDate = r.jobStartDate;
         ra.jobEndDate = r.jobEndDate;
-        ra.cv = r.cv;
 
 
         db.SubmitChanges();
@@ -54,18 +53,15 @@ public class adminjobseekers
 
     }
     
-         public static void adminUpdateJobSeekerSkillInfo(skill r, int id)
+         public static void adminUpdateJobSeekerSkillInfo(skillsandcv r, int id)
     {
         DataClassesDataContext db = new DataClassesDataContext();
-        var ra = (from x in db.skills
+        var ra = (from x in db.skillsandcvs
                   where x.jobSeekerid == id
                   select x).First();
-        ra.skill1 = r.skill1;
-        ra.skill2 = r.skill2;
-        ra.skill3 = r.skill3;
-        ra.skill4 = r.skill4;
-        ra.skill5 = r.skill5;
-
+       
+        ra.skills = r.skills;
+        ra.cv_ = r.cv_;
         db.SubmitChanges();
 
     }

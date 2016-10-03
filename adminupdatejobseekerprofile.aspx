@@ -286,46 +286,26 @@
                           <div class="col-md-9 col-md-offset-2">
                           <div class="form-horizontal form-label-left">
 
+                               <div class="form-group col-md-10">
+                        <label class="col-md-3 control-lable" for="file">Upload Your CV</label>
+                     <div class="col-md-9">
+                        <asp:FileUpload ID="FileUpload2" runat="server"/>
+                     </div>
+                 
+                               <asp:Button ID="saveskills" runat="server" Text="Save" class="btn btn-danger" />
+                          </div>
                         <div class="row">
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="skill1">Skill 1 (Optional)</label>
                      <div class="col-md-9">
-                        <input type="text" id="skill1" name="skill1" class="form-control input-sm" runat="server"/>
-                     </div>
+                         <textarea id="skill1" name="skill1" class="form-control input-sm" runat="server"/>
+                             </div>
                     </div>
                 </div>
-                 <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="skill2">Skill 2 (Optional)</label>
-                     <div class="col-md-9">
-                        <input type="text" id="skill2" name="skill2" class="form-control input-sm" runat="server"/>
-                     </div>
-                    </div>
-                </div>
-                   <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="skill3">Skill 3 (Optional)</label>
-                     <div class="col-md-9">
-                        <input type="text" id="skill3" name="skill3" class="form-control input-sm" runat="server"/>
-                     </div>
-                    </div>
-                </div>
-                    <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="skill4">Skill 4 (Optional)</label>
-                     <div class="col-md-9">
-                        <input type="text" id="skill4" name="skill4" class="form-control input-sm" runat="server"/>
-                     </div>
-                    </div>
-                </div>
-                    <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="skill5">Skill 5 (Optional)</label>
-                     <div class="col-md-9">
-                        <input type="text" id="skill5" name="skill5" class="form-control input-sm" runat="server"/>
-                     </div>
-                    </div>
-                </div>
+                
+                  
+                   
+                    
                                <asp:Button ID="updateskills" runat="server" Text="Update" class="btn btn-danger" OnClick="updateskill_Click"/>
                           </div>
 
