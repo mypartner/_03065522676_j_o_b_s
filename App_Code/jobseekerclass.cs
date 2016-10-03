@@ -32,6 +32,34 @@ public class jobseekerclass
 
 
     }
+    public static void updatejobseeker(jobSeeker u,int jobseekerid)
+    {
+        DataClassesDataContext Database = new DataClassesDataContext();
+        jobSeeker jobseekr = (from x in Database.jobSeekers
+                             where x.id == jobseekerid
+                             select x).First();
+        jobseekr.firstName = u.firstName;
+        jobseekr.lastName = u.lastName;
+        jobseekr.mobile = u.mobile;
+        jobseekr.sex = u.sex;
+        jobseekr.image = u.image;
+        jobseekr.email = u.email;
+        jobseekr.education = u.education;
+        jobseekr.dob = u.dob;
+        jobseekr.country = u.country;
+            
+      //  Database.jobSeekers.InsertOnSubmit(jobseekr);
+        try
+        {
+            Database.SubmitChanges();
+        }
+        catch (ChangeConflictException e)
+        {
+            //report error, log error whatever...
+        }
+
+
+    }
     public static int userAuthentication(string uname, string password)
     {
 
