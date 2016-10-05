@@ -14,38 +14,46 @@ public partial class jobseekerprofile : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            if (Session["LoginSession"]==null)
+            {
+                Response.Redirect("/login.aspx");
+            }
+        }
     }
     protected void savePersonalInformation_Click(object sender, EventArgs e)
     {
+        int counter=int.Parse(numberofRecords.Value);
         jobSeekerProfessionalInfo j = new jobSeekerProfessionalInfo();
-        j.jobSeekerId = jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
-        j.experience = Request.Form["experiance"].ToString();
-        j.jobStartDate = DateTime.Parse(Request.Form["jobstartdate"].ToString());
-        j.jobEndDate = DateTime.Parse(Request.Form["jobenddate"].ToString());
-        j.company = Request.Form["companyname"].ToString();
-        j.jobDescription = Request.Form["description"].ToString();
-        j.workExperience = Request.Form["workexperience"].ToString();
-        HttpPostedFile postedfile = cvfile.PostedFile;
-        string filename = Path.GetFileName(postedfile.FileName);
-        string fileextention = Path.GetExtension(filename);
-        if (fileextention.ToLower() == ".pdf")
+        int jobsekerid= jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
+        for (int k = 1; k <=counter; k++)
         {
-            j.cv = docToByteArray(postedfile);
+            j.jobSeekerId = jobsekerid;
+            j.experience = Request.Form["experiance"+k].ToString();
+            j.jobStartDate = DateTime.Parse(Request.Form["jobstartdate" + k].ToString());
+            j.jobEndDate = DateTime.Parse(Request.Form["jobenddate" + k].ToString());
+            j.company = Request.Form["companyname" + k].ToString();
+            j.jobDescription = Request.Form["description" + k].ToString();
+            j.workExperience = Request.Form["workexperience" + k].ToString();
+            userprofile.addJobSeekerProfessionalInfo(j);
         }
-        userprofile.addJobSeekerProfessionalInfo(j);
+       
         ShowMessage("Job seeker Professional Information has been saved successfully ! ", MessageType.Success);
     }
     
     public void saveskill_Click(object sender, EventArgs e)
     {
-        skill s = new skill();
+        skillsandcv s = new skillsandcv();
         s.jobSeekerid = jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
-        s.skill1 = Request.Form["skill1"].ToString();
-        s.skill2 = Request.Form["skill2"].ToString();
-        s.skill3 = Request.Form["skill3"].ToString();
-        s.skill4 = Request.Form["skill4"].ToString();
-        s.skill5 = Request.Form["skill5"].ToString();
+        s.skills = Request.Form["skills"].ToString();
+        HttpPostedFile postedfile = cvfile.PostedFile;
+        string filename = Path.GetFileName(postedfile.FileName);
+        string fileextention = Path.GetExtension(filename);
+        if (fileextention.ToLower() == ".pdf")
+        {
+            s.cv_ = docToByteArray(postedfile);
+        }
         userprofile.addJobSeekerSkills(s);
         ShowMessage("Job seeker skill Information has been saved successfully ! ", MessageType.Success);
 

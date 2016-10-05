@@ -54,12 +54,12 @@ public class adminJobseekerProfile
             return null;
 }
     }
-    public static skill getjobseekerSkills(int id)
+    public static skillsandcv getjobseekerSkills(int id)
     {
         try
         {
             DataClassesDataContext db = new DataClassesDataContext();
-            skill js = (from x in db.skills
+            skillsandcv js = (from x in db.skillsandcvs
                         where x.jobSeekerid == id
                         select x).First();
             return js;

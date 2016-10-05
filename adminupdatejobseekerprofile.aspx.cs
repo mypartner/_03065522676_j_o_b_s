@@ -41,14 +41,6 @@ public partial class adminupdatejobseekerprofile : System.Web.UI.Page
         jspi.workExperience = workexperience.Value;
         jspi.jobStartDate = DateTime.Parse(Request.Form["jobstartdate"].ToString());
         jspi.jobEndDate = DateTime.Parse(Request.Form["jobenddate"].ToString());
-        HttpPostedFile postedfile = cvfile.PostedFile;
-        string filename = Path.GetFileName(postedfile.FileName);
-        string fileextention = Path.GetExtension(filename);
-        if (fileextention.ToLower() == ".pdf")
-        {
-            jspi.cv = docToByteArray(postedfile);
-        }
-        
         adminjobseekers.adminUpdateJobSeekerProfessionalInfo(jspi, jspi.jobSeekerId);
     }
     public static byte[] docToByteArray(HttpPostedFile postedfile)
@@ -85,15 +77,16 @@ public partial class adminupdatejobseekerprofile : System.Web.UI.Page
      }
     protected void updateskill_Click(object sender, EventArgs e)
     {
-        skill s = new skill();
+       skillsandcv s = new skillsandcv();
         s.jobSeekerid = int.Parse(Session["jobseekerid"].ToString());
-        s.skill1 = skill1.Value;
-        s.skill2 = skill2.Value;
-        s.skill3 = skill3.Value;
-        s.skill4 = skill4.Value;
-        s.skill5 = skill5.Value;
-      
-
+        s.skills = skill1.Value;
+        HttpPostedFile postedfile = cvfile.PostedFile;
+        string filename = Path.GetFileName(postedfile.FileName);
+        string fileextention = Path.GetExtension(filename);
+        if (fileextention.ToLower() == ".pdf")
+        {
+            s.cv_ = docToByteArray(postedfile);
+        }
         adminjobseekers.adminUpdateJobSeekerSkillInfo(s, s.jobSeekerid);
     }
     

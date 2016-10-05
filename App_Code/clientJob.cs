@@ -95,8 +95,10 @@ public class clientJob
         var data = from apjob in db.GetTable<appliedJob>()
                    join jseeker in db.jobSeekers on apjob.jobSeekerId equals jseeker.id
                    join jbprof in db.jobSeekerProfessionalInfos on apjob.jobSeekerId equals jbprof.jobSeekerId//join added
+                   join skill in db.skillsandcvs on jseeker.id equals skill.jobSeekerid
+
                    where apjob.jobid == jobid
-                   select new { appliedJob = apjob, jobSeeker = jseeker,jbprof.cv };
+                   select new { appliedJob = apjob, jobSeeker = jseeker,skill.cv_ };
 
         jobsapplierclass[] jobsapplied = new jobsapplierclass[data.Count()];
         int i = 0;
@@ -109,9 +111,9 @@ public class clientJob
             jobsapplied[i].ap_id = x.appliedJob.Id;
             jobsapplied[i].js_firstname = x.jobSeeker.firstName;
             jobsapplied[i].js_lastname = x.jobSeeker.lastName;
-            if (x.cv != null)
+            if (x.cv_ != null)
             {
-                jobsapplied[i].js_cv = x.cv.ToArray();
+                jobsapplied[i].js_cv = x.cv_.ToArray();
             }
             jobsapplied[i].js_mobile = x.jobSeeker.mobile;
             jobsapplied[i].js_email = x.jobSeeker.email;

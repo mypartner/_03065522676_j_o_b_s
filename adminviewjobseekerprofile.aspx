@@ -243,16 +243,16 @@
                                   </tr>
                                   <%} %>
                                   <tr><td colspan="5" class="adimjobseekerprofile">Skills</></tr>
-                                  <%  skill skill = adminJobseekerProfile.getjobseekerSkills(jobseekrid);%>
+                                  <%  skillsandcv skill = adminJobseekerProfile.getjobseekerSkills(jobseekrid);%>
                                      
                                 <tr>
                                   <%if (skill != null)
                                       { %>
-                                    <td><%=skill.skill1%></td>
-                                    <td><%=skill.skill2%></td>
+                                    <td><%=skill.skills%></td>
+                                   <%-- <td><%=skill.skill2%></td>
                                     <td><%=skill.skill3%></td>
                                     <td><%=skill.skill4%></td>
-                                    <td><%=skill.skill5%></td> 
+                                    <td><%=skill.skill5%></td> --%>
                                     <%} %>
                                 </tr>
                                   

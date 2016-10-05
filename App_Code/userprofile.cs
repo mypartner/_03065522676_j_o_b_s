@@ -20,7 +20,7 @@ public class userprofile
     {
         DataClassesDataContext Database = new DataClassesDataContext();
         int count = (from x in Database.jobSeekerProfessionalInfos
-                                where x.jobSeekerId == k.jobSeekerId     //for checking already existance of client
+                                where x.jobStartDate == k.jobStartDate && x.jobEndDate==k.jobEndDate     //for checking already existance of client
                                 select x).Count();
         if (count == 0)
         {
@@ -59,13 +59,13 @@ public class userprofile
                      select x).Count();
         return count;
     }
-    public static bool addJobSeekerSkills(skill s)
+    public static bool addJobSeekerSkills(skillsandcv s)
     {
         try
         {
             DataClassesDataContext Database = new DataClassesDataContext();
 
-            int count = (from a in Database.GetTable<skill>()
+            int count = (from a in Database.GetTable<skillsandcv>()
                      where a.jobSeekerid == s.jobSeekerid
                      select new
                      {
@@ -74,7 +74,7 @@ public class userprofile
                      }).Count();
             if (count == 0)
             {
-                Database.skills.InsertOnSubmit(s);
+                Database.skillsandcvs.InsertOnSubmit(s);
                 Database.SubmitChanges();
                 return true;
 
@@ -99,15 +99,15 @@ public class userprofile
         {
             DataClassesDataContext Database = new DataClassesDataContext();
 
-            var q = (from a in Database.GetTable<jobSeekerProfessionalInfo>()
-                     where a.jobSeekerId== jobseekerid
+            var q = (from a in Database.GetTable<skillsandcv>()
+                     where a.jobSeekerid== jobseekerid
                      select new
                      {
-                         a.cv,
+                         a.cv_,
                          a.Id,
                         
                      }).First();
-            Binary binary = q.cv; //your linq object
+            Binary binary = q.cv_; //your linq object
             byte[] array = binary.ToArray();
             File.WriteAllBytes(HttpContext.Current.Server.MapPath("/cvs/Seeker"+jobseekerid+".pdf"), array);
 

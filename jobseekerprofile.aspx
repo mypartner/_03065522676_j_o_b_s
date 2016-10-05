@@ -72,11 +72,69 @@
             alert(err.Description);
         }
     }
+
+
+    function appenddiv() {
+        var counter = parseInt($('#<%=numberofRecords.ClientID%>').val());
+        counter++;
+        $('#<%=numberofRecords.ClientID%>').val(counter);
+        $(".appendclass").append("<div class='row'>\
+            <div class='form-group col-md-10'>\
+                         <h1>Degree"+counter+"</h1>\
+                        <label class='col-md-3 control-lable' for='experiance'>Experience</label>\
+                     <div class='col-md-9'>\
+                        <input type='text' id='experiance' name='experiance"+counter+"' class='form-control input-sm' />\
+                     </div>\
+                    </div>\
+                </div>\
+                 <div class='row'>\
+                     <div class='form-group col-md-10'>\
+                        <label class='col-md-3 control-lable' for='jobstartdate'>Job Start Date</label>\
+                     <div class='col-md-9'>\
+                        <input type='date' id='jobstartdate' name='jobstartdate" + counter + "' class='form-control input-sm'/>\
+                     </div>\
+                    </div>\
+                </div>\
+                <div class='row'>\
+                     <div class='form-group col-md-10'>\
+                        <label class='col-md-3 control-lable' for='jobenddate'>Job End Date</label>\
+                     <div class='col-md-9'>\
+                        <input type='date' id='jobenddate' name='jobenddate" + counter + "' class='form-control input-sm'/>\
+                     </div>\
+                    </div>\
+                </div>\
+                <div class='row'>\
+                     <div class='form-group col-md-10'>\
+                        <label class='col-md-3 control-lable' for='companyname'>Company Name</label>\
+                     <div class='col-md-9'>\
+                        <input type='text' id='companyname' name='companyname" + counter + "' class='form-control input-sm'/>\
+                     </div>\
+                    </div>\
+                </div>\
+                <div class='row'>\
+                     <div class='form-group col-md-10'>\
+                        <label class='col-md-3 control-lable' for='description'>Job Description</label>\
+                     <div class='col-md-9'>\
+                        <input type='text' id='description' name='description" + counter + "' class='form-control input-sm' />\
+                     </div>\
+                    </div>\
+                </div>\
+                <div class='row'>\
+                     <div class='form-group col-md-10'>\
+                        <label class='col-md-3 control-lable' for='workexperience'>Work Experience</label>\
+                     <div class='col-md-9'>\
+                        <input type='text' id='workexperience' name='workexperience" + counter + "' class='form-control' />\
+                     </div>\
+                    </div>\
+                </div>\
+                </div>");
+        alert($('#<%=numberofRecords.ClientID%>').val());
+    }
 </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <!-- page content -->
-            
+    <asp:HiddenField ID="numberofRecords" value="1" runat="server" />    
     <div class="banner_1"></div>
     <div class="single">  
 	   <div class="form-container">
@@ -133,13 +191,12 @@
 
                       <div id="step-1">
                          <div class="col-md-9 col-md-offset-2">
-                        <div class="form-horizontal form-label-left">
-                        
-                          <div class="row">
+                        <div class="form-horizontal form-label-left appendclass">
+                        <div class="row">
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="experiance">Experience</label>
                      <div class="col-md-9">
-                        <input type="text" id="experiance" name="experiance" class="form-control input-sm" />
+                        <input type="text" id="experiance" name="experiance1" class="form-control input-sm" />
                      </div>
                     </div>
                 </div>
@@ -147,7 +204,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="jobstartdate">Job Start Date</label>
                      <div class="col-md-9">
-                        <input type="date" id="jobstartdate" name="jobstartdate" class="form-control input-sm"/>
+                        <input type="date" id="jobstartdate" name="jobstartdate1" class="form-control input-sm"/>
                      </div>
                     </div>
                 </div>
@@ -156,7 +213,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="jobenddate">Job End Date</label>
                      <div class="col-md-9">
-                        <input type="date" id="jobenddate" name="jobenddate" class="form-control input-sm"/>
+                        <input type="date" id="jobenddate" name="jobenddate1" class="form-control input-sm"/>
                      </div>
                     </div>
                 </div>
@@ -166,7 +223,7 @@
                         <label class="col-md-3 control-lable" for="companyname">Company Name</label>
                      <div class="col-md-9">
                          
-                        <input type="text" id="companyname" name="companyname" class="form-control input-sm"/>
+                        <input type="text" id="companyname" name="companyname1" class="form-control input-sm"/>
                      </div>
                     </div>
                 </div>
@@ -174,7 +231,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="description">Job Description</label>
                      <div class="col-md-9">
-                        <input type="text" id="description" name="description" class="form-control input-sm" />
+                        <input type="text" id="description" name="description1" class="form-control input-sm" />
                      </div>
                     </div>
                 </div>
@@ -182,22 +239,20 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="workexperience">Work Experience</label>
                      <div class="col-md-9">
-                        <input type="text" id="workexperience" name="workexperience" class="form-control" />
+                        <input type="text" id="workexperience" name="workexperience1" class="form-control" />
                      </div>
                     </div>
                 </div>
+                </div>
+                     
                 
-                 <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="file">Upload Your CV</label>
-                     <div class="col-md-9">
-                        <asp:FileUpload ID="cvfile" runat="server"/>
-                     </div>
-                    </div>
-                </div>
-             <asp:Button ID="savePersonalInformation" runat="server" Text="Save" class="btn btn-danger " OnClick="savePersonalInformation_Click" />
+            
+                           
 
                              </div>
+                          <div style="float:left;">
+                              <label id="appenddegree" onclick="appenddiv()">Add another Degree</label>
+             <asp:Button ID="savePersonalInformation" runat="server" Text="Save" class="btn btn-danger " OnClick="savePersonalInformation_Click" />
                         </div>
                           
                       </div>
@@ -296,46 +351,21 @@
                           <div class="col-md-9 col-md-offset-2">
                           <div class="form-horizontal form-label-left">
 
-                        <div class="row">
+                <div class="row">
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="skill1">Skill 1 (Optional)</label>
                      <div class="col-md-9">
-                        <input type="text" id="skill1" name="skill1" class="form-control input-sm"/>
+                        <textarea rows="4" cols="50"  id="skills" name="skills" class="form-control input-sm">
+                            </textarea>
                      </div>
                     </div>
                 </div>
-                 <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="skill2">Skill 2 (Optional)</label>
+                  <div class="form-group col-md-10">
+                        <label class="col-md-3 control-lable" for="file">Upload Your CV</label>
                      <div class="col-md-9">
-                        <input type="text" id="skill2" name="skill2" class="form-control input-sm"/>
+                        <asp:FileUpload ID="cvfile" runat="server"/>
                      </div>
-                    </div>
-                </div>
-                   <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="skill3">Skill 3 (Optional)</label>
-                     <div class="col-md-9">
-                        <input type="text" id="skill3" name="skill3" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                    <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="skill4">Skill 4 (Optional)</label>
-                     <div class="col-md-9">
-                        <input type="text" id="skill4" name="skill4" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                    <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="skill5">Skill 5 (Optional)</label>
-                     <div class="col-md-9">
-                        <input type="text" id="skill5" name="skill5" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
+                 
                                <asp:Button ID="saveskills" runat="server" Text="Save" class="btn btn-danger" OnClick="saveskill_Click"/>
                           </div>
 
