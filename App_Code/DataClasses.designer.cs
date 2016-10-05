@@ -53,9 +53,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void Insertrecruiter(recruiter instance);
   partial void Updaterecruiter(recruiter instance);
   partial void Deleterecruiter(recruiter instance);
-  partial void Insertskill(skill instance);
-  partial void Updateskill(skill instance);
-  partial void Deleteskill(skill instance);
+  partial void Insertskillsandcv(skillsandcv instance);
+  partial void Updateskillsandcv(skillsandcv instance);
+  partial void Deleteskillsandcv(skillsandcv instance);
   partial void InsertTable(Table instance);
   partial void UpdateTable(Table instance);
   partial void DeleteTable(Table instance);
@@ -155,11 +155,11 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
-	public System.Data.Linq.Table<skill> skills
+	public System.Data.Linq.Table<skillsandcv> skillsandcvs
 	{
 		get
 		{
-			return this.GetTable<skill>();
+			return this.GetTable<skillsandcv>();
 		}
 	}
 	
@@ -485,7 +485,7 @@ public partial class feed : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary image
 	{
 		get
@@ -1189,7 +1189,7 @@ public partial class jobSeeker : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary image
 	{
 		get
@@ -1444,8 +1444,6 @@ public partial class jobSeekerProfessionalInfo : INotifyPropertyChanging, INotif
 	
 	private string _experience;
 	
-	private System.Data.Linq.Binary _cv;
-	
 	private System.Nullable<System.DateTime> _jobStartDate;
 	
 	private System.Nullable<System.DateTime> _jobEndDate;
@@ -1466,8 +1464,6 @@ public partial class jobSeekerProfessionalInfo : INotifyPropertyChanging, INotif
     partial void OnjobSeekerIdChanged();
     partial void OnexperienceChanging(string value);
     partial void OnexperienceChanged();
-    partial void OncvChanging(System.Data.Linq.Binary value);
-    partial void OncvChanged();
     partial void OnjobStartDateChanging(System.Nullable<System.DateTime> value);
     partial void OnjobStartDateChanged();
     partial void OnjobEndDateChanging(System.Nullable<System.DateTime> value);
@@ -1525,7 +1521,7 @@ public partial class jobSeekerProfessionalInfo : INotifyPropertyChanging, INotif
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experience", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experience", DbType="NVarChar(MAX)")]
 	public string experience
 	{
 		get
@@ -1541,26 +1537,6 @@ public partial class jobSeekerProfessionalInfo : INotifyPropertyChanging, INotif
 				this._experience = value;
 				this.SendPropertyChanged("experience");
 				this.OnexperienceChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cv", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
-	public System.Data.Linq.Binary cv
-	{
-		get
-		{
-			return this._cv;
-		}
-		set
-		{
-			if ((this._cv != value))
-			{
-				this.OncvChanging(value);
-				this.SendPropertyChanging();
-				this._cv = value;
-				this.SendPropertyChanged("cv");
-				this.OncvChanged();
 			}
 		}
 	}
@@ -1645,7 +1621,7 @@ public partial class jobSeekerProfessionalInfo : INotifyPropertyChanging, INotif
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_workExperience", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_workExperience", DbType="NVarChar(50)")]
 	public string workExperience
 	{
 		get
@@ -1999,7 +1975,7 @@ public partial class recruiter : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_logo", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_logo", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary logo
 	{
 		get
@@ -2060,8 +2036,8 @@ public partial class recruiter : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.skills")]
-public partial class skill : INotifyPropertyChanging, INotifyPropertyChanged
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.skillsandcv")]
+public partial class skillsandcv : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -2070,15 +2046,9 @@ public partial class skill : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private int _jobSeekerid;
 	
-	private string _skill1;
+	private string _skills;
 	
-	private string _skill2;
-	
-	private string _skill3;
-	
-	private string _skill4;
-	
-	private string _skill5;
+	private System.Data.Linq.Binary _cv_;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2088,19 +2058,13 @@ public partial class skill : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnIdChanged();
     partial void OnjobSeekeridChanging(int value);
     partial void OnjobSeekeridChanged();
-    partial void Onskill1Changing(string value);
-    partial void Onskill1Changed();
-    partial void Onskill2Changing(string value);
-    partial void Onskill2Changed();
-    partial void Onskill3Changing(string value);
-    partial void Onskill3Changed();
-    partial void Onskill4Changing(string value);
-    partial void Onskill4Changed();
-    partial void Onskill5Changing(string value);
-    partial void Onskill5Changed();
+    partial void OnskillsChanging(string value);
+    partial void OnskillsChanged();
+    partial void Oncv_Changing(System.Data.Linq.Binary value);
+    partial void Oncv_Changed();
     #endregion
 	
-	public skill()
+	public skillsandcv()
 	{
 		OnCreated();
 	}
@@ -2145,102 +2109,42 @@ public partial class skill : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill1", DbType="VarChar(50)")]
-	public string skill1
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skills", DbType="VarChar(200)")]
+	public string skills
 	{
 		get
 		{
-			return this._skill1;
+			return this._skills;
 		}
 		set
 		{
-			if ((this._skill1 != value))
+			if ((this._skills != value))
 			{
-				this.Onskill1Changing(value);
+				this.OnskillsChanging(value);
 				this.SendPropertyChanging();
-				this._skill1 = value;
-				this.SendPropertyChanged("skill1");
-				this.Onskill1Changed();
+				this._skills = value;
+				this.SendPropertyChanged("skills");
+				this.OnskillsChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill2", DbType="VarChar(50)")]
-	public string skill2
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[cv`]", Storage="_cv_", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	public System.Data.Linq.Binary cv_
 	{
 		get
 		{
-			return this._skill2;
+			return this._cv_;
 		}
 		set
 		{
-			if ((this._skill2 != value))
+			if ((this._cv_ != value))
 			{
-				this.Onskill2Changing(value);
+				this.Oncv_Changing(value);
 				this.SendPropertyChanging();
-				this._skill2 = value;
-				this.SendPropertyChanged("skill2");
-				this.Onskill2Changed();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill3", DbType="VarChar(50)")]
-	public string skill3
-	{
-		get
-		{
-			return this._skill3;
-		}
-		set
-		{
-			if ((this._skill3 != value))
-			{
-				this.Onskill3Changing(value);
-				this.SendPropertyChanging();
-				this._skill3 = value;
-				this.SendPropertyChanged("skill3");
-				this.Onskill3Changed();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill4", DbType="VarChar(50)")]
-	public string skill4
-	{
-		get
-		{
-			return this._skill4;
-		}
-		set
-		{
-			if ((this._skill4 != value))
-			{
-				this.Onskill4Changing(value);
-				this.SendPropertyChanging();
-				this._skill4 = value;
-				this.SendPropertyChanged("skill4");
-				this.Onskill4Changed();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_skill5", DbType="VarChar(50)")]
-	public string skill5
-	{
-		get
-		{
-			return this._skill5;
-		}
-		set
-		{
-			if ((this._skill5 != value))
-			{
-				this.Onskill5Changing(value);
-				this.SendPropertyChanging();
-				this._skill5 = value;
-				this.SendPropertyChanged("skill5");
-				this.Onskill5Changed();
+				this._cv_ = value;
+				this.SendPropertyChanged("cv_");
+				this.Oncv_Changed();
 			}
 		}
 	}

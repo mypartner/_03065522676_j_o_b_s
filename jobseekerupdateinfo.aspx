@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style>
 .logo_image img{
-            width:100%;
-            height:100%;
+            min-width:180px;
+            min-height:180px;
         }
         .client_image{
             margin-left:50%;
@@ -16,8 +16,8 @@
         }
         .client_image img{
             margin-top:1%;
-             width:100%;
-            height:100%;
+             min-width:180px;
+            min-height:180px;
         }
     </style>
     <script>
@@ -53,20 +53,22 @@
     <asp:HiddenField ID="tbjid" runat="server" />
     <div class="container">
     <div class="single">  
-	   <div class="form-container">
-           <div class="well">
+	   <div class="form-container" style="margin-top:3%">
 
         <h2>Update Your Profile</h2>
         <div class="newmargin">
             <div class="row" >
+               
              <div class="client_image">
                
                <div class="logo_image">
-                <img src='data:image/jpg;base64,<%= Convert.ToBase64String(imgarray) %>' id="clientimage"  alt="Select Photograph"  height="200px" width="200px"/>
+                <img src='data:image/jpg;base64,<%= Convert.ToBase64String(imgarray) %>' id="clientimage"  alt="Select Photograph"  height="180px" width="180px"/>
                 <asp:FileUpload ID="imageupload" runat="server" />
                 </div>
             </div>
                 </div>
+             
+            <div class="form-group" style="margin-top:2%">
                 <div class="row">
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="firstname">Firstname</label>
@@ -159,12 +161,10 @@
                     </div>
                 </div>--%>
 
-                 
+               </div>  
                <asp:Button ID="Button1" runat="server" Text="Update info" class="btn btn-danger" OnClick="Savebutton_Click" />
-                			          <input type="submit"  " />
 	    </div>
     </div>
- </div>
 </div></div>
 </asp:Content>
 

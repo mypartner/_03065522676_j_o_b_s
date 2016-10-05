@@ -11,4 +11,9 @@ public partial class siteMasterPage : System.Web.UI.MasterPage
     {
 
     }
+    protected void logout_click(object sender, EventArgs e)
+    {
+        Session["LoginSession"] = null;
+        Response.Redirect("login.aspx");
+        }
 }
