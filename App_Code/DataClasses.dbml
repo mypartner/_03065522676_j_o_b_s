@@ -67,18 +67,6 @@
       <Column Name="specialization" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.jobSeekerProfessionalInfo" Member="jobSeekerProfessionalInfos">
-    <Type Name="jobSeekerProfessionalInfo">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="jobSeekerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="experience" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="jobStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="jobEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="company" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="jobDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="workExperience" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.recruiter" Member="recruiters">
     <Type Name="recruiter">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -108,6 +96,18 @@
   <Table Name="dbo.[Table]" Member="Tables">
     <Type Name="Table">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.jobSeekerProfessionalInfo" Member="jobSeekerProfessionalInfos">
+    <Type Name="jobSeekerProfessionalInfo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="jobSeekerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="experience" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="jobStartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="jobEndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="company" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="jobDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="workExperience" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

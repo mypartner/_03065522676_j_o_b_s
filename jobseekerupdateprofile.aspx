@@ -1,48 +1,54 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/jobseekermaster.master" AutoEventWireup="true" CodeFile="jobseekerupdateprofile.aspx.cs" Inherits="jobseekerupdateprofile" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script>
+        function setVal(val) {
+           // $("eduid").val(e);
+            document.getElementById("eduid").value =  val;
+        }
+        function pupdatebutton(v) {
+            
+            alert("update");
+         
+          
+
+        
+        }
+    </script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div style="margin-top:4%"></div>
-    
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div style="margin-top: 3%"></div>
 
 
+    <div class="container">
+        <div class="single">
+            <div class="form-container" style="margin-top: 3%">
 
 
+                <div class="row">
 
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Update jobseeker detail</h2>
 
+                            </div>
 
+                            <div class="x_content" style="margin-left: 30px">
+                                <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Professional info</a>
+                                        </li>
+                                        <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Educational info</a>
+                                        </li>
+                                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Skills info</a>
+                                        </li>
+                                    </ul>
+                                    <div id="myTabContent" class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab" style="margin-top: 2%">
 
-
-           <div class="container">
-    <div class="single">  
-	   <div class="form-container" style="margin-top:3%">
-      
-           
-           <div class="row">
-
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Update jobseeker detail</h2>
-                    
-                  </div>
-                   
-                  <div class="x_content" style="margin-left:30px">
-                      <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Professional info</a>
-                          </li>
-                          <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Educational info</a>
-                          </li>
-                          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Skills info</a>
-                          </li>
-                        </ul>
-                        <div id="myTabContent" class="tab-content">
-                          <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-
-                            <!-- start recent activity -->
-                    <!--        <ul class="messages">
+                                            <!-- start recent activity -->
+                                            <!--        <ul class="messages">
                               <li>
                                 <img src="images/img.jpg" class="avatar" alt="Avatar">
                                 <div class="message_date">
@@ -109,65 +115,104 @@
                               </li>
 
                             </ul>-->
-                                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="experiance">Experience</label>
-                     <div class="col-md-9">
-                        <input type="text" id="experiance" name="experiance" class="form-control input-sm" />
-                     </div>
-                    </div>
-                </div>
-                 <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="jobstartdate">Job Start Date</label>
-                     <div class="col-md-9">
-                        <input type="date" id="jobstartdate" name="jobstartdate" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="jobenddate">Job End Date</label>
-                     <div class="col-md-9">
-                        <input type="date" id="jobenddate" name="jobenddate" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
+                                              
+                                            <div id="pupdateid" runat="server">
+                                                <% 
+                                                    int jobsekerid = jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
+                                                    int pid = newClass.getSeekerID(jobsekerid);
+                                                    IQueryable<jobSeekerProfessionalInfo> jspi = newClass.getProfessionalInfo(jobsekerid);
+                                                %>
+                                              
+                                                <div class="table-responsive">
 
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="companyname">Company Name</label>
-                     <div class="col-md-9">
-                         
-                        <input type="text" id="companyname" name="companyname" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="description">Job Description</label>
-                     <div class="col-md-9">
-                        <input type="text" id="description" name="description" class="form-control input-sm" />
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="workexperience">Work Experience</label>
-                     <div class="col-md-9">
-                        <input type="text" id="workexperience" name="workexperience" class="form-control" />
-                     </div>
-                    </div>
-                </div>
-                
-                 
-             <asp:Button ID="updateprofessionalinfo" runat="server" Text="Update professional info" class="btn btn-danger " />
-                            <!-- end recent activity -->
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Designation</th>
+                                                                <th>Job Start Date</th>
+                                                                <th>Job End Date</th>
+                                                                <th>Comapany Name</th>
+                                                                <th>Job Description</th>
+                                                                <th>Work Experience</th>
+                                                                <th></th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <%
+                                                                    foreach (var x in jspi)
+                                                                    {
+                                                                         %>
+                                                            <tr>
+                                                                
+                                                                <td><%=x.experience %></td>
+                                                                <td><%=x.jobStartDate %></td>
+                                                                <td><%=x.jobEndDate %></td>
+                                                                <td><%=x.company %></td>
+                                                                <td><%=x.jobDescription %></td>
+                                                                <td><%=x.workExperience %></td>
+                                                                <td><a href="jobseekerupdateprofessionalinfo.aspx?id=<%=x.Id %>"  onclick="pupdatebutton()"  class="btn btn-default">update</a></td>
+                                                               
+                                                                
+                                                            </tr>
+                                                            <%} %>
+                                                        </tbody>
+                                                    </table>
+                                                    
+                                                </div>
+                                            </div>
+                                           
+                                            
+                                            </div>
+                                            <!-- start user projects -->
 
-                          </div>
-                          <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-                                <div class="row">
+                                            <!-- end user projects -->
+
+                                       
+                                          <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+                                               <div id="divviewedu" runat="server">
+                                                <% 
+                                                    int jobsekerid = jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
+                                               
+                                                   IQueryable<jobseekereducationalInfo> jsei = newClass.getEducationalInfo(jobsekerid);
+                                                %>
+                                                <div class="table-responsive">
+
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Institute name</th>
+                                                                <th>Passing year</th>
+                                                                <th>Degree</th>
+                                                                <th>Specialization</th>
+                                                                <th></th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <%
+                                                                foreach (var x in jsei)
+                                                                {
+                                                                 %>
+                                                            <tr>
+
+                                                                <td><%=x.instituteName %></td>
+                                                                <td><%=x.passingOutYear %></td>
+                                                                <td><%=x.degreeName %></td>
+                                                                <td><%=x.specialization %></td>
+                                                             
+                                                                <td><a href="jobseekerupdateeducationalinfo.aspx?id=<%=x.Id %>"  class="btn btn-default" onserverclick="vieweducationalinfo_click">update</a></td>
+                                                            </tr>
+                                                            <%} %>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            
+                                              </div>
+
+<%--                                <div class="row">
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="institute">Institute Name<span class="required"></span></label>
                      <div class="col-md-9">
@@ -243,30 +288,30 @@
                      </div>
                     </div>
               </div></div>
-  <asp:Button ID="updateeducationalinfo" runat="server" Text="Update educational info" class="btn btn-danger" />  
+  <asp:Button ID="updateeducationalinfo" runat="server" Text="Update educational info" class="btn btn-danger" />  --%>
                             <!-- start user projects -->
                            
                             <!-- end user projects -->
 
-                          </div>
-                          <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                              <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="skill1">Skill 1 (Seperated with comma)</label>
-                     <div class="col-md-9">
-                        <input type="text" id="skill1" name="skill1" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                              <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="file">Upload Your CV</label>
-                     <div class="col-md-9">
-                        <asp:FileUpload ID="cvfile" runat="server"/>
-                     </div>
-                    </div>
-                </div>
-              <%--   <div class="row">
+                          
+                                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                                            <div class="row">
+                                                <div class="form-group col-md-10">
+                                                    <label class="col-md-3 control-lable" for="skill1">Skill 1 (Seperated with comma)</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" id="skill1" name="skill1" class="form-control input-sm" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-10">
+                                                    <label class="col-md-3 control-lable" for="file">Upload Your CV</label>
+                                                    <div class="col-md-9">
+                                                        <asp:FileUpload ID="cvfile" runat="server" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <%--   <div class="row">
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="skill2">Skill 2 (Optional)</label>
                      <div class="col-md-9">
@@ -298,15 +343,17 @@
                      </div>
                     </div>
                 </div>--%>
-                               <asp:Button ID="updateskills" runat="server" Text="Update skills" class="btn btn-danger" />
-                          </div>
-                        </div>
-                      </div>
-	   </div>
+                                            <asp:Button ID="updateskills" runat="server" Text="Update skills" class="btn btn-danger" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-    </div>
-    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-           </div></div></div>
+    </div>
 </asp:Content>
 
