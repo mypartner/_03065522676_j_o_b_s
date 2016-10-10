@@ -1,115 +1,64 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="jobseekersignup.aspx.cs" Inherits="userSignup" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/jobseekermaster.master" AutoEventWireup="true" CodeFile="jobseekerupdateeducationalinfo.aspx.cs" Inherits="jobseekerupdateeducationalinfo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div class="container">
-    <div class="single">  
-	   <div class="form-container" style="margin-top:3%">
-        
+    <div style="margin-top: 3%"></div>
 
-        <h2>Update Your Profile</h2>
-        <div class="newmargin">
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="firstname">Firstname</label>
-                     <div class="col-md-9">
-                        <input type="text" id="firstname" name="firstname" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                 <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="lastname">Lastname</label>
-                     <div class="col-md-9">
-                        <input type="text" id="lastname" name="lastname" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="mobile">Mobile</label>
-                     <div class="col-md-9">
-                        <input type="text" id="mobile" name="mobile" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="email">Email</label>
-                     <div class="col-md-9">
-                        <input type="text" id="email" name="email" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="lastname">Sex</label>
-                     <div class="col-md-9">
-                        
-                              <label><input type="radio" name="sex" class="radio-inline" value="Male" />Male</label>
-                            
-                              <label><input type="radio" name="sex" class="radio-inline" value="Female"/>Female</label>
-                            
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="education">Education</label>
-                     <div class="col-md-9">
-                        <input type="text" id="education" name="education" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="country">Country</label>
-                     <div class="col-md-9">
-                        <input type="text" id="country" name="country" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="dob">Date of birth</label>
-                     <div class="col-md-9">
-                        <input type="" id="dob" name="dob" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="dob">Username</label>
-                     <div class="col-md-9">
-                        <input type="text" id="username" name="username" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-             <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="dob">Password</label>
-                     <div class="col-md-9">
-                        <input type="password" id="password" name="password" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
 
-                 <div class="row">
-                     <div class="form-group col-md-12">
-                        <label class="col-md-3 control-lable" for="Imageupload">Upload your image</label>
-                     <div class="col-md-9">
-                         <asp:FileUpload ID="imageupload" runat="server" />
-                     </div>
-                    </div>
-                </div>
-               
-                			          <input type="submit" value="Sign Up" class="btn btn-danger " />
-	    </div>
-    </div>
- </div>
-</div></div>
-     <!-- jQuery -->
+    <div class="container">
+        <div class="single">
+            <div class="form-container" style="margin-top: 3%">
+
+
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Update Educational detail</h2>
+
+                            </div>
+
+                            <div class="x_content" style="margin-left: 30px">
+                                <div id="divupdateedu" runat="server">
+                                                 <% 
+                                                     int jobsekerid = jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
+                                                     int id = int.Parse(Request.QueryString["id"]);
+                                                     jobseekereducationalInfo jei = newClass.educationalInfo(jobsekerid, id);
+                                                  //   IQueryable<jobSeekerProfessionalInfo> jspi = newClass.getProfessionalInfo(jobsekerid);
+                                                    %>
+                                        <input value='<%=jei.Id %>' type="hidden" id="hiddenid" name="hiddenid" />
+                                                <div class="table-responsive">
+
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Institute name</th>
+                                                                <th>Passing year</th>
+                                                                <th>Degree</th>
+                                                                <th>Specialization</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                           
+                                                            <tr>
+
+                                                                <td> <input type="text" id="institute" name="institute" value="<%=jei.instituteName %>" class="form-control input-sm"/></td>
+                                                                <td><input type="" name="year_selector" id="year_selector" value="<%=jei.passingOutYear %>" class="form-control input-sm"  /></td>
+                                                                <td><input type="text" id="degree1" name="degree1" class="form-control input-sm" value="<%=jei.degreeName %>"/></td>
+                                                                <td> <input type="text" id="specialization" name="specialization" class="form-control input-sm" value="<%=jei.specialization %>"/></td>
+                                                             
+                                                                <td><a href="#" class="btn btn-default" runat="server" onserverclick="updateeducationalinfo_click">update</a></td>
+                                                            </tr>
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                </div></div></div></div></div></div></div>
+        <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
 
     <!-- bootstrap-daterangepicker -->
@@ -269,16 +218,17 @@
     </script>
 
     <script>
-      $(document).ready(function() {
-      
-          $('#dob').daterangepicker({
-          singleDatePicker: true,
-          calender_style: "picker_2"
-        }, function(start, end, label) {
-          console.log(start.toISOString(), end.toISOString(), label);
-        });
-     
-       
+    
+      $(document).ready(function () {
+
+          $('#year_selector').daterangepicker({
+              singleDatePicker: true,
+              calender_style: "picker_2"
+          }, function (start, end, label) {
+              console.log(start.toISOString(), end.toISOString(), label);
+          });
+
+
       });
     </script>
 
@@ -290,5 +240,7 @@
           });
         </script>
         <!-- /bootstrap-daterangepicker -->
+    
 </asp:Content>
+
 

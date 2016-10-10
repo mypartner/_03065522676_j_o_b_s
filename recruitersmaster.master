@@ -19,6 +19,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
 <!----font-Awesome----->
 <link href="css/font-awesome.css" rel="stylesheet"> 
+    <link href="build/css/newcustom.min%20-.css" rel="stylesheet" />
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -50,8 +51,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     
 		        </li>
 
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Logout</a></li>
+                
+                <li><a href="#" onserverclick="logout_click" runat="server">Logout</a></li>
 	        </ul>
 	    </div>
 	    <div class="clearfix"> </div>
@@ -118,7 +119,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </form>
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/formvalidator.js"></script>
-
+     <!-- bootstrap-daterangepicker -->
+    <script src="js/moment/moment.min.js"></script>
+    <script src="js/datepicker/daterangepicker.js"></script>
+     <!-- validator -->
+    <script src="../vendors/validator/validator.js"></script>
 <script>
 
   $.validate({

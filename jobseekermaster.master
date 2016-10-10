@@ -76,16 +76,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="dropdown">
 		        	<a href="jobs.aspx"  class="dropdown-toggle" data-toggle="dropdown">Jobs<b class="caret"></b></a>
 		            <ul class="dropdown-menu">
-			            <li><a href="jobseekerjobs.aspx">Find a Job</a></li>
+			            <li ><a href="jobseekerjobs.aspx">Find a Job</a></li>
 			            <li><a href="jobseekerappliedjobs.aspx">View Apply Job</a></li>
                     
 		            </ul>
 		        </li>
-            
-		        <li><a href="jobseekerprofile.aspx">Complete Profile</a></li>
+            <li class="dropdown">
+		        	<a href="jobseekerprofile.aspx"  class="dropdown-toggle" data-toggle="dropdown">Profile<b class="caret"></b></a>
+		            <ul class="dropdown-menu">
+			            <li><a href="jobseekerprofile.aspx">Create Resume</a></li>
+                        <li><a href="jobseekerupdateprofile.aspx">Update Resume Info</a></li>
+			            <li><a href="jobseekerupdateinfo.aspx">Update Account Info</a></li>
+                        
+                    
+		            </ul>
+		        </li>
+		        <%--<li><a href="jobseekerprofile.aspx">Complete Profile</a></li>
                  <li><a href="jobseekerupdateinfo.aspx">Update info</a></li>
-                <li><a href="jobseekerupdateprofile.aspx">Update profile</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="jobseekerupdateprofile.aspx">Update profile</a></li>--%>
+                <li><a href="#" onserverclick="logout_click" runat="server">Logout</a></li>
 	        </ul>
 	    </div>
 	    <div class="clearfix"> </div>
@@ -151,6 +160,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </div>
 </div>
     </form>
-   
+
+
+    <!-- bootstrap-daterangepicker -->
+    <script src="js/moment/moment.min.js"></script>
+    <script src="js/datepicker/daterangepicker.js"></script>
+     <!-- validator -->
+    <script src="../vendors/validator/validator.js"></script>
 </body>
 </html>

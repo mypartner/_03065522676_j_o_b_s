@@ -7,7 +7,7 @@
         </div>
 <div class="container">
     <div class="single">  
-	   <div class="col-md-4">
+	  <%-- <div class="col-md-4">
 	   	  <div class="col_3">
 	   	  	<h3>Todays Jobs</h3>
 	   	  	<ul class="list_1">
@@ -17,7 +17,7 @@
 	   						
 	   	  	</ul>
 	   	  </div>
-	 </div>
+	 </div>--%>
 	 <div class="col-md-8 single_right">
 	 	   <div class="login-form-section">
                 <div class="login-content">
@@ -26,9 +26,9 @@
                             <h3>LogIn to your Account</h3>
                         </div>
                         <div class="textbox-wrap">
-                            <div class="input-group">
+                            <div class="item input-group">
                                 <span class="input-group-addon "><i class="fa fa-user"></i></span>
-                                <input type="text" required="required" name="username" data-validate-length-range="6" data-validate-words="2" class="form-control" placeholder="Username"/>
+                                <input type="text" required="required" name="username" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="both name(s) e.g Jon Doe" required="required" class="form-control" placeholder="Username"/>
                             </div>
                         </div>
                         <div class="textbox-wrap">
@@ -85,7 +85,37 @@
   <div class="clearfix"> </div>
  </div>
     </div>
+ <!-- validator -->
+    <script>
+      // initialize the validator function
+      validator.message.date = 'not a real date';
 
+      // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+      $('form')
+        .on('blur', 'input[required], input.optional, select.required', validator.checkField)
+        .on('change', 'select.required', validator.checkField)
+        .on('keypress', 'input[required][pattern]', validator.keypress);
+
+      $('.multi.required').on('keyup blur', 'input', function() {
+        validator.checkField.apply($(this).siblings().last()[0]);
+      });
+
+      $('form').submit(function(e) {
+        e.preventDefault();
+        var submit = true;
+
+        // evaluate the form using generic validaing
+        if (!validator.checkAll($(this))) {
+          submit = false;
+        }
+
+        if (submit)
+          this.submit();
+
+        return false;
+      });
+    </script>
+    <!-- /validator -->
        
 </asp:Content>
 

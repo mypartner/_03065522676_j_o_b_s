@@ -1,171 +1,76 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/jobseekermaster.master" AutoEventWireup="true" CodeFile="jobseekerupdateinfo.aspx.cs" Inherits="jobseekerupdateinfo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/jobseekermaster.master" AutoEventWireup="true" CodeFile="jobseekerupdateprofessionalinfo.aspx.cs" Inherits="jobseekerupdateprofessionalinfo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style>
-.logo_image img{
-            min-width:180px;
-            min-height:180px;
-        }
-        .client_image{
-            margin-left:50%;
-            float:left;
-           
-             width:200px;
-             height:200px;
-             
-        }
-        .client_image img{
-            margin-top:1%;
-             min-width:180px;
-            min-height:180px;
-        }
-    </style>
-    <script>
-        $(function () {
-            $(":file").change(function () {
-                if (this.files && this.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = imageIsLoaded;
-                    reader.readAsDataURL(this.files[0]);
-                    alert(this.files[0]);
-                }
-            });
-        });
-        function imageIsLoaded(e) {
-            $('#clientimage').attr('src', e.target.result);
-
-        };
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <%
+    <div style="margin-top: 3%"></div>
 
-        int id= jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
-        tbjid.Value = id.ToString();
-        jobSeeker myseeker = jobseekerclass.getjobseekerdata(id);
-        byte[] imgarray=new byte[myseeker.image.Length];
-        if (myseeker.image != null)
-        {
-            imgarray = myseeker.image.ToArray();
-        }
 
-         %>
-    <asp:HiddenField ID="tbjid" runat="server" />
     <div class="container">
-    <div class="single">  
-	   <div class="form-container" style="margin-top:3%">
+        <div class="single">
+            <div class="form-container" style="margin-top: 3%">
 
-        <h2>Update Your Profile</h2>
-        <div class="newmargin">
-            <div class="row" >
-               
-             <div class="client_image">
-               
-               <div class="logo_image">
-                <img src='data:image/jpg;base64,<%= Convert.ToBase64String(imgarray) %>' id="clientimage"  alt="Select Photograph"  height="180px" width="180px"/>
-                <asp:FileUpload ID="imageupload" runat="server" />
-                </div>
-            </div>
-                </div>
-             
-            <div class="form-group" style="margin-top:2%">
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="firstname">Firstname</label>
-                     <div class="col-md-9">
-                        <input type="text" id="firstname" name="firstname" value="<%=myseeker.firstName %>"  class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                 <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="lastname">Lastname</label>
-                     <div class="col-md-9">
-                        <input type="text" id="lastname"  name="lastname" value="<%=myseeker.lastName %>" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="mobile">Mobile</label>
-                     <div class="col-md-9">
-                        <input type="text" id="mobile" name="mobile" value="<%=myseeker.mobile %>" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="email">Email</label>
-                     <div class="col-md-9">
-                        <input type="text" id="email" name="email" value="<%=myseeker.email%>" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="lastname">Sex</label>
-                     <div class="col-md-9">
-                            <% if (myseeker.sex == "Male")
-                                { %>
-                              <label><input type="radio" name="sex" class="radio-inline" value="Male"  checked="checked"/>Male</label>
-                            
-                              <label><input type="radio" name="sex" class="radio-inline" value="Female"/>Female</label>
-                            <%}
-    else
-    { %>
-                                  <label><input type="radio" name="sex" class="radio-inline" value="Male"  />Male</label>
-                            
-                              <label><input type="radio" name="sex" class="radio-inline" value="Female" checked="checked"/>Female</label>
-                           <%} %>
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="education">Education</label>
-                     <div class="col-md-9">
-                        <input type="text" id="education" name="education"  value="<%=myseeker.education%>" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="country">Country</label>
-                     <div class="col-md-9">
-                        <input type="text" id="country" name="country"  value="<%=myseeker.country%>" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-                <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="dob">Date of birth</label>
-                     <div class="col-md-9">
-                        <input type="" id="dob" name="dob"  value="<%=myseeker.dob%>" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-               <%-- <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="dob">Username</label>
-                     <div class="col-md-9">
-                        <input type="text" id="username" name="username" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>
-             <div class="row">
-                     <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="dob">Password</label>
-                     <div class="col-md-9">
-                        <input type="password" id="password" name="password" class="form-control input-sm"/>
-                     </div>
-                    </div>
-                </div>--%>
 
-               </div>  
-               <asp:Button ID="Button1" runat="server" Text="Update info" class="btn btn-danger" OnClick="Savebutton_Click" />
-	    </div>
-    </div>
-</div></div>
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Update Professional detail</h2>
+
+                            </div>
+
+                            <div class="x_content" style="margin-left: 30px">
+                                    <div id="Div1" runat="server">
+                                                 <% 
+                                                     int jobsekerid = jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
+                                                     int id = int.Parse(Request.QueryString["id"]);
+                                                     jobSeekerProfessionalInfo jsp = newClass.professionalinfo(jobsekerid, id);
+                                                     IQueryable<jobSeekerProfessionalInfo> jspi = newClass.getProfessionalInfo(jobsekerid);
+                                                    %>
+                                        <input value='<%=jsp.Id %>' type="hidden" id="hiddenid" name="hiddenid" />
+                                                <div class="table-responsive">
+                                                   
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Designation</th>
+                                                                <th>Job Start Date</th>
+                                                                <th>Job End Date</th>
+                                                                <th>Comapany Name</th>
+                                                                <th>Job Description</th>
+                                                                <th>Work Experience</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            
+                                                            <tr>
+                                                                <td>
+                                                                   
+                                                                    <input type="text" id="experiance" value="<%=jsp.experience %>" name="experiance" class="form-control input-sm" /></td>
+                                                                <td>
+                                                                    <%--<asp:TextBox ID="TextBox1" Text='<%#Bind("jspi.jobStartDate") %>' runat="server" TextMode="Date"></asp:TextBox>
+                                             <asp:TextBox ID="date" Text='<%# Bind("","{0:yyyy-MM-dd}") %>' TextMode="Date"></asp:TextBox>--%>
+                                                                    <input type="" id="jobstartdate" value="<%=jsp.jobStartDate %>" data-date="" min="01-10-1200" data-date-format="dd-mm-yyyy" name="jobstartdate" class="form-control input-sm" />
+
+                                                                </td>
+                                                                <td>
+                                                                    <input type="" id="jobenddate" value="<%=jsp.jobEndDate %>" name="jobenddate" class="form-control input-sm" /></td>
+                                                                <td>
+                                                                    <input type="text" id="companyname" value="<%=jsp.company %>" name="companyname" class="form-control input-sm" /></td>
+                                                                <td>
+                                                                    <input type="text" id="description" value="<%=jsp.jobDescription %>" name="description" class="form-control input-sm" /></td>
+                                                                <td>
+                                                                    <input type="text" id="workexperience" value="<%=jsp.workExperience %>" name="workexperience" class="form-control" /></td>
+                                                                <td><a href="#" class="btn btn-default" onserverclick="updatpinfo" runat="server">update</a></td>
+                                                            
+                                                            </tr>
+                                                           
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                </div></div></div></div></div></div></div>
      <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
 
@@ -328,7 +233,7 @@
     <script>
       $(document).ready(function() {
       
-          $('#dob').daterangepicker({
+          $('#jobstartdate').daterangepicker({
           singleDatePicker: true,
           calender_style: "picker_2"
         }, function(start, end, label) {
@@ -336,6 +241,17 @@
         });
      
        
+      });
+      $(document).ready(function () {
+
+          $('#jobenddate').daterangepicker({
+              singleDatePicker: true,
+              calender_style: "picker_2"
+          }, function (start, end, label) {
+              console.log(start.toISOString(), end.toISOString(), label);
+          });
+
+
       });
     </script>
 

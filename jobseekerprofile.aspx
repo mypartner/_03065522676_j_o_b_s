@@ -135,8 +135,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <!-- page content -->
     <asp:HiddenField ID="numberofRecords" value="1" runat="server" />    
-    <div class="banner_1"></div>
-    <div class="single">  
+    <div class="single" style="margin-top:3%">  
 	   <div class="form-container">
                            <div class="messagealert" id="alert_container" >  </div>                	  
 
@@ -181,7 +180,7 @@
                             <span class="step_no">3</span>
                             <span class="step_descr">
                                               Step 3<br />
-                                              <small>Skills Information</small>
+                                              <small>Skills &Resume Information</small>
                                           </span>
                           </a>
                         </li>
@@ -203,18 +202,30 @@
                  <div class="row">
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="jobstartdate">Job Start Date</label>
-                     <div class="col-md-9">
-                        <input type="date" id="jobstartdate" name="jobstartdate1" class="form-control input-sm"/>
+                    
+                          
+  
+                           
+                              <div class="col-md-9">
+                                <input type="text" class="form-control input-sm"  id="jobstartdate" name="jobstartdate1"  >
+                              
+                            </div>
+                    
+<%--                        <input type="date" id="jobstartdate" name="jobstartdate1" class="form-control input-sm"/>--%>
                      </div>
-                    </div>
+                 
                 </div>
                 
                 <div class="row">
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="jobenddate">Job End Date</label>
-                     <div class="col-md-9">
-                        <input type="date" id="jobenddate" name="jobenddate1" class="form-control input-sm"/>
-                     </div>
+  
+                           
+                              <div class="col-md-9">
+                        <input type="text" id="jobenddate" name="jobenddate1" class="form-control input-sm"/>
+                              
+                            </div>
+                    
                     </div>
                 </div>
 
@@ -245,15 +256,16 @@
                 </div>
                 </div>
                      
-                
-            
+                <div style="float:left;">
+                              <label id="appenddegree" onclick="appenddiv()">Add another Degree</label>
+                        </div>
+                             <br />
+                         <asp:Button ID="savePersonalInformation" runat="server" Text="Save" class="btn btn-danger " OnClick="savePersonalInformation_Click" />
+
                            
 
                              </div>
-                          <div style="float:left;">
-                              <label id="appenddegree" onclick="appenddiv()">Add another Degree</label>
-             <asp:Button ID="savePersonalInformation" runat="server" Text="Save" class="btn btn-danger " OnClick="savePersonalInformation_Click" />
-                        </div>
+                          
                           
                       </div>
                         <!------------------- end of Step 1---------------->
@@ -276,7 +288,7 @@
                      
                       <!--  <select id='year_selector' required="required"></select>-->
                          
-                         <input type="date" name="year_selector" id="year_selector" />
+                         <input type="text" name="year_selector" id="year_selector" class="form-control input-sm"/>
                     
                      </div>
                     </div>
@@ -304,7 +316,7 @@
 
                 <div class="row">
                      <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="degree2">Degree 2 (Optional)</label>
+                        <label class="col-md-3 control-lable" for="degree2">Degree 2 (Seperated with comma)</label>
                      <div class="col-md-9">
                         <input type="text" id="degree2" name="degree2" class="form-control input-sm"/>
                      </div>
@@ -340,7 +352,10 @@
           </div>
                            
                         
-                          </div>  <asp:Button ID="saveeducationalinfoo" runat="server" Text="Save" class="btn btn-danger" OnClick="saveeducationalinfoo_Click"/>   </div>
+                          </div> 
+<a href="#" runat="server"  class="btn btn-danger" onserverclick="saveeducationalinfoo_Click">Save</a>   </div>
+
+                               <%--<asp:Button ID="saveeducationalinfoo" runat="server" Text="Save" class="btn btn-danger" OnClick="saveeducationalinfoo_Click"/>   </div>--%>
                          
                       </div>
 
@@ -393,16 +408,14 @@
 
                          <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
+   
     <!-- FastClick -->
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../vendors/nprogress/nprogress.js"></script>
     <!-- jQuery Smart Wizard -->
     <script src="../vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
+
 
     <!-- jQuery Smart Wizard -->
     <script>
@@ -417,5 +430,210 @@
         });
     </script>
     <!-- /jQuery Smart Wizard -->
+      
+
+    <!-- bootstrap-daterangepicker -->
+    <script src="js/moment/moment.min.js"></script>
+    <script src="js/datepicker/daterangepicker.js"></script>
+  
+
+
+    <!-- bootstrap-daterangepicker -->
+    <script>
+      $(document).ready(function() {
+        var cb = function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+          $('#reportrange_right span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        };
+
+        var optionSet1 = {
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment(),
+          minDate: '01/01/2012',
+          maxDate: '12/31/2015',
+          dateLimit: {
+            days: 60
+          },
+          showDropdowns: true,
+          showWeekNumbers: true,
+          timePicker: false,
+          timePickerIncrement: 1,
+          timePicker12Hour: true,
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          opens: 'right',
+          buttonClasses: ['btn btn-default'],
+          applyClass: 'btn-small btn-primary',
+          cancelClass: 'btn-small',
+          format: 'MM/DD/YYYY',
+          separator: ' to ',
+          locale: {
+            applyLabel: 'Submit',
+            cancelLabel: 'Clear',
+            fromLabel: 'From',
+            toLabel: 'To',
+            customRangeLabel: 'Custom',
+            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            firstDay: 1
+          }
+        };
+
+        $('#reportrange_right span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+
+        $('#reportrange_right').daterangepicker(optionSet1, cb);
+
+        $('#reportrange_right').on('show.daterangepicker', function() {
+          console.log("show event fired");
+        });
+        $('#reportrange_right').on('hide.daterangepicker', function() {
+          console.log("hide event fired");
+        });
+        $('#reportrange_right').on('apply.daterangepicker', function(ev, picker) {
+          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+        });
+        $('#reportrange_right').on('cancel.daterangepicker', function(ev, picker) {
+          console.log("cancel event fired");
+        });
+
+        $('#options1').click(function() {
+          $('#reportrange_right').data('daterangepicker').setOptions(optionSet1, cb);
+        });
+
+        $('#options2').click(function() {
+          $('#reportrange_right').data('daterangepicker').setOptions(optionSet2, cb);
+        });
+
+        $('#destroy').click(function() {
+          $('#reportrange_right').data('daterangepicker').remove();
+        });
+
+      });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        var cb = function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        };
+
+        var optionSet1 = {
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment(),
+          minDate: '01/01/2012',
+          maxDate: '12/31/2015',
+          dateLimit: {
+            days: 60
+          },
+          showDropdowns: true,
+          showWeekNumbers: true,
+          timePicker: false,
+          timePickerIncrement: 1,
+          timePicker12Hour: true,
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          opens: 'left',
+          buttonClasses: ['btn btn-default'],
+          applyClass: 'btn-small btn-primary',
+          cancelClass: 'btn-small',
+          format: 'MM/DD/YYYY',
+          separator: ' to ',
+          locale: {
+            applyLabel: 'Submit',
+            cancelLabel: 'Clear',
+            fromLabel: 'From',
+            toLabel: 'To',
+            customRangeLabel: 'Custom',
+            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            firstDay: 1
+          }
+        };
+        $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+        $('#reportrange').daterangepicker(optionSet1, cb);
+        $('#reportrange').on('show.daterangepicker', function() {
+          console.log("show event fired");
+        });
+        $('#reportrange').on('hide.daterangepicker', function() {
+          console.log("hide event fired");
+        });
+        $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+        });
+        $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
+          console.log("cancel event fired");
+        });
+        $('#options1').click(function() {
+          $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+        });
+        $('#options2').click(function() {
+          $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+        });
+        $('#destroy').click(function() {
+          $('#reportrange').data('daterangepicker').remove();
+        });
+      });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#jobenddate').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_2"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+
+
+        });
+        $(document).ready(function () {
+
+            $('#year_selector').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_2"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+
+
+        });
+        
+        
+      $(document).ready(function() {
+      
+          $('#jobstartdate').daterangepicker({
+          singleDatePicker: true,
+          calender_style: "picker_2"
+        }, function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+        });
+     
+       
+      });
+    </script>
+
+        <script>
+          $(document).ready(function() {
+            $('#reservation').daterangepicker(null, function(start, end, label) {
+              console.log(start.toISOString(), end.toISOString(), label);
+            });
+          });
+        </script>
+        <!-- /bootstrap-daterangepicker -->
+
 </asp:Content>
 
