@@ -21,7 +21,9 @@
 <!----font-Awesome----->
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!----font-Awesome----->
-    <asp:ContentPlaceHolder id="head" runat="server">
+     <!-- Custom Theme Style -->
+    <link href="build/css/newcustom.min%20-.css" rel="stylesheet" />
+            <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -124,7 +126,11 @@
 </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/formvalidator.js"></script>
-
+     <!-- bootstrap-daterangepicker -->
+    <script src="js/moment/moment.min.js"></script>
+    <script src="js/datepicker/daterangepicker.js"></script>
+     <!-- validator -->
+    <script src="../vendors/validator/validator.js"></script>
 <script>
 
   $.validate({

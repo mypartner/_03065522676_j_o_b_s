@@ -44,32 +44,40 @@
     <div class="single">   
 	   
         <div class="col-md-3"></div>
-	 <div class="col-md-9 single_right">
-                             <div class="messagealert" id="alert_container" >  </div>                	  
-
+	 <div class="single_right">
+                                          	  
 	 	   <div class="login-form-section">
-
+                             
+                
                 <div class="login-content">
-                    
+                
                         <div class="section-title">
                             	   
 
                             <h3>Sign in</h3>
                         </div>
+                     <%-- <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="1-2" name="name" placeholder="both name(s) e.g Jon Doe" required="required" type="text">
+                        </div>
+                      </div>--%>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-9">
+                        <div class="messagealert" id="alert_container" >  </div>   
                         <div class="textbox-wrap">
-                            <div class="input-group">
+                            <div class="item input-group">
                                 <span class="input-group-addon " id="length" required><i class="fa fa-user"></i></span>
-                                <input type="text" id="username" required="required" name="username" class="form-control" placeholder="Username" data-validation="length alphanumeric" 
-		 data-validation-length="3-12" 
-		 data-validation-error-msg="Incorrect format ! " />
+                                <input type="text" id="username" required="required" name="username" class="form-control" data-validate-length-range="6" data-validate-words="1-2"  placeholder="both name(s) e.g Jon Doe" required="required" />
                             </div>
                         </div>
+                    
 
                         <div class="textbox-wrap">
-                            <div class="input-group">
+                            <div class="item input-group">
                                 <span class="input-group-addon " id="pass_confirmation" required><i class="fa fa-key"></i></span>
-                                <input type="password" id="password" required="required" name="password" class="form-control " placeholder="Password" data-validation="required"
-                                     data-validation-error-msg="Password is not strong ! " />
+                                <input type="password" id="password" required="required" name="password" class="form-control " placeholder="Password" data-validate-length="8" />
                             </div>
                         </div>
                     <div class="col-sm-9">
@@ -116,14 +124,48 @@
                         <asp:Button ID="login_user" runat="server" Text="Log in" OnClick="login_user_Click" />
 					 
 					</div>
-					
+					</div>
                 </div>
          </div>
    </div>
   <div class="clearfix"> </div>
  </div>
     </div>
+        <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+      <!-- validator -->
+    <script src="../vendors/validator/validator.js"></script>
 
-       
+        <!-- validator -->
+    <script>
+      // initialize the validator function
+      validator.message.date = 'not a real date';
+
+      // validate a field on "blur" event, a 'select' on 'change' event & a '.reuired' classed multifield on 'keyup':
+      $('form')
+        .on('blur', 'input[required], input.optional, select.required', validator.checkField)
+        .on('change', 'select.required', validator.checkField)
+        .on('keypress', 'input[required][pattern]', validator.keypress);
+
+      $('.multi.required').on('keyup blur', 'input', function() {
+        validator.checkField.apply($(this).siblings().last()[0]);
+      });
+
+      $('form').submit(function(e) {
+        e.preventDefault();
+        var submit = true;
+
+        // evaluate the form using generic validaing
+        if (!validator.checkAll($(this))) {
+          submit = false;
+        }
+
+        if (submit)
+          this.submit();
+
+        return false;
+      });
+    </script>
+    <!-- /validator -->
 </asp:Content>
 

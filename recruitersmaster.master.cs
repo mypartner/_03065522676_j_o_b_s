@@ -11,4 +11,9 @@ public partial class recruitersmaster : System.Web.UI.MasterPage
     {
 
     }
+    protected void logout_click(object sender, EventArgs e)
+    {
+        Session["LoginSession"] = null;
+        Response.Redirect("login.aspx");
+    }
 }

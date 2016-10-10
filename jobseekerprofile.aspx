@@ -135,8 +135,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <!-- page content -->
     <asp:HiddenField ID="numberofRecords" value="1" runat="server" />    
-    <div class="banner_1"></div>
-    <div class="single">  
+    <div class="single" style="margin-top:3%">  
 	   <div class="form-container">
                            <div class="messagealert" id="alert_container" >  </div>                	  
 
@@ -257,15 +256,16 @@
                 </div>
                 </div>
                      
-                
-            
+                <div style="float:left;">
+                              <label id="appenddegree" onclick="appenddiv()">Add another Degree</label>
+                        </div>
+                             <br />
+                         <asp:Button ID="savePersonalInformation" runat="server" Text="Save" class="btn btn-danger " OnClick="savePersonalInformation_Click" />
+
                            
 
                              </div>
-                          <div style="float:left;">
-                              <label id="appenddegree" onclick="appenddiv()">Add another Degree</label>
-             <asp:Button ID="savePersonalInformation" runat="server" Text="Save" class="btn btn-danger " OnClick="savePersonalInformation_Click" />
-                        </div>
+                          
                           
                       </div>
                         <!------------------- end of Step 1---------------->
@@ -352,7 +352,10 @@
           </div>
                            
                         
-                          </div>  <asp:Button ID="saveeducationalinfoo" runat="server" Text="Save" class="btn btn-danger" OnClick="saveeducationalinfoo_Click"/>   </div>
+                          </div> 
+<a href="#" runat="server"  class="btn btn-danger" onserverclick="saveeducationalinfoo_Click">Save</a>   </div>
+
+                               <%--<asp:Button ID="saveeducationalinfoo" runat="server" Text="Save" class="btn btn-danger" OnClick="saveeducationalinfoo_Click"/>   </div>--%>
                          
                       </div>
 
