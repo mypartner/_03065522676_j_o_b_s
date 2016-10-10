@@ -8,24 +8,26 @@
 
         int[] monthlyvalue = adminClass.getTotalRecruterSignup();
         int[] jbseeker = adminClass.getTotalJobSeekerSignup();
+        int[] jobs = adminClass.graphPostedJObs();
+        int[] apjobs = adminClass.graphAppliedjob();
 
           %>
 	
 //*******************RecruiterDataBinding***************************
         window.onload=function myfucntion(){
 
-             var jan=[2];
- 	    var feb=[2];
- 	    var march=[2];
- 	    var april=[2];
- 	    var may=[2];
- 	    var june=[2];
- 	    var july=[2];
- 	    var augest=[2];
- 	    var september=[2];
- 	    var october=[2];
- 	    var november=[2];
- 	    var december=[2];
+             var jan=[4];
+ 	    var feb=[4];
+ 	    var march=[4];
+ 	    var april=[4];
+ 	    var may=[4];
+ 	    var june=[4];
+ 	    var july=[4];
+ 	    var augest=[4];
+ 	    var september=[4];
+ 	    var october=[4];
+ 	    var november=[4];
+ 	    var december=[4];
             //*********************************RecruiterBindin
 	  jan[0]= <%=monthlyvalue[0]%>;
  	  feb[0]= <%=monthlyvalue[1] %>;
@@ -53,6 +55,33 @@
  	     october[1]= <%=jbseeker[9]%>;
  	     november[1]= <%=jbseeker[10]%>;
             december[1]=<%=jbseeker[11]%>;
+            //***********************************************jobs
+             jan[2]= <%=jobs[0]%>;
+ 	     feb[2]= <%=jobs[1] %>;
+ 	     march[2]= <%=jobs[2]%>;
+ 	     april[2]=<%=jobs[3]%>;
+ 	     may[2]=<%=jobs[4]%>;
+ 	     june[2]= <%=jobs[5]%>;
+ 	     july[2]=  <%=jobs[6]%>;
+ 	     augest[2]= <%=jobs[7]%>;
+ 	     september[2]= <%=jobs[8]%>;
+ 	     october[2]= <%=jobs[9]%>;
+ 	     november[2]= <%=jobs[10]%>;
+            december[2]=<%=jobs[11]%>;
+
+             //***********************************************appliedJobs
+             jan[3]= <%=apjobs[0]%>;
+ 	     feb[3]= <%=apjobs[1] %>;
+ 	     march[3]= <%=apjobs[2]%>;
+ 	     april[3]=<%=apjobs[3]%>;
+ 	     may[3]=<%=apjobs[4]%>;
+ 	     june[3]= <%=apjobs[5]%>;
+ 	     july[3]=  <%=apjobs[6]%>;
+ 	     augest[3]= <%=apjobs[7]%>;
+ 	     september[3]= <%=apjobs[8]%>;
+ 	     october[3]= <%=apjobs[9]%>;
+ 	     november[3]= <%=apjobs[10]%>;
+            december[3]=<%=apjobs[11]%>;
 
             var chart = new CanvasJS.Chart("chartContainer");
   chart.options.animationEnabled= true;
@@ -70,31 +99,51 @@
     	        }
           };
      chart.options.theme= "theme4";
-    chart.options.axisX = { title: "Resources",titleFontSize: 30,interval: 1};
-    chart.options.axisY = { title: "Resource Count", includeZero: false,interval: 3,titleFontSize: 20};
+    chart.options.axisX = { title: "Count",titleFontSize: 30,interval: 1};
+    chart.options.axisY = { title: "Month", includeZero: false,interval: 3,titleFontSize: 20};
     /* chart.options.axisY2 = { prefix: "$", suffix: "K",title: "Price"}; */
     chart.options.title = { text: "Recruiter And JobSeekers" };
     var series=[];
   
     
     series[0]={ //dataSeries - first quarter
-            type: "spline",
-            name: "Recruiters",
+        type: "splineArea",         //area ,spline,scatter
+        name: "Recruiters",
+        color:"red",
+        fillOpacity:0.1,
             showInLegend: true,
            
     };
     series[1]={ //dataSeries - first quarter
-        type: "spline",
+        type: "splineArea",   
         name: "JobSeeker",
+        color:"orange",
+        fillOpacity:0.2,
+        showInLegend: true,
+           
+    };
+    series[2]={ //dataSeries - first quarter
+        type: "splineArea",   
+        name: "Jobs",
+        color:"purple",
+        fillOpacity:0.2,
+        showInLegend: true,
+           
+    };
+    series[3]={ //dataSeries - first quarter
+        type: "splineArea",   
+        name: "AppliedJobs",
+        color:"green",
+        fillOpacity:0.2,
         showInLegend: true,
            
     };
    
     chart.options.data = [];
-    for(var z=0;z<2;z++){ 
+    for(var z=0;z<4;z++){ 
         chart.options.data.push(series[z]);
       }
-    for(var y=0;y<2;y++){
+    for(var y=0;y<4;y++){
         series[y].dataPoints = [
                 { label:"Jan", y: jan[y] },
                { label:"Feb", y: feb[y] },
@@ -122,29 +171,29 @@
           <div class="">
             <div class="row top_tiles" style="margin: 10px 0;">
               <div class="col-md-3 col-sm-3 col-xs-6 tile">
-                <span>Total Sessions</span>
-                <h2>231,809</h2>
+                <span>Total Registerd Recruiters</span>
+                <h2><%=adminClass.gettotalrecruiters() %></h2>
                 <span class="sparkline_one" style="height: 160px;">
                       <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                   </span>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-6 tile">
-                <span>Total Revenue</span>
-                <h2>$ 231,809</h2>
+                <span>Total Registerd JobSeeker</span>
+                <h2><%=adminClass.gettotaljobSeekers() %></h2>
                 <span class="sparkline_one" style="height: 160px;">
                       <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                   </span>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-6 tile">
-                <span>Total Sessions</span>
-                <h2>231,809</h2>
+                <span>Total Posted JObs</span>
+                <h2><%=adminClass.gettotalPostedJobs() %></h2>
                 <span class="sparkline_two" style="height: 160px;">
                       <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                   </span>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-6 tile">
-                <span>Total Sessions</span>
-                <h2>231,809</h2>
+                <span>Total Applied jobs</span>
+                <h2><%=adminClass.gettotalAppliedjobs() %></h2>
                 <span class="sparkline_one" style="height: 160px;">
                       <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                   </span>
@@ -156,7 +205,7 @@
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="dashboard_graph x_panel">
-                  <div class="row x_title">
+                 <%-- <div class="row x_title">
                     <div class="col-md-6">
                       <h3>Network Activities <small>Graph title sub-title</small></h3>
                     </div>
@@ -166,7 +215,7 @@
                         <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
                       </div>
                     </div>
-                  </div>
+                  </div>--%>
                     // this is my graph
                   <div class="x_content">
                       <div id="chartContainer" style="height: 400px; width: 100%;"></div>

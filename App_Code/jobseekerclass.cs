@@ -17,19 +17,37 @@ public class jobseekerclass
         // TODO: Add constructor logic here
         //
     }
-    public static void signUpJobSeeker(jobSeeker u)
+    public static string signUpJobSeeker(jobSeeker u)
     {
-        DataClassesDataContext Database = new DataClassesDataContext();
-        Database.jobSeekers.InsertOnSubmit(u);
-        try
-        {
-            Database.SubmitChanges();
-        }
-        catch (ChangeConflictException e)
-        {
-            //report error, log error whatever...
-        }
 
+        DataClassesDataContext Database = new DataClassesDataContext();
+        int cout = (from x in Database.jobSeekers
+                    where x.username == u.username
+                    select x).Count();
+        string return_msg = "";
+        if (cout == 0)
+        {
+
+
+
+
+            Database.jobSeekers.InsertOnSubmit(u);
+            try
+            {
+                Database.SubmitChanges();
+                return_msg = " Congradulations Your SingUp Succefully";
+            }
+            catch (ChangeConflictException e)
+            {
+                return_msg = "There some problem please check information you have provided";
+                //report error, log error whatever...
+            }
+        }
+        else
+        {
+            return_msg = "This USername already Exists Please change it";
+        }
+        return return_msg;
 
     }
     public static void updatejobseeker(jobSeeker u,int jobseekerid)

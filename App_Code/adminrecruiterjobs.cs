@@ -18,10 +18,10 @@ public class adminrecruiterjobs
     {
         byte[] img=null;
         DataClassesDataContext db = new DataClassesDataContext();
-        var x = (from y in db.appliedJobs
-                join j in db.jobs on y.jobid equals j.Id
-                join r in db.recruiters on j.rId equals r.Id
-                where j.Id == jobid
+        var x = (from y in db.jobs
+                //join j in db.jobs on y.jobid equals j.Id
+                join r in db.recruiters on y.rId equals r.Id
+                where y.Id == jobid
                 select r).First() ;
             img = x.logo.ToArray();
         return img;

@@ -35,7 +35,7 @@
                       <div class="clearfix"></div>
                          
                        
-                         <div class="well profile_view">
+                         <div class="profile_view"><!-- well class is been removed-->
                                <% IQueryable<jobSeeker> data = adminjobseekers.getjobseekers();
                              foreach (var j in data)
                              {
