@@ -121,7 +121,7 @@
 			        </div>
                         </div>
 					<div class="login-btn">
-                        <asp:Button ID="login_user" runat="server" Text="Log in" OnClick="login_user_Click" />
+                        <asp:Button ID="login_user" CssClass="btn btn-default" CausesValidation="false" runat="server" Text="Log in" UseSubmitBehavior="false" OnClick="login_user_Click" />
 					 
 					</div>
 					</div>

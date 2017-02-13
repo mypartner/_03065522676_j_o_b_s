@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="jobseekersignup.aspx.cs" Inherits="userSignup" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div class="container">
@@ -103,8 +104,8 @@
                      </div>
                     </div>
                 </div>
-               
-                			          <input type="submit" value="Sign Up" class="btn btn-danger " />
+            <asp:Button ID="Button1" runat="server" Text="Sign Up" class="btn btn-danger " OnClick="Signup_button"/>
+                			          <%--<input type="submit" value="Sign Up" class="btn btn-danger " />--%>
 	    </div>
     </div>
  </div>
@@ -117,7 +118,13 @@
     <script src="js/datepicker/daterangepicker.js"></script>
   
 
-
+     <script>
+        function signup(){
+            <%
+        //Response.Redirect("jobseekerdashboard.aspx");
+        %>
+        }
+    </script>
     <!-- bootstrap-daterangepicker -->
     <script>
       $(document).ready(function() {
