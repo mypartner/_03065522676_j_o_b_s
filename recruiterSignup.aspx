@@ -71,7 +71,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     
                     <input type="text" id="companyname" name="companyname" 
-                        class="form-control col-md-7 col-xs-12"  data-validate-length-range="6" data-validate-words="2" required="required" autofocus="autofocus"/>
+                        class="form-control col-md-7 col-xs-12"  data-validate-length-range="6" data-validate-words="1" required="required" autofocus="autofocus"/>
                     </div>
             </div>
          
@@ -98,8 +98,8 @@
                 
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contactoerson">Mobile</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="number" id="contact" name="contactoerson" required="required" class="form-control col-md-7 col-sm-3 col-xs-12"  
-                         data-validate-minmax="10,100" />
+                    <input type="number"   id="contact" name="contactoerson" required="required" class="form-control col-md-7 col-sm-3 col-xs-12"  
+                         data-validate-minmax="5,100" />
 
             </div>
          </div>
@@ -111,7 +111,7 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Phone</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="number" id="phone" name="phone" class="form-control col-md-7 col-sm-3 col-xs-12" 
-                        required="required" data-validate-minmax="10,100"/>
+                        required="required" data-validate-minmax="5,100"/>
                 </div>
             </div>
 
@@ -124,7 +124,7 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fax">Fax</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                    <input type="text" id="fax" name="fax" class="form-control col-md-7 col-sm-3 col-xs-12" 
-                        required="required" data-validate-minmax="10,100"/>
+                        required="required" data-validate-minmax="5,100"/>
                 </div>
             </div>
                </div>
@@ -171,7 +171,7 @@
 
             <div class="row">
                 <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">Username <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="username">Company Username <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="username" name="username" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="1,2"  placeholder="both name(s) e.g Jon Doe" required="required" type="text">
@@ -191,7 +191,7 @@
                 </div><br />
                  <div class="row">
                       <div class="item form-group">
-                        <label  for="logo" class="control-label col-md-3" >Upload Company image</label>
+                        <label  for="logo" class="control-label col-md-3" >Upload Company logo</label>
             <div class="col-md-6 col-sm-6 col-xs-12">
                          <asp:FileUpload ID="logo" runat="server" class="form-control col-md-7 col-xs-12" required="required" />
                      </div>
