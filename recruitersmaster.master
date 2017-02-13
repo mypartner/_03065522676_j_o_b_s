@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        </li>
 
                 
-                <li><a href="#" onserverclick="logout_click" runat="server">Logout</a></li>
+                <li><a href="#" onserverclick="logout_click"  class="btn btn-default" runat="server">Logout</a></li>
 	        </ul>
 	    </div>
 	    <div class="clearfix"> </div>

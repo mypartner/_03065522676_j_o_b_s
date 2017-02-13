@@ -79,7 +79,7 @@
                     <label  for="jobtitle">JobTitle</label>
                     <input type="text" id="jobtitle" name="jobtitle" class="form-control input-sm shorttb"  data-validation="length alphanumeric" 
 		 data-validation-length="3-12" 
-		 data-validation-error-msg="Enter correct format (a-z) !"/>
+		 data-validation-error-msg="Enter correct length XXX !"/>
 
             </div>
          </div>
@@ -91,7 +91,7 @@
                     <input type="text" id="expectedsalary" name="expectedsalary" class="form-control input-sm shorttb" 
                         data-validation="length numeric" 
 		 data-validation-length="3-12" 
-		 data-validation-error-msg="Enter correct format (0-9)!"/>
+		 data-validation-error-msg="Enter correct format i.e. 999!"/>
                 </div>
             </div>
 
@@ -113,7 +113,7 @@
                     <input type="text" id="city" name="city" class="form-control input-sm shorttb"
                         data-validation="length alphabet" 
 		 data-validation-length="3-12" 
-		 data-validation-error-msg="Enter correct format (a-z)!"/>
+		 data-validation-error-msg="Enter correct format XXX!"/>
                 </div>
             </div>
                 
@@ -132,7 +132,7 @@
                 <label class="col-md-3 control-lable" for="adtitle">Job Type</label>
                     <select id="salaryperiod" name="salaryperiod" class="shorttb" style="padding:10px">
                         <option value="Permnenet">Permanent</option>
-                        <option value="Permnenet">Temporary</option>
+                        <option value="Temporary">Temporary</option>
                     </select>
                 </div>
                </div>

@@ -25,6 +25,7 @@
     <link href="build/css/newcustom.min%20-.css" rel="stylesheet" />
             <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
+
 </head>
 <body>
      <nav class="navbar navbar-default" role="navigation">
@@ -57,11 +58,11 @@
 		            </ul>
 		        </li>
                 <li><a href="#">Contact us</a></li>
-		        <li><a href="login.aspx">Log in</a></li>
+		        <li><a href="login.aspx" class="btn btn-default">Log in</a></li>
 
 	        </ul>
 	    </div>
-    
+       
 	    <div class="clearfix"> </div>
         
 	  </div>
