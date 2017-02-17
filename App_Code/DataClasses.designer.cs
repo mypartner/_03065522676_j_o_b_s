@@ -29,6 +29,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 	
   #region Extensibility Method Definitions
   partial void OnCreated();
+  partial void InsertappliedJob(appliedJob instance);
+  partial void UpdateappliedJob(appliedJob instance);
+  partial void DeleteappliedJob(appliedJob instance);
   partial void Insertcatagory(catagory instance);
   partial void Updatecatagory(catagory instance);
   partial void Deletecatagory(catagory instance);
@@ -44,25 +47,19 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertjobseekereducationalInfo(jobseekereducationalInfo instance);
   partial void UpdatejobseekereducationalInfo(jobseekereducationalInfo instance);
   partial void DeletejobseekereducationalInfo(jobseekereducationalInfo instance);
+  partial void InsertjobSeekerProfessionalInfo(jobSeekerProfessionalInfo instance);
+  partial void UpdatejobSeekerProfessionalInfo(jobSeekerProfessionalInfo instance);
+  partial void DeletejobSeekerProfessionalInfo(jobSeekerProfessionalInfo instance);
   partial void Insertrecruiter(recruiter instance);
   partial void Updaterecruiter(recruiter instance);
   partial void Deleterecruiter(recruiter instance);
   partial void Insertskillsandcv(skillsandcv instance);
   partial void Updateskillsandcv(skillsandcv instance);
   partial void Deleteskillsandcv(skillsandcv instance);
-  partial void InsertTable(Table instance);
-  partial void UpdateTable(Table instance);
-  partial void DeleteTable(Table instance);
-  partial void InsertjobSeekerProfessionalInfo(jobSeekerProfessionalInfo instance);
-  partial void UpdatejobSeekerProfessionalInfo(jobSeekerProfessionalInfo instance);
-  partial void DeletejobSeekerProfessionalInfo(jobSeekerProfessionalInfo instance);
-  partial void InsertappliedJob(appliedJob instance);
-  partial void UpdateappliedJob(appliedJob instance);
-  partial void DeleteappliedJob(appliedJob instance);
   #endregion
 	
 	public DataClassesDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString"].ConnectionString, mappingSource)
+			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString1"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}
@@ -89,6 +86,14 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 			base(connection, mappingSource)
 	{
 		OnCreated();
+	}
+	
+	public System.Data.Linq.Table<appliedJob> appliedJobs
+	{
+		get
+		{
+			return this.GetTable<appliedJob>();
+		}
 	}
 	
 	public System.Data.Linq.Table<catagory> catagories
@@ -131,6 +136,14 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
+	public System.Data.Linq.Table<jobSeekerProfessionalInfo> jobSeekerProfessionalInfos
+	{
+		get
+		{
+			return this.GetTable<jobSeekerProfessionalInfo>();
+		}
+	}
+	
 	public System.Data.Linq.Table<recruiter> recruiters
 	{
 		get
@@ -146,28 +159,138 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 			return this.GetTable<skillsandcv>();
 		}
 	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.appliedJob")]
+public partial class appliedJob : INotifyPropertyChanging, INotifyPropertyChanged
+{
 	
-	public System.Data.Linq.Table<Table> Tables
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _Id;
+	
+	private int _jobSeekerId;
+	
+	private int _jobid;
+	
+	private System.DateTime _date;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnjobSeekerIdChanging(int value);
+    partial void OnjobSeekerIdChanged();
+    partial void OnjobidChanging(int value);
+    partial void OnjobidChanged();
+    partial void OndateChanging(System.DateTime value);
+    partial void OndateChanged();
+    #endregion
+	
+	public appliedJob()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int Id
 	{
 		get
 		{
-			return this.GetTable<Table>();
+			return this._Id;
+		}
+		set
+		{
+			if ((this._Id != value))
+			{
+				this.OnIdChanging(value);
+				this.SendPropertyChanging();
+				this._Id = value;
+				this.SendPropertyChanged("Id");
+				this.OnIdChanged();
+			}
 		}
 	}
 	
-	public System.Data.Linq.Table<jobSeekerProfessionalInfo> jobSeekerProfessionalInfos
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobSeekerId", DbType="Int NOT NULL")]
+	public int jobSeekerId
 	{
 		get
 		{
-			return this.GetTable<jobSeekerProfessionalInfo>();
+			return this._jobSeekerId;
+		}
+		set
+		{
+			if ((this._jobSeekerId != value))
+			{
+				this.OnjobSeekerIdChanging(value);
+				this.SendPropertyChanging();
+				this._jobSeekerId = value;
+				this.SendPropertyChanged("jobSeekerId");
+				this.OnjobSeekerIdChanged();
+			}
 		}
 	}
 	
-	public System.Data.Linq.Table<appliedJob> appliedJobs
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobid", DbType="Int NOT NULL")]
+	public int jobid
 	{
 		get
 		{
-			return this.GetTable<appliedJob>();
+			return this._jobid;
+		}
+		set
+		{
+			if ((this._jobid != value))
+			{
+				this.OnjobidChanging(value);
+				this.SendPropertyChanging();
+				this._jobid = value;
+				this.SendPropertyChanged("jobid");
+				this.OnjobidChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date", DbType="DateTime NOT NULL")]
+	public System.DateTime date
+	{
+		get
+		{
+			return this._date;
+		}
+		set
+		{
+			if ((this._date != value))
+			{
+				this.OndateChanging(value);
+				this.SendPropertyChanging();
+				this._date = value;
+				this.SendPropertyChanged("date");
+				this.OndateChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
 	}
 }
@@ -1298,6 +1421,236 @@ public partial class jobseekereducationalInfo : INotifyPropertyChanging, INotify
 	}
 }
 
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.jobSeekerProfessionalInfo")]
+public partial class jobSeekerProfessionalInfo : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _Id;
+	
+	private int _jobSeekerId;
+	
+	private string _experience;
+	
+	private System.Nullable<System.DateTime> _jobStartDate;
+	
+	private System.Nullable<System.DateTime> _jobEndDate;
+	
+	private string _company;
+	
+	private string _jobDescription;
+	
+	private string _workExperience;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnjobSeekerIdChanging(int value);
+    partial void OnjobSeekerIdChanged();
+    partial void OnexperienceChanging(string value);
+    partial void OnexperienceChanged();
+    partial void OnjobStartDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnjobStartDateChanged();
+    partial void OnjobEndDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnjobEndDateChanged();
+    partial void OncompanyChanging(string value);
+    partial void OncompanyChanged();
+    partial void OnjobDescriptionChanging(string value);
+    partial void OnjobDescriptionChanged();
+    partial void OnworkExperienceChanging(string value);
+    partial void OnworkExperienceChanged();
+    #endregion
+	
+	public jobSeekerProfessionalInfo()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int Id
+	{
+		get
+		{
+			return this._Id;
+		}
+		set
+		{
+			if ((this._Id != value))
+			{
+				this.OnIdChanging(value);
+				this.SendPropertyChanging();
+				this._Id = value;
+				this.SendPropertyChanged("Id");
+				this.OnIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobSeekerId", DbType="Int NOT NULL")]
+	public int jobSeekerId
+	{
+		get
+		{
+			return this._jobSeekerId;
+		}
+		set
+		{
+			if ((this._jobSeekerId != value))
+			{
+				this.OnjobSeekerIdChanging(value);
+				this.SendPropertyChanging();
+				this._jobSeekerId = value;
+				this.SendPropertyChanged("jobSeekerId");
+				this.OnjobSeekerIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experience", DbType="NVarChar(MAX)")]
+	public string experience
+	{
+		get
+		{
+			return this._experience;
+		}
+		set
+		{
+			if ((this._experience != value))
+			{
+				this.OnexperienceChanging(value);
+				this.SendPropertyChanging();
+				this._experience = value;
+				this.SendPropertyChanged("experience");
+				this.OnexperienceChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobStartDate", DbType="DateTime")]
+	public System.Nullable<System.DateTime> jobStartDate
+	{
+		get
+		{
+			return this._jobStartDate;
+		}
+		set
+		{
+			if ((this._jobStartDate != value))
+			{
+				this.OnjobStartDateChanging(value);
+				this.SendPropertyChanging();
+				this._jobStartDate = value;
+				this.SendPropertyChanged("jobStartDate");
+				this.OnjobStartDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobEndDate", DbType="DateTime")]
+	public System.Nullable<System.DateTime> jobEndDate
+	{
+		get
+		{
+			return this._jobEndDate;
+		}
+		set
+		{
+			if ((this._jobEndDate != value))
+			{
+				this.OnjobEndDateChanging(value);
+				this.SendPropertyChanging();
+				this._jobEndDate = value;
+				this.SendPropertyChanged("jobEndDate");
+				this.OnjobEndDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company", DbType="NVarChar(50)")]
+	public string company
+	{
+		get
+		{
+			return this._company;
+		}
+		set
+		{
+			if ((this._company != value))
+			{
+				this.OncompanyChanging(value);
+				this.SendPropertyChanging();
+				this._company = value;
+				this.SendPropertyChanged("company");
+				this.OncompanyChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobDescription", DbType="NVarChar(50)")]
+	public string jobDescription
+	{
+		get
+		{
+			return this._jobDescription;
+		}
+		set
+		{
+			if ((this._jobDescription != value))
+			{
+				this.OnjobDescriptionChanging(value);
+				this.SendPropertyChanging();
+				this._jobDescription = value;
+				this.SendPropertyChanged("jobDescription");
+				this.OnjobDescriptionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_workExperience", DbType="NVarChar(50)")]
+	public string workExperience
+	{
+		get
+		{
+			return this._workExperience;
+		}
+		set
+		{
+			if ((this._workExperience != value))
+			{
+				this.OnworkExperienceChanging(value);
+				this.SendPropertyChanging();
+				this._workExperience = value;
+				this.SendPropertyChanged("workExperience");
+				this.OnworkExperienceChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.recruiter")]
 public partial class recruiter : INotifyPropertyChanging, INotifyPropertyChanged
 {
@@ -1781,432 +2134,6 @@ public partial class skillsandcv : INotifyPropertyChanging, INotifyPropertyChang
 				this._cv_ = value;
 				this.SendPropertyChanged("cv_");
 				this.Oncv_Changed();
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Table]")]
-public partial class Table : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _Id;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    #endregion
-	
-	public Table()
-	{
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-	public int Id
-	{
-		get
-		{
-			return this._Id;
-		}
-		set
-		{
-			if ((this._Id != value))
-			{
-				this.OnIdChanging(value);
-				this.SendPropertyChanging();
-				this._Id = value;
-				this.SendPropertyChanged("Id");
-				this.OnIdChanged();
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.jobSeekerProfessionalInfo")]
-public partial class jobSeekerProfessionalInfo : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _Id;
-	
-	private int _jobSeekerId;
-	
-	private string _experience;
-	
-	private System.Nullable<System.DateTime> _jobStartDate;
-	
-	private System.Nullable<System.DateTime> _jobEndDate;
-	
-	private string _company;
-	
-	private string _jobDescription;
-	
-	private string _workExperience;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnjobSeekerIdChanging(int value);
-    partial void OnjobSeekerIdChanged();
-    partial void OnexperienceChanging(string value);
-    partial void OnexperienceChanged();
-    partial void OnjobStartDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnjobStartDateChanged();
-    partial void OnjobEndDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnjobEndDateChanged();
-    partial void OncompanyChanging(string value);
-    partial void OncompanyChanged();
-    partial void OnjobDescriptionChanging(string value);
-    partial void OnjobDescriptionChanged();
-    partial void OnworkExperienceChanging(string value);
-    partial void OnworkExperienceChanged();
-    #endregion
-	
-	public jobSeekerProfessionalInfo()
-	{
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int Id
-	{
-		get
-		{
-			return this._Id;
-		}
-		set
-		{
-			if ((this._Id != value))
-			{
-				this.OnIdChanging(value);
-				this.SendPropertyChanging();
-				this._Id = value;
-				this.SendPropertyChanged("Id");
-				this.OnIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobSeekerId", DbType="Int NOT NULL")]
-	public int jobSeekerId
-	{
-		get
-		{
-			return this._jobSeekerId;
-		}
-		set
-		{
-			if ((this._jobSeekerId != value))
-			{
-				this.OnjobSeekerIdChanging(value);
-				this.SendPropertyChanging();
-				this._jobSeekerId = value;
-				this.SendPropertyChanged("jobSeekerId");
-				this.OnjobSeekerIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_experience", DbType="NVarChar(MAX)")]
-	public string experience
-	{
-		get
-		{
-			return this._experience;
-		}
-		set
-		{
-			if ((this._experience != value))
-			{
-				this.OnexperienceChanging(value);
-				this.SendPropertyChanging();
-				this._experience = value;
-				this.SendPropertyChanged("experience");
-				this.OnexperienceChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobStartDate", DbType="DateTime")]
-	public System.Nullable<System.DateTime> jobStartDate
-	{
-		get
-		{
-			return this._jobStartDate;
-		}
-		set
-		{
-			if ((this._jobStartDate != value))
-			{
-				this.OnjobStartDateChanging(value);
-				this.SendPropertyChanging();
-				this._jobStartDate = value;
-				this.SendPropertyChanged("jobStartDate");
-				this.OnjobStartDateChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobEndDate", DbType="DateTime")]
-	public System.Nullable<System.DateTime> jobEndDate
-	{
-		get
-		{
-			return this._jobEndDate;
-		}
-		set
-		{
-			if ((this._jobEndDate != value))
-			{
-				this.OnjobEndDateChanging(value);
-				this.SendPropertyChanging();
-				this._jobEndDate = value;
-				this.SendPropertyChanged("jobEndDate");
-				this.OnjobEndDateChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_company", DbType="NVarChar(50)")]
-	public string company
-	{
-		get
-		{
-			return this._company;
-		}
-		set
-		{
-			if ((this._company != value))
-			{
-				this.OncompanyChanging(value);
-				this.SendPropertyChanging();
-				this._company = value;
-				this.SendPropertyChanged("company");
-				this.OncompanyChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobDescription", DbType="NVarChar(50)")]
-	public string jobDescription
-	{
-		get
-		{
-			return this._jobDescription;
-		}
-		set
-		{
-			if ((this._jobDescription != value))
-			{
-				this.OnjobDescriptionChanging(value);
-				this.SendPropertyChanging();
-				this._jobDescription = value;
-				this.SendPropertyChanged("jobDescription");
-				this.OnjobDescriptionChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_workExperience", DbType="NVarChar(50)")]
-	public string workExperience
-	{
-		get
-		{
-			return this._workExperience;
-		}
-		set
-		{
-			if ((this._workExperience != value))
-			{
-				this.OnworkExperienceChanging(value);
-				this.SendPropertyChanging();
-				this._workExperience = value;
-				this.SendPropertyChanged("workExperience");
-				this.OnworkExperienceChanged();
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.appliedJob")]
-public partial class appliedJob : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _Id;
-	
-	private int _jobSeekerId;
-	
-	private int _jobid;
-	
-	private System.DateTime _date;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnjobSeekerIdChanging(int value);
-    partial void OnjobSeekerIdChanged();
-    partial void OnjobidChanging(int value);
-    partial void OnjobidChanged();
-    partial void OndateChanging(System.DateTime value);
-    partial void OndateChanged();
-    #endregion
-	
-	public appliedJob()
-	{
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int Id
-	{
-		get
-		{
-			return this._Id;
-		}
-		set
-		{
-			if ((this._Id != value))
-			{
-				this.OnIdChanging(value);
-				this.SendPropertyChanging();
-				this._Id = value;
-				this.SendPropertyChanged("Id");
-				this.OnIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobSeekerId", DbType="Int NOT NULL")]
-	public int jobSeekerId
-	{
-		get
-		{
-			return this._jobSeekerId;
-		}
-		set
-		{
-			if ((this._jobSeekerId != value))
-			{
-				this.OnjobSeekerIdChanging(value);
-				this.SendPropertyChanging();
-				this._jobSeekerId = value;
-				this.SendPropertyChanged("jobSeekerId");
-				this.OnjobSeekerIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobid", DbType="Int NOT NULL")]
-	public int jobid
-	{
-		get
-		{
-			return this._jobid;
-		}
-		set
-		{
-			if ((this._jobid != value))
-			{
-				this.OnjobidChanging(value);
-				this.SendPropertyChanging();
-				this._jobid = value;
-				this.SendPropertyChanged("jobid");
-				this.OnjobidChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date", DbType="DateTime NOT NULL")]
-	public System.DateTime date
-	{
-		get
-		{
-			return this._date;
-		}
-		set
-		{
-			if ((this._date != value))
-			{
-				this.OndateChanging(value);
-				this.SendPropertyChanging();
-				this._date = value;
-				this.SendPropertyChanged("date");
-				this.OndateChanged();
 			}
 		}
 	}

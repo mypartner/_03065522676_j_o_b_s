@@ -46,7 +46,7 @@ public partial class recruiterSignup : System.Web.UI.Page
         string fileextention = Path.GetExtension(filename);
         int size = postedfile.ContentLength;
         byte[] imgbytes = null;
-        if (fileextention.ToLower() == ".jpg" || fileextention.ToLower()==".png")
+        if (fileextention.ToLower() == ".jpg" || fileextention.ToLower()==".png" || fileextention.ToLower() == ".jpeg")
         {
             Stream stream = postedfile.InputStream;
             BinaryReader binaryreader = new BinaryReader(stream);

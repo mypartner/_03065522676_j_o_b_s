@@ -29,6 +29,13 @@ public partial class userSignup : System.Web.UI.Page
             jobseekerclass.signUpJobSeeker(u);
         }
     }
+    protected void Signup_button(object sender, EventArgs e)
+    {
+        string name= Request.Form["firstname"].ToString();
+        Session["LoginSession"] = name;
+        Response.Redirect("/jobseekerdashboard.aspx");
+    }
+        
     public static byte[] imageToByteArray(HttpPostedFile postedfile)
     {
         string filename = Path.GetFileName(postedfile.FileName);
