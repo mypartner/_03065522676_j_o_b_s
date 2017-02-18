@@ -8,6 +8,11 @@ using System.Web.UI.WebControls;
 
 public partial class userSignup : System.Web.UI.Page
 {
+    public enum MessageType { Success, Error, Info, Warning };
+    protected void ShowMessage(string Message, MessageType type)
+    {
+        ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "ShowMessage('" + Message + "','" + type + "');", true);
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         if(IsPostBack){
@@ -31,7 +36,15 @@ public partial class userSignup : System.Web.UI.Page
         HttpPostedFile postedfile = imageupload.PostedFile;
         u.image = imageToByteArray(postedfile);
         u.signupdate = DateTime.Now;
-        jobseekerclass.signUpJobSeeker(u);
+      string returnmsg=jobseekerclass.signUpJobSeeker(u);
+        if (returnmsg == "")
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "hidesignupform('.form-container','Your information is been saved. Please check you Email and Activate your account.');", true);
+        }
+        else
+        {
+            ShowMessage(returnmsg, MessageType.Error);
+        }
 
 
 
@@ -39,9 +52,9 @@ public partial class userSignup : System.Web.UI.Page
 
 
 
-        string name= Request.Form["firstname"].ToString();
-        Session["LoginSession"] = name;
-        Response.Redirect("/jobseekerdashboard.aspx");
+        //string name= Request.Form["firstname"].ToString();
+        //Session["LoginSession"] = name;
+        //Response.Redirect("/jobseekerdashboard.aspx");
     }
         
     public static byte[] imageToByteArray(HttpPostedFile postedfile)

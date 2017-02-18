@@ -6,6 +6,17 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
     <script>
+       
+            function hidesignupform(div,msg) {
+
+                $(div).hide("slow", function () {
+                    // Animation complete.
+                    ShowMessage(msg, "");
+                });
+               
+
+            }
+
           function ShowMessage(message, messagetype) {
       var cssclass;
       switch (messagetype) {
@@ -99,7 +110,7 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contactoerson">Mobile</label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="number"   id="contact" name="contactoerson" required="required" class="form-control col-md-7 col-sm-3 col-xs-12"  
-                         data-validate-minmax="5,100" />
+                         <%--data-validate-minmax="10,15"--%> />
 
             </div>
          </div>
@@ -111,7 +122,7 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone">Phone</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input type="number" id="phone" name="phone" class="form-control col-md-7 col-sm-3 col-xs-12" 
-                        required="required" data-validate-minmax="5,100"/>
+                        required="required" <%--data-validate-minmax="10,15"--%>/>
                 </div>
             </div>
 
@@ -124,7 +135,7 @@
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fax">Fax</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                    <input type="text" id="fax" name="fax" class="form-control col-md-7 col-sm-3 col-xs-12" 
-                        required="required" data-validate-minmax="5,100"/>
+                        required="required" <%--data-validate-minmax="5,100"--%>/>
                 </div>
             </div>
                </div>
@@ -381,7 +392,9 @@
     </script>
 
         <script>
-          $(document).ready(function() {
+           
+            $(document).ready(function () {
+                
             $('#reservation').daterangepicker(null, function(start, end, label) {
               console.log(start.toISOString(), end.toISOString(), label);
             });
@@ -417,6 +430,8 @@
 
         return false;
       });
+
+     
     </script>
     <!-- /validator -->
 </asp:Content>

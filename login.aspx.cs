@@ -88,8 +88,15 @@ public partial class login : System.Web.UI.Page
             int id = recruiterclass.recruiterAuthentication(name, password);
             if (0 != id)
             {
-                Session["RloginSession"] = name;
-                Response.Redirect("/recruiterdashboard.aspx");
+                if (jobseekerclass.CheckUserActivation(name, "recruiter") == true)
+                {
+                    Session["RloginSession"] = name;
+                    Response.Redirect("/recruiterdashboard.aspx");
+                }
+                else
+                {
+                    ShowMessage("Your Account is Not Activated Please CheckYour Email to Activate your Account ! ", MessageType.Warning);
+                }
             }
             else
             {
@@ -98,7 +105,7 @@ public partial class login : System.Web.UI.Page
         }
         else
         {
-
+            ShowMessage("Select Login Type ", MessageType.Error);
         }
         /*int id = jobseekerclass.userAuthentication(name, password);
         if (0 != id)

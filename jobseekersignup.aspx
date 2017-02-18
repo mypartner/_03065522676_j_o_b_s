@@ -1,11 +1,40 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="jobseekersignup.aspx.cs" Inherits="userSignup" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script>
+        function hidesignupform(div,msg) {
+
+            $(div).hide("slow", function () {
+                // Animation complete.
+                ShowMessage(msg, "");
+            });
+               
+
+        }
+
+        function ShowMessage(message, messagetype) {
+            var cssclass;
+            switch (messagetype) {
+                case 'Success':
+                    cssclass = 'alert-success'
+                    break;
+                case 'Error':
+                    cssclass = 'alert-danger'
+                    break;
+                case 'Warning':
+                    cssclass = 'alert-warning'
+                    break;
+                default:
+                    cssclass = 'alert-info'
+            }
+        }
+    </script>
    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div class="container">
-    <div class="single">  
+    <div class="single"> 
+        <div class="messagealert" id="alert_container" >  </div>  
 	   <div class="form-container" style="margin-top:3%">
         
 
@@ -45,7 +74,7 @@
                 </div>
                 <div class="row">
                      <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="lastname">Sex</label>
+                        <label class="col-md-3 control-lable" for="lastname">Gender</label>
                      <div class="col-md-9">
                         
                               <label><input type="radio" name="sex" class="radio-inline" value="Male" />Male</label>

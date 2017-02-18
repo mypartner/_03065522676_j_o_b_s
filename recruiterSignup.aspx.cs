@@ -35,8 +35,18 @@ public partial class recruiterSignup : System.Web.UI.Page
             HttpPostedFile postedfile = logo.PostedFile;
             r.logo = imageToByteArray(postedfile);
             r.signupdate = DateTime.Now;
-            recruiterclass.recruiterSignUp(r);
-            ShowMessage("Information has been saved successfully ! ", MessageType.Success);
+            string returnmsg = recruiterclass.recruiterSignUp(r);
+           if (returnmsg == "")//when succesfull;
+            {
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "hidesignupform('.form-container','Your information is been saved. Please check you Email and Activate your account.');", true);
+
+            }
+            else
+            {
+                ShowMessage(returnmsg, MessageType.Error);
+            }
+            
         }
 
     }

@@ -23,81 +23,61 @@ public class jobseekerclass
     public static string signUpJobSeeker(jobSeeker u)
     {
 
-        //DataClassesDataContext Database = new DataClassesDataContext();
-        //int cout = (from x in Database.jobSeekers
-        //            where x.username == u.username
-        //            select x).Count();
-        string return_msg = "";
-        //if (cout == 0)
-        //{
-
-
-
-
-        //    Database.jobSeekers.InsertOnSubmit(u);
-        //    try
-        //    {
-        //        Database.SubmitChanges();
-        //        return_msg = " Congradulations Your SingUp Succefully";
-        //    }
-        //    catch (ChangeConflictException e)
-        //    {
-        //        return_msg = "There some problem please check information you have provided";
-        //        //report error, log error whatever...
-        //    }
-        //}
-        //else
-        //{
-        //    return_msg = "This USername already Exists Please change it";
-        //}
-        int userId = 0;
-        string message = string.Empty;
-        string constr = ConfigurationManager.ConnectionStrings["jobportal"].ConnectionString;
-        using (SqlConnection con = new SqlConnection(constr))
+        try
         {
-            using (SqlCommand cmd = new SqlCommand("dbo.Jobseeker_Insertuser"))
+            string return_msg = "";
+            int userId = 0;
+            string message = string.Empty;
+            string constr = ConfigurationManager.ConnectionStrings["jobportal"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlDataAdapter sda = new SqlDataAdapter())
+                using (SqlCommand cmd = new SqlCommand("dbo.Jobseeker_Insertuser"))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@firstName",u.firstName);
-                    cmd.Parameters.AddWithValue("@lastName", u.lastName);
-                    cmd.Parameters.AddWithValue("@mobile", u.mobile);
-                    cmd.Parameters.AddWithValue("@email", u.email);
-                    cmd.Parameters.AddWithValue("@sex", u.sex);
-                    cmd.Parameters.AddWithValue("@education",u.education );
-                    cmd.Parameters.AddWithValue("@country", u.country);
-                    cmd.Parameters.AddWithValue("@dob", u.dob);
-                    cmd.Parameters.AddWithValue("@username", u.username);
-                    cmd.Parameters.AddWithValue("@password", u.password);
-                    SqlParameter file = new SqlParameter("@image", SqlDbType.VarBinary);
-                    file.Value = u.image.ToArray();
-                    cmd.Parameters.Add(file);
-                   // cmd.Parameters.AddWithValue("@image",, u.image);
-                    cmd.Parameters.AddWithValue("@signupdate", u.signupdate);
-                    cmd.Connection = con;
-                    con.Open();
-                    userId = Convert.ToInt32(cmd.ExecuteScalar());
-                    con.Close();
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@firstName", u.firstName);
+                        cmd.Parameters.AddWithValue("@lastName", u.lastName);
+                        cmd.Parameters.AddWithValue("@mobile", u.mobile);
+                        cmd.Parameters.AddWithValue("@email", u.email);
+                        cmd.Parameters.AddWithValue("@sex", u.sex);
+                        cmd.Parameters.AddWithValue("@education", u.education);
+                        cmd.Parameters.AddWithValue("@country", u.country);
+                        cmd.Parameters.AddWithValue("@dob", u.dob);
+                        cmd.Parameters.AddWithValue("@username", u.username);
+                        cmd.Parameters.AddWithValue("@password", u.password);
+                        SqlParameter file = new SqlParameter("@image", SqlDbType.VarBinary);
+                        file.Value = u.image.ToArray();
+                        cmd.Parameters.Add(file);
+                        // cmd.Parameters.AddWithValue("@image",, u.image);
+                        cmd.Parameters.AddWithValue("@signupdate", u.signupdate);
+                        cmd.Connection = con;
+                        con.Open();
+                        userId = Convert.ToInt32(cmd.ExecuteScalar());
+                        con.Close();
+                    }
                 }
+
+                switch (userId)
+                {
+                    case -1:
+                        message = "Username already exists.\\nPlease choose a different username.";
+                        break;
+                    case -2:
+                        message = "Supplied email address has already been used.";
+                        break;
+                    default:
+                        message = "";
+                        SendActivationEmail(userId, u.username,u.email);
+                        break;
+                }
+
             }
-           
-            switch (userId)
-            {
-                case -1:
-                    message = "Username already exists.\\nPlease choose a different username.";
-                    break;
-                case -2:
-                    message = "Supplied email address has already been used.";
-                    break;
-                default:
-                    message = "Registration successful. Activation email has been sent.";
-                    SendActivationEmail(userId,"waqaskhan","waqaskhan132@gmail.com");
-                    break;
-            }
-           
+            return message;
+        }catch(Exception ex)
+        {
+            return ex.Message;
         }
-        return message;
 
     }
     private static void  SendActivationEmail(int userId,string username,string email)
