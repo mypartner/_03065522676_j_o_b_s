@@ -69,7 +69,7 @@
                         <div class="textbox-wrap">
                             <div class="item input-group">
                                 <span class="input-group-addon " id="length" required><i class="fa fa-user"></i></span>
-                                <input type="text" id="username" required="required" name="username" class="form-control" data-validate-length-range="6" data-validate-words="1-2"  placeholder="both name(s) e.g Jon Doe" required="required" />
+                                <input type="text" id="username" style="color:black;" required="required" name="username" class="form-control" data-validate-length-range="6" data-validate-words="1-2"  placeholder="both name(s) e.g Jon Doe" required="required" />
                             </div>
                         </div>
                     
@@ -77,7 +77,7 @@
                         <div class="textbox-wrap">
                             <div class="item input-group">
                                 <span class="input-group-addon " id="pass_confirmation" required><i class="fa fa-key"></i></span>
-                                <input type="password" id="password" required="required" name="password" class="form-control " placeholder="Password" data-validate-length="8" />
+                                <input type="password" id="password" style="color:black;" required="required" name="password" class="form-control" placeholder="Password" data-validate-length="8" />
                             </div>
                         </div>
                     <div class="col-sm-9">

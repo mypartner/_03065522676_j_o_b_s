@@ -56,10 +56,13 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void Insertskillsandcv(skillsandcv instance);
   partial void Updateskillsandcv(skillsandcv instance);
   partial void Deleteskillsandcv(skillsandcv instance);
+  partial void InsertActivate_User(Activate_User instance);
+  partial void UpdateActivate_User(Activate_User instance);
+  partial void DeleteActivate_User(Activate_User instance);
   #endregion
 	
 	public DataClassesDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString1"].ConnectionString, mappingSource)
+			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}
@@ -157,6 +160,14 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<skillsandcv>();
+		}
+	}
+	
+	public System.Data.Linq.Table<Activate_User> Activate_Users
+	{
+		get
+		{
+			return this.GetTable<Activate_User>();
 		}
 	}
 }
@@ -474,7 +485,7 @@ public partial class feed : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary image
 	{
 		get
@@ -1178,7 +1189,7 @@ public partial class jobSeeker : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary image
 	{
 		get
@@ -1964,7 +1975,7 @@ public partial class recruiter : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_logo", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_logo", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary logo
 	{
 		get
@@ -2118,7 +2129,7 @@ public partial class skillsandcv : INotifyPropertyChanging, INotifyPropertyChang
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[cv`]", Storage="_cv_", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[cv`]", Storage="_cv_", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary cv_
 	{
 		get
@@ -2134,6 +2145,140 @@ public partial class skillsandcv : INotifyPropertyChanging, INotifyPropertyChang
 				this._cv_ = value;
 				this.SendPropertyChanged("cv_");
 				this.Oncv_Changed();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Activate_User")]
+public partial class Activate_User : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _Id;
+	
+	private System.Guid _Activation_Code;
+	
+	private string _username;
+	
+	private string _userType;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnActivation_CodeChanging(System.Guid value);
+    partial void OnActivation_CodeChanged();
+    partial void OnusernameChanging(string value);
+    partial void OnusernameChanged();
+    partial void OnuserTypeChanging(string value);
+    partial void OnuserTypeChanged();
+    #endregion
+	
+	public Activate_User()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+	public int Id
+	{
+		get
+		{
+			return this._Id;
+		}
+		set
+		{
+			if ((this._Id != value))
+			{
+				this.OnIdChanging(value);
+				this.SendPropertyChanging();
+				this._Id = value;
+				this.SendPropertyChanged("Id");
+				this.OnIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Activation_Code", DbType="UniqueIdentifier NOT NULL")]
+	public System.Guid Activation_Code
+	{
+		get
+		{
+			return this._Activation_Code;
+		}
+		set
+		{
+			if ((this._Activation_Code != value))
+			{
+				this.OnActivation_CodeChanging(value);
+				this.SendPropertyChanging();
+				this._Activation_Code = value;
+				this.SendPropertyChanged("Activation_Code");
+				this.OnActivation_CodeChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_username", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+	public string username
+	{
+		get
+		{
+			return this._username;
+		}
+		set
+		{
+			if ((this._username != value))
+			{
+				this.OnusernameChanging(value);
+				this.SendPropertyChanging();
+				this._username = value;
+				this.SendPropertyChanged("username");
+				this.OnusernameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userType", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+	public string userType
+	{
+		get
+		{
+			return this._userType;
+		}
+		set
+		{
+			if ((this._userType != value))
+			{
+				this.OnuserTypeChanging(value);
+				this.SendPropertyChanging();
+				this._userType = value;
+				this.SendPropertyChanged("userType");
+				this.OnuserTypeChanged();
 			}
 		}
 	}

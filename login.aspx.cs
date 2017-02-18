@@ -61,12 +61,22 @@ public partial class login : System.Web.UI.Page
         string type = Request.Form["logintype"];
         if(type=="jobseeker")
         {
+           
             int id = jobseekerclass.userAuthentication(name, password);
                   if (0 != id)
                   {
-                       Session["LoginSession"] = name;
-                       Response.Redirect("/jobseekerdashboard.aspx");
-                  }
+                /// if activated then gofurther
+                if (jobseekerclass.CheckUserActivation(name, "jobseeker") == true)
+                {
+
+                    Session["LoginSession"] = name;
+                    Response.Redirect("/jobseekerdashboard.aspx");
+                }
+                else
+                {
+                    ShowMessage("Your Account is Not Activated Please CheckYour Email to Activate your Account ! ", MessageType.Warning);
+                }
+              }
                   else
                   {
                 ShowMessage("Username and password is incorrect ! ", MessageType.Error);
