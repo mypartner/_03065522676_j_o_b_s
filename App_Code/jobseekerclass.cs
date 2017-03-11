@@ -28,7 +28,7 @@ public class jobseekerclass
             string return_msg = "";
             int userId = 0;
             string message = string.Empty;
-            string constr = ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString1"].ConnectionString;
+            string constr = ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
                 using (SqlCommand cmd = new SqlCommand("Jp.Jobseeker_Insertuser"))
@@ -83,11 +83,11 @@ public class jobseekerclass
     //sdfsdfsdfsdf
     private static void  SendActivationEmail(int userId,string username,string email)
     {
-        string constr = ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString1"].ConnectionString;
+        string constr = ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString"].ConnectionString;
         string activationCode = Guid.NewGuid().ToString();
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO Activate_User VALUES(@id, @Activation_Code,@username,@userType)"))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO Jp.Activate_User VALUES(@id, @Activation_Code,@username,@userType)"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -103,7 +103,7 @@ public class jobseekerclass
                 }
             }
         }
-        using (MailMessage mm = new MailMessage("maryahchaudhry@gmail.com", email))
+        using (MailMessage mm = new MailMessage("vakaskhan341@gmail.com", email))
         {
             mm.Subject = "Account Activation";
             string body = "Hello " + username + ",";
@@ -115,7 +115,7 @@ public class jobseekerclass
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
             smtp.EnableSsl = true;
-            NetworkCredential NetworkCred = new NetworkCredential("maryahchaudhry@gmail.com", "maria@1991");
+            NetworkCredential NetworkCred = new NetworkCredential("vakaskhan341@gmail.com", "Waqaskhan123");
             smtp.UseDefaultCredentials = true;
             smtp.Credentials = NetworkCred;
             smtp.Port = 587;
