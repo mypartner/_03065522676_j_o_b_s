@@ -9,7 +9,11 @@ public partial class adminupdatejobdescription : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if (Session["Adminlogin"] == null)
+        {
+            Response.Redirect("adminlogin.aspx");
+        }
+       else if (!IsPostBack)
         {
             string jobId = Session["id"].ToString();
             // job j = new job();

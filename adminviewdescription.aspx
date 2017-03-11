@@ -3,19 +3,41 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="banner_1">
-	<div class="container">
-		<div id="search_wrapper1">
-		   <div id="search_form" class="clearfix">
-		    <h1>Start your job search</h1>
-		    <p>
-           </div>
-		</div>
-   </div> 
-</div>	
-<div class="container">
-    <div class="single">  
-	   <div class="col-md-6 single_right">
+ 
+    
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>View Job Seekers</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="x_panel">
+                  <div class="x_content">
+                    <div class="row">
+                     
+
+                      <div class="clearfix"></div>
+                         
+                       
+                         <div class="profile_view"><!-- well class is been removed-->
+                               <div class="col-md-6 single_right">
            <%
                IQueryable<job> jobss= clientJob.getJobByid(int.Parse(Request.QueryString["id"]));
                foreach (job j in jobss)
@@ -29,9 +51,9 @@
 	      
        
        </div>
-       <div class="col-md-3">
+                              <div class="col-md-6 jobdecleft table-responsive">
 	   	  
-          <table class="condidate_detail">
+          <table class="table-striped ">
           	<h4>Candidate Details</h4>
 			<tbody>
 				<tr>
@@ -87,8 +109,17 @@
 			</tbody>
 		 </table>
        </div><%} %>
-       <div class="clearfix"> </div>
-    </div>
-</div>    
+                             
+                      </div>
+                         
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>  
+    
+
 </asp:Content>
 
