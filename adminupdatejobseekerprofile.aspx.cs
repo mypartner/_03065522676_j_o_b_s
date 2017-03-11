@@ -9,7 +9,11 @@ public partial class adminupdatejobseekerprofile : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        if (Session["Adminlogin"] == null)
+        {
+            Response.Redirect("adminlogin.aspx");
+        }
+        else if (!IsPostBack)
         {
             int jobSeekerId = int.Parse(Session["jobseekerid"].ToString());
             jobSeekerProfessionalInfo jpi = getProfessionalDetail(jobSeekerId);

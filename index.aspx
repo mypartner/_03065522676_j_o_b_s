@@ -1,6 +1,32 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style>
+            .description{
+                display:none;
+                overflow: hidden;
+            }
+            .feeddesc{
+                display:none;
+            }
+            .bhj{
+                visibility: hidden;
+            }
+            .news{
+                width: 90%; height: 90%; border: 1px aqua solid ; position: absolute; overflow:hidden;
+            }
+        </style>
+
+
+<script>
+$(document).ready(function(){
+    $(".par1").click(function(){
+        $(".feeddesc").toggle();
+		
+    });
+   
+});
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
    
@@ -131,18 +157,28 @@
             <div class="col_3">
                 <h3>Update Of the Week</h3>
                 <div class="col_1">
+                   
                     <div class="col-sm-6 video_c3">
-                        <h1>E3 Interviews<br>Developer Interviews from E3 2016</h1><br /><br />
-                        <h3>Feeds ComingSOon</h3>
+                       
+                      <%--  <h1>E3 Interviews<br>Developer Interviews from E3 2016</h1>
+                        <h3>Feeds ComingSOon</h3--%>>
+                 <marquee direction="up" scrollamount="1">
+                              
+              <p class="par1">E3 Interviews<br>Developer Interviews from E3 2016</p>
+               <p class="par1" >Feeds ComingSOon <span class="description">this news is about the conferecnce here today in islamabad </span> </p>
+                <p class="par1" >hey this is news <span class="description">this news is about the conferecnce here today in islamabad </span> </p>
+                
+                  </marquee>
                     </div>
-                    <div class="col-sm-6 video_c3">
+                    <div class="col-sm-6 video_c3 feeddesc">
                         <h1>Fandom InterView <br>Developer Interviews from E3 2016</h1><br /><br />
                         <h3>Feeds ComingSOon</h3>
                     </div>
                    
-                </div>
+               
                 <div class="clearfix"> </div>
             </div>
+                </div>
         </div>
 	   <div class="clearfix"> </div>
 	 </div>

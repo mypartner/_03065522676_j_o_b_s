@@ -9,6 +9,9 @@ public partial class adminviewjobseeker : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["Adminlogin"] == null)
+        {
+            Response.Redirect("adminlogin.aspx");
+        }
     }
 }

@@ -9,8 +9,11 @@ public partial class viewDescription : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        // Session["LoginSession"] = null;
-        if (!IsPostBack)
+        if (Session["Adminlogin"] == null)
+        {
+            Response.Redirect("adminlogin.aspx");
+        }
+       else if (!IsPostBack)
         {
             if (Request.QueryString["id"] == null)
             {

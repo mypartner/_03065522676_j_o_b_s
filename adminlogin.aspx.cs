@@ -11,4 +11,19 @@ public partial class adminlogin : System.Web.UI.Page
     {
 
     }
+
+    protected void loginbtn_Click(object sender, EventArgs e)
+    {
+        string username = Request.Form["Uname"].ToString();
+        string password = Request.Form["Pword"].ToString();
+       if(adminClass.adminAuthentication(username, password) == true)
+        {
+            Session["Adminlogin"] = username;
+            Response.Redirect("adminindex.aspx");
+        }
+       else
+        {
+            Response.Write("Unable to authenticate user");
+        }
+    }
 }
