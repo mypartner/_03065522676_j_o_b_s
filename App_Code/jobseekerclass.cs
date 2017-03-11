@@ -80,6 +80,7 @@ public class jobseekerclass
         }
 
     }
+    //sdfsdfsdfsdf
     private static void  SendActivationEmail(int userId,string username,string email)
     {
         string constr = ConfigurationManager.ConnectionStrings["jobportal"].ConnectionString;
