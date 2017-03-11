@@ -32,15 +32,15 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertActivate_User(Activate_User instance);
   partial void UpdateActivate_User(Activate_User instance);
   partial void DeleteActivate_User(Activate_User instance);
-  partial void InsertAdminTable(AdminTable instance);
-  partial void UpdateAdminTable(AdminTable instance);
-  partial void DeleteAdminTable(AdminTable instance);
   partial void InsertappliedJob(appliedJob instance);
   partial void UpdateappliedJob(appliedJob instance);
   partial void DeleteappliedJob(appliedJob instance);
   partial void Insertcatagory(catagory instance);
   partial void Updatecatagory(catagory instance);
   partial void Deletecatagory(catagory instance);
+  partial void Insertfeed(feed instance);
+  partial void Updatefeed(feed instance);
+  partial void Deletefeed(feed instance);
   partial void Insertjob(job instance);
   partial void Updatejob(job instance);
   partial void Deletejob(job instance);
@@ -59,13 +59,10 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void Insertskillsandcv(skillsandcv instance);
   partial void Updateskillsandcv(skillsandcv instance);
   partial void Deleteskillsandcv(skillsandcv instance);
-  partial void Insertfeed(feed instance);
-  partial void Updatefeed(feed instance);
-  partial void Deletefeed(feed instance);
   #endregion
 	
 	public DataClassesDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString"].ConnectionString, mappingSource)
+			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString1"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}
@@ -102,14 +99,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
-	public System.Data.Linq.Table<AdminTable> AdminTables
-	{
-		get
-		{
-			return this.GetTable<AdminTable>();
-		}
-	}
-	
 	public System.Data.Linq.Table<appliedJob> appliedJobs
 	{
 		get
@@ -123,6 +112,14 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<catagory>();
+		}
+	}
+	
+	public System.Data.Linq.Table<feed> feeds
+	{
+		get
+		{
+			return this.GetTable<feed>();
 		}
 	}
 	
@@ -173,17 +170,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 			return this.GetTable<skillsandcv>();
 		}
 	}
-	
-	public System.Data.Linq.Table<feed> feeds
-	{
-		get
-		{
-			return this.GetTable<feed>();
-		}
-	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="Jp.Activate_User")]
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Activate_User")]
 public partial class Activate_User : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
@@ -317,333 +306,7 @@ public partial class Activate_User : INotifyPropertyChanging, INotifyPropertyCha
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="Jp.AdminTable")]
-public partial class AdminTable : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _Id;
-	
-	private string _Name;
-	
-	private string _Phone_;
-	
-	private string _Designation;
-	
-	private string _Email;
-	
-	private string _DefaultEmailAccountforEmail;
-	
-	private string _DefaultEmailPassword;
-	
-	private string _Address;
-	
-	private string _EmailSendFrom;
-	
-	private System.Data.Linq.Binary _Image;
-	
-	private string _Username;
-	
-	private string _Password;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnPhone_Changing(string value);
-    partial void OnPhone_Changed();
-    partial void OnDesignationChanging(string value);
-    partial void OnDesignationChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnDefaultEmailAccountforEmailChanging(string value);
-    partial void OnDefaultEmailAccountforEmailChanged();
-    partial void OnDefaultEmailPasswordChanging(string value);
-    partial void OnDefaultEmailPasswordChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnEmailSendFromChanging(string value);
-    partial void OnEmailSendFromChanged();
-    partial void OnImageChanging(System.Data.Linq.Binary value);
-    partial void OnImageChanged();
-    partial void OnUsernameChanging(string value);
-    partial void OnUsernameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    #endregion
-	
-	public AdminTable()
-	{
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int Id
-	{
-		get
-		{
-			return this._Id;
-		}
-		set
-		{
-			if ((this._Id != value))
-			{
-				this.OnIdChanging(value);
-				this.SendPropertyChanging();
-				this._Id = value;
-				this.SendPropertyChanged("Id");
-				this.OnIdChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-	public string Name
-	{
-		get
-		{
-			return this._Name;
-		}
-		set
-		{
-			if ((this._Name != value))
-			{
-				this.OnNameChanging(value);
-				this.SendPropertyChanging();
-				this._Name = value;
-				this.SendPropertyChanged("Name");
-				this.OnNameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Phone ]", Storage="_Phone_", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-	public string Phone_
-	{
-		get
-		{
-			return this._Phone_;
-		}
-		set
-		{
-			if ((this._Phone_ != value))
-			{
-				this.OnPhone_Changing(value);
-				this.SendPropertyChanging();
-				this._Phone_ = value;
-				this.SendPropertyChanged("Phone_");
-				this.OnPhone_Changed();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Designation", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-	public string Designation
-	{
-		get
-		{
-			return this._Designation;
-		}
-		set
-		{
-			if ((this._Designation != value))
-			{
-				this.OnDesignationChanging(value);
-				this.SendPropertyChanging();
-				this._Designation = value;
-				this.SendPropertyChanged("Designation");
-				this.OnDesignationChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-	public string Email
-	{
-		get
-		{
-			return this._Email;
-		}
-		set
-		{
-			if ((this._Email != value))
-			{
-				this.OnEmailChanging(value);
-				this.SendPropertyChanging();
-				this._Email = value;
-				this.SendPropertyChanged("Email");
-				this.OnEmailChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DefaultEmailAccountforEmail", DbType="VarChar(50)")]
-	public string DefaultEmailAccountforEmail
-	{
-		get
-		{
-			return this._DefaultEmailAccountforEmail;
-		}
-		set
-		{
-			if ((this._DefaultEmailAccountforEmail != value))
-			{
-				this.OnDefaultEmailAccountforEmailChanging(value);
-				this.SendPropertyChanging();
-				this._DefaultEmailAccountforEmail = value;
-				this.SendPropertyChanged("DefaultEmailAccountforEmail");
-				this.OnDefaultEmailAccountforEmailChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DefaultEmailPassword", DbType="VarChar(50)")]
-	public string DefaultEmailPassword
-	{
-		get
-		{
-			return this._DefaultEmailPassword;
-		}
-		set
-		{
-			if ((this._DefaultEmailPassword != value))
-			{
-				this.OnDefaultEmailPasswordChanging(value);
-				this.SendPropertyChanging();
-				this._DefaultEmailPassword = value;
-				this.SendPropertyChanged("DefaultEmailPassword");
-				this.OnDefaultEmailPasswordChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(50)")]
-	public string Address
-	{
-		get
-		{
-			return this._Address;
-		}
-		set
-		{
-			if ((this._Address != value))
-			{
-				this.OnAddressChanging(value);
-				this.SendPropertyChanging();
-				this._Address = value;
-				this.SendPropertyChanged("Address");
-				this.OnAddressChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmailSendFrom", DbType="VarChar(3)")]
-	public string EmailSendFrom
-	{
-		get
-		{
-			return this._EmailSendFrom;
-		}
-		set
-		{
-			if ((this._EmailSendFrom != value))
-			{
-				this.OnEmailSendFromChanging(value);
-				this.SendPropertyChanging();
-				this._EmailSendFrom = value;
-				this.SendPropertyChanged("EmailSendFrom");
-				this.OnEmailSendFromChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
-	public System.Data.Linq.Binary Image
-	{
-		get
-		{
-			return this._Image;
-		}
-		set
-		{
-			if ((this._Image != value))
-			{
-				this.OnImageChanging(value);
-				this.SendPropertyChanging();
-				this._Image = value;
-				this.SendPropertyChanged("Image");
-				this.OnImageChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
-	public string Username
-	{
-		get
-		{
-			return this._Username;
-		}
-		set
-		{
-			if ((this._Username != value))
-			{
-				this.OnUsernameChanging(value);
-				this.SendPropertyChanging();
-				this._Username = value;
-				this.SendPropertyChanged("Username");
-				this.OnUsernameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
-	public string Password
-	{
-		get
-		{
-			return this._Password;
-		}
-		set
-		{
-			if ((this._Password != value))
-			{
-				this.OnPasswordChanging(value);
-				this.SendPropertyChanging();
-				this._Password = value;
-				this.SendPropertyChanged("Password");
-				this.OnPasswordChanged();
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="Jp.appliedJob")]
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.appliedJob")]
 public partial class appliedJob : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
@@ -777,7 +440,7 @@ public partial class appliedJob : INotifyPropertyChanging, INotifyPropertyChange
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="Jp.catagory")]
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.catagory")]
 public partial class catagory : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
@@ -863,7 +526,141 @@ public partial class catagory : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="Jp.jobs")]
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.feeds")]
+public partial class feed : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _id;
+	
+	private string _shortDescription;
+	
+	private string _longDescription;
+	
+	private System.Data.Linq.Binary _image;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnshortDescriptionChanging(string value);
+    partial void OnshortDescriptionChanged();
+    partial void OnlongDescriptionChanging(string value);
+    partial void OnlongDescriptionChanged();
+    partial void OnimageChanging(System.Data.Linq.Binary value);
+    partial void OnimageChanged();
+    #endregion
+	
+	public feed()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int id
+	{
+		get
+		{
+			return this._id;
+		}
+		set
+		{
+			if ((this._id != value))
+			{
+				this.OnidChanging(value);
+				this.SendPropertyChanging();
+				this._id = value;
+				this.SendPropertyChanged("id");
+				this.OnidChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shortDescription", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string shortDescription
+	{
+		get
+		{
+			return this._shortDescription;
+		}
+		set
+		{
+			if ((this._shortDescription != value))
+			{
+				this.OnshortDescriptionChanging(value);
+				this.SendPropertyChanging();
+				this._shortDescription = value;
+				this.SendPropertyChanged("shortDescription");
+				this.OnshortDescriptionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_longDescription", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string longDescription
+	{
+		get
+		{
+			return this._longDescription;
+		}
+		set
+		{
+			if ((this._longDescription != value))
+			{
+				this.OnlongDescriptionChanging(value);
+				this.SendPropertyChanging();
+				this._longDescription = value;
+				this.SendPropertyChanged("longDescription");
+				this.OnlongDescriptionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	public System.Data.Linq.Binary image
+	{
+		get
+		{
+			return this._image;
+		}
+		set
+		{
+			if ((this._image != value))
+			{
+				this.OnimageChanging(value);
+				this.SendPropertyChanging();
+				this._image = value;
+				this.SendPropertyChanged("image");
+				this.OnimageChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.jobs")]
 public partial class job : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
@@ -1237,7 +1034,7 @@ public partial class job : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="Jp.jobSeeker")]
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.jobSeeker")]
 public partial class jobSeeker : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
@@ -1530,7 +1327,7 @@ public partial class jobSeeker : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary image
 	{
 		get
@@ -1570,7 +1367,7 @@ public partial class jobSeeker : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarBinary(15)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarBinary(15)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Status
 	{
 		get
@@ -1611,7 +1408,7 @@ public partial class jobSeeker : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="Jp.jobseekereducationalInfo")]
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.jobseekereducationalInfo")]
 public partial class jobseekereducationalInfo : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
@@ -1793,7 +1590,7 @@ public partial class jobseekereducationalInfo : INotifyPropertyChanging, INotify
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="Jp.jobSeekerProfessionalInfo")]
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.jobSeekerProfessionalInfo")]
 public partial class jobSeekerProfessionalInfo : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
@@ -2023,7 +1820,7 @@ public partial class jobSeekerProfessionalInfo : INotifyPropertyChanging, INotif
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="Jp.recruiter")]
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.recruiter")]
 public partial class recruiter : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
@@ -2336,7 +2133,7 @@ public partial class recruiter : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_logo", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_logo", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary logo
 	{
 		get
@@ -2397,7 +2194,7 @@ public partial class recruiter : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="Jp.skillsandcv")]
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.skillsandcv")]
 public partial class skillsandcv : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
@@ -2490,7 +2287,7 @@ public partial class skillsandcv : INotifyPropertyChanging, INotifyPropertyChang
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[cv`]", Storage="_cv_", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[cv`]", Storage="_cv_", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary cv_
 	{
 		get
@@ -2506,188 +2303,6 @@ public partial class skillsandcv : INotifyPropertyChanging, INotifyPropertyChang
 				this._cv_ = value;
 				this.SendPropertyChanged("cv_");
 				this.Oncv_Changed();
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="Jp.feeds")]
-public partial class feed : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _id;
-	
-	private string _shortDescription;
-	
-	private string _longDescription;
-	
-	private System.Data.Linq.Binary _image;
-	
-	private System.Nullable<System.DateTime> _feedstartdate;
-	
-	private System.Nullable<System.DateTime> _feedenddate;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnshortDescriptionChanging(string value);
-    partial void OnshortDescriptionChanged();
-    partial void OnlongDescriptionChanging(string value);
-    partial void OnlongDescriptionChanged();
-    partial void OnimageChanging(System.Data.Linq.Binary value);
-    partial void OnimageChanged();
-    partial void OnfeedstartdateChanging(System.Nullable<System.DateTime> value);
-    partial void OnfeedstartdateChanged();
-    partial void OnfeedenddateChanging(System.Nullable<System.DateTime> value);
-    partial void OnfeedenddateChanged();
-    #endregion
-	
-	public feed()
-	{
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int id
-	{
-		get
-		{
-			return this._id;
-		}
-		set
-		{
-			if ((this._id != value))
-			{
-				this.OnidChanging(value);
-				this.SendPropertyChanging();
-				this._id = value;
-				this.SendPropertyChanged("id");
-				this.OnidChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shortDescription", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string shortDescription
-	{
-		get
-		{
-			return this._shortDescription;
-		}
-		set
-		{
-			if ((this._shortDescription != value))
-			{
-				this.OnshortDescriptionChanging(value);
-				this.SendPropertyChanging();
-				this._shortDescription = value;
-				this.SendPropertyChanged("shortDescription");
-				this.OnshortDescriptionChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_longDescription", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string longDescription
-	{
-		get
-		{
-			return this._longDescription;
-		}
-		set
-		{
-			if ((this._longDescription != value))
-			{
-				this.OnlongDescriptionChanging(value);
-				this.SendPropertyChanging();
-				this._longDescription = value;
-				this.SendPropertyChanged("longDescription");
-				this.OnlongDescriptionChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
-	public System.Data.Linq.Binary image
-	{
-		get
-		{
-			return this._image;
-		}
-		set
-		{
-			if ((this._image != value))
-			{
-				this.OnimageChanging(value);
-				this.SendPropertyChanging();
-				this._image = value;
-				this.SendPropertyChanged("image");
-				this.OnimageChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_feedstartdate", DbType="DateTime")]
-	public System.Nullable<System.DateTime> feedstartdate
-	{
-		get
-		{
-			return this._feedstartdate;
-		}
-		set
-		{
-			if ((this._feedstartdate != value))
-			{
-				this.OnfeedstartdateChanging(value);
-				this.SendPropertyChanging();
-				this._feedstartdate = value;
-				this.SendPropertyChanged("feedstartdate");
-				this.OnfeedstartdateChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_feedenddate", DbType="DateTime")]
-	public System.Nullable<System.DateTime> feedenddate
-	{
-		get
-		{
-			return this._feedenddate;
-		}
-		set
-		{
-			if ((this._feedenddate != value))
-			{
-				this.OnfeedenddateChanging(value);
-				this.SendPropertyChanging();
-				this._feedenddate = value;
-				this.SendPropertyChanged("feedenddate");
-				this.OnfeedenddateChanged();
 			}
 		}
 	}
