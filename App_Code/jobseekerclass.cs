@@ -28,10 +28,10 @@ public class jobseekerclass
             string return_msg = "";
             int userId = 0;
             string message = string.Empty;
-            string constr = ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString1"].ConnectionString;
+            string constr = ConfigurationManager.ConnectionStrings["jobportal"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("dbo.Jobseeker_Insertuser"))
+                using (SqlCommand cmd = new SqlCommand("Jp.Jobseeker_Insertuser"))
                 {
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     {
@@ -82,7 +82,7 @@ public class jobseekerclass
     }
     private static void  SendActivationEmail(int userId,string username,string email)
     {
-        string constr = ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString1"].ConnectionString;
+        string constr = ConfigurationManager.ConnectionStrings["jobportal"].ConnectionString;
         string activationCode = Guid.NewGuid().ToString();
         using (SqlConnection con = new SqlConnection(constr))
         {
@@ -158,17 +158,13 @@ public class jobseekerclass
         {
             DataClassesDataContext Database = new DataClassesDataContext();
 
-            var q = (from a in Database.GetTable<jobSeeker>()
-                     where a.username == uname && a.password == password
-                     select new
-                     {
-                         a.username,
-                         a.id
-                     }).First();
-            int x = q.id;
-           if (x>0)
+            int count = (from a in Database.GetTable<jobSeeker>()
+                         where a.username == uname && a.password == password
+                         select a).Count();
+           
+           if (count>0)
             {
-                returnid =q.id;
+                returnid =count;
             }
            
 

@@ -39,7 +39,7 @@ public class recruiterclass
             string constr = ConfigurationManager.ConnectionStrings["jobportal"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("dbo.recruiter_Insertuser"))
+                using (SqlCommand cmd = new SqlCommand("Jp.recruiter_Insertuser"))
                 {
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     {

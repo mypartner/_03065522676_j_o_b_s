@@ -305,4 +305,20 @@ public class adminClass
                                    select x).Count();
         return totalregirstedUSers;
     }
+    public static bool adminAuthentication(string username,string password)
+    {
+        DataClassesDataContext db = new DataClassesDataContext();
+        int count = (from x in db.AdminTables
+                     where x.Username == username && x.Password == password
+                     select x).Count();
+        if (count == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
 }

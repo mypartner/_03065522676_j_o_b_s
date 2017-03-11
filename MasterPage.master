@@ -48,12 +48,19 @@
   		        
 
 		          <li class="dropdown">
-		        	<a href="services.aspx"  class="dropdown-toggle" data-toggle="dropdown">Service<b class="caret"></b></a>
+		        	<a href="services.aspx"  class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
 		            <ul class="dropdown-menu">
-			            <li><a href="capacityBuilding.aspx">Capacity Building</a></li>
+			            <li><a href="capacityBuilding.aspx">Capacity</a></li>
 			            <li><a href="procurement.aspx">Procurement</a></li>
 			            <li><a href="services.aspx">Services</a></li>
                         <li><a href="trainingAndDevelopment.aspx">Training and Development</a></li>
+                         <li><a href="capacityBuilding.aspx">HR Job/Recuriting</a></li>
+                         <li><a href="capacityBuilding.aspx">Air Ticketing</a></li>
+                         <li><a href="capacityBuilding.aspx">Hotal And Accomidation Facilities</a></li>
+                         <li><a href="capacityBuilding.aspx">Busniess Development</a></li>
+                         <li><a href="capacityBuilding.aspx">Legal Services</a></li>
+                         <li><a href="capacityBuilding.aspx">Logictics</a></li>
+                        <li><a href="capacityBuilding.aspx">Third Party Inspection AND Audit</a></li>
 
 		            </ul>
 		        </li>
