@@ -52,15 +52,16 @@
 		            <ul class="dropdown-menu">
 			            <li><a href="capacityBuilding.aspx">Capacity</a></li>
 			            <li><a href="procurement.aspx">Procurement</a></li>
-			            <li><a href="services.aspx">Services</a></li>
-                        <li><a href="trainingAndDevelopment.aspx">Training and Development</a></li>
-                         <li><a href="capacityBuilding.aspx">HR Job/Recuriting</a></li>
-                         <li><a href="capacityBuilding.aspx">Air Ticketing</a></li>
-                         <li><a href="capacityBuilding.aspx">Hotal And Accomidation Facilities</a></li>
-                         <li><a href="capacityBuilding.aspx">Busniess Development</a></li>
-                         <li><a href="capacityBuilding.aspx">Legal Services</a></li>
-                         <li><a href="capacityBuilding.aspx">Logictics</a></li>
-                        <li><a href="capacityBuilding.aspx">Third Party Inspection AND Audit</a></li>
+<%--			            <li><a href="services.aspx">Services</a></li>--%>
+                        <li><a href="trainingAndDevelopment.aspx">Training & Development</a></li>
+                         <li><a href="hr_job.aspx">HR Job/Recuriting</a></li>
+                         <li><a href="air_ticketing.aspx">Air Ticketing</a></li>
+                         <li><a href="accomodation_facilities.aspx">Hotel & Accommodation Facilities</a></li>
+                         <li><a href="business_development.aspx">Busniess Development</a></li>
+                         <li><a href="legal_services.aspx">Legal Services</a></li>
+                         <li><a href="logistics.aspx">Logictics</a></li>
+                        <li><a href="third_party_inception_audit.aspx">Third Party Inspection AND Audit</a></li>
+                        <li><a href="event_catering.aspx">Event Management & Catering</a></li>
 
 		            </ul>
 		        </li>

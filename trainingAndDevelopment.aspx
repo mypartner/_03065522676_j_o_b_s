@@ -7,14 +7,17 @@
 <div class="container">
     <div class="single">  
        <div class="box_1">
-       	<h3>Training and Development</h3>
+       	<h3>Training and Courses</h3>
         <div class="col-md-5">
         	<img  src="images/training%20and%20development/TrainingDevelopment.jpg" class="img-responsive" alt=""/>
         </div>
         <div class="col-md-7 service_box1">
             <h5>Description</h5>
-            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. </p>
-        	<a href="#" class="btn_3">Read More</a>
+            <p>We offer a unique range of training programmes focused on the development of leadership skills and personal skills. We run management training courses all over the world and have an ever growing reputation as the ‘go-to’ training company in many different industry sectors.
+Our courses have a strong focus on skill transfer to make sure that you’re getting the most out of the training we provide.
+Structured training, delivered to your team in-house
+You can select any course from our extensive range and have it delivered to your team on-site. Our expert trainers will take the time to understand your company’s learning needs so that we can provide a training solution that satisfies your business objectives.
+We can provide management briefings for a team of managers and are also able to create a bespoke course for you. Contact us to discuss your requirements.</p>
         </div>
            </div>
         </div>

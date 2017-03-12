@@ -68,6 +68,14 @@
                         <div class="col-md-6">
                             <h3 style="">Login to your account</h3>
                             <div class="messagealert" id="alert_container"></div>
+
+                         <%--   <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="both name(s) e.g Jon Doe" required="required" type="text">
+                        </div>
+                      </div>--%>
                             <div class="textbox-wrap">
                                 <div class="item input-group">
                                     <span class="input-group-addon " id="length" required><i class="fa fa-user"></i></span>
