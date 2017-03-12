@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="jobPortalDb" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-9D5A4N2;Initial Catalog=jobPortalDb;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="jobPortalDbConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Activate_User" Member="Activate_Users">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-PLPMAOO;Initial Catalog=jobPortalDb;Integrated Security=True;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="jobPortalDbConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="Jp.Activate_User" Member="Activate_Users">
     <Type Name="Activate_User">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Activation_Code" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
@@ -8,7 +8,23 @@
       <Column Name="userType" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.appliedJob" Member="appliedJobs">
+  <Table Name="Jp.AdminTable" Member="AdminTables">
+    <Type Name="AdminTable">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Phone ]" Member="Phone_" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DefaultEmailAccountforEmail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DefaultEmailPassword" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="EmailSendFrom" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Jp.appliedJob" Member="appliedJobs">
     <Type Name="appliedJob">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="jobSeekerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -16,21 +32,23 @@
       <Column Name="date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.catagory" Member="catagories">
+  <Table Name="Jp.catagory" Member="catagories">
     <Type Name="catagory">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="catagoryName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.feeds" Member="feeds">
+  <Table Name="Jp.feeds" Member="feeds">
     <Type Name="feed">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="shortDescription" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="longDescription" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="feedstartdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="feedenddate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.jobs" Member="jobs">
+  <Table Name="Jp.jobs" Member="jobs">
     <Type Name="job">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="rId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -48,7 +66,7 @@
       <Column Name="specificRequirement" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.jobSeeker" Member="jobSeekers">
+  <Table Name="Jp.jobSeeker" Member="jobSeekers">
     <Type Name="jobSeeker">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="firstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
@@ -66,7 +84,7 @@
       <Column Name="Status" Type="System.Data.Linq.Binary" DbType="VarBinary(15)" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
-  <Table Name="dbo.jobseekereducationalInfo" Member="jobseekereducationalInfos">
+  <Table Name="Jp.jobseekereducationalInfo" Member="jobseekereducationalInfos">
     <Type Name="jobseekereducationalInfo">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="jobSeekerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -76,7 +94,7 @@
       <Column Name="specialization" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.jobSeekerProfessionalInfo" Member="jobSeekerProfessionalInfos">
+  <Table Name="Jp.jobSeekerProfessionalInfo" Member="jobSeekerProfessionalInfos">
     <Type Name="jobSeekerProfessionalInfo">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="jobSeekerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -88,7 +106,7 @@
       <Column Name="workExperience" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.recruiter" Member="recruiters">
+  <Table Name="Jp.recruiter" Member="recruiters">
     <Type Name="recruiter">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="companyName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
@@ -106,7 +124,7 @@
       <Column Name="signupdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.skillsandcv" Member="skillsandcvs">
+  <Table Name="Jp.skillsandcv" Member="skillsandcvs">
     <Type Name="skillsandcv">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="jobSeekerid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />

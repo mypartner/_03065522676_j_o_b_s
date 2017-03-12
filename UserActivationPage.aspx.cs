@@ -18,7 +18,7 @@ public partial class UserActivationPage : System.Web.UI.Page
             string activationCode = !string.IsNullOrEmpty(Request.QueryString["ActivationCode"]) ? Request.QueryString["ActivationCode"] : Guid.Empty.ToString();
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("DELETE FROM Activate_User WHERE Activation_Code = @ActivationCode"))
+                using (SqlCommand cmd = new SqlCommand("DELETE FROM Jp.Activate_User WHERE Activation_Code = @ActivationCode"))
                 {
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     {
