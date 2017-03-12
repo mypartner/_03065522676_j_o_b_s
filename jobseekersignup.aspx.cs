@@ -39,7 +39,7 @@ public partial class userSignup : System.Web.UI.Page
       string returnmsg=jobseekerclass.signUpJobSeeker(u);
         if (returnmsg == "")
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "hidesignupform('.form-container','Your information is been saved. Please check you Email and Activate your account.');", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "hidesignupform('.form-container','Your information has been saved. Please check you Email and Activate your account.');", true);
         }
         else
         {
