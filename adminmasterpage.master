@@ -28,6 +28,7 @@
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
     <asp:ContentPlaceHolder id="head" runat="server">
+       
     </asp:ContentPlaceHolder>
 </head>
 <body class="nav-md">
@@ -37,19 +38,21 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+              <a href="index.html" class="site_title"><span>OGS</span></a>
             </div>
 
             <div class="clearfix"></div>
-
+              <% AdminTable profile = adminprofile.getInfo();
+                   %>
             <!-- menu profile quick info -->
             <div class="profile">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                  <img src="images/tick1.png" alt="..." class="img-circle profile_img"/>
+<%--                <img src="images/img.jpg" alt="..." class="img-circle profile_img">--%>
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2><%=profile.Name %></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -70,6 +73,10 @@
                   <li><a href="adminviewpostedjobs.aspx"><i class="fa fa-desktop"></i> Posted Jobs <span></span></a>
                     
                   </li>
+                  <li><a href="admin_feeds.aspx"><i class="fa fa-desktop"></i>Feeds <span></span></a>
+</li>
+                    <li><a href="admin_videos.aspx"><i class="fa fa-desktop"></i>Videos <span></span></a>
+</li>
                   <%--<li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="tables.html">Tables</a></li>
@@ -141,7 +148,7 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
+             <%-- <a data-toggle="tooltip" data-placement="top" title="Settings">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
               </a>
               <a data-toggle="tooltip" data-placement="top" title="FullScreen">
@@ -149,8 +156,8 @@
               </a>
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout">
+              </a>--%>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" runat="server" onclick="logout();">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -169,23 +176,18 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <%--img src="images/img.jpg" alt="">--%>
+                       <%=profile.Name %>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                   
+                    <li><a  runat="server" onclientclick="logout_click"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 
-                <li role="presentation" class="dropdown">
+                <%--<li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
                     <span class="badge bg-green">6</span>
@@ -248,7 +250,7 @@
                       </div>
                     </li>
                   </ul>
-                </li>
+                </li>--%>
               </ul>
             </nav>
           </div>
@@ -268,7 +270,8 @@
         <!-- /footer content -->
       </div>
     </div>
-
+         
+   
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -572,7 +575,19 @@
     <!-- /gauge.js -->
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/formvalidator.js"></script>
-
+        <script>
+      $(document).ready(function() {
+      
+          $('#feedstartdate').daterangepicker({
+          singleDatePicker: true,
+          calender_style: "picker_2"
+        }, function(start, end, label) {
+          console.log(start.toISOString(), end.toISOString(), label);
+        });
+     
+       
+      });
+    </script>
 <script>
 
   $.validate({
@@ -587,6 +602,14 @@
     //form validation phone number
    
 </script>
+         <script>
+            function logout() {
+                <% //Session["Adminlogin"] = false;
+
+             //Response.Redirect("adminlogin.aspx");
+                %>
+            }
+        </script>
     </form>
 </body>
 </html>

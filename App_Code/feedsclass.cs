@@ -14,20 +14,87 @@ public class feedsclass
         // TODO: Add constructor logic here
         //
     }
-    public static void addfeed(feed f)
-    {
+    //public static bool addfeed(feed f)
+    //{
        
-        DataClassesDataContext db = new DataClassesDataContext();
-        db.feeds.InsertOnSubmit(f);
-        db.SubmitChanges();
-    }
+    //    DataClassesDataContext db = new DataClassesDataContext();
+    //    db.feeds.InsertOnSubmit(f);
+    //    db.SubmitChanges();
+    //    return true;
+    //}
     public static IQueryable<feed> getFeeds()
     {
         DataClassesDataContext db = new DataClassesDataContext();
        IQueryable<feed> var_feeds = from x in db.feeds
-                        where DateTime.Compare(DateTime.Now, DateTime.Parse(x.feedenddate.ToString())) > 1
+                        //where DateTime.Compare(DateTime.Now, DateTime.Parse(x.feedenddate.ToString())) > 1
                         select x;
 
         return var_feeds;
+    }
+
+    public static bool addfeed(feed f)
+    {
+        try
+        {
+            DataClassesDataContext db = db = new DataClassesDataContext();
+            //db.event_calenders.InsertOnSubmit(ev);
+            //db.SubmitChanges();
+            //return true;
+            int count = (from x in db.feeds
+                         where x.shortDescription == f.shortDescription
+                         select x).Count();
+            if (count == 0)
+            {
+                db.feeds.InsertOnSubmit(f);
+                db.SubmitChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+    }
+    public static IQueryable<video> getVideos()
+    {
+        DataClassesDataContext db = new DataClassesDataContext();
+        IQueryable<video> var_video = from x in db.videos
+                                         //where DateTime.Compare(DateTime.Now, DateTime.Parse(x.feedenddate.ToString())) > 1
+                                     select x;
+
+        return var_video;
+    }
+
+    public static bool addVideo(video v)
+    {
+        try
+        {
+            DataClassesDataContext db = db = new DataClassesDataContext();
+            
+            int count = (from x in db.videos
+                         where x.video_title == v.video_title
+                         select x).Count();
+            if (count == 0)
+            {
+                db.videos.InsertOnSubmit(v);
+                
+                db.SubmitChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
     }
 }

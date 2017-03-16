@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="jobPortalDb" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-PLPMAOO;Initial Catalog=jobPortalDb;Integrated Security=True;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="jobPortalDbConnectionString2" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JObportal" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=199.193.116.14,1435;Initial Catalog=JObportal;Integrated Security=False;User ID=sa_jp" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="JObportalConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="Jp.Activate_User" Member="Activate_Users">
     <Type Name="Activate_User">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -36,16 +36,6 @@
     <Type Name="catagory">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="catagoryName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="Jp.feeds" Member="feeds">
-    <Type Name="feed">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="shortDescription" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="longDescription" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="feedstartdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="feedenddate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="Jp.jobs" Member="jobs">
@@ -130,6 +120,25 @@
       <Column Name="jobSeekerid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="skills" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
       <Column Name="[cv`]" Member="cv_" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="Jp.feeds" Member="feeds">
+    <Type Name="feed">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="shortDescription" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="longDescription" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="feedstartdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="feedenddate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="Jp.video" Member="videos">
+    <Type Name="video">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="video_title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="video_link" Type="System.String" DbType="NVarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="publish_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="end_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
