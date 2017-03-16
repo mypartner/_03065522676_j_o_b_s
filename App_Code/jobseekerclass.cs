@@ -103,8 +103,28 @@ public class jobseekerclass
                 }
             }
         }
-        using (MailMessage mm = new MailMessage("vakaskhan341@gmail.com", email))
+        using (MailMessage mm = new MailMessage("jobportal@outsourcegentechservices.com", email))
         {
+            //mm.Subject = "Account Activation";
+            //string body = "Hello " + username + ",";
+            //body += "<br /><br />Please click the following link to activate your account";
+            //body += "<br /><a href = '" + HttpContext.Current.Request.Url.AbsoluteUri.Replace("jobseekersignup.aspx", "UserActivationPage.aspx?ActivationCode=" + activationCode) + "'>Click here to activate your account.</a>";
+            //body += "<br /><br />Thanks";
+            //mm.Body = body;
+            //mm.IsBodyHtml = true;
+            //SmtpClient smtp = new SmtpClient();
+            //smtp.Host = "mail.outsourcegentechservices.com";
+            //smtp.EnableSsl = true;
+            //NetworkCredential NetworkCred = new NetworkCredential("jobportal@outsourcegentechservices.com", "Qwerty123@");
+            //smtp.UseDefaultCredentials = true;
+            //smtp.Credentials = NetworkCred;
+            //smtp.Port = 587;
+            //smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            //smtp.Send(mm);
+
+
+
+
             mm.Subject = "Account Activation";
             string body = "Hello " + username + ",";
             body += "<br /><br />Please click the following link to activate your account";
