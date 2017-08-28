@@ -1,6 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/adminmasterpage.master" AutoEventWireup="true" CodeFile="admin_feeds.aspx.cs" Inherits="admin_feeds" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style>
+        .table {
+    display: block;
+        overflow-x: auto;
+        table-layout:fixed;
+}
+    </style>
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
@@ -20,7 +28,7 @@
                   </div>
                   <div class="x_content">
                   
-                    <div class="col-md-9 col-sm-9 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
 
 
 
@@ -38,7 +46,7 @@
                           <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
 
                             <!-- start recent activity -->
-                             <table id="datatable" class="table table-striped table-bordered">
+                             <table id="datatable" class="table table-striped  header-fixed">
                       <thead>
                         <tr>
                           <th>Image</th>
@@ -46,6 +54,7 @@
                           <th>Description</th>
                           <th>Start date</th>
                           <th>End date</th>
+                            <th>Operation</th>
                           
                           
                         </tr>
@@ -68,13 +77,19 @@
                                %>
                         <tr>
                           <td><img src='data:image/jpg;base64,<%= Convert.ToBase64String(img1) %>' id="clientimage"  alt="Select Photograph"  height="80px" width="80px"/></td>
-                          <td><%=x.shortDescription %></td>
-                          <td><%=x.longDescription %></td>
-                          <td><%=x.feedstartdate.ToShortDateString() %></td>
-                          <td><%=x.feedenddate.ToShortDateString() %></td>
+                          <td class="col-md-2"><%=x.shortDescription %></td>
+                          <td class="col-md-6"><%=x.longDescription %></td>
+                          <td class="col-md-2"><%=x.feedstartdate.Value.ToShortDateString() %></td>
+                          <td class="col-md-2"><%=x.feedenddate.Value.ToShortDateString() %></td>
+                            <td class="col-md-4">
+                                
+                                <input type="button" id="<%=x.id %>" value="Delete" class="btn-danger delete" />
+                            </td>
+                            
                     
                         </tr>
-                          <%} %>
+                          <%} %><asp:HiddenField ID="hdelete" runat="server" />
+                        
                       </tbody>
                     </table>
                             <!-- end recent activity -->
@@ -159,7 +174,15 @@
     <script src="js/datepicker/daterangepicker.js"></script>
    
     
-        <!-- /page content -->
-
+        <script>
+            $(".delete").click(function () {
+                alert("workign");
+                $('#<%=hdelete.ClientID%>').val(this.id);
+                
+                //__doPostBack("btn",btndelete);
+                $("#form1").submit();
+            });
+        </script>
+     
 </asp:Content>
 

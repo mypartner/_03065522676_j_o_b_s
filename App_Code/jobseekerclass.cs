@@ -14,6 +14,7 @@ using System.Net;
 /// </summary>
 public class jobseekerclass
 {
+
     public jobseekerclass()
     {
         //
@@ -67,8 +68,9 @@ public class jobseekerclass
                         message = "Supplied email address has already been used.";
                         break;
                     default:
-                        message = "";
+                        
                         SendActivationEmail(userId, u.username,u.email);
+                        message = "";
                         break;
                 }
 
@@ -103,7 +105,7 @@ public class jobseekerclass
                 }
             }
         }
-        using (MailMessage mm = new MailMessage("jobportal@outsourcegentechservices.com", email))
+        using (MailMessage mm = new MailMessage("waqaskhan132@gmail.com", email))
         {
             //mm.Subject = "Account Activation";
             //string body = "Hello " + username + ",";
@@ -141,6 +143,7 @@ public class jobseekerclass
             smtp.Port = 587;
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.Send(mm);
+
         }
     }
     public static void updatejobseeker(jobSeeker u,int jobseekerid)

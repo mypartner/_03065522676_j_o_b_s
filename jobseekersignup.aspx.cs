@@ -15,9 +15,9 @@ public partial class userSignup : System.Web.UI.Page
     }
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(IsPostBack){
+        //if(IsPostBack){
            
-        }
+        //}
     }
     protected void Signup_button(object sender, EventArgs e)
     {

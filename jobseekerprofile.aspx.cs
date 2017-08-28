@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -31,8 +32,14 @@ public partial class jobseekerprofile : System.Web.UI.Page
         {
             j.jobSeekerId = jobsekerid;
             j.experience = Request.Form["experiance"+k].ToString();
-            j.jobStartDate = DateTime.Parse(Request.Form["jobstartdate" + k].ToString());
-            j.jobEndDate = DateTime.Parse(Request.Form["jobenddate" + k].ToString());
+            string ddd = Request.Form["jobstartdate" + k].ToString();
+            j.jobStartDate =DateTime.ParseExact(Request.Form["jobstartdate" + k], @"d-M-yyyy", CultureInfo.InvariantCulture);
+
+          
+
+
+
+            j.jobEndDate = DateTime.ParseExact(Request.Form["jobenddate" + k].ToString(), @"d-M-yyyy", null);
             j.company = Request.Form["companyname" + k].ToString();
             j.jobDescription = Request.Form["description" + k].ToString();
             j.workExperience = Request.Form["workexperience" + k].ToString();
@@ -82,7 +89,7 @@ public partial class jobseekerprofile : System.Web.UI.Page
             jobseekereducationalInfo j = new jobseekereducationalInfo();
             j.jobSeekerId = jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
             j.instituteName = Request.Form["institute"].ToString();
-            j.passingOutYear = DateTime.Parse(Request.Form["year_selector"].ToString());
+            j.passingOutYear = DateTime.ParseExact(Request.Form["year_selector"].ToString(),@"d-M-yyyy",CultureInfo.InvariantCulture);
             j.degreeName = Request.Form["degree1"].ToString();
             j.specialization = Request.Form["specialization"].ToString();
             userprofile.addJobSeekereducationalinfo(j);
@@ -91,7 +98,7 @@ public partial class jobseekerprofile : System.Web.UI.Page
                 jobseekereducationalInfo j1 = new jobseekereducationalInfo();
                 j1.jobSeekerId = jobseekerclass.getSeekerID(Session["LoginSession"].ToString());
                 j1.instituteName = Request.Form["secondinstitute"].ToString();
-                j1.passingOutYear =  DateTime.Parse(Request.Form["second_year_selector"].ToString());
+                j1.passingOutYear =  DateTime.ParseExact(Request.Form["second_year_selector"].ToString(),@"d-M-yyyy",CultureInfo.InvariantCulture);
                 j1.degreeName = Request.Form["degree2"].ToString();
                 j1.specialization = Request.Form["secondspecialization"].ToString();
                 userprofile.addJobSeekereducationalinfo(j1);

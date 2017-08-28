@@ -36,7 +36,7 @@ public class recruiterclass
         {
             string message = string.Empty;
             int userId = 0;
-            string constr = ConfigurationManager.ConnectionStrings["jobportal"].ConnectionString;
+            string constr = ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
                 using (SqlCommand cmd = new SqlCommand("Jp.recruiter_Insertuser"))
@@ -121,11 +121,11 @@ public class recruiterclass
     }
     private static void SendActivationEmail(int userId, string username, string email)
     {
-        string constr = ConfigurationManager.ConnectionStrings["jobportal"].ConnectionString;
+        string constr = ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString"].ConnectionString;
         string activationCode = Guid.NewGuid().ToString();
         using (SqlConnection con = new SqlConnection(constr))
         {
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO Activate_User VALUES(@id, @Activation_Code,@username,@userType)"))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO Jp.Activate_User VALUES(@id, @Activation_Code,@username,@userType)"))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter())
                 {
@@ -146,7 +146,7 @@ public class recruiterclass
             mm.Subject = "Account Activation";
             string body = "Hello " + username + ",";
             body += "<br /><br />Please click the following link to activate your account";
-            body += "<br /><a href = '" + HttpContext.Current.Request.Url.AbsoluteUri.Replace("jobseekersignup.aspx", "UserActivationPage.aspx?ActivationCode=" + activationCode) + "'>Click here to activate your account.</a>";
+            body += "<br /><a href = '" + HttpContext.Current.Request.Url.AbsoluteUri.Replace("recruiterSignup.aspx", "UserActivationPage.aspx?ActivationCode=" + activationCode) + "'>Click here to activate your account.</a>";
             body += "<br /><br />Thanks";
             mm.Body = body;
             mm.IsBodyHtml = true;

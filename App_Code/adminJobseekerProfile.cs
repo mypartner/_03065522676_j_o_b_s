@@ -54,6 +54,7 @@ public class adminJobseekerProfile
             return null;
 }
     }
+    
     public static skillsandcv getjobseekerSkills(int id)
     {
         try
@@ -68,4 +69,56 @@ public class adminJobseekerProfile
             return null;
         }
     }
+    public static string updateprofessionaldata(jobSeekerProfessionalInfo pro)
+    {
+        try
+        {
+            DataClassesDataContext db = new DataClassesDataContext();
+            jobSeekerProfessionalInfo selecteddata = (from x in db.jobSeekerProfessionalInfos
+                                                    where x.Id == pro.Id
+                                                     select x).First();
+            selecteddata.jobDescription= pro.jobDescription;
+            selecteddata.jobEndDate = pro.jobEndDate;
+            selecteddata.jobStartDate = pro.jobStartDate;
+            selecteddata.jobDescription = pro.jobDescription;
+            selecteddata.experience = pro.experience;
+            selecteddata.workExperience = pro.workExperience;
+
+            db.SubmitChanges();
+            
+            return "";
+        }catch(Exception ex)
+        {
+            return ex.Message;
+        }
+                                                   
+    }
+    public static string updateEducationaldata(jobseekereducationalInfo pro)
+    {
+        try
+        {
+            DataClassesDataContext db = new DataClassesDataContext();
+            jobseekereducationalInfo selecteddata = (from x in db.jobseekereducationalInfos
+                                                      where x.Id == pro.Id
+                                                      select x).First();
+            selecteddata.instituteName = pro.instituteName;
+            selecteddata.degreeName = pro.degreeName;
+            selecteddata.passingOutYear = pro.passingOutYear;
+            selecteddata.specialization = pro.specialization;
+            
+
+            db.SubmitChanges();
+
+            return "";
+        }
+        catch (Exception ex)
+        {
+            return ex.Message;
+        }
+
+    }
+
+
+
+
 }

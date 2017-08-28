@@ -30,7 +30,7 @@ public partial class recruiteraddjob : System.Web.UI.Page
                 k.city = Request.Form["city"].ToString();
                 k.jobCatagory = Request.Form["jobcatagory"].ToString();
                 k.salaryPeriod = Request.Form["salaryperiod"].ToString();
-                k.lastDateToApply = DateTime.Parse(Request.Form["lastdatetoApply"].ToString());
+                k.lastDateToApply = DateTime.ParseExact(Request.Form["lastdatetoApply"].ToString(), @"d-M-yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 k.minimumEducation = Request.Form["meducation"].ToString();
                 k.minimumLevelOfExperience = Request.Form["mlexperiance"].ToString();
                 k.specificRequirement = "spacificRequirements";

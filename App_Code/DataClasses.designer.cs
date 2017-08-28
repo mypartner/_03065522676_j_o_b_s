@@ -21,7 +21,7 @@ using System.Reflection;
 
 
 
-[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="JObportal")]
+[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="jobPortalDb")]
 public partial class DataClassesDataContext : System.Data.Linq.DataContext
 {
 	
@@ -41,6 +41,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void Insertcatagory(catagory instance);
   partial void Updatecatagory(catagory instance);
   partial void Deletecatagory(catagory instance);
+  partial void Insertfeed(feed instance);
+  partial void Updatefeed(feed instance);
+  partial void Deletefeed(feed instance);
   partial void Insertjob(job instance);
   partial void Updatejob(job instance);
   partial void Deletejob(job instance);
@@ -59,16 +62,13 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void Insertskillsandcv(skillsandcv instance);
   partial void Updateskillsandcv(skillsandcv instance);
   partial void Deleteskillsandcv(skillsandcv instance);
-  partial void Insertfeed(feed instance);
-  partial void Updatefeed(feed instance);
-  partial void Deletefeed(feed instance);
   partial void Insertvideo(video instance);
   partial void Updatevideo(video instance);
   partial void Deletevideo(video instance);
   #endregion
 	
 	public DataClassesDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["JObportalConnectionString"].ConnectionString, mappingSource)
+			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}
@@ -129,6 +129,14 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
+	public System.Data.Linq.Table<feed> feeds
+	{
+		get
+		{
+			return this.GetTable<feed>();
+		}
+	}
+	
 	public System.Data.Linq.Table<job> jobs
 	{
 		get
@@ -174,14 +182,6 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<skillsandcv>();
-		}
-	}
-	
-	public System.Data.Linq.Table<feed> feeds
-	{
-		get
-		{
-			return this.GetTable<feed>();
 		}
 	}
 	
@@ -849,6 +849,188 @@ public partial class catagory : INotifyPropertyChanging, INotifyPropertyChanged
 				this._catagoryName = value;
 				this.SendPropertyChanged("catagoryName");
 				this.OncatagoryNameChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="Jp.feeds")]
+public partial class feed : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _id;
+	
+	private string _shortDescription;
+	
+	private string _longDescription;
+	
+	private System.Data.Linq.Binary _image;
+	
+	private System.Nullable<System.DateTime> _feedstartdate;
+	
+	private System.Nullable<System.DateTime> _feedenddate;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnshortDescriptionChanging(string value);
+    partial void OnshortDescriptionChanged();
+    partial void OnlongDescriptionChanging(string value);
+    partial void OnlongDescriptionChanged();
+    partial void OnimageChanging(System.Data.Linq.Binary value);
+    partial void OnimageChanged();
+    partial void OnfeedstartdateChanging(System.Nullable<System.DateTime> value);
+    partial void OnfeedstartdateChanged();
+    partial void OnfeedenddateChanging(System.Nullable<System.DateTime> value);
+    partial void OnfeedenddateChanged();
+    #endregion
+	
+	public feed()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int id
+	{
+		get
+		{
+			return this._id;
+		}
+		set
+		{
+			if ((this._id != value))
+			{
+				this.OnidChanging(value);
+				this.SendPropertyChanging();
+				this._id = value;
+				this.SendPropertyChanged("id");
+				this.OnidChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shortDescription", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string shortDescription
+	{
+		get
+		{
+			return this._shortDescription;
+		}
+		set
+		{
+			if ((this._shortDescription != value))
+			{
+				this.OnshortDescriptionChanging(value);
+				this.SendPropertyChanging();
+				this._shortDescription = value;
+				this.SendPropertyChanged("shortDescription");
+				this.OnshortDescriptionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_longDescription", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string longDescription
+	{
+		get
+		{
+			return this._longDescription;
+		}
+		set
+		{
+			if ((this._longDescription != value))
+			{
+				this.OnlongDescriptionChanging(value);
+				this.SendPropertyChanging();
+				this._longDescription = value;
+				this.SendPropertyChanged("longDescription");
+				this.OnlongDescriptionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	public System.Data.Linq.Binary image
+	{
+		get
+		{
+			return this._image;
+		}
+		set
+		{
+			if ((this._image != value))
+			{
+				this.OnimageChanging(value);
+				this.SendPropertyChanging();
+				this._image = value;
+				this.SendPropertyChanged("image");
+				this.OnimageChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_feedstartdate", DbType="DateTime")]
+	public System.Nullable<System.DateTime> feedstartdate
+	{
+		get
+		{
+			return this._feedstartdate;
+		}
+		set
+		{
+			if ((this._feedstartdate != value))
+			{
+				this.OnfeedstartdateChanging(value);
+				this.SendPropertyChanging();
+				this._feedstartdate = value;
+				this.SendPropertyChanged("feedstartdate");
+				this.OnfeedstartdateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_feedenddate", DbType="DateTime")]
+	public System.Nullable<System.DateTime> feedenddate
+	{
+		get
+		{
+			return this._feedenddate;
+		}
+		set
+		{
+			if ((this._feedenddate != value))
+			{
+				this.OnfeedenddateChanging(value);
+				this.SendPropertyChanging();
+				this._feedenddate = value;
+				this.SendPropertyChanged("feedenddate");
+				this.OnfeedenddateChanged();
 			}
 		}
 	}
@@ -2542,188 +2724,6 @@ public partial class skillsandcv : INotifyPropertyChanging, INotifyPropertyChang
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="Jp.feeds")]
-public partial class feed : INotifyPropertyChanging, INotifyPropertyChanged
-{
-	
-	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-	
-	private int _id;
-	
-	private string _shortDescription;
-	
-	private string _longDescription;
-	
-	private System.Data.Linq.Binary _image;
-	
-	private System.DateTime _feedstartdate;
-	
-	private System.DateTime _feedenddate;
-	
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnshortDescriptionChanging(string value);
-    partial void OnshortDescriptionChanged();
-    partial void OnlongDescriptionChanging(string value);
-    partial void OnlongDescriptionChanged();
-    partial void OnimageChanging(System.Data.Linq.Binary value);
-    partial void OnimageChanged();
-    partial void OnfeedstartdateChanging(System.DateTime value);
-    partial void OnfeedstartdateChanged();
-    partial void OnfeedenddateChanging(System.DateTime value);
-    partial void OnfeedenddateChanged();
-    #endregion
-	
-	public feed()
-	{
-		OnCreated();
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int id
-	{
-		get
-		{
-			return this._id;
-		}
-		set
-		{
-			if ((this._id != value))
-			{
-				this.OnidChanging(value);
-				this.SendPropertyChanging();
-				this._id = value;
-				this.SendPropertyChanged("id");
-				this.OnidChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_shortDescription", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string shortDescription
-	{
-		get
-		{
-			return this._shortDescription;
-		}
-		set
-		{
-			if ((this._shortDescription != value))
-			{
-				this.OnshortDescriptionChanging(value);
-				this.SendPropertyChanging();
-				this._shortDescription = value;
-				this.SendPropertyChanged("shortDescription");
-				this.OnshortDescriptionChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_longDescription", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-	public string longDescription
-	{
-		get
-		{
-			return this._longDescription;
-		}
-		set
-		{
-			if ((this._longDescription != value))
-			{
-				this.OnlongDescriptionChanging(value);
-				this.SendPropertyChanging();
-				this._longDescription = value;
-				this.SendPropertyChanged("longDescription");
-				this.OnlongDescriptionChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_image", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
-	public System.Data.Linq.Binary image
-	{
-		get
-		{
-			return this._image;
-		}
-		set
-		{
-			if ((this._image != value))
-			{
-				this.OnimageChanging(value);
-				this.SendPropertyChanging();
-				this._image = value;
-				this.SendPropertyChanged("image");
-				this.OnimageChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_feedstartdate", DbType="DateTime NOT NULL")]
-	public System.DateTime feedstartdate
-	{
-		get
-		{
-			return this._feedstartdate;
-		}
-		set
-		{
-			if ((this._feedstartdate != value))
-			{
-				this.OnfeedstartdateChanging(value);
-				this.SendPropertyChanging();
-				this._feedstartdate = value;
-				this.SendPropertyChanged("feedstartdate");
-				this.OnfeedstartdateChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_feedenddate", DbType="DateTime NOT NULL")]
-	public System.DateTime feedenddate
-	{
-		get
-		{
-			return this._feedenddate;
-		}
-		set
-		{
-			if ((this._feedenddate != value))
-			{
-				this.OnfeedenddateChanging(value);
-				this.SendPropertyChanging();
-				this._feedenddate = value;
-				this.SendPropertyChanged("feedenddate");
-				this.OnfeedenddateChanged();
-			}
-		}
-	}
-	
-	public event PropertyChangingEventHandler PropertyChanging;
-	
-	public event PropertyChangedEventHandler PropertyChanged;
-	
-	protected virtual void SendPropertyChanging()
-	{
-		if ((this.PropertyChanging != null))
-		{
-			this.PropertyChanging(this, emptyChangingEventArgs);
-		}
-	}
-	
-	protected virtual void SendPropertyChanged(String propertyName)
-	{
-		if ((this.PropertyChanged != null))
-		{
-			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-		}
-	}
-}
-
 [global::System.Data.Linq.Mapping.TableAttribute(Name="Jp.video")]
 public partial class video : INotifyPropertyChanging, INotifyPropertyChanged
 {
@@ -2736,9 +2736,9 @@ public partial class video : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private string _video_link;
 	
-	private System.DateTime _publish_date;
+	private System.Nullable<System.DateTime> _publish_date;
 	
-	private System.DateTime _end_date;
+	private System.Nullable<System.DateTime> _end_date;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2750,9 +2750,9 @@ public partial class video : INotifyPropertyChanging, INotifyPropertyChanged
     partial void Onvideo_titleChanged();
     partial void Onvideo_linkChanging(string value);
     partial void Onvideo_linkChanged();
-    partial void Onpublish_dateChanging(System.DateTime value);
+    partial void Onpublish_dateChanging(System.Nullable<System.DateTime> value);
     partial void Onpublish_dateChanged();
-    partial void Onend_dateChanging(System.DateTime value);
+    partial void Onend_dateChanging(System.Nullable<System.DateTime> value);
     partial void Onend_dateChanged();
     #endregion
 	
@@ -2761,7 +2761,7 @@ public partial class video : INotifyPropertyChanging, INotifyPropertyChanged
 		OnCreated();
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
 	public int Id
 	{
 		get
@@ -2781,7 +2781,7 @@ public partial class video : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_video_title", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_video_title", DbType="VarChar(100)")]
 	public string video_title
 	{
 		get
@@ -2801,7 +2801,7 @@ public partial class video : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_video_link", DbType="NVarChar(300) NOT NULL", CanBeNull=false)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_video_link", DbType="VarChar(100)")]
 	public string video_link
 	{
 		get
@@ -2821,8 +2821,8 @@ public partial class video : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_publish_date", DbType="DateTime NOT NULL")]
-	public System.DateTime publish_date
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_publish_date", DbType="DateTime")]
+	public System.Nullable<System.DateTime> publish_date
 	{
 		get
 		{
@@ -2841,8 +2841,8 @@ public partial class video : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_end_date", DbType="DateTime NOT NULL")]
-	public System.DateTime end_date
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_end_date", DbType="DateTime")]
+	public System.Nullable<System.DateTime> end_date
 	{
 		get
 		{

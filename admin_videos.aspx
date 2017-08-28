@@ -2,6 +2,13 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+     <style>
+        .table {
+    display: block;
+        overflow-x: auto;
+        table-layout:fixed;
+}
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
@@ -21,7 +28,7 @@
                   </div>
                   <div class="x_content">
                   
-                    <div class="col-md-9 col-sm-9 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
 
 
 
@@ -39,7 +46,7 @@
                           <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
 
                             <!-- start recent activity -->
-                             <table id="datatable" class="table table-striped table-bordered">
+                             <table id="datatable" class="table table-striped  header-fixed">
                       <thead>
                         <tr>
                           <%--<th>Image</th>--%>
@@ -47,6 +54,7 @@
                           <th>Video link</th>
                           <th>Publish date</th>
                           <th>End date</th>
+                            <th>Operation</th>
                           
                           
                         </tr>
@@ -62,11 +70,16 @@
                         <tr>
                           <td><%=x.video_title %></td>
                           <td><a href="<%=x.video_link %>" target="_blank" style="color:blue;text-decoration:underline"><%=x.video_link %></a></td>
-                          <td><%=x.publish_date.ToShortDateString() %></td>
-                          <td><%=x.end_date.ToShortDateString() %></td>
+                          <td><%=x.publish_date.Value.ToShortDateString() %></td>
+                          <td><%=x.end_date.Value.ToShortDateString() %></td>
+                            <td class="col-md-4">
+                                
+                                <input type="button" id="<%=x.Id %>" value="Delete" class="btn-danger delete" />
+                            </td>
                     
                         </tr>
                           <%} %>
+                          <asp:HiddenField ID="hdelete" runat="server" />
                       </tbody>
                     </table>
                             <!-- end recent activity -->
@@ -134,7 +147,20 @@
             </div>
           </div>
         </div>
-    
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+
+    <!-- bootstrap-daterangepicker -->
+    <script src="js/moment/moment.min.js"></script>
+    <script src="js/datepicker/daterangepicker.js"></script>
+    <script>
+            $(".delete").click(function () {
+              
+                $('#<%=hdelete.ClientID%>').val(this.id);
+               
+                //__doPostBack("btn",btndelete);
+                $("#form1").submit();
+            });
+        </script>
         <!-- /page content -->
 
 </asp:Content>

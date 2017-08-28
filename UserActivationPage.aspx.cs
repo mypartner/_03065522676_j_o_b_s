@@ -14,7 +14,7 @@ public partial class UserActivationPage : System.Web.UI.Page
     {
         if (!this.IsPostBack)
         {
-            string constr = ConfigurationManager.ConnectionStrings["jobportal"].ConnectionString;
+            string constr = ConfigurationManager.ConnectionStrings["jobPortalDbConnectionString"].ConnectionString;
             string activationCode = !string.IsNullOrEmpty(Request.QueryString["ActivationCode"]) ? Request.QueryString["ActivationCode"] : Guid.Empty.ToString();
             using (SqlConnection con = new SqlConnection(constr))
             {

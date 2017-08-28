@@ -44,7 +44,7 @@ public class clientJob
             {
                 Database.SubmitChanges();
             }
-            catch (ChangeConflictException e)
+            catch (Exception ex)
             {
                 //report error, log error whatever...
             }

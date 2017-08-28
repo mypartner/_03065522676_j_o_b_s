@@ -17,7 +17,10 @@
 
   // Restrict presentation length
   $('#description').restrictLength($('#pres-max-length'));
-        //
+    //
+  function validationControlProfesstion() {
+      $(".addvalidation").prop('required', true);
+  }
   function ShowMessage(message, messagetype) {
       var cssclass;
       switch (messagetype) {
@@ -83,7 +86,7 @@
                          <h1>Degree"+counter+"</h1>\
                         <label class='col-md-3 control-lable' for='experiance'>Experience</label>\
                      <div class='col-md-9'>\
-                        <input type='text' id='experiance' name='experiance"+counter+"' class='form-control input-sm' />\
+                        <input type='text' id='experiance' name='experiance" + counter + "' class='form-control input-sm addvalidation' />\
                      </div>\
                     </div>\
                 </div>\
@@ -91,7 +94,7 @@
                      <div class='form-group col-md-10'>\
                         <label class='col-md-3 control-lable' for='jobstartdate'>Job Start Date</label>\
                      <div class='col-md-9'>\
-                        <input type='date' id='jobstartdate' name='jobstartdate" + counter + "' class='form-control input-sm'/>\
+                        <input type='date' id='jobstartdate' name='jobstartdate" + counter + "' class='form-control input-sm addvalidation'/>\
                      </div>\
                     </div>\
                 </div>\
@@ -99,7 +102,7 @@
                      <div class='form-group col-md-10'>\
                         <label class='col-md-3 control-lable' for='jobenddate'>Job End Date</label>\
                      <div class='col-md-9'>\
-                        <input type='date' id='jobenddate' name='jobenddate" + counter + "' class='form-control input-sm'/>\
+                        <input type='date' id='jobenddate' name='jobenddate" + counter + "' class='form-control input-sm addvalidation'/>\
                      </div>\
                     </div>\
                 </div>\
@@ -107,7 +110,7 @@
                      <div class='form-group col-md-10'>\
                         <label class='col-md-3 control-lable' for='companyname'>Company Name</label>\
                      <div class='col-md-9'>\
-                        <input type='text' id='companyname' name='companyname" + counter + "' class='form-control input-sm'/>\
+                        <input type='text' id='companyname' name='companyname" + counter + "' class='form-control input-sm addvalidation'/>\
                      </div>\
                     </div>\
                 </div>\
@@ -115,7 +118,7 @@
                      <div class='form-group col-md-10'>\
                         <label class='col-md-3 control-lable' for='description'>Job Description</label>\
                      <div class='col-md-9'>\
-                        <input type='text' id='description' name='description" + counter + "' class='form-control input-sm' />\
+                        <input type='text' id='description' name='description" + counter + "' class='form-control input-sm addvalidation' />\
                      </div>\
                     </div>\
                 </div>\
@@ -123,7 +126,7 @@
                      <div class='form-group col-md-10'>\
                         <label class='col-md-3 control-lable' for='workexperience'>Work Experience</label>\
                      <div class='col-md-9'>\
-                        <input type='text' id='workexperience' name='workexperience" + counter + "' class='form-control' />\
+                        <input type='text' id='workexperience' name='workexperience" + counter + "' class='form-control addvalidation' />\
                      </div>\
                     </div>\
                 </div>\
@@ -195,7 +198,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="experiance">Experience</label>
                      <div class="col-md-9">
-                        <input type="text" id="experiance" name="experiance1" class="form-control input-sm" />
+                        <input type="text" id="experiance" name="experiance1" class="form-control input-sm addvalidation" />
                      </div>
                     </div>
                 </div>
@@ -207,7 +210,7 @@
   
                            
                               <div class="col-md-9">
-                                <input type="text" class="form-control input-sm"  id="jobstartdate" name="jobstartdate1"  >
+                                <input type="text" class="form-control input-sm addvalidation"  id="jobstartdate" name="jobstartdate1"     />
                               
                             </div>
                     
@@ -222,7 +225,7 @@
   
                            
                               <div class="col-md-9">
-                        <input type="text" id="jobenddate" name="jobenddate1" class="form-control input-sm"/>
+                        <input type="text" id="jobenddate" name="jobenddate1"   class="form-control input-sm addvalidation"/>
                               
                             </div>
                     
@@ -234,7 +237,7 @@
                         <label class="col-md-3 control-lable" for="companyname">Company Name</label>
                      <div class="col-md-9">
                          
-                        <input type="text" id="companyname" name="companyname1" class="form-control input-sm"/>
+                        <input type="text" id="companyname"   name="companyname1" class="form-control input-sm addvalidation"/>
                      </div>
                     </div>
                 </div>
@@ -242,7 +245,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="description">Job Description</label>
                      <div class="col-md-9">
-                        <input type="text" id="description" name="description1" class="form-control input-sm" />
+                        <input type="text" id="description"   name="description1" class="form-control input-sm addvalidation" />
                      </div>
                     </div>
                 </div>
@@ -250,17 +253,17 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="workexperience">Work Experience</label>
                      <div class="col-md-9">
-                        <input type="text" id="workexperience" name="workexperience1" class="form-control" />
+                        <input type="text" id="workexperience"   name="workexperience1" class="form-control input-lg addvalidation" />
                      </div>
                     </div>
                 </div>
                 </div>
                      
                 <div style="float:left;">
-                              <label id="appenddegree" onclick="appenddiv()">Add another Degree</label>
+                              <label id="appenddegree" onclick="appenddiv()">Add another</label>
                         </div>
                              <br />
-                         <asp:Button ID="savePersonalInformation" runat="server" Text="Save" class="btn btn-danger " OnClick="savePersonalInformation_Click" />
+                         <asp:Button ID="savePersonalInformation" runat="server" Text="Save" class="btn btn-danger " OnClick="savePersonalInformation_Click" OnClientClick="validationControlProfesstion()" />
 
                            
 
@@ -286,9 +289,9 @@
                         <label class="col-md-3 control-lable" for="year_selector">Passing Year</label>
                      <div class="col-md-9">
                      
-                      <!--  <select id='year_selector' required="required"></select>-->
+                      <!--  <select id='year_selector'  ></select>-->
                          
-                         <input type="text" name="year_selector" id="year_selector" class="form-control input-sm"/>
+                         <input type="text" name="year_selector"   id="year_selector" class="form-control input-sm"/>
                     
                      </div>
                     </div>
@@ -306,7 +309,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="specialization">Specialization</label>
                      <div class="col-md-9">
-                        <input type="text" id="specialization" name="specialization" class="form-control input-sm" />
+                        <input type="text" id="specialization" name="specialization"   class="form-control input-sm" />
                      </div>
                     </div>
                 </div>
@@ -316,7 +319,7 @@
 
                 <div class="row">
                      <div class="form-group col-md-10">
-                        <label class="col-md-3 control-lable" for="degree2">Degree 2 (Seperated with comma)</label>
+                        <label class="col-md-3 control-lable" for="degree2">Degree2</label>
                      <div class="col-md-9">
                         <input type="text" id="degree2" name="degree2" class="form-control input-sm"/>
                      </div>
@@ -426,7 +429,7 @@
             });
             $('.buttonNext').addClass('btn btn-success');
             $('.buttonPrevious').addClass('btn btn-primary');
-            $('.buttonFinish').addClass('btn btn-default');
+           // $('.buttonFinish').addClass('btn btn-default');
         });
     </script>
     <!-- /jQuery Smart Wizard -->
@@ -517,76 +520,7 @@
       });
     </script>
 
-    <script>
-      $(document).ready(function() {
-        var cb = function(start, end, label) {
-          console.log(start.toISOString(), end.toISOString(), label);
-          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        };
-
-        var optionSet1 = {
-          startDate: moment().subtract(29, 'days'),
-          endDate: moment(),
-          minDate: '01/01/2012',
-          maxDate: '12/31/2015',
-          dateLimit: {
-            days: 60
-          },
-          showDropdowns: true,
-          showWeekNumbers: true,
-          timePicker: false,
-          timePickerIncrement: 1,
-          timePicker12Hour: true,
-          ranges: {
-            'Today': [moment(), moment()],
-            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
-            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-          },
-          opens: 'left',
-          buttonClasses: ['btn btn-default'],
-          applyClass: 'btn-small btn-primary',
-          cancelClass: 'btn-small',
-          format: 'MM/DD/YYYY',
-          separator: ' to ',
-          locale: {
-            applyLabel: 'Submit',
-            cancelLabel: 'Clear',
-            fromLabel: 'From',
-            toLabel: 'To',
-            customRangeLabel: 'Custom',
-            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-            firstDay: 1
-          }
-        };
-        $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-        $('#reportrange').daterangepicker(optionSet1, cb);
-        $('#reportrange').on('show.daterangepicker', function() {
-          console.log("show event fired");
-        });
-        $('#reportrange').on('hide.daterangepicker', function() {
-          console.log("hide event fired");
-        });
-        $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
-        });
-        $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
-          console.log("cancel event fired");
-        });
-        $('#options1').click(function() {
-          $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
-        });
-        $('#options2').click(function() {
-          $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
-        });
-        $('#destroy').click(function() {
-          $('#reportrange').data('daterangepicker').remove();
-        });
-      });
-    </script>
+   
 
     <script>
         $(document).ready(function () {
@@ -626,13 +560,7 @@
       });
     </script>
 
-        <script>
-          $(document).ready(function() {
-            $('#reservation').daterangepicker(null, function(start, end, label) {
-              console.log(start.toISOString(), end.toISOString(), label);
-            });
-          });
-        </script>
+       
         <!-- /bootstrap-daterangepicker -->
 
 </asp:Content>

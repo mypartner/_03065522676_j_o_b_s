@@ -22,6 +22,42 @@ public class feedsclass
     //    db.SubmitChanges();
     //    return true;
     //}
+    public static bool deleteFeeds(int id)
+    {
+        try
+        {
+            DataClassesDataContext db = new DataClassesDataContext();
+            feed x = (from f in db.feeds
+                      where f.id == id
+                      select f).First();
+            db.feeds.DeleteOnSubmit(x);
+            db.SubmitChanges();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+        
+    }
+    public static bool deleteVideo(int id)
+    {
+        try
+        {
+            DataClassesDataContext db = new DataClassesDataContext();
+            video x = (from v in db.videos
+                      where v.Id == id
+                      select v).First();
+            db.videos.DeleteOnSubmit(x);
+            db.SubmitChanges();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+
+    }
     public static IQueryable<feed> getFeeds()
     {
         DataClassesDataContext db = new DataClassesDataContext();

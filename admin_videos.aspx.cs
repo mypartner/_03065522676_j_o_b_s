@@ -9,6 +9,19 @@ public partial class admin_videos : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (IsPostBack)
+        {
+            string id = hdelete.Value;
+           
+            if (!string.IsNullOrEmpty(id))
+            {
+
+                feedsclass.deleteVideo(int.Parse(id));
+                hdelete.Value = "";
+
+
+            }
+        }
 
     }
     protected void video_add(object sender, EventArgs e)
