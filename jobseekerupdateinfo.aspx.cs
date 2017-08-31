@@ -34,9 +34,15 @@ public partial class jobseekerupdateinfo : System.Web.UI.Page
         //u.username = Request.Form["username"].ToString();
         //u.password = Request.Form["password"].ToString();
         //if(imageuploaded.hasfile)then do this
-        HttpPostedFile postedfile = imageupload.PostedFile;
-        u.image = imageToByteArray(postedfile);
-        u.signupdate = DateTime.Now;
+        if (imageupload.HasFile)
+        {
+            HttpPostedFile postedfile = imageupload.PostedFile;
+            u.image = imageToByteArray(postedfile);
+            //u.signupdate = DateTime.Now;
+        }else
+        {
+            u.image = null;
+        }
         jobseekerclass.updatejobseeker(u,int.Parse(tbjid.Value));
 
     }

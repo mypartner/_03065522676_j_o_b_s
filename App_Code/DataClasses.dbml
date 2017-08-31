@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="jobPortalDb" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-GHRI88F;Initial Catalog=jobPortalDb;Integrated Security=True;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="jobPortalDbConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-GHRI88F;Initial Catalog=jobPortalDb;User ID=sa;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="jobPortalDbConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="Jp.Activate_User" Member="Activate_Users">
     <Type Name="Activate_User">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -134,7 +134,7 @@
   </Table>
   <Table Name="Jp.video" Member="videos">
     <Type Name="video">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="video_title" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="video_link" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="publish_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -44,11 +45,11 @@ public partial class jobseekerupdateprofile : System.Web.UI.Page
                 string returnvalue = adminJobseekerProfile.updateprofessionaldata(jpi);
                 if ( returnvalue== "")
                 {
-                    ShowMessage("Your data is updated Succesfully",MessageType.Success);
+                    ShowMessage("Your Proffesional data is updated Succesfully",MessageType.Success);
                 }
                 else
                 {
-                    ShowMessage(returnvalue, MessageType.Success);
+                    ShowMessage(returnvalue, MessageType.Error);
                 }
                }catch(Exception ex)
                 {
@@ -71,11 +72,11 @@ public partial class jobseekerupdateprofile : System.Web.UI.Page
                     string returnvalue = adminJobseekerProfile.updateEducationaldata(eduinfo);
                     if (returnvalue == "")
                     {
-                        ShowMessage("Your data is updated Succesfully", MessageType.Success);
+                        ShowMessage("Your Educational data is updated Succesfully", MessageType.Success);
                     }
                     else
                     {
-                        ShowMessage(returnvalue, MessageType.Success);
+                        ShowMessage(returnvalue, MessageType.Error);
                     }
                 }
                 catch (Exception ex)
@@ -84,11 +85,62 @@ public partial class jobseekerupdateprofile : System.Web.UI.Page
                 }
 
             }
+            else if (eventArguments == "cvandskill")
+            {
+                try
+                {
+                    int id = int.Parse(Request.Params.Get("__EVENTARGUMENT"));
+                    skillsandcv skc = new skillsandcv();
+                    skc.jobSeekerid = id;
+                    skc.skills = Request.Form["skill"].ToString();
+                    if (cvfile.HasFile)
+                    {
+                        HttpPostedFile postedfile = cvfile.PostedFile;
+                        string filename = Path.GetFileName(cvfile.FileName);
+                        string fileextention = Path.GetExtension(filename);
+                        if (fileextention.ToLower() == ".pdf")
+                        {
+                            skc.cv_ = docToByteArray(postedfile);
+
+                        }
+                    }else
+                    {
+                        skc.cv_ = null;
+                    }
+                    string returnvalue = adminJobseekerProfile.updatskillandcv(skc);
+                    if (returnvalue == "")
+                    {
+                        ShowMessage("Your Skills and CV  is updated Succesfully", MessageType.Success);
+                    }
+                    else
+                    {
+                        ShowMessage(returnvalue, MessageType.Error);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    ShowMessage(ex.Message, MessageType.Error);
+                }
+            }
 
 
 
         }
     }
+    public static byte[] docToByteArray(HttpPostedFile postedfile)
+    {
+        // string filename = Path.GetFileName(postedfile.FileName);
+        //string fileextention = Path.GetExtension(filename);
+        int size = postedfile.ContentLength;
+        byte[] imgbytes = null;
+
+        Stream stream = postedfile.InputStream;
+        BinaryReader binaryreader = new BinaryReader(stream);
+        imgbytes = binaryreader.ReadBytes((int)stream.Length);
+
+        return imgbytes;
+    }
+
     protected void updateprofessionalinfo_click(object sender, EventArgs e)
     {
         pupdateid.Visible = false;

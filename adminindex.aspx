@@ -202,10 +202,10 @@
             <br />
 
 
-            <div class="row">
+           <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="dashboard_graph x_panel">
-                 <%-- <div class="row x_title">
+                 < <div class="row x_title">
                     <div class="col-md-6">
                       <h3>Network Activities <small>Graph title sub-title</small></h3>
                     </div>
@@ -215,7 +215,7 @@
                         <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
                       </div>
                     </div>
-                  </div>--%>
+                  </div>
                     // this is my graph
                   <div class="x_content">
                       <div id="chartContainer" style="height: 400px; width: 100%;"></div>
@@ -229,7 +229,7 @@
             </div>
 
 
-            <div class="row">
+<%--            <div class="row">
               <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="x_panel fixed_height_320">
                   <div class="x_title">
@@ -681,10 +681,10 @@
                   </div>
                 </div>
 
-              </div>
+              </div>--%>
               <!-- end of weather widget -->
 
-              <div class="col-md-4 col-sm-6 col-xs-12">
+             <%-- <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="x_panel fixed_height_320">
                   <div class="x_title">
                     <h2>Incomes <small>Sessions</small></h2>
@@ -714,7 +714,7 @@
                         <li><i class="fa fa-heart"></i><a href="#">Donations</a> </li>
                       </ul>
 
-                      <div class="sidebar-widget">
+                     < <div class="sidebar-widget">
                         <h4>Goal</h4>
                         <canvas width="150" height="80" id="foo2" class="" style="width: 160px; height: 100px;"></canvas>
                         <div class="goal-wrapper">
@@ -726,7 +726,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>--%>
             </div>
           </div>
         </div>

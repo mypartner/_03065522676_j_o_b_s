@@ -5,7 +5,7 @@
     <script>
         function generateCvpage(x) {
             var output = "waqas khan";
-            var OpenWindow = window.open("cvView.aspx?id="+x, "mywin", "width=1000,height=1000");
+            var OpenWindow = window.open("cvView.aspx?id=" + x, "mywin", "width=1000,height=1000");
             OpenWindow.dataFromParent = output; // dataFromParent is a variable in child.html
             OpenWindow.init();
         };

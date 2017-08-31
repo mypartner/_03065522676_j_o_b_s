@@ -2,6 +2,14 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <link href="css/StyleSheet.css" rel="stylesheet" />
+    <script>
+     function generateCvpage(x) {
+            var output = "waqas khan";
+            var OpenWindow = window.open("cvView.aspx?id=" + x, "mywin", "width=1000,height=1000");
+            OpenWindow.dataFromParent = output; // dataFromParent is a variable in child.html
+            OpenWindow.init();
+     };
+        </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
      <!-- page content -->
@@ -48,14 +56,17 @@
                     </ul>
                     <div class="clearfix"></div>
                   </div>
-                    <% int jobseekrid = int.Parse(Request.QueryString["id"].ToString());
-                        Session["jobseekerid"] = jobseekrid.ToString();
-                        jobSeeker js = adminJobseekerProfile.getJobseekerDetail(jobseekrid);
-                         byte[] img1 = null;
-                                          if (js.image != null)
-                                          {
-                                               img1 = js.image.ToArray();
-                                          }
+                    <%
+                        try
+                        {
+                            int jobseekrid = int.Parse(Request.QueryString["id"].ToString());
+                            Session["jobseekerid"] = jobseekrid.ToString();
+                            jobSeeker js = adminJobseekerProfile.getJobseekerDetail(jobseekrid);
+                            byte[] img1 = null;
+                            if (js.image != null)
+                            {
+                                img1 = js.image.ToArray();
+                          
                          %>
                   <div class="x_content">
                     <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
@@ -68,20 +79,25 @@
                       <h3><%=js.firstName+"  "+js.lastName %></h3>
 
                       <ul class="list-unstyled user_data">
-                        <li><i class="fa fa-map-marker user-profile-icon"></i> <%=js.country %>
+                        <li><i class="fa fa-flag"></i> <%=js.country %>
                         </li>
 
                         <li>
-                          <i class="fa fa-briefcase user-profile-icon"></i>UserSince: <%=js.signupdate %>
+                          <i class="fa fa-calendar"></i>UserSince: <%=js.signupdate %>
                         </li>
 
                        <%-- <li class="m-top-xs">--%>
-                          <li class="fa fa-external-link user-profile-icon">Email:<%=js.email%></li>
-                           <li class="fa fa-external-link user-profile-icon">Phone:<%=js.mobile%></li>
+                          <li class="fa fa-envelope">Email:<%=js.email%></li>
+                           <li class="fa fa-phone">Phone:<%=js.mobile%></li>
                            <%-- </li>--%>
                       </ul>
 
                       <a class="btn btn-success" href="adminupdatejobseekerprofile.aspx"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                      
+                        <%--<button type="button" onclick="" >
+                                <i class="fa fa-user"> </i> View Profile
+                              </button>--%>
+                          <a class="btn btn-dark" onclick="generateCvpage(<%=js.id%>)"><i class="fa fa-file-pdf-o"></i>View CV</a>
                       <br />
 
                       <!-- start skills -->
@@ -253,7 +269,11 @@
                                     <td><%=skill.skill3%></td>
                                     <td><%=skill.skill4%></td>
                                     <td><%=skill.skill5%></td> --%>
-                                    <%} %>
+                                    <%}  }
+                        }catch(Exception ex)
+                        {
+                            Response.Redirect("adminlogin.aspx");
+                        } %>
                                 </tr>
                                   
                                 
@@ -275,6 +295,7 @@
             </div>
           </div>
         </div>
+
         <!-- /page content -->
 </asp:Content>
 

@@ -129,7 +129,7 @@
  
 	  <div class="single">  
         <div class="col-md-12 paddzero">
-            <div class="col_3">
+            <%--<div class="col_3">
                 <h3>
                     Featured Jobs
                 </h3>
@@ -150,8 +150,8 @@
                 </div>
                
             <div class="clearfix"> </div>
-        </div>
-            <div class="col_3">
+        </div>--%>
+          <%--  <div class="col_3">
                 <h3>
                     Featured Projects
                 </h3>
@@ -172,7 +172,7 @@
                 </div>
                
             <div class="clearfix"> </div>
-        </div>
+        </div>--%>
 	   </div>
          <!--        -->
         <div class="col-md-12">
@@ -181,19 +181,27 @@
                 <div class="col_1">
                     <div class="col-sm-8 video_c3">
                         <% IQueryable<video> videos = feedsclass.getVideos();
-                            if (videos.Count() > 0)
+                            
+                            int res_video_compare = DateTime.Compare(videos.First().end_date.Value.Date, DateTime.Now.Date);
+                            if (res_video_compare>=0)
                             {
-                                video fv = videos.First();//first video
+                                if (videos.Count() > 0)
+                                {
+                                    video fv = videos.First();//first video
                             %>
                             <h1><%=fv.video_title%></h1>
                                         <iframe src="<%=fv.video_link %>" width="100%" height="90%" frameborder="0" allowfullscreen></iframe>
-                           <%} %>
+                           <%}
+    }%>
                          </div>
                     <div class="col-sm-4 video_sm" style="overflow-y: scroll;height:500px">
                     <%
-                            foreach (video v in videos)
-                            {
-                               
+    foreach (video v in videos)
+    {
+                         DateTime dt=   DateTime.Now;
+        res_video_compare = DateTime.Compare( v.end_date.Value.Date,DateTime.Now.Date);
+        if (res_video_compare>=0)
+        {
                                                     %>
                                   
                                         <div class="col-sm-12 video_sm_sub"  >
@@ -207,7 +215,8 @@
                                     
                   
 
-      <% } %>
+      <% }
+    } %>
                          </div>
                     </div> 
                 </div>
@@ -226,20 +235,24 @@
                     <h3>Hot Feeds </h3>
                  <marquee direction="up" scrollamount="1" height="80%" behavior="" style="font-size:larger;" loop="1000">
                              <%
-                                 IQueryable<feed> feeds = feedsclass.getFeeds();
-                                 int i = 0;
-                                 foreach (feed f in feeds)
-                                 {
-                                     if (i % 2 == 0)
-                                     {%>
-                                 <p class="par1" id=<%=f.id  %> onclick="marqueclick(<%=f.id %>);"><%=f.shortDescription %></p>
+    IQueryable<feed> feeds = feedsclass.getFeeds();
+    int i = 0;
+    foreach (feed f in feeds)
+    {
+       int res_feeds_compare = DateTime.Compare(f.feedenddate.Value.Date, DateTime.Now.Date);
+        if (res_feeds_compare>=0)
+        {
+            if (i % 2 == 0)
+            {%>
+                                 <p class="par1" id=<%=f.id%> onclick="marqueclick(<%=f.id %>);"><%=f.shortDescription %></p>
                      <%}
     else
     {%>
-                                  <p class="par2" id=<%=f.id  %> onclick="marqueclick('<%=f.id %>');"><%=f.shortDescription %></p>
+                                  <p class="par2" id=<%=f.id%> onclick="marqueclick('<%=f.id %>');"><%=f.shortDescription %></p>
                              
   <% }
-          i++;
+            i++;
+        }
     } %>
               <%-- <p class="par2" >Feeds ComingSOon <span class="description">this news is about the conferecnce here today in islamabad </span> </p>
                 <p class="par1" >hey this is news <span class="description">this news is about the conferecnce here today in islamabad </span> </p>--%>
@@ -262,28 +275,32 @@
                         <h3>News Description </h3>
                        
                         <%
-                           
-                             foreach (feed f in feeds)
-                             {
+
+                            foreach (feed f in feeds)
+                            {
+                                int res_feeds_compare = DateTime.Compare(f.feedenddate.Value.Date, DateTime.Now.Date);
+                          if (res_feeds_compare<=0)
+                                 {
                                 %>
                         
                             <h1 class="col-sm-12" id="ds<%=f.id %>" ><%=f.shortDescription%></h1></br>
                             <p class="col-sm-6" id="dl<%=f.id %>"><%=f.longDescription %> </p>
                            <%
-                                byte[] img1 = null;
-                               if (f.image != null)
-                                  {
-                                      img1 = f.image.ToArray();
-                                  }
-                                  else
-                                  {
-                                      img1 = System.Text.Encoding.UTF8.GetBytes ("images/banner_1.jpg");
-                                  } %>
+    byte[] img1 = null;
+    if (f.image != null)
+    {
+        img1 = f.image.ToArray();
+    }
+    else
+    {
+        img1 = System.Text.Encoding.UTF8.GetBytes("images/banner_1.jpg");
+    } %>
                             
                            
                                 <img class="col-sm-6" id="img<%=f.id %>" src='data:image/jpg;base64,<%= Convert.ToBase64String(img1) %>'   alt="Select Photograph"  height="65%" width="100%" style="margin-top:-36;display:inline-block"/>
                             
-                             <%} %>
+                             <%}
+    } %>
                             
                             
                     </div>

@@ -12,6 +12,12 @@ fieldset {overflow: hidden;}
    
    
      <script>
+         function generateCvpage(x) {
+             var output = "waqas khan";
+             var OpenWindow = window.open("cvView.aspx?id=" + x, "mywin", "width=1000,height=1000");
+             OpenWindow.dataFromParent = output; // dataFromParent is a variable in child.html
+             OpenWindow.init();
+         };
          function ShowMessage(message, messagetype) {
              var cssclass;
              switch (messagetype) {
@@ -110,6 +116,12 @@ fieldset {overflow: hidden;}
                 $("#edusave" + id).hide();
             }
 
+        }
+        function cvandskillupdate(id){
+            if ($("#skill" + id).val() == ""){
+                ShowMessage("You cannot leave skill textbox blank please fill it. ","Error");
+            }
+            dopostback(id,"cvandskill");
         }
     </script>
 </asp:Content>
@@ -293,9 +305,9 @@ fieldset {overflow: hidden;}
                                         <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
                                             <div class="row">
                                                 <div class="form-group col-md-10">
-                                                    <label class="col-md-3 control-lable" for="skill1">Skills(Seperated with comma)</label>
+                                                    <label class="col-md-3 control-lable" for="skill">Skills(Seperated with comma)</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" id="skill1" name="skill1" class="form-control input-sm" value="<%=skill.skills %>" />
+                                                        <input type="text" id="skill" name="skill" class="form-control input-sm" value="<%=skill.skills %>" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -308,12 +320,12 @@ fieldset {overflow: hidden;}
                                                     </div>
                                                      <div class="col-md-6">
                                                         <label class="col-md-3 control-lable" for="file">View CV</label>
-                                                        <input type="button" class="btn btn-primary" value="View" />
+                                                        <input type="button" class="btn btn-primary" onclick="generateCvpage(<%=skill.jobSeekerid%>)" value="View" />
                                                     </div>
                                                 </div>
                                             </div>
                                          
-                                            <asp:Button ID="updateskills" runat="server" Text="Update skills" class="btn btn-danger" />
+                                            <input type="button" id="updateskills" value="Update skills" class="btn btn-danger" onclick="cvandskillupdate(<%=skill.jobSeekerid %>)" />
                                         </div>
                                     </div>
                                 </div>

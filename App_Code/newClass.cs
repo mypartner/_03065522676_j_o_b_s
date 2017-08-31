@@ -34,7 +34,7 @@ public class newClass
         public static int getSeekerID(int id)
     {
         DataClassesDataContext db = new DataClassesDataContext();
-        int pid = (from x in db.jobSeekerProfessionalInfos
+         int pid = (from x in db.jobSeekerProfessionalInfos
                                                   where x.jobSeekerId == id
                                                   select x.Id).First();
         return pid;

@@ -117,6 +117,34 @@ public class adminJobseekerProfile
         }
 
     }
+    public static string updatskillandcv(skillsandcv pro)
+    {
+        try
+        {
+            DataClassesDataContext db = new DataClassesDataContext();
+            skillsandcv selecteddata = (from x in db.skillsandcvs
+                                                     where x.jobSeekerid== pro.jobSeekerid
+                                                     select x).First();
+
+
+            selecteddata.skills = pro.skills;
+            if (pro.cv_ != null)
+            {
+                selecteddata.cv_ = pro.cv_;
+            }
+           
+
+
+            db.SubmitChanges();
+
+            return "";
+        }
+        catch (Exception ex)
+        {
+            return ex.Message;
+        }
+
+    }
 
 
 

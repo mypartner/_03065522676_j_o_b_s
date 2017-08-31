@@ -62,6 +62,8 @@
         dec = j.description.Remove(195, len - 195);
     }
                             %>
+                        <a  href="recruiteremployeeinfo.aspx?id=<%=j.Id%>" class="read-more">ViewAppliedSeeker</a>
+
 						<p class="description">Description:<%=dec + ".....<br>"  %> <a  href="recruiterviewdescription.aspx?id=<%=j.Id%>" class="read-more">Read More</a></p>
                     </div>
 					<div class="clearfix"> </div>

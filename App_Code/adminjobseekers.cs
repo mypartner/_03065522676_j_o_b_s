@@ -32,8 +32,12 @@ public class adminjobseekers
         ra.company = r.company;
         ra.jobDescription = r.jobDescription;
         ra.workExperience = r.workExperience;
-        ra.jobStartDate = r.jobStartDate;
-        ra.jobEndDate = r.jobEndDate;
+        if(r.jobEndDate!=null || r.jobStartDate != null)
+        {
+            ra.jobStartDate = r.jobStartDate;
+            ra.jobEndDate = r.jobEndDate;
+        }
+       
 
 
         db.SubmitChanges();

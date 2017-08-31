@@ -156,7 +156,10 @@ public class jobseekerclass
         jobseekr.lastName = u.lastName;
         jobseekr.mobile = u.mobile;
         jobseekr.sex = u.sex;
-        jobseekr.image = u.image;
+        if (u.image != null)
+        {
+            jobseekr.image = u.image;
+        }
         jobseekr.email = u.email;
         jobseekr.education = u.education;
         jobseekr.dob = u.dob;

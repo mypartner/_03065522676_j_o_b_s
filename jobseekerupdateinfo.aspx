@@ -62,7 +62,7 @@
              <div class="client_image">
                
                <div class="logo_image">
-                <img src='data:image/jpg;base64,<%= Convert.ToBase64String(imgarray) %>' id="clientimage"  alt="Select Photograph"  height="180px" width="180px"/>
+                <img src='data:image/jpg;base64,<%= Convert.ToBase64String(imgarray) %>' id="clientimage"  alt="Select Photograph"  height="180" width="180px"/>
                 <asp:FileUpload ID="imageupload" runat="server" />
                 </div>
             </div>
@@ -73,7 +73,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="firstname">Firstname</label>
                      <div class="col-md-9">
-                        <input type="text" id="firstname" name="firstname" value="<%=myseeker.firstName %>"  class="form-control input-sm"/>
+                        <input type="text" id="firstname" name="firstname" value="<%=myseeker.firstName %>"  class="form-control input-sm"  required="required"/>
                      </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="lastname">Lastname</label>
                      <div class="col-md-9">
-                        <input type="text" id="lastname"  name="lastname" value="<%=myseeker.lastName %>" class="form-control input-sm"/>
+                        <input type="text" id="lastname"  name="lastname" value="<%=myseeker.lastName %>" required="required" class="form-control input-sm"/>
                      </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="mobile">Mobile</label>
                      <div class="col-md-9">
-                        <input type="text" id="mobile" name="mobile" value="<%=myseeker.mobile %>" class="form-control input-sm"/>
+                        <input type="text" id="mobile" name="mobile" value="<%=myseeker.mobile %>" class="form-control input-sm" required="required"/>
                      </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="email">Email</label>
                      <div class="col-md-9">
-                        <input type="text" id="email" name="email" value="<%=myseeker.email%>" class="form-control input-sm"/>
+                        <input type="text" id="email" required="required"  readonly="true" name="email" value="<%=myseeker.email%>" class="form-control input-sm"/>
                      </div>
                     </div>
                 </div>
@@ -113,9 +113,9 @@
                             <%}
     else
     { %>
-                                  <label><input type="radio" name="sex" class="radio-inline" value="Male"  />Male</label>
+                                  <label><input type="radio"  name="sex" class="radio-inline" value="Male"  />Male</label>
                             
-                              <label><input type="radio" name="sex" class="radio-inline" value="Female" checked="checked"/>Female</label>
+                              <label><input type="radio" name="sex"  class="radio-inline" value="Female" checked="checked"/>Female</label>
                            <%} %>
                      </div>
                     </div>
@@ -124,7 +124,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="education">Education</label>
                      <div class="col-md-9">
-                        <input type="text" id="education" name="education"  value="<%=myseeker.education%>" class="form-control input-sm"/>
+                        <input type="text" id="education" name="education" required="required"  value="<%=myseeker.education%>" class="form-control input-sm"/>
                      </div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="country">Country</label>
                      <div class="col-md-9">
-                        <input type="text" id="country" name="country"  value="<%=myseeker.country%>" class="form-control input-sm"/>
+                        <input type="text" id="country" name="country" required="required" value="<%=myseeker.country%>" class="form-control input-sm"/>
                      </div>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
                      <div class="form-group col-md-10">
                         <label class="col-md-3 control-lable" for="dob">Date of birth</label>
                      <div class="col-md-9">
-                        <input type="" id="dob" name="dob"  value="<%=myseeker.dob%>" class="form-control input-sm"/>
+                        <input type="" id="dob" name="dob" required="required"  value="<%=myseeker.dob%>" class="form-control input-sm"/>
                      </div>
                     </div>
                 </div>

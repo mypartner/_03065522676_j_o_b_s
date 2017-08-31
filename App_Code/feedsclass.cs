@@ -100,7 +100,7 @@ public class feedsclass
     {
         DataClassesDataContext db = new DataClassesDataContext();
         IQueryable<video> var_video = from x in db.videos
-                                         //where DateTime.Compare(DateTime.Now, DateTime.Parse(x.feedenddate.ToString())) > 1
+                                     // where DateTime.Now== DateTime.Parse(x.end_date.Value.ToString())
                                      select x;
 
         return var_video;
@@ -110,7 +110,7 @@ public class feedsclass
     {
         try
         {
-            DataClassesDataContext db = db = new DataClassesDataContext();
+            DataClassesDataContext db = new DataClassesDataContext();
             
             int count = (from x in db.videos
                          where x.video_title == v.video_title

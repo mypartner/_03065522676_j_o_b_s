@@ -10,7 +10,7 @@
 	       <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 			<ul id="myTab" class="nav nav-tabs" role="tablist">
 			  <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Available jobs</a></li>
-			  <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Show Descriptions</a></li>
+		<%--	  <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Show Descriptions</a></li>--%>
 		   </ul>
 		<div id="myTabContent" class="tab-content">
 		  <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
@@ -86,7 +86,7 @@
                 <input type="submit" class="btn btn-default" value="Search">
 			</div>
 		  </div>
-	   	  <div class="col_3">
+	   	 <%-- <div class="col_3">
 	   	  	<h3>Work Experiance</h3>
 	   	  	  <table class="table">
                     <tbody>
@@ -191,8 +191,8 @@
                         </tr>
                 </tbody>
              </table>
-	   	  </div>
-	   	  <div class="col_3">
+	   	  </div>--%>
+	   	  <%--<div class="col_3">
 	   	  	<h3>Work Permit</h3>
 	   	  	<table class="table">
                     <tbody>
@@ -214,7 +214,7 @@
                         </tr>
                     </tbody>
              </table>
-	   	  </div>
+	   	  </div>--%>
 	   </div>
   <div class="clearfix"> </div>
  </div>
